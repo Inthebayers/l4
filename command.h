@@ -1,52 +1,95 @@
 //---------------------------------------------------------------------------
-// command.h
+// childrenbook.h
 //---------------------------------------------------------------------------
-// Handles the commands from the file. Manages subclasses using input command
-// characters.
+// A children book object. Handles the creation and storage of a children's
+// book, containing title, author, number of copies "owned" by the library,
+// and copies of this book currently checked in.
 //
+// Assumptions:
+//  -- initial character in input dictates 'c' for children
 //---------------------------------------------------------------------------
-#pragma once
-#include "bookcase.h"
-#include "patroncontainer.h"
+#include "book.h"
+#include <iostream>
 
-class Command {
-  public:
+class ChildrenBook : public Book {
+    //---------------------------------------------------------------------------
+     /**
+      * @brief Output operator overload for ChildrenBook object. Dictates output
+      * formatting and functionality for a fiction book.
+      *
+      * @return ostream& containing information to be output in a formatted style
+      * @pre: Assumes valid FictionBook object being passed in.
+      * @post: Data not changed, but is output.
+      */
+    friend ostream& operator<<(ostream&, const ChildrenBook&);
+
+public:
     /**
-     * @brief Construct a new Command object. Default constructor.
+     * @brief Construct a new Children object. Creates new fiction book with
+     * title, author, and amount of books owned by library.
      *
-     * @post: Command object will be created.
+     * @param title is the title of the book being created
+     * @param author is the author of the book being created
+     * @param year the publishing year
+     * @param totalTitlesOwned dictates the total amount of this book owned
+     * by library
+     * @pre: assumes object needs to be created
+     * @post: fiction object will be destroyed, with memory freed
      */
-    Command();
+    ChildrenBook(string author, string title, int year, int totalTitlesOWned);
 
-//---------------------------------------------------------------------------
-    /**
-     * @brief Initialize structures across subclasses for access.
-     *
-     * @post: Bookcase and PatronContainer objects will be accessible.
+    //---------------------------------------------------------------------------
+     /**
+      * @brief Destroy the Children Book object.
+      *
+      * @pre: Assumes valid ChildrenBook object is created.
+      * @post: ChildrenBook object will be deleted, with memory freed.
+      */
+    ~ChildrenBook();
+
+    //---------------------------------------------------------------------------
+     /** create
+      * @brief Creates a children book object, then returns a copy of that object
+      * for the factory to function properly.
+      *
+      * @return ChildrenBook copy of newly created book object
+      * @post: new children book object is created and returned.
+      */
+    virtual Book* create();
+
+    /** setAuthor
+     * @brief sets the book author
+     * @pre a new book object
+     * @post book author stored in data member
      */
-    void setStructures(PatronContainer *&p, Bookcase *&b);
+    void setAuthor();
 
-//---------------------------------------------------------------------------
-    /**
-     * @brief Destroy the Return object and free memory.
-     *
-     * @pre: Assumes valid command object created.
-     * @post: Command object will be deleted and memory freed.
+    /** getAuthor
+     * @brief gets and returns the book author
+     * @pre book object has set author
+     * @post string of authro is returned
      */
-    virtual ~Command();
+    string getAuthor() const;
 
-//---------------------------------------------------------------------------
-    /**
-     * @brief Handles the execution of given code determined by input.
-     *
-     * @param istream for execution of command
-     *
-     * @return true if command was sucessfully executed
-     * @return false if command was not successfully executed
+    /** setYear
+     * @brief sets the year data member
+     * @pre a new book object
+     * @post a book object with a published year
      */
-    virtual bool execute(istream) = 0;
+    void setYear();
 
-  private:
-    static PatronContainer *patronContainer;
-    static Bookcase *bookcase;
+    /** getYear
+     * @brief returns the book published year
+     * @pre a book object with set year
+     * @post int year is returned
+     */
+    int getYear() const;
+
+private:
+    // author of the book, last then first
+    string author;
+
+    //publishing year
+    int year;
+
 };

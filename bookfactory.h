@@ -18,36 +18,33 @@
 #include <iostream>
 
 class BookFactory {
-  public:
-//---------------------------------------------------------------------------
-    /**
-     * @brief Construct a new Book Factory object. Default constructor.
-     *
-     * @post: BookFactory object will be created.
-     */
+public:
+    //---------------------------------------------------------------------------
+        /**
+         * @brief Construct a new Book Factory object. Default constructor.
+         * @post: BookFactory object will be created.
+         */
     BookFactory();
 
-//---------------------------------------------------------------------------
-    /**
-     * @brief Destructor for BookFactory object.
-     *
-     * @pre: Assumes valid BookFactory object to be deleted.
-     * @post: BookFactory object will be deleted, with memory freed.
-     */
+    //---------------------------------------------------------------------------
+        /**
+         * @brief Destructor for BookFactory object.
+         * @pre: Assumes valid BookFactory object to be deleted.
+         * @post: BookFactory object will be deleted, with memory freed.
+         */
     ~BookFactory();
 
-//---------------------------------------------------------------------------
-    /**
-     * @brief Create a Book object. Determines type of book based on incoming
-     * stream information. Can create a fiction, periodical, or children's book.
-     *
-     * @return Book pointer pointing to the newly created book object.
-     */
-    Book *createBook(istream &) const;
+    //---------------------------------------------------------------------------
+        /**
+         * @brief Create a Book object. Determines type of book based on incoming
+         * stream information. Can create a fiction, periodical, or children's book.
+         * @return Book pointer pointing to the newly created book object.
+         */
+    Book* createBook(char type) const;
 
-  private:
+private:
     // array containing indexes for all possible bookTypes in future
-    Book *bookTypes[26];
+    Book* bookTypes[26];
 
     // hash function
     int hash(char ch) const;

@@ -8,14 +8,22 @@
 
 using namespace std;
 
+//---------------------------------------------------------------------------
+ /**
+  * @brief
+  * @pre
+  * @post
+  */
+
+
 int main() {
-    Library l;
+    Library lib;
     ifstream books, patrons, commands;
     books.open("booksFile");
-    l.addBook(books); // initialize books
+    lib.addBook(books); // initialize books
     patrons.open("patronsFile");
-    l.addPatron(patrons); // initialize patrons
+    lib.addPatron(patrons); // initialize patrons
     commands.open("commandFile");
-    l.commandHandler(commands); // initialize commands
+    lib.commandHandler(commands); // initialize commands
     return 0;
 }

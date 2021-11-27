@@ -19,9 +19,9 @@
 #include <iostream>
 
 class Bookcase {
-    friend ostream &operator<<(ostream &, const Bookcase &);
+    friend ostream& operator<<(ostream&, const Bookcase&);
 
-  public:
+public:
     Bookcase();  // contructor
     ~Bookcase(); // destructor
 
@@ -33,22 +33,21 @@ class Bookcase {
      * @return true book inserted, false book not inserted
      * @param book to be inserted
      */
-    bool insert(const Book *&);
+    bool insert(const Book*&);
 
-//--------------------------------------------------------------------------
-    /** checkOut
-     * @brief gets the book that needs to be checked out
-     * @pre existing book in container
-     * @post decrements copies of book available by 1 if books available
-     * @return pointer to book if its available/exists,
-     *         nullptr if it doesn't exist
-     * @param book to be checkout out
-     */
-    Book *checkOutBook(istream &);
+    //--------------------------------------------------------------------------
+        /** checkOut
+         * @brief checks and gets the book that needs to be checked out
+         * @pre Book object of target
+         * @post decrements copies of book available by 1 if books available
+         * @return true if successful false if not
+         * @param book to be checkout out
+         */
+    bool checkOutBook(Book*& target);
 
-  private:
+private:
     int hash(char) const;          // hash funtion to get genre type
-    BookContainer *containers[26]; // array that stores containers
+    BookContainer* containers[26]; // array that stores containers
 };
 
 #endif

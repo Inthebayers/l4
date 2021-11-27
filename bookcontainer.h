@@ -32,40 +32,57 @@ class BookContainer {
      * @param ostream to be filled
      * @param book container to get books from
      */
-    friend ostream &operator<<(ostream &, const BookContainer &);
+    friend ostream& operator<<(ostream&, const BookContainer&);
 
-  public:
+public:
     BookContainer(); // default constructor
     ~BookContainer();
 
-//---------------------------------------------------------------------------
-    /** insert
-     * @brief inserts book into container
-     * @pre existing book and BookContainer
-     * @post book is unchanged
-     * @return true book inserted, false book not inserted
-     * @param book to be inserted
-     */
-    bool insert(const Book *&);
-    
-//---------------------------------------------------------------------------
-    /** checkOut
-     * @brief sets book to checked out
-     * @pre existing book in container
-     * @return true book was checked out, false book was not checked out
-     * @param book to be checkout out
-     */
-    Book *checkOut(istream &);
+    //---------------------------------------------------------------------------
+        /** insert
+         * @brief inserts book into container
+         * @pre existing book and BookContainer
+         * @post book is unchanged
+         * @return true book inserted, false book not inserted
+         * @param book to be inserted
+         */
+    bool insert(const Book*&);
 
-  private:
+    //---------------------------------------------------------------------------
+        /** checkOut
+         * @brief sets book to checked out
+         * @pre existing book in container
+         * @return true book was checked out, false book was not checked out
+         * @param book to be checkout out
+         */
+    Book* checkOut(Book*& target);
+
+private:
+
     struct Node {
-        Book *book;
-        Node *left;
-        Node *right;
+        Book* book;
+        Node* left;
+        Node* right;
+
+
+
+        // should we just use the bst from lab2?
+        // isEmpty() function?
+        // size??
+
+       // may need a destructor here??
     };
-    Node *root;
-    // private data member
+    Node* root;
+
+    //genre of this bookcontainer
     char genre;
+
+    /** display
+ * @brief prints the contents of the tree in-order
+ * @pre a non empty tree
+ * @post contents displayed to console
+ */
+    void display();
 };
 
 #endif

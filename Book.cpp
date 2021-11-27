@@ -30,11 +30,11 @@ public:
      * @param title of book being created
      * @param bookCode code of book being created to determine type of book
      */
-    Book(string title, char bookCode) {
+    Book(string incTitle, char incBookCode) {
         // set title to incoming title
-        this->title = title;
+        title = title;
 
-
+        bookCode = bookCode;
 
     }
 
@@ -57,7 +57,7 @@ public:
       * @pre: Assumes book has amount to check out
       * @post: Book will remove 1 copy of itself from the library stores
       */
-    bool checkOut();
+    virtual bool checkOut() = 0;
 
     //---------------------------------------------------------------------------
      /**
@@ -68,7 +68,7 @@ public:
       * @pre: Assumes valid book with title has been created.
       * @post: No changes.
       */
-    string getTitle() const;
+    virtual string getTitle() const = 0;
 
     //---------------------------------------------------------------------------
      /**
@@ -81,7 +81,7 @@ public:
       * @pre: Assumes book is checked out
       * @post: Book is returned to library, incrementing the number of copies
       */
-    bool returnToLibrary();
+    virtual bool returnToLibrary() = 0;
 
     //---------------------------------------------------------------------------
      /**
@@ -94,13 +94,7 @@ public:
       */
     char getBookCode() const;
 
-    virtual bool operator<(const Book*& rhsBook) = 0; 
 
-    virtual bool operator>(const Book*& rhsBook) = 0; 
-
-    virtual bool operator==(const Book*& rhsBook) = 0; 
-
-    virtual bool operator!=(const Book*& rhsBook) = 0; 
 
 private:
     // title of book

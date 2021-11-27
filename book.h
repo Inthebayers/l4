@@ -11,7 +11,16 @@
 #include <iostream>
 using namespace std;
 
-class Book {
+class Book : public Item {
+
+
+    virtual bool operator<(const Book*& rhsBook) = 0;
+
+    virtual bool operator>(const Book*& rhsBook) = 0;
+
+    virtual bool operator==(const Book*& rhsBook) = 0;
+
+    virtual bool operator!=(const Book*& rhsBook) = 0;
 
     /**
      * @brief Output operator overload for PeriodicalBook object. Dictates
@@ -39,7 +48,7 @@ class Book {
      * @pre: Assumes valid object has been created
      * @post: Object will be deleted and memory freed.
      */
-    virtual ~Book();
+    virtual ~Book() = 0;
 
    //---------------------------------------------------------------------------
     /**
@@ -51,7 +60,7 @@ class Book {
      * @pre: Assumes book has amount to check out
      * @post: Book will remove 1 copy of itself from the library stores
      */
-    bool checkOut();
+    virtual bool checkOut() = 0;
 
    //---------------------------------------------------------------------------
     /**
@@ -62,7 +71,7 @@ class Book {
      * @pre: Assumes valid book with title has been created.
      * @post: No changes.
      */
-    string getTitle() const;
+    virtual string getTitle() const = 0;
 
    //---------------------------------------------------------------------------
     /**
@@ -75,7 +84,7 @@ class Book {
      * @pre: Assumes book is checked out
      * @post: Book is returned to library, incrementing the number of copies
      */
-    bool returnToLibrary();
+    virtual bool returnToLibrary() = 0;
 
    //---------------------------------------------------------------------------
     /**
@@ -86,7 +95,7 @@ class Book {
      * @pre: Assumes valid code and properly created book.
      * @post: No changes to data.
      */
-    char getBookCode() const;
+    virtual char getBookCode() const = 0;
 
   private:
     // title of book

@@ -20,9 +20,9 @@ class PeriodicalBook : public Book {
      * @pre: Assumes valid FictionBook object being passed in.
      * @post: Data not changed, but is output.
      */
-    friend ostream &operator<<(ostream &, const PeriodicalBook &);
+    friend ostream& operator<<(ostream&, const PeriodicalBook&);
 
-  public:
+public:
     /**
      * @brief Construct a new Periodical Book object.
      *
@@ -32,26 +32,54 @@ class PeriodicalBook : public Book {
      */
     PeriodicalBook(string title, int year, int month);
 
-//---------------------------------------------------------------------------
-    /**
-     * @brief Destroy the Periodical Book object.
-     *
-     * @pre: Assumes valid created object to be destroyed
-     * @post: Periodical object will be deleted and memory freed
-     */
+    //---------------------------------------------------------------------------
+        /**
+         * @brief Destroy the Periodical Book object.
+         *
+         * @pre: Assumes valid created object to be destroyed
+         * @post: Periodical object will be deleted and memory freed
+         */
     ~PeriodicalBook();
 
-//---------------------------------------------------------------------------
-    /**
-     * @brief Creates a periodical book object, then returns a copy of that
-     * object for the factory to function properly.
-     *
-     * @return PeriodicalBook copy of newly created book object
-     * @post: new periodical book object is created and returned.
-     */
-    PeriodicalBook *create();
+    //---------------------------------------------------------------------------
+        /** create
+         * @brief Creates a periodical book object, then returns a copy of that
+         * object for the factory to function properly.
+         *
+         * @return PeriodicalBook copy of newly created book object
+         * @post: new periodical book object is created and returned.
+         */
+    virtual Book* create();
 
-  private:
+    /** setMonth
+     * @brief sets the publishing month data of the periodical
+     * @pre a new periodical book object
+     * @post month data member set
+     */
+    void setMonth();
+
+    /** getMonth
+     * @brief returns the publishing month of the periodical
+     * @return month int from 1 -12
+     */
+    int getMonth() const;
+
+    /** setYear
+     * @brief sets the publishing year data of the periodical
+     * @pre a new periodical book object
+     * @post year data member set
+     */
+    void setYear();
+
+    /** getYear
+     * @brief returns the publishing year of the periodical
+     * @return year int
+     */
+    int getYear() const;
+
+
+
+private:
     // month periodical was written/published
     int month;
     // year periodical was written/published
