@@ -9,6 +9,7 @@
 //---------------------------------------------------------------------------
 #pragma once
 #include <iostream>
+#include "book.h"
 using namespace std;
 
 class Book {
@@ -38,6 +39,10 @@ public:
 
     }
 
+    Book::Book()
+    {
+    }
+
     //---------------------------------------------------------------------------
      /**
       * @brief Destroy the Book object
@@ -45,43 +50,8 @@ public:
       * @pre: Assumes valid object has been created
       * @post: Object will be deleted and memory freed.
       */
-    virtual ~Book();
-
-    //---------------------------------------------------------------------------
-     /**
-      * @brief Handles the field management required to check out a book.
-      *
-      * @return true if check out was successful
-      * @return false if check out was not sucessful
-      *
-      * @pre: Assumes book has amount to check out
-      * @post: Book will remove 1 copy of itself from the library stores
-      */
-    virtual bool checkOut() = 0;
-
-    //---------------------------------------------------------------------------
-     /**
-      * @brief Get the title of the current book object.
-      *
-      * @return string containing the title of the current book
-      *
-      * @pre: Assumes valid book with title has been created.
-      * @post: No changes.
-      */
-    virtual string getTitle() const = 0;
-
-    //---------------------------------------------------------------------------
-     /**
-      * @brief Returns book copy to library, adjusting values for currently
-      * checked in copies.
-      *
-      * @return true if value is modified
-      * @return false if value is not modified
-      *
-      * @pre: Assumes book is checked out
-      * @post: Book is returned to library, incrementing the number of copies
-      */
-    virtual bool returnToLibrary() = 0;
+    virtual ~Book() {
+    }
 
     //---------------------------------------------------------------------------
      /**

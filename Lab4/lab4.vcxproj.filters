@@ -15,10 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Book.cpp">
+    <ClCompile Include="..\book.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\childrenbook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,7 +77,7 @@
     <ClInclude Include="..\commandfactory%3b.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="item.h">
+    <ClInclude Include="..\item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

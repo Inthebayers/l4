@@ -36,7 +36,7 @@ public:
      * @pre: assumes object needs to be created
      * @post: fiction object will be destroyed, with memory freed
      */
-    ChildrenBook(string author, string title, int year, int totalTitlesOWned);
+    ChildrenBook();
 
     //---------------------------------------------------------------------------
      /**
@@ -62,7 +62,7 @@ public:
      * @pre a new book object
      * @post book author stored in data member
      */
-    void setAuthor();
+    void setAuthor(string author);
 
     /** getAuthor
      * @brief gets and returns the book author
@@ -76,7 +76,7 @@ public:
      * @pre a new book object
      * @post a book object with a published year
      */
-    void setYear();
+    void setYear(int year);
 
     /** getYear
      * @brief returns the book published year
@@ -87,9 +87,9 @@ public:
 
 private:
     // author of the book, last then first
-    string author;
+    string author_;
 
     //publishing year
-    int year;
+    int year_;
 
 };

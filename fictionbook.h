@@ -10,7 +10,7 @@
 //  -- initial character in input dictates 'f' for fiction
 //---------------------------------------------------------------------------
 #include "book.h"
-#include <iostream>2
+#include <iostream>
 
 class FictionBook : public Book {
     /**

@@ -9,17 +9,46 @@
 //---------------------------------------------------------------------------
 #pragma once
 #include <iostream>
+#include "item.h"
+
 using namespace std;
+
 
 class Book : public Item {
 
-
+    /**
+     * Less than operator. Compares LHS and RHS for lesser value. 
+     * @param rhsBook rhs Book being passed in 
+     * @return true 
+     * @return false 
+     */
     virtual bool operator<(const Book*& rhsBook) = 0;
 
+    /**
+     * 
+     * Greater than operator. compares LHS and RHS for greater value. 
+     * @param rhsBook rhs Book being passed in for comparison
+     * @return true 
+     * @return false 
+     */
     virtual bool operator>(const Book*& rhsBook) = 0;
 
+    /**
+     * Equals operator. Determines if two Book objects are equal. 
+     * 
+     * @param rhsBook rhs Book being passed in for equals comparison
+     * @return true 
+     * @return false 
+     */
     virtual bool operator==(const Book*& rhsBook) = 0;
 
+    /**
+     * Does not equals operator. Determines if two books are not equal. 
+     * 
+     * @param rhsBook 
+     * @return true 
+     * @return false 
+     */
     virtual bool operator!=(const Book*& rhsBook) = 0;
 
     /**
@@ -33,13 +62,18 @@ class Book : public Item {
     friend ostream &operator<<(ostream &, const Book &);
 
   public:
-    /**
-     * @brief Construct a new Book object
-     *
-     * @param title of book being created
-     * @param bookCode code of book being created to determine type of book
+    ///**
+    // * @brief Construct a new Book object
+    // *
+    // * @param title of book being created
+    // * @param bookCode code of book being created to determine type of book
+    // */
+    //Book(string title, char bookCode);
+
+    /** 
+     * Default constructor 
      */
-    Book(string title, char bookCode);
+    Book();
    
    //---------------------------------------------------------------------------
     /**
@@ -96,6 +130,16 @@ class Book : public Item {
      * @post: No changes to data.
      */
     virtual char getBookCode() const = 0;
+
+    /** 
+     * Gets the title of the given book. Pure virtual. 
+     */
+    virtual string getTitle() = 0; 
+
+    /** 
+     * Sets the title of the given book. Pure virtual.  
+     */
+    virtual void setTitle() = 0; 
 
   private:
     // title of book
