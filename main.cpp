@@ -15,7 +15,6 @@ using namespace std;
   * @post
   */
 
-
 int main() {
     Library lib;
     ifstream books, patrons, commands;

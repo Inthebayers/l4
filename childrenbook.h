@@ -91,5 +91,4 @@ private:
 
     //publishing year
     int year_;
-
 };

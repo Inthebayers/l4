@@ -1,4 +1,3 @@
-
 #include "item.h"
 #include "..\item.h"
 
@@ -12,5 +11,3 @@ Item::Item(string incomingItem)
 Item::Item()
 {
 }
-
-

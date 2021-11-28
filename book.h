@@ -94,7 +94,7 @@ public:
      */
     virtual void setTitle() = 0;
 
-    virtual void display() = 0; 
+    virtual void display() = 0;
 
     /**
     * Less than operator. Compares LHS and RHS for lesser value.

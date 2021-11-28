@@ -29,7 +29,6 @@ ChildrenBook::~ChildrenBook()
   */
 Book* ChildrenBook::create()
 {
-
     return new ChildrenBook();
 }
 
@@ -68,6 +67,7 @@ void ChildrenBook::setYear(int year) {
  * @post int year is returned
  */
 int ChildrenBook::getYear() const {
+    return year_;
 }
 
 /**
@@ -77,6 +77,7 @@ int ChildrenBook::getYear() const {
      * @return false
      */
 bool operator<(const Book*& rhsBook) {
+
 }
 
 /**

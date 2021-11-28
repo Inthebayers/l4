@@ -1,1 +1,68 @@
-﻿
+﻿  book.cpp
+  childrenbook.cpp
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): error C2259: 'ChildrenBook': cannot instantiate abstract class
+C:\Users\Inthe\source\repos\Lab4\childrenbook.h(14): message : see declaration of 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : due to following members:
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : 'bool Book::checkOut(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(50): message : see declaration of 'Book::checkOut'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : 'std::string Book::getTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(90): message : see declaration of 'Book::getTitle'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : 'std::string Book::getTitle(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(61): message : see declaration of 'Book::getTitle'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : 'bool Book::returnToLibrary(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(74): message : see declaration of 'Book::returnToLibrary'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : 'char Book::getBookCode(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(85): message : see declaration of 'Book::getBookCode'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : 'void Book::setTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(95): message : see declaration of 'Book::setTitle'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : 'void Book::display(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(97): message : see declaration of 'Book::display'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : 'bool Book::operator <(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(105): message : see declaration of 'Book::operator <'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : 'bool Book::operator >(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(114): message : see declaration of 'Book::operator >'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : 'bool Book::operator ==(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(123): message : see declaration of 'Book::operator =='
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33): message : 'bool Book::operator !=(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(132): message : see declaration of 'Book::operator !='
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): error C2259: 'ChildrenBook': cannot instantiate abstract class
+C:\Users\Inthe\source\repos\Lab4\childrenbook.h(14): message : see declaration of 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : due to following members:
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : 'bool Book::checkOut(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(50): message : see declaration of 'Book::checkOut'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : 'std::string Book::getTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(90): message : see declaration of 'Book::getTitle'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : 'std::string Book::getTitle(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(61): message : see declaration of 'Book::getTitle'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : 'bool Book::returnToLibrary(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(74): message : see declaration of 'Book::returnToLibrary'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : 'char Book::getBookCode(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(85): message : see declaration of 'Book::getBookCode'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : 'void Book::setTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(95): message : see declaration of 'Book::setTitle'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : 'void Book::display(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(97): message : see declaration of 'Book::display'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : 'bool Book::operator <(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(105): message : see declaration of 'Book::operator <'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : 'bool Book::operator >(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(114): message : see declaration of 'Book::operator >'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : 'bool Book::operator ==(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(123): message : see declaration of 'Book::operator =='
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(33,28): message : 'bool Book::operator !=(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(132): message : see declaration of 'Book::operator !='
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(79,38): error C2803: 'operator <' must have at least one formal parameter of class type
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(79,38): error C2805: binary 'operator <' has too few parameters
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(89,38): error C2803: 'operator >' must have at least one formal parameter of class type
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(89,38): error C2805: binary 'operator >' has too few parameters
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(99,39): error C2803: 'operator ==' must have at least one formal parameter of class type
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(99,39): error C2805: binary 'operator ==' has too few parameters
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(109,39): error C2803: 'operator !=' must have at least one formal parameter of class type
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(109,39): error C2805: binary 'operator !=' has too few parameters
+  main.cpp
+C:\Users\Inthe\source\repos\Lab4\library.h(72,25): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\Inthe\source\repos\Lab4\library.h(78,13): error C2143: syntax error: missing ';' before '*'
+C:\Users\Inthe\source\repos\Lab4\library.h(78,13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Inthe\source\repos\Lab4\library.h(78,26): error C2238: unexpected token(s) preceding ';'
+  item.cpp
+C:\Users\Inthe\source\repos\Lab4\Lab4\item.cpp(2,10): fatal error C1083: Cannot open include file: 'item.h': No such file or directory
+  Generating Code...
