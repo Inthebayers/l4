@@ -37,6 +37,13 @@ Book* FictionBook::create() {
 }
 
 //---------------------------------------------------------------------------
+//display
+// !!!!!!!! add in spacing later
+void FictionBook::display() {
+    cout << availableCopies_ << author_ << title_ << year_ << endl;
+}
+
+//---------------------------------------------------------------------------
 //setAuthor
 void FictionBook::setAuthor(string author) {
     author_ = author;

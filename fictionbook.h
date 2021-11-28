@@ -48,6 +48,13 @@ public:
      */
     virtual Book* create();
 
+    //---------------------------------------------------------------------------
+    /** display
+     * @brief displays the book copies, author, title and year to console.
+     * @post contents displayed to console
+     */
+    virtual void display();
+
     /** setAuthor
      * @brief sets the author data member of the book
      * @pre a new book object

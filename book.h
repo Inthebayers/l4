@@ -138,10 +138,10 @@ private:
     char bookCode_;
 
     // copies of book checked into library
-    int numberCheckedIn_;
+    int availableCopies_;
 
     // total amount of copies the library owns
-    int totalTitlesOwned_;
+    int totalCopies_;
 
     // default booktype
     char bookType_ = 'H';
