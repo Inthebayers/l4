@@ -143,17 +143,17 @@ class Book : public Item {
 
   private:
     // title of book
-    string title;
+    string title_;
 
     // code of book
-    char bookCode;
+    char bookCode_;
 
     // copies of book checked into library
-    int numberCheckedIn;
+    int numberCheckedIn_;
 
     // total amount of copies the library owns
-    int totalTitlesOwned;
+    int totalTitlesOwned_;
 
     // default booktype
-    char bookType = 'H';
+    char bookType_ = 'H';
 };
