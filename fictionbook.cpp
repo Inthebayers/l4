@@ -11,18 +11,12 @@
 //---------------------------------------------------------------------------
 #include "fictionbook.h"
 
-ostream& operator<<(ostream& out, const FictionBook& theBook) {
-    
-}
-
 //default constructor 
 FictionBook::FictionBook() {
     author_ = "";
     year_ = 0;
     title_ = "";
-    book_code_ = "f";
-    number_checked_in_ = 0;
-    totalTitlesOwned = 0;
+    book_code_ = "F";
 }
 
 //destructor
@@ -39,7 +33,7 @@ Book* FictionBook::create() {
 //---------------------------------------------------------------------------
 //display
 // !!!!!!!! add in spacing later
-void FictionBook::display() {
+void FictionBook::display() const {
     cout << availableCopies_ << author_ << title_ << year_ << endl;
 }
 
@@ -62,13 +56,13 @@ bool FictionBook::setYear(int year) {
 
 //---------------------------------------------------------------------------
 // getAuthor
-string FictionBook::getAuthor() {
+string FictionBook::getAuthor() const {
     return author_;
 }
 
 //---------------------------------------------------------------------------
 // getYear
-int FictionBook::getYear() {
+int FictionBook::getYear() const {
     return year_;
 }
 

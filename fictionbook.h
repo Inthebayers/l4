@@ -53,7 +53,7 @@ public:
      * @brief displays the book copies, author, title and year to console.
      * @post contents displayed to console
      */
-    virtual void display();
+    virtual void display() const;
 
     /** setAuthor
      * @brief sets the author data member of the book
