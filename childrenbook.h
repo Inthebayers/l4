@@ -78,6 +78,10 @@ public:
      */
     void setYear(int year);
 
+    string getTitle() const;
+
+    int setTitle(string title) const;
+
     /** getYear
      * @brief returns the book published year
      * @pre a book object with set year
@@ -91,4 +95,6 @@ private:
 
     //publishing year
     int year_;
+
+
 };

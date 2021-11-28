@@ -15,85 +15,82 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\book.cpp">
+    <ClCompile Include="Book.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\main.cpp">
+    <ClCompile Include="bookcontainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bookfactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="childrenbook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fictionbook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="item.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\childrenbook.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\periodicalbook.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\bookfactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\bookcontainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\fictionbook.cpp">
+    <ClCompile Include="periodicalbook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\book.h">
+    <ClInclude Include="book.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\bookcase.h">
+    <ClInclude Include="bookcase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\bookcontainer.h">
+    <ClInclude Include="bookcontainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\bookfactory.h">
+    <ClInclude Include="bookfactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\checkout.h">
+    <ClInclude Include="checkout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\childrenbook.h">
+    <ClInclude Include="childrenbook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\command.h">
+    <ClInclude Include="command.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\fictionbook.h">
+    <ClInclude Include="commandfactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\history.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\library.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\patron.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\patroncontainer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\periodicalbook.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\return.h">
+    <ClInclude Include="fictionbook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Header.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\commandfactory.h">
+    <ClInclude Include="history.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\item.h">
+    <ClInclude Include="item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\README.md" />
+    <ClInclude Include="library.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patron.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patroncontainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="periodicalbook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="return.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -21,3 +21,9 @@
 slnx.sqlite
 
 /.vs/slnx.sqlite
+
+*.vcxproj
+
+*.sln
+
+/cssLab4/.vs/

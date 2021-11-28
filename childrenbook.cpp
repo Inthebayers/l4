@@ -1,4 +1,5 @@
 #include "childrenbook.h"
+#include "book.h"
 
 using namespace std;
 
@@ -70,11 +71,12 @@ int ChildrenBook::getYear() const {
     return year_;
 }
 
-int ChildrenBook::getTitle() const {
+string ChildrenBook::getTitle() const {
     return title_;
 }
 
 int ChildrenBook::setTitle(string title) const {
+    // TODO: CHANGE THIS
     title_ = title;
 }
 

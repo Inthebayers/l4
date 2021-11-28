@@ -145,7 +145,7 @@ public:
    
    virtual bool operator!=(const Book*& rhsBook) = 0;
 
-private:
+protected:
     // title of book
     string title_;
 
