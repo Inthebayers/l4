@@ -11,13 +11,8 @@
 //---------------------------------------------------------------------------
 #include "fictionbook.h"
 
-ostream& operator<<(ostream&, const FictionBook&) {
-
-}
-
-// probably wont need this 
-FictionBook::FictionBook(string author, string title, int year, int totalTitlesOwned) {
-
+ostream& operator<<(ostream& out, const FictionBook& theBook) {
+    
 }
 
 //default constructor 
@@ -43,6 +38,30 @@ Book* FictionBook::create() {
 
 //---------------------------------------------------------------------------
 //setAuthor
-void FictionBook::setAuthor() {
-
+void FictionBook::setAuthor(string author) {
+    author_ = author;
 }
+
+//---------------------------------------------------------------------------
+// setYear
+bool FictionBook::setYear(int year) {
+    bool success = false;
+    if (year > 0) {
+        year_ = year;
+        success = true;
+    }
+    return success;
+}
+
+//---------------------------------------------------------------------------
+// getAuthor
+string FictionBook::getAuthor() {
+    return author_;
+}
+
+//---------------------------------------------------------------------------
+// getYear
+int FictionBook::getYear() {
+    return year_;
+}
+

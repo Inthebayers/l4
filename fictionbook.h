@@ -25,33 +25,27 @@ class FictionBook : public Book {
 
 public:
     /**
-     * @brief Construct a new FictionBook object. Creates new fiction book with
-     * title, author, and amount of books owned by library.
-     * @param title is the title of the book being created
-     * @param author is the author of the book being created
-     * @param year publishing year
-     * @param totalTitlesOwned dictates the total amount of this book owned by
-     * library
+     * @brief Construct a new FictionBook object
      * @pre: assumes object needs to be created
-     * @post: fiction object will be destroyed, with memory freed
+     * @post: new FictionBook object
      */
-    FictionBook(string author, string title, int year, int totalTitlesOwned);
+    FictionBook();
 
     //---------------------------------------------------------------------------
-        /**
-         * @brief Destroy the FictionBook object.
-         * @pre: assumes valid object to be deleted
-         * @post: object will be deleted & memory freed
-         */
+    /**
+    * @brief Destroy the FictionBook object.
+    * @pre: assumes valid object to be deleted
+    * @post: object will be deleted & memory freed
+    */
     ~FictionBook();
 
     //---------------------------------------------------------------------------
-        /** create
-         * @brief Creates a fiction book object, then returns a copy of that object
-         * for the factory to function properly.
-         * @return FictionBook copy of newly created book object
-         * @post: new fiction book object is created and returned.
-         */
+    /** create
+     * @brief Creates a fiction book object, then returns a copy of that object
+     * for the factory to function properly.
+     * @return FictionBook copy of newly created book object
+     * @post: new fiction book object is created and returned.
+     */
     virtual Book* create();
 
     /** setAuthor
@@ -59,14 +53,14 @@ public:
      * @pre a new book object
      * @post a book object with a set author
      */
-    void setAuthor();
+    void setAuthor(string author);
 
     /** setYear
      * @brief sets the year data member
      * @pre a new book object
      * @post a book object with a published year
      */
-    void setYear();
+    bool setYear(int year);
 
     /** getAuthor
      * @brief gets and returns the book author

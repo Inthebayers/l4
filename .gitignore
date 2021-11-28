@@ -8,4 +8,6 @@
 *.opendb
 *.ipch
 *.json
+*.suo
+*.sqlite
 /gitignore
