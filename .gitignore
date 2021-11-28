@@ -17,3 +17,7 @@
 
 /.vs
 /gitignore
+
+slnx.sqlite
+
+/.vs/slnx.sqlite
