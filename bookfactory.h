@@ -43,8 +43,10 @@ public:
     Book* createBook(char type) const;
 
 private:
+    const int BOOKTYPES = 26;
+
     // array containing indexes for all possible bookTypes in future
-    Book* bookTypes[26];
+    Book* bookTypes[BOOKTYPES];
 
     // hash function
     int hash(char ch) const;

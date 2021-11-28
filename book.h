@@ -94,7 +94,20 @@ public:
      */
     virtual void setTitle() = 0;
 
+    /** display
+     * @brief prints the contents of the book to consoel,
+     * pure virtual function
+     * @pre implemented display() in child classes
+     * @post book contents displayed to console
+     */
     virtual void display() = 0;
+
+    /** create
+     * @brief creates a new book object, pure virutal funciton
+     * @pre implemented create() in child classes
+     * @return returns a pointer to a new book object
+     */
+    virtual Book* create() = 0;
 
     /**
     * Less than operator. Compares LHS and RHS for lesser value.
@@ -129,7 +142,9 @@ public:
      * @return true
      * @return false
      */
-    virtual bool operator!=(const Book*& rhsBook) = 0;
+   
+   virtual bool operator!=(const Book*& rhsBook) = 0;
+
 private:
     // title of book
     string title_;
