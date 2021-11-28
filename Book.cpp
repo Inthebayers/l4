@@ -12,16 +12,6 @@
 #include "book.h"
 using namespace std;
 
-    /**
-     * @brief Output operator overload for PeriodicalBook object. Dictates
-     * output formatting and functionality for a periodical book.
-     *
-     * @return ostream& containing information to be output in a formatted style
-     * @pre: Assumes valid FictionBook object being passed in.
-     * @post: Data not changed, but is output.
-     */
-    ostream& operator<<(ostream&, const Book&);
-
     Book::Book()
     {}
 
