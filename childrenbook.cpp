@@ -77,7 +77,6 @@ int ChildrenBook::getYear() const {
      * @return false
      */
 bool operator<(const Book*& rhsBook) {
-
 }
 
 /**

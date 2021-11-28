@@ -13,8 +13,7 @@
 #include <iostream>
 
 class History : public Command {
-
-  public:
+public:
     /**
      * @brief Construct a new History object. Default constructor.
      *
@@ -22,28 +21,28 @@ class History : public Command {
      */
     History();
 
-//---------------------------------------------------------------------------
-    /**
-     * @brief Destroy the History object and free memory.
-     *
-     * @pre: Assumes valid history object created.
-     * @post: History object will be deleted and memory freed.
-     */
+    //---------------------------------------------------------------------------
+        /**
+         * @brief Destroy the History object and free memory.
+         *
+         * @pre: Assumes valid history object created.
+         * @post: History object will be deleted and memory freed.
+         */
     ~History();
 
-//---------------------------------------------------------------------------
-    /**
-     * @brief Handles the execution of the history retrieval for a patron
-     * object. Outputs the check-out history of a given patron in a organized
-     * fashion.
-     *
-     * @param input for execution of command
-     * @return true if command was sucessfully executed
-     * @return false if command was not successfully executed
-     */
-    virtual bool execute(istream &input);
+    //---------------------------------------------------------------------------
+        /**
+         * @brief Handles the execution of the history retrieval for a patron
+         * object. Outputs the check-out history of a given patron in a organized
+         * fashion.
+         *
+         * @param input for execution of command
+         * @return true if command was sucessfully executed
+         * @return false if command was not successfully executed
+         */
+    virtual bool execute(istream& input);
 
-  private:
+private:
 };
 
 #endif

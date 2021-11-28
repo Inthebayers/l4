@@ -46,7 +46,7 @@ public:
          * @post: new periodical book object is created and returned.
          */
     virtual Book* create();
- 
+
     //---------------------------------------------------------------------------
     /** display
      * @brief displays the book copies, title, month, and year
@@ -71,7 +71,7 @@ public:
      * @brief sets the publishing year data of the periodical
      * @pre a new periodical book object
      * @post year data member set
-     * @return 
+     * @return
      */
     bool setYear(int year);
 
@@ -80,8 +80,6 @@ public:
      * @return year int
      */
     int getYear() const;
-
-
 
 private:
     // month periodical was written/published

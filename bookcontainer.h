@@ -3,7 +3,7 @@
 //---------------------------------------------------------------------------
 // A BookContainer class to contain one genre of books. Acts as interface
 // between bookcase and book.
-// BookContainer is a binary search tree containing nodeData objects that 
+// BookContainer is a binary search tree containing nodeData objects that
 // Contian pointers to book objects
 //
 // Assumptions:
@@ -38,7 +38,7 @@ class BookContainer {
 
 public:
     //constructor
-    BookContainer(); 
+    BookContainer();
 
     //destructor
     ~BookContainer();
@@ -71,14 +71,12 @@ public:
 
     /** makeEmpty
      * @brief clears the BookContainer structure
-     * @pre 
+     * @pre
      * @post
      */
     void makeEmpty();
 
-
     void isEmpty();
-
 
 private:
 
@@ -91,7 +89,6 @@ private:
 
     //genre of this bookcontainer
     char genre_;
-
 };
 
 #endif

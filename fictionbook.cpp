@@ -1,4 +1,3 @@
-
 //---------------------------------------------------------------------------
 // fictionbook.cpp
 //---------------------------------------------------------------------------
@@ -11,7 +10,7 @@
 //---------------------------------------------------------------------------
 #include "fictionbook.h"
 
-//default constructor 
+//default constructor
 FictionBook::FictionBook() {
     author_ = "";
     year_ = 0;
@@ -21,7 +20,6 @@ FictionBook::FictionBook() {
 
 //destructor
 FictionBook::~FictionBook() {
-
 }
 
 //---------------------------------------------------------------------------
@@ -65,4 +63,3 @@ string FictionBook::getAuthor() const {
 int FictionBook::getYear() const {
     return year_;
 }
-

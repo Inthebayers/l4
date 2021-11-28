@@ -1,4 +1,3 @@
-
 //---------------------------------------------------------------------------
 // fictionbook.h
 //---------------------------------------------------------------------------
@@ -86,6 +85,6 @@ public:
 private:
     // author of the book, last then first name
     string author;
-    //publishing year 
+    //publishing year
     int year;
 };

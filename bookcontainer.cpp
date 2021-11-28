@@ -3,7 +3,7 @@
 //---------------------------------------------------------------------------
 // A BookContainer class to contain one genre of books. Acts as interface
 // between bookcase and book.
-// BookContainer is a binary search tree containing nodeData objects that 
+// BookContainer is a binary search tree containing nodeData objects that
 // Contian pointers to book objects
 //
 // Assumptions:

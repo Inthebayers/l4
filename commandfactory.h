@@ -2,18 +2,17 @@
 // commandfactory.h
 //---------------------------------------------------------------------------
 // A command factory class to create new instances of command objects.
-// 
+//
 // Assumptions:
 //  -- Each command will have a unique char identifier
-//  -- 
+//  --
 // Implementation:
-//  -- 
+//  --
 //---------------------------------------------------------------------------
 #pragma once
 #include "command.h";
 
 class CommandFactory {
-
 public:
     //constructor
     CommandFactory();
@@ -33,4 +32,3 @@ private:
     // hash function
     int hash(char ch) const;
 };
-

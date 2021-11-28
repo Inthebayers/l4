@@ -17,8 +17,7 @@
 using namespace std;
 
 class PatronContainer {
-
-  public:
+public:
     PatronContainer();  // constructor
     ~PatronContainer(); // destructor
 
@@ -29,18 +28,17 @@ class PatronContainer {
      * @param patron info from file
      * @return true if added, false otherwise
      */
-    bool insert(istream &);
+    bool insert(istream&);
 
-//---------------------------------------------------------------------------
-    /** retrieve()
-     * @brief retrieves the patron
-     * @param the uniqueID of the patron
-     * @return the Patron with the associated uniqueID
-     */
-    Patron &retrieve(int) const;
+    //---------------------------------------------------------------------------
+        /** retrieve()
+         * @brief retrieves the patron
+         * @param the uniqueID of the patron
+         * @return the Patron with the associated uniqueID
+         */
+    Patron& retrieve(int) const;
 
-  private:
+private:
     int hash(int) const;       // hash function to search patron with uniqueID
     Patron patronsList[10010]; // array of patrons
-
 }; // end of PatronContainer class
