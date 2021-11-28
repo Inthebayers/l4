@@ -7,3 +7,7 @@
 *.sqlite
 
 /.vs
+
+/Lab4/.vs/
+
+.gitignore
