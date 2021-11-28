@@ -3,6 +3,8 @@
 //---------------------------------------------------------------------------
 // A BookContainer class to contain one genre of books. Acts as interface
 // between bookcase and book.
+// BookContainer is a binary search tree containing nodeData objects that 
+// Contian pointers to book objects
 //
 // Assumptions:
 //  -- container has no limit
@@ -35,27 +37,48 @@ class BookContainer {
     friend ostream& operator<<(ostream&, const BookContainer&);
 
 public:
-    BookContainer(); // default constructor
+    //constructor
+    BookContainer(); 
+
+    //destructor
     ~BookContainer();
 
     //---------------------------------------------------------------------------
-        /** insert
-         * @brief inserts book into container
-         * @pre existing book and BookContainer
-         * @post book is unchanged
-         * @return true book inserted, false book not inserted
-         * @param book to be inserted
-         */
+    /** insert
+    * @brief inserts book into container
+    * @pre existing book and BookContainer
+    * @post book is unchanged
+    * @return true book inserted, false book not inserted
+    * @param book to be inserted
+    */
     bool insert(const Book*&);
 
     //---------------------------------------------------------------------------
-        /** checkOut
-         * @brief sets book to checked out
-         * @pre existing book in container
-         * @return true book was checked out, false book was not checked out
-         * @param book to be checkout out
-         */
-    Book* checkOut(Book*& target);
+    /** checkOut
+    * @brief sets book to checked out
+    * @pre existing book in container
+    * @return true book was checked out, false book was not checked out
+    * @param book to be checkout out
+    */
+    bool retrieve(Book*& target, Book*& returned);
+
+    /** display
+    * @brief prints the contents of the tree in-order
+    * @pre a non empty tree
+    * @post contents displayed to console
+    */
+    void display();
+
+    /** makeEmpty
+     * @brief clears the BookContainer structure
+     * @pre 
+     * @post
+     */
+    void makeEmpty();
+
+
+    void isEmpty();
+
 
 private:
 
@@ -63,26 +86,12 @@ private:
         Book* book;
         Node* left;
         Node* right;
-
-
-
-        // should we just use the bst from lab2?
-        // isEmpty() function?
-        // size??
-
-       // may need a destructor here??
     };
     Node* root;
 
     //genre of this bookcontainer
-    char genre;
+    char genre_;
 
-    /** display
- * @brief prints the contents of the tree in-order
- * @pre a non empty tree
- * @post contents displayed to console
- */
-    void display();
 };
 
 #endif
