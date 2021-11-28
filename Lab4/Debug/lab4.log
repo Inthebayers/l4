@@ -8,6 +8,60 @@ C:\Users\Inthe\source\repos\Lab4\bookcontainer.cpp(30,32): error C2059: syntax e
 C:\Users\Inthe\source\repos\Lab4\bookcontainer.cpp(30,34): error C2143: syntax error: missing ';' before '{'
 C:\Users\Inthe\source\repos\Lab4\bookcontainer.cpp(30,34): error C2447: '{': missing function header (old-style formal list?)
   bookfactory.cpp
+C:\Users\Inthe\source\repos\Lab4\bookfactory.h(49,30): error C2327: 'BookFactory::BOOKTYPES': is not a type name, static, or enumerator
+C:\Users\Inthe\source\repos\Lab4\bookfactory.h(49,21): error C2065: 'BOOKTYPES': undeclared identifier
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): error C2259: 'ChildrenBook': cannot instantiate abstract class
+C:\Users\Inthe\source\repos\Lab4\childrenbook.h(14): message : see declaration of 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : due to following members:
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : 'bool Book::checkOut(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(50): message : see declaration of 'Book::checkOut'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : 'std::string Book::getTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(90): message : see declaration of 'Book::getTitle'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : 'std::string Book::getTitle(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(61): message : see declaration of 'Book::getTitle'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : 'bool Book::returnToLibrary(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(74): message : see declaration of 'Book::returnToLibrary'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : 'char Book::getBookCode(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(85): message : see declaration of 'Book::getBookCode'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : 'void Book::setTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(95): message : see declaration of 'Book::setTitle'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : 'void Book::display(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(103): message : see declaration of 'Book::display'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : 'bool Book::operator <(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(118): message : see declaration of 'Book::operator <'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : 'bool Book::operator >(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(127): message : see declaration of 'Book::operator >'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : 'bool Book::operator ==(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(136): message : see declaration of 'Book::operator =='
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22): message : 'bool Book::operator !=(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(146): message : see declaration of 'Book::operator !='
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): error C2259: 'ChildrenBook': cannot instantiate abstract class
+C:\Users\Inthe\source\repos\Lab4\childrenbook.h(14): message : see declaration of 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : due to following members:
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : 'bool Book::checkOut(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(50): message : see declaration of 'Book::checkOut'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : 'std::string Book::getTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(90): message : see declaration of 'Book::getTitle'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : 'std::string Book::getTitle(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(61): message : see declaration of 'Book::getTitle'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : 'bool Book::returnToLibrary(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(74): message : see declaration of 'Book::returnToLibrary'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : 'char Book::getBookCode(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(85): message : see declaration of 'Book::getBookCode'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : 'void Book::setTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(95): message : see declaration of 'Book::setTitle'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : 'void Book::display(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(103): message : see declaration of 'Book::display'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : 'bool Book::operator <(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(118): message : see declaration of 'Book::operator <'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : 'bool Book::operator >(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(127): message : see declaration of 'Book::operator >'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : 'bool Book::operator ==(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(136): message : see declaration of 'Book::operator =='
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(22,20): message : 'bool Book::operator !=(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(146): message : see declaration of 'Book::operator !='
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(23,24): error C2061: syntax error: identifier 'FictionBook'
+C:\Users\Inthe\source\repos\Lab4\bookfactory.cpp(24,25): error C2061: syntax error: identifier 'PeriodicalBook'
   childrenbook.cpp
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32): error C2259: 'ChildrenBook': cannot instantiate abstract class
 C:\Users\Inthe\source\repos\Lab4\childrenbook.h(14): message : see declaration of 'ChildrenBook'
@@ -25,15 +79,15 @@ C:\Users\Inthe\source\repos\Lab4\book.h(85): message : see declaration of 'Book:
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32): message : 'void Book::setTitle(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(95): message : see declaration of 'Book::setTitle'
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32): message : 'void Book::display(void)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(97): message : see declaration of 'Book::display'
+C:\Users\Inthe\source\repos\Lab4\book.h(103): message : see declaration of 'Book::display'
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32): message : 'bool Book::operator <(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(105): message : see declaration of 'Book::operator <'
+C:\Users\Inthe\source\repos\Lab4\book.h(118): message : see declaration of 'Book::operator <'
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32): message : 'bool Book::operator >(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(114): message : see declaration of 'Book::operator >'
+C:\Users\Inthe\source\repos\Lab4\book.h(127): message : see declaration of 'Book::operator >'
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32): message : 'bool Book::operator ==(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(123): message : see declaration of 'Book::operator =='
+C:\Users\Inthe\source\repos\Lab4\book.h(136): message : see declaration of 'Book::operator =='
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32): message : 'bool Book::operator !=(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(132): message : see declaration of 'Book::operator !='
+C:\Users\Inthe\source\repos\Lab4\book.h(146): message : see declaration of 'Book::operator !='
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32,28): error C2259: 'ChildrenBook': cannot instantiate abstract class
 C:\Users\Inthe\source\repos\Lab4\childrenbook.h(14): message : see declaration of 'ChildrenBook'
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32,28): message : due to following members:
@@ -50,170 +104,178 @@ C:\Users\Inthe\source\repos\Lab4\book.h(85): message : see declaration of 'Book:
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32,28): message : 'void Book::setTitle(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(95): message : see declaration of 'Book::setTitle'
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32,28): message : 'void Book::display(void)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(97): message : see declaration of 'Book::display'
+C:\Users\Inthe\source\repos\Lab4\book.h(103): message : see declaration of 'Book::display'
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32,28): message : 'bool Book::operator <(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(105): message : see declaration of 'Book::operator <'
+C:\Users\Inthe\source\repos\Lab4\book.h(118): message : see declaration of 'Book::operator <'
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32,28): message : 'bool Book::operator >(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(114): message : see declaration of 'Book::operator >'
+C:\Users\Inthe\source\repos\Lab4\book.h(127): message : see declaration of 'Book::operator >'
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32,28): message : 'bool Book::operator ==(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(123): message : see declaration of 'Book::operator =='
+C:\Users\Inthe\source\repos\Lab4\book.h(136): message : see declaration of 'Book::operator =='
 C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(32,28): message : 'bool Book::operator !=(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(132): message : see declaration of 'Book::operator !='
-C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(79,38): error C2803: 'operator <' must have at least one formal parameter of class type
-C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(79,38): error C2805: binary 'operator <' has too few parameters
-C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(90,38): error C2803: 'operator >' must have at least one formal parameter of class type
-C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(90,38): error C2805: binary 'operator >' has too few parameters
-C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(100,39): error C2803: 'operator ==' must have at least one formal parameter of class type
-C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(100,39): error C2805: binary 'operator ==' has too few parameters
-C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(110,39): error C2803: 'operator !=' must have at least one formal parameter of class type
-C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(110,39): error C2805: binary 'operator !=' has too few parameters
+C:\Users\Inthe\source\repos\Lab4\book.h(146): message : see declaration of 'Book::operator !='
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(73,36): error C2509: 'getTitle': member function not declared in 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.h(14): message : see declaration of 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(77,48): error C2509: 'setTitle': member function not declared in 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.h(14): message : see declaration of 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(87,52): error C2509: '<': member function not declared in 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.h(14): message : see declaration of 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(101,52): error C2509: '>': member function not declared in 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.h(14): message : see declaration of 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(115,53): error C2509: '==': member function not declared in 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.h(14): message : see declaration of 'ChildrenBook'
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(132,39): error C2803: 'operator !=' must have at least one formal parameter of class type
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(132,39): error C2805: binary 'operator !=' has too few parameters
+C:\Users\Inthe\source\repos\Lab4\childrenbook.cpp(133,13): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
   fictionbook.cpp
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(16,5): error C2065: 'author_': undeclared identifier
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(17,5): error C2065: 'year_': undeclared identifier
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(18,5): error C2248: 'Book::title_': cannot access private member declared in class 'Book'
-C:\Users\Inthe\source\repos\Lab4\book.h(135): message : see declaration of 'Book::title_'
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(15,5): error C2065: 'author_': undeclared identifier
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(16,5): error C2065: 'year_': undeclared identifier
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(17,5): error C2248: 'Book::title_': cannot access private member declared in class 'Book'
+C:\Users\Inthe\source\repos\Lab4\book.h(150): message : see declaration of 'Book::title_'
 C:\Users\Inthe\source\repos\Lab4\book.h(16): message : see declaration of 'Book'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(19,5): error C2065: 'book_code_': undeclared identifier
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): error C2259: 'FictionBook': cannot instantiate abstract class
-C:\Users\Inthe\source\repos\Lab4\fictionbook.h(15): message : see declaration of 'FictionBook'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : due to following members:
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : 'bool Book::checkOut(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(18,5): error C2065: 'book_code_': undeclared identifier
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): error C2259: 'FictionBook': cannot instantiate abstract class
+C:\Users\Inthe\source\repos\Lab4\fictionbook.h(14): message : see declaration of 'FictionBook'
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : due to following members:
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : 'bool Book::checkOut(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(50): message : see declaration of 'Book::checkOut'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : 'std::string Book::getTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : 'std::string Book::getTitle(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(90): message : see declaration of 'Book::getTitle'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : 'std::string Book::getTitle(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : 'std::string Book::getTitle(void) const': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(61): message : see declaration of 'Book::getTitle'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : 'bool Book::returnToLibrary(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : 'bool Book::returnToLibrary(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(74): message : see declaration of 'Book::returnToLibrary'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : 'char Book::getBookCode(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : 'char Book::getBookCode(void) const': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(85): message : see declaration of 'Book::getBookCode'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : 'void Book::setTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : 'void Book::setTitle(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(95): message : see declaration of 'Book::setTitle'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : 'void Book::display(void)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(97): message : see declaration of 'Book::display'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : 'bool Book::operator <(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(105): message : see declaration of 'Book::operator <'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : 'bool Book::operator >(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(114): message : see declaration of 'Book::operator >'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : 'bool Book::operator ==(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(123): message : see declaration of 'Book::operator =='
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30): message : 'bool Book::operator !=(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(132): message : see declaration of 'Book::operator !='
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): error C2259: 'FictionBook': cannot instantiate abstract class
-C:\Users\Inthe\source\repos\Lab4\fictionbook.h(15): message : see declaration of 'FictionBook'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : due to following members:
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : 'bool Book::checkOut(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : 'void Book::display(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(103): message : see declaration of 'Book::display'
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : 'bool Book::operator <(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(118): message : see declaration of 'Book::operator <'
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : 'bool Book::operator >(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(127): message : see declaration of 'Book::operator >'
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : 'bool Book::operator ==(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(136): message : see declaration of 'Book::operator =='
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28): message : 'bool Book::operator !=(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(146): message : see declaration of 'Book::operator !='
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): error C2259: 'FictionBook': cannot instantiate abstract class
+C:\Users\Inthe\source\repos\Lab4\fictionbook.h(14): message : see declaration of 'FictionBook'
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : due to following members:
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : 'bool Book::checkOut(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(50): message : see declaration of 'Book::checkOut'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : 'std::string Book::getTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : 'std::string Book::getTitle(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(90): message : see declaration of 'Book::getTitle'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : 'std::string Book::getTitle(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : 'std::string Book::getTitle(void) const': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(61): message : see declaration of 'Book::getTitle'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : 'bool Book::returnToLibrary(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : 'bool Book::returnToLibrary(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(74): message : see declaration of 'Book::returnToLibrary'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : 'char Book::getBookCode(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : 'char Book::getBookCode(void) const': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(85): message : see declaration of 'Book::getBookCode'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : 'void Book::setTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : 'void Book::setTitle(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(95): message : see declaration of 'Book::setTitle'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : 'void Book::display(void)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(97): message : see declaration of 'Book::display'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : 'bool Book::operator <(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(105): message : see declaration of 'Book::operator <'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : 'bool Book::operator >(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(114): message : see declaration of 'Book::operator >'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : 'bool Book::operator ==(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(123): message : see declaration of 'Book::operator =='
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(30,27): message : 'bool Book::operator !=(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(132): message : see declaration of 'Book::operator !='
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(37,13): error C2248: 'Book::availableCopies_': cannot access private member declared in class 'Book'
-C:\Users\Inthe\source\repos\Lab4\book.h(141): message : see declaration of 'Book::availableCopies_'
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : 'void Book::display(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(103): message : see declaration of 'Book::display'
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : 'bool Book::operator <(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(118): message : see declaration of 'Book::operator <'
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : 'bool Book::operator >(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(127): message : see declaration of 'Book::operator >'
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : 'bool Book::operator ==(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(136): message : see declaration of 'Book::operator =='
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(28,27): message : 'bool Book::operator !=(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(146): message : see declaration of 'Book::operator !='
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(35,13): error C2248: 'Book::availableCopies_': cannot access private member declared in class 'Book'
+C:\Users\Inthe\source\repos\Lab4\book.h(156): message : see declaration of 'Book::availableCopies_'
 C:\Users\Inthe\source\repos\Lab4\book.h(16): message : see declaration of 'Book'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(37,33): error C2065: 'author_': undeclared identifier
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(37,44): error C2248: 'Book::title_': cannot access private member declared in class 'Book'
-C:\Users\Inthe\source\repos\Lab4\book.h(135): message : see declaration of 'Book::title_'
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(35,33): error C2065: 'author_': undeclared identifier
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(35,44): error C2248: 'Book::title_': cannot access private member declared in class 'Book'
+C:\Users\Inthe\source\repos\Lab4\book.h(150): message : see declaration of 'Book::title_'
 C:\Users\Inthe\source\repos\Lab4\book.h(16): message : see declaration of 'Book'
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(37,54): error C2065: 'year_': undeclared identifier
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(43,5): error C2065: 'author_': undeclared identifier
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(51,9): error C2065: 'year_': undeclared identifier
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(60,12): error C2065: 'author_': undeclared identifier
-C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(66,12): error C2065: 'year_': undeclared identifier
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(35,54): error C2065: 'year_': undeclared identifier
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(41,5): error C2065: 'author_': undeclared identifier
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(49,9): error C2065: 'year_': undeclared identifier
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(58,12): error C2065: 'author_': undeclared identifier
+C:\Users\Inthe\source\repos\Lab4\fictionbook.cpp(64,12): error C2065: 'year_': undeclared identifier
   main.cpp
+C:\Users\Inthe\source\repos\Lab4\bookfactory.h(49,30): error C2327: 'BookFactory::BOOKTYPES': is not a type name, static, or enumerator
+C:\Users\Inthe\source\repos\Lab4\bookfactory.h(49,21): error C2065: 'BOOKTYPES': undeclared identifier
 C:\Users\Inthe\source\repos\Lab4\library.h(72,25): warning C4227: anachronism used: qualifiers on reference are ignored
-C:\Users\Inthe\source\repos\Lab4\library.h(78,13): error C2143: syntax error: missing ';' before '*'
-C:\Users\Inthe\source\repos\Lab4\library.h(78,13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Inthe\source\repos\Lab4\library.h(78,12): error C2143: syntax error: missing ';' before '*'
+C:\Users\Inthe\source\repos\Lab4\library.h(78,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 C:\Users\Inthe\source\repos\Lab4\library.h(78,26): error C2238: unexpected token(s) preceding ';'
   periodicalbook.cpp
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(19,5): error C2248: 'Book::title_': cannot access private member declared in class 'Book'
-C:\Users\Inthe\source\repos\Lab4\book.h(135): message : see declaration of 'Book::title_'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(18,5): error C2248: 'Book::title_': cannot access private member declared in class 'Book'
+C:\Users\Inthe\source\repos\Lab4\book.h(150): message : see declaration of 'Book::title_'
 C:\Users\Inthe\source\repos\Lab4\book.h(16): message : see declaration of 'Book'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(20,5): error C2248: 'Book::bookCode_': cannot access private member declared in class 'Book'
-C:\Users\Inthe\source\repos\Lab4\book.h(138): message : see declaration of 'Book::bookCode_'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(19,5): error C2248: 'Book::bookCode_': cannot access private member declared in class 'Book'
+C:\Users\Inthe\source\repos\Lab4\book.h(153): message : see declaration of 'Book::bookCode_'
 C:\Users\Inthe\source\repos\Lab4\book.h(16): message : see declaration of 'Book'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(20,20): error C2440: '=': cannot convert from 'const char [2]' to 'char'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(20,17): message : There is no context in which this conversion is possible
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): error C2259: 'PeriodicalBook': cannot instantiate abstract class
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(19,20): error C2440: '=': cannot convert from 'const char [2]' to 'char'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(19,17): message : There is no context in which this conversion is possible
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): error C2259: 'PeriodicalBook': cannot instantiate abstract class
 C:\Users\Inthe\source\repos\Lab4\periodicalbook.h(14): message : see declaration of 'PeriodicalBook'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : due to following members:
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : 'bool Book::checkOut(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : due to following members:
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : 'bool Book::checkOut(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(50): message : see declaration of 'Book::checkOut'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : 'std::string Book::getTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : 'std::string Book::getTitle(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(90): message : see declaration of 'Book::getTitle'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : 'std::string Book::getTitle(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : 'std::string Book::getTitle(void) const': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(61): message : see declaration of 'Book::getTitle'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : 'bool Book::returnToLibrary(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : 'bool Book::returnToLibrary(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(74): message : see declaration of 'Book::returnToLibrary'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : 'char Book::getBookCode(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : 'char Book::getBookCode(void) const': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(85): message : see declaration of 'Book::getBookCode'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : 'void Book::setTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : 'void Book::setTitle(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(95): message : see declaration of 'Book::setTitle'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : 'void Book::display(void)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(97): message : see declaration of 'Book::display'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : 'bool Book::operator <(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(105): message : see declaration of 'Book::operator <'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : 'bool Book::operator >(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(114): message : see declaration of 'Book::operator >'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : 'bool Book::operator ==(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(123): message : see declaration of 'Book::operator =='
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32): message : 'bool Book::operator !=(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(132): message : see declaration of 'Book::operator !='
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): error C2259: 'PeriodicalBook': cannot instantiate abstract class
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : 'void Book::display(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(103): message : see declaration of 'Book::display'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : 'bool Book::operator <(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(118): message : see declaration of 'Book::operator <'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : 'bool Book::operator >(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(127): message : see declaration of 'Book::operator >'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : 'bool Book::operator ==(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(136): message : see declaration of 'Book::operator =='
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30): message : 'bool Book::operator !=(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(146): message : see declaration of 'Book::operator !='
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): error C2259: 'PeriodicalBook': cannot instantiate abstract class
 C:\Users\Inthe\source\repos\Lab4\periodicalbook.h(14): message : see declaration of 'PeriodicalBook'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : due to following members:
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : 'bool Book::checkOut(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : due to following members:
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : 'bool Book::checkOut(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(50): message : see declaration of 'Book::checkOut'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : 'std::string Book::getTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : 'std::string Book::getTitle(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(90): message : see declaration of 'Book::getTitle'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : 'std::string Book::getTitle(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : 'std::string Book::getTitle(void) const': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(61): message : see declaration of 'Book::getTitle'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : 'bool Book::returnToLibrary(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : 'bool Book::returnToLibrary(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(74): message : see declaration of 'Book::returnToLibrary'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : 'char Book::getBookCode(void) const': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : 'char Book::getBookCode(void) const': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(85): message : see declaration of 'Book::getBookCode'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : 'void Book::setTitle(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : 'void Book::setTitle(void)': is abstract
 C:\Users\Inthe\source\repos\Lab4\book.h(95): message : see declaration of 'Book::setTitle'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : 'void Book::display(void)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(97): message : see declaration of 'Book::display'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : 'bool Book::operator <(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(105): message : see declaration of 'Book::operator <'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : 'bool Book::operator >(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(114): message : see declaration of 'Book::operator >'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : 'bool Book::operator ==(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(123): message : see declaration of 'Book::operator =='
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(32,30): message : 'bool Book::operator !=(const Book *&)': is abstract
-C:\Users\Inthe\source\repos\Lab4\book.h(132): message : see declaration of 'Book::operator !='
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(39,13): error C2248: 'Book::availableCopies_': cannot access private member declared in class 'Book'
-C:\Users\Inthe\source\repos\Lab4\book.h(141): message : see declaration of 'Book::availableCopies_'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : 'void Book::display(void)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(103): message : see declaration of 'Book::display'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : 'bool Book::operator <(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(118): message : see declaration of 'Book::operator <'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : 'bool Book::operator >(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(127): message : see declaration of 'Book::operator >'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : 'bool Book::operator ==(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(136): message : see declaration of 'Book::operator =='
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(30,30): message : 'bool Book::operator !=(const Book *&)': is abstract
+C:\Users\Inthe\source\repos\Lab4\book.h(146): message : see declaration of 'Book::operator !='
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(37,13): error C2248: 'Book::availableCopies_': cannot access private member declared in class 'Book'
+C:\Users\Inthe\source\repos\Lab4\book.h(156): message : see declaration of 'Book::availableCopies_'
 C:\Users\Inthe\source\repos\Lab4\book.h(16): message : see declaration of 'Book'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(39,33): error C2248: 'Book::title_': cannot access private member declared in class 'Book'
-C:\Users\Inthe\source\repos\Lab4\book.h(135): message : see declaration of 'Book::title_'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(37,33): error C2248: 'Book::title_': cannot access private member declared in class 'Book'
+C:\Users\Inthe\source\repos\Lab4\book.h(150): message : see declaration of 'Book::title_'
 C:\Users\Inthe\source\repos\Lab4\book.h(16): message : see declaration of 'Book'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(55,39): error C2556: 'bool PeriodicalBook::getMonth(void) const': overloaded function differs only by return type from 'int PeriodicalBook::getMonth(void) const'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(53,39): error C2556: 'bool PeriodicalBook::getMonth(void) const': overloaded function differs only by return type from 'int PeriodicalBook::getMonth(void) const'
 C:\Users\Inthe\source\repos\Lab4\periodicalbook.h(68): message : see declaration of 'PeriodicalBook::getMonth'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(55,22): error C2371: 'PeriodicalBook::getMonth': redefinition; different basic types
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(53,22): error C2371: 'PeriodicalBook::getMonth': redefinition; different basic types
 C:\Users\Inthe\source\repos\Lab4\periodicalbook.h(68): message : see declaration of 'PeriodicalBook::getMonth'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(72,31): error C2511: 'int PeriodicalBook::getYear(void)': overloaded member function not found in 'PeriodicalBook'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(70,31): error C2511: 'int PeriodicalBook::getYear(void)': overloaded member function not found in 'PeriodicalBook'
 C:\Users\Inthe\source\repos\Lab4\periodicalbook.h(14): message : see declaration of 'PeriodicalBook'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(73,12): error C2597: illegal reference to non-static member 'PeriodicalBook::year_'
-C:\Users\Inthe\source\repos\Lab4\periodicalbook.h(90): message : see declaration of 'PeriodicalBook::year_'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.cpp(71,12): error C2597: illegal reference to non-static member 'PeriodicalBook::year_'
+C:\Users\Inthe\source\repos\Lab4\periodicalbook.h(88): message : see declaration of 'PeriodicalBook::year_'
   item.cpp
-c1xx : fatal error C1083: Cannot open source file: 'item.cpp': No such file or directory
+C:\Users\Inthe\source\repos\Lab4\Lab4\item.cpp(1,10): fatal error C1083: Cannot open include file: 'item.h': No such file or directory
+  Running Code Analysis for C/C++...
   Generating Code...

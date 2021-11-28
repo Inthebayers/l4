@@ -70,3 +70,8 @@ bool PeriodicalBook::setYear(int year) {
 int PeriodicalBook::getYear() {
     return year_;
 }
+
+//setTitle
+bool PeriodicalBook::setTitle(string title) {
+    title_ = title;
+}

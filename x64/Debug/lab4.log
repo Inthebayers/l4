@@ -1,0 +1,11 @@
+﻿  book.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\book.cpp': No such file or directory
+  childrenbook.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\childrenbook.cpp': No such file or directory
+  main.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\main.cpp': No such file or directory
+  periodicalbook.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\periodicalbook.cpp': No such file or directory
+  item.cpp
+C:\Users\Inthe\source\repos\Lab4\item.cpp(2,10): fatal error C1083: Cannot open include file: '..\item.h': No such file or directory
+  Generating Code...

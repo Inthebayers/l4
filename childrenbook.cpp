@@ -70,13 +70,25 @@ int ChildrenBook::getYear() const {
     return year_;
 }
 
+int ChildrenBook::getTitle() const {
+    return title_;
+}
+
+int ChildrenBook::setTitle(string title) const {
+    title_ = title;
+}
+
 /**
      * Less than operator. Compares LHS and RHS for lesser value.
      * @param rhsBook rhs Book being passed in
      * @return true
      * @return false
      */
-bool operator<(const Book*& rhsBook) {
+bool ChildrenBook::operator<(const Book*& rhsBook) {
+    bool holder = false; 
+    (title_ < rhsBook->getTitle()) ? holder = true : holder = false; 
+
+    return holder;
 }
 
 /**
@@ -86,7 +98,11 @@ bool operator<(const Book*& rhsBook) {
  * @return true
  * @return false
  */
-bool operator>(const Book*& rhsBook) {
+bool ChildrenBook::operator>(const Book*& rhsBook) {
+    bool holder = false;
+    (title_ < rhsBook->getTitle()) ? holder = true : holder = false;
+
+    return holder;
 }
 
 /**
@@ -96,7 +112,14 @@ bool operator>(const Book*& rhsBook) {
  * @return true
  * @return false
  */
-bool operator==(const Book*& rhsBook) {
+bool ChildrenBook::operator==(const Book*& rhsBook) {
+    bool holder = false; 
+    if (getTitle() == rhsBook->getTitle() && getYear() == rhsBook->getYear()
+        && getAuthor() == rhsBook->getAuthor()) {
+        holder = true; 
+    }
+
+    return holder;
 }
 
 /**
@@ -107,4 +130,5 @@ bool operator==(const Book*& rhsBook) {
  * @return false
  */
 bool operator!=(const Book*& rhsBook) {
+    return (this == rhsBook);
 }

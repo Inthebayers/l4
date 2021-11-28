@@ -75,6 +75,8 @@ public:
      */
     bool setYear(int year);
 
+    bool setTitle(string title);
+
     /** getYear
      * @brief returns the publishing year of the periodical
      * @return year int
