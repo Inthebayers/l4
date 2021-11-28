@@ -25,12 +25,8 @@ class PeriodicalBook : public Book {
 public:
     /**
      * @brief Construct a new Periodical Book object.
-     *
-     * @param title of book being created
-     * @param year book being created was written/published
-     * @param month book being created was written/published
      */
-    PeriodicalBook(string title, int year, int month);
+    PeriodicalBook();
 
     //---------------------------------------------------------------------------
         /**

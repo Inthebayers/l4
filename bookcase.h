@@ -36,13 +36,13 @@ public:
     bool insert(const Book*&);
 
     //--------------------------------------------------------------------------
-        /** checkOut
-         * @brief checks and gets the book that needs to be checked out
-         * @pre Book object of target
-         * @post decrements copies of book available by 1 if books available
-         * @return true if successful false if not
-         * @param book to be checkout out
-         */
+    /** checkOut
+    * @brief checks and gets the book that needs to be checked out
+    * @pre Book object of target
+    * @post decrements copies of book available by 1 if books available
+    * @return true if successful false if not
+    * @param book to be checkout out
+    */
     bool checkOutBook(Book*& target);
 
 private:
