@@ -10,4 +10,14 @@
 *.json
 *.suo
 *.sqlite
+
+/.vs/
+
+/Debug/
+
+*.vcxproj
+
+*.sqlite
+
+/.vs
 /gitignore
