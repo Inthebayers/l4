@@ -50,13 +50,20 @@ public:
          * @post: new periodical book object is created and returned.
          */
     virtual Book* create();
+ 
+    //---------------------------------------------------------------------------
+    /** display
+     * @brief displays the book copies, title, month, and year
+     * @post contents displayed to console
+     */
+    virtual void display() const;
 
     /** setMonth
      * @brief sets the publishing month data of the periodical
      * @pre a new periodical book object
      * @post month data member set
      */
-    void setMonth();
+    bool setMonth(int month);
 
     /** getMonth
      * @brief returns the publishing month of the periodical
@@ -68,8 +75,9 @@ public:
      * @brief sets the publishing year data of the periodical
      * @pre a new periodical book object
      * @post year data member set
+     * @return 
      */
-    void setYear();
+    bool setYear(int year);
 
     /** getYear
      * @brief returns the publishing year of the periodical
@@ -81,7 +89,7 @@ public:
 
 private:
     // month periodical was written/published
-    int month;
+    int month_;
     // year periodical was written/published
-    int year;
+    int year_;
 };
