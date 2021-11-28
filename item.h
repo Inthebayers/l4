@@ -23,7 +23,7 @@ public:
      */
     Item(string incomingItem);
 
-
+    Item();
 private:
 
 protected:

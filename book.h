@@ -82,7 +82,7 @@ class Book : public Item {
      * @pre: Assumes valid object has been created
      * @post: Object will be deleted and memory freed.
      */
-    virtual ~Book() = 0;
+    virtual ~Book();
 
    //---------------------------------------------------------------------------
     /**
