@@ -85,13 +85,13 @@ public:
      */
     int getYear() const;
 
-       /**
+    /**
     * Less than operator. Compares LHS and RHS for lesser value.
     * @param rhsBook rhs Book being passed in
     * @return true
     * @return false
     */
-   virtual bool operator<(const Book *&rhsBook) = 0;
+   bool operator<(const Book &rhsBook) const;
 
    /**
      *
@@ -100,7 +100,7 @@ public:
      * @return true
      * @return false
      */
-   virtual bool operator>(const Book *&rhsBook) = 0;
+   bool operator>(const Book &rhsBook) const;
 
    /**
      * Equals operator. Determines if two Book objects are equal.
@@ -109,7 +109,7 @@ public:
      * @return true
      * @return false
      */
-   virtual bool operator==(const Book *&rhsBook) = 0;
+   bool operator==(const Book &rhsBook) const;
 
    /**
      * Does not equals operator. Determines if two books are not equal.
@@ -118,9 +118,9 @@ public:
      * @return true
      * @return false
      */
+   bool operator!=(const Book &rhsBook) const;
 
-   virtual bool operator!=(const Book *&rhsBook) = 0;
-
+  void display() const; 
 private:
     // author of the book, last then first
     string author_;

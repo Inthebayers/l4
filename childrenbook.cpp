@@ -19,7 +19,6 @@ ChildrenBook::ChildrenBook()
 ChildrenBook::~ChildrenBook()
 {
 }
-// [ ]
 //---------------------------------------------------------------------------
  /** create
   * @brief Creates a children book object, then returns a copy of that object
@@ -77,9 +76,15 @@ int ChildrenBook::getYear() const {
      * @return true
      * @return false
      */
-bool ChildrenBook::operator<(const Book*& rhsBook) {
+bool ChildrenBook::operator<(const Book& rhsBook) const {
     bool holder = false; 
-    (getTitle() < rhsBook->getTitle()) ? holder = true : holder = false; 
+
+    // cast book to children's book 
+    const ChildrenBook& rhsBookCasted = static_cast<const ChildrenBook&>(rhsBook);
+
+        // compare titles
+    (getTitle() < rhsBookCasted.getTitle()) ? holder = true : holder = false;
+    
 
     return holder;
 }
@@ -91,10 +96,15 @@ bool ChildrenBook::operator<(const Book*& rhsBook) {
  * @return true
  * @return false
  */
-bool ChildrenBook::operator>(const Book*& rhsBook) {
+bool ChildrenBook::operator>(const Book& rhsBook) const {
     bool holder = false;
-    (getTitle() < rhsBook->getTitle()) ? holder = true : holder = false;
 
+    // cast book to children's book 
+    const ChildrenBook& rhsBookCasted = static_cast<const ChildrenBook&>(rhsBook);
+
+    // compare titles, adjust bool as needed
+    (getTitle() > rhsBookCasted.getTitle()) ? holder = true : holder = false;
+    
     return holder;
 }
 
@@ -105,10 +115,15 @@ bool ChildrenBook::operator>(const Book*& rhsBook) {
  * @return true
  * @return false
  */
-bool ChildrenBook::operator==(const Book*& rhsBook) {
+// TODO: Changed Book to ChildrenBook in parameter to compare fields
+bool ChildrenBook::operator==(const Book& rhsBook) const {
     bool holder = false; 
-    // TODO: CHECK THIS WITH KENDRA (PROBABLY DOESN'T WORK)
-    if (*this == rhsBook) {
+
+    // cast rhs book to children's book
+    const ChildrenBook& rhsBookCasted = static_cast<const ChildrenBook&>(rhsBook);
+
+    // compare author, title, and year between two books 
+    if (rhsBookCasted.getAuthor() == getAuthor() && rhsBookCasted.getTitle() == getTitle() && rhsBookCasted.getYear() == getYear()) {
         holder = true; 
     }
 
@@ -122,7 +137,12 @@ bool ChildrenBook::operator==(const Book*& rhsBook) {
  * @return true
  * @return false
  */
-bool ChildrenBook::operator!=(const Book*& rhsBook) {
-    return (this == rhsBook);
+bool ChildrenBook::operator!=(const Book& rhsBook) const {
+    // use comparison operator to return value
+    return *this == rhsBook;
 }
 
+// TODO: Add spacing
+void ChildrenBook::display() const {
+    cout << title_ << author_ << year_ << endl;
+}

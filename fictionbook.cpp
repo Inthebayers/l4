@@ -15,7 +15,7 @@ FictionBook::FictionBook() {
     author_ = "";
     year_ = 0;
     title_ = "";
-    book_code_ = "F";
+    bookCode_ = 'F';
 }
 
 //destructor
@@ -64,6 +64,11 @@ int FictionBook::getYear() const {
     return year_;
 }
 
+bool FictionBook::operator<(const FictionBook *& rhsBook) { 
+    bool holder = false; 
+    (getAuthor() < rhsBook->getAuthor())
+}
+
 // TODO: 
 // [ ] Less than operator < 
 // [ ] Greater than operator >
@@ -73,3 +78,4 @@ int FictionBook::getYear() const {
 // [ ] setYear
 // [ ] getAuthor
 // [ ] setAuthor
+// TODO: COPY CONSTRUCTOR
