@@ -10,13 +10,8 @@
 //  -- uses a hash table to store containers for differnt genres
 //  -- each genre is associated with a letter e.g: F- fiction
 //  -- array size is 26, letters a...z correlate directly to index 0...25
-// 
-// TODO - these comments came from bookContainer - seem more applicable here
-// //  -- uses a hash table of binary search trees to store the books
-//  -- first letter of book title is used to get the array index
-//  -- array size is 26, letters a...z correlate directly to index 0...25
+//  -- uses a hash table of binary search trees to store the books
 //  -- first letter of genre is stored as char
-
 //---------------------------------------------------------------------------
 
 #ifndef BOOKCASE_H
@@ -51,13 +46,17 @@ public:
     * @return true if successful false if not
     * @param book to be checkout out
     */
-    bool checkOutBook(Book*& target);
+    bool checkOut(Book*& target) const;
 
     void display() const;
 
 private:
-    int hash(char) const;          // hash funtion to get genre type
-    BookContainer* containers[26]; // array that stores containers
+
+    // hash funtion to get genre 
+    int hash(char) const;          
+
+    // array that stores containers by genre
+    BookContainer* containers[26]; 
 };
 
 #endif

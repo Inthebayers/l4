@@ -7,7 +7,7 @@
 //
 // Assumptions:
 //  -- initial character in input dictates 'c' for children
-//  -- Comparison operators will only be with other ChildrenBook
+//  -- Comparison operators will only be used with other ChildrenBook
 // Implementation:
 //  -- 
 //---------------------------------------------------------------------------
