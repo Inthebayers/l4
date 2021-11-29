@@ -138,7 +138,6 @@ bool ChildrenBook::operator==(const Book& rhsBook) const {
 
 /**
  * Does not equals operator. Determines if two books are not equal.
- *
  * @param rhsBook
  * @return true
  * @return false

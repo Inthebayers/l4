@@ -75,13 +75,45 @@ public:
      */
     bool setYear(int year);
 
-    bool setTitle(string title);
-
     /** getYear
      * @brief returns the publishing year of the periodical
      * @return year int
      */
     int getYear() const;
+
+    /**
+    * Less than operator. Compares LHS and RHS for lesser value.
+    * @param rhsBook rhs Book being passed in
+    * @return true
+    * @return false
+    */
+    bool operator<(const Book& rhsBook) const;
+
+    /**
+      *
+      * Greater than operator. compares LHS and RHS for greater value.
+      * @param rhsBook rhs Book being passed in for comparison
+      * @return true
+      * @return false
+      */
+    bool operator>(const Book& rhsBook) const;
+
+    /**
+      * Equals operator. Determines if two Book objects are equal.
+      * @param rhsBook rhs Book being passed in for equals comparison
+      * @return true
+      * @return false
+      */
+    bool operator==(const Book& rhsBook) const;
+
+    /**
+      * Does not equals operator. Determines if two books are not equal.
+      * @param rhsBook
+      * @return true
+      * @return false
+      */
+    bool operator!=(const Book& rhsBook) const;
+
 
 private:
     // month periodical was written/published
