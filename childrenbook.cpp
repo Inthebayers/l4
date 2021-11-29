@@ -145,7 +145,7 @@ bool ChildrenBook::operator==(const Book& rhsBook) const {
  */
 bool ChildrenBook::operator!=(const Book& rhsBook) const {
     // use comparison operator to return value
-    return (!*this == rhsBook);
+    return !(*this == rhsBook);
 }
 
 // TODO: Add spacing
