@@ -94,16 +94,45 @@ public:
      */
    void setTitle(string incomingTitle);
 
-
-   // TODO - comments on these functions
+   /**
+    * @brief Set the code of the current book object. Attributes the book code
+    * used to create the object with the book in order to enable easy comparison.
+    * 
+    * @param char, the character the code should be set to
+    */
    void setBookCode(char);
 
+  /**
+   * @brief Set the number of available copies within a book to a set amount passed 
+   * in by parameter.
+   * 
+   * @param int, the number of books that should be set available after function. 
+   */
    void setAvailableCopies(int);
 
+
+  /**
+   * @brief Get the amount of available copies of this given book.
+   * 
+   * @return int, the amount of books currently checked in and available. 
+   */
    int getAvailableCopies() const;
 
+  /**
+   * @brief Set the total amount of copies owned by the library, whether checked
+   * in or out. 
+   * 
+   * @return true if set was successful
+   * @return false if set was unsuccessful
+   */
    bool setTotalCopies(int);
 
+   /**
+    * @brief Get the total number of copies of a book owned by the library, whether
+    * checked in or out. 
+    * 
+    * @return int of total number of copies of book owned by library. 
+    */
    int getTotalCopies();
 
    /** display
