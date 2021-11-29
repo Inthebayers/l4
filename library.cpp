@@ -51,12 +51,6 @@ void Library::printPatronHistory(const Patron&) const {
 bool Library::buildBooks(istream& in) {
    return bookcase.buildBook(in);
 }
-// calls bookCase --> bookCase will call bookFactory 
-// bookFactory will run createBook and return blank book object of type
-// BookCase --> calls buildBook on the book object and fills data
-// bookCase then calls insert in bookContainer
-// bookFactor returns 
-
 
 
 //---------------------------------------------------------------------------
