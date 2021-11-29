@@ -54,7 +54,7 @@ public:
     * @return true book inserted, false book not inserted
     * @param book to be inserted
     */
-    bool insert(const Book*&);
+    bool insert(const Book&);
 
     //---------------------------------------------------------------------------
     /** checkOut
@@ -64,12 +64,12 @@ public:
     * @param book to be checkout out
     * @param returned book returned by reference if found
     */
-    bool retrieve(Book*& target, Book*& returned) const;
+    bool retrieve(Book& target, Book& returned) const;
 
     // TODO
-    bool checkout(Book*& target);
+    bool checkout(Book& target);
 
-    bool isInContainer(Book*& target);
+    bool isInContainer(Book& target);
 
     /** display
     * @brief prints the contents of the tree in-order
