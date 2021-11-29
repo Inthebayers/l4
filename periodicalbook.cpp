@@ -26,8 +26,24 @@ PeriodicalBook:: ~PeriodicalBook() {
 
 //---------------------------------------------------------------------------
 // buildBook
-// TODO implement
+// file format: type title, month year
 bool PeriodicalBook::buildBook(istream& in) {
+    string title;
+    int month;
+    int year;
+
+    getline(in, title, ',');
+    in.get(); // remove blank space
+    in >> month;
+    in.get(); // remove blank space
+    in >> year;
+    setTitle(title);
+    setMonth(month);
+    setYear(year);
+
+    return (getTitle() == title && getMonth() == month && getYear() == year);
+
+
 
 }
 

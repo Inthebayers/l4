@@ -26,7 +26,6 @@ FictionBook::~FictionBook() {
 
 //---------------------------------------------------------------------------
 // buildBook
-// TODO implement
 // file format: type author, title, year : istream passed in beginning at author
 bool FictionBook::buildBook(istream& in) {
     string author;
@@ -38,7 +37,12 @@ bool FictionBook::buildBook(istream& in) {
     getline(in, title, ',');
     in.get(); // remove blank space
     in >> year;
-   return( setAuthor(author) && setTitle(title) && setYear(year));
+    setAuthor(author);
+    setTitle(title);
+    setYear(year);
+
+    return (getAuthor() == author && getTitle() == title && getYear() == year);
+
 }
 
 //---------------------------------------------------------------------------
