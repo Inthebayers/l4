@@ -34,7 +34,7 @@ Library::~Library() {
 
 //---------------------------------------------------------------------------
 // addPatron
-bool Library::addPatron(istream& in) {
+bool Library::buildPatrons(istream& in) {
     // data format --> ID# Last First
     return patronContainer.insert(in);
 }
@@ -48,7 +48,7 @@ void Library::printPatronHistory(const Patron&) const {
 
 //---------------------------------------------------------------------------
 // addBook
-bool Library::addBook(istream&) {
+bool Library::buildBooks(istream&) {
 
 }
 

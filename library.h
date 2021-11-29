@@ -40,7 +40,7 @@ public:
      * @return true if patron was added, false if not
      * @param istream patron info from file
      */
-    bool addPatron(istream&);
+    bool buildPatrons(istream&);
 
 //---------------------------------------------------------------------------
     /** getPatronHistory
@@ -54,7 +54,7 @@ public:
     * @brief adds book to book container
     * @return true if book was added, false if not
     */
-    bool addBook(istream&);
+    bool buildBooks(istream&);
 
 //---------------------------------------------------------------------------
     /** displayContents

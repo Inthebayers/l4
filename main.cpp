@@ -19,9 +19,9 @@ int main() {
     Library lib;
     ifstream books, patrons, commands;
     books.open("booksFile");
-    lib.addBook(books); // initialize books
+    lib.buildBooks(books); // initialize books
     patrons.open("patronsFile");
-    lib.addPatron(patrons); // initialize patrons
+    lib.buildPatrons(patrons); // initialize patrons
     commands.open("commandFile");
     lib.commandHandler(commands); // initialize commands
     return 0;
