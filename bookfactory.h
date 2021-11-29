@@ -35,12 +35,13 @@ public:
     ~BookFactory();
 
     //---------------------------------------------------------------------------
-        /**
-         * @brief Create a Book object. Determines type of book based on incoming
-         * stream information. Can create a fiction, periodical, or children's book.
-         * @return Book pointer pointing to the newly created book object.
-         */
-    Book* createBook(char type) const;
+    /**
+    * @brief Create a Book object. Determines type of book based on incoming
+    * stream information. Can create a fiction, periodical, or children's book.
+    * @return Book pointer pointing to the newly created book object.
+    */
+    Book* createBook(char type);
+
 
 private:
     const int BOOKTYPES = 26;

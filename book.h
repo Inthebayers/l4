@@ -47,8 +47,6 @@ public:
    */
    virtual bool buildBook(istream& in) = 0;
    // TODO every book would need to get buildBook implemented
-   // calls bookFactory --> bookFactory will read first char
-   // bookFactor returns 
 
 
    //---------------------------------------------------------------------------

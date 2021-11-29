@@ -20,6 +20,7 @@
 #define BOOKCASE_H
 
 #include "bookcontainer.h"
+#include "bookfactory.h"
 #include <iostream>
 
 class Bookcase {
@@ -39,6 +40,13 @@ public:
      */
     bool insert(const Book&);
 
+    //---------------------------------------------------------------------------
+    /** buildBook
+    * @brief interface between data file and book addition
+    * @return true if book was added, false if not
+    */
+    bool buildBook(istream& in);
+
     //--------------------------------------------------------------------------
     /** checkOut
     * @brief checks and gets the book that needs to be checked out
@@ -47,7 +55,13 @@ public:
     * @return true if successful false if not
     * @param book to be checkout out
     */
-    bool checkOut(Book*& target) const;
+    bool checkOut(Book*& target) ;
+
+    //---------------------------------------------------------------------------
+    /** display
+    * @brief displays all the contents of containers to console
+    * @post each BookContainer in containers displayed to console
+    */
 
     void display() const;
 

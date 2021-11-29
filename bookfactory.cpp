@@ -40,6 +40,7 @@ Book* BookFactory::createBook(char type) const {
     return bookTypes[subscript]->create();
 }
 
+
 //---------------------------------------------------------------------------
 // hash
 int BookFactory::hash(char genre) const {

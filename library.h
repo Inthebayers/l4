@@ -50,8 +50,8 @@ public:
     void printPatronHistory(const Patron&) const;
 
 //---------------------------------------------------------------------------
-    /** addBook
-    * @brief adds book to book container
+    /** buildBook
+    * @brief interface between data file and book addition
     * @return true if book was added, false if not
     */
     bool buildBooks(istream&);
@@ -61,6 +61,7 @@ public:
     * @brief displays books by category, sorted within the category
     */
     void displayItems() const;
+    //TODO implement for compiling
 
 //---------------------------------------------------------------------------
     /** commandHandler

@@ -54,6 +54,27 @@ bool Bookcase::insert(const Book& toInsert) {
 }
 
 //---------------------------------------------------------------------------
+// buildBook
+bool BookCase::buildBook(istream& in) {
+    bool success = false;
+    BookFactory bf;
+    char code;
+    // read bookCode (genre type)
+    in >> code;
+    in.get(); //get and ignore next blank space
+    //newBook stores newly created book object
+    Book newBook;
+    newBook = bf.createBook(code);
+    //book class responsible for filling in rest of book information
+    if (newBook->buildBook(in)) {
+        // if book info was set insert in containers
+       success = insert(newBook);
+    }
+    return success;
+    
+}
+
+//---------------------------------------------------------------------------
 // checkOut
 bool Bookcase::checkOut(Book& target) {
     // check for type
