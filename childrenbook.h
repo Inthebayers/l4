@@ -78,16 +78,48 @@ public:
      */
     void setYear(int year);
 
-    string getTitle() const;
-
-    int setTitle(string title) const;
-
     /** getYear
      * @brief returns the book published year
      * @pre a book object with set year
      * @post int year is returned
      */
     int getYear() const;
+
+       /**
+    * Less than operator. Compares LHS and RHS for lesser value.
+    * @param rhsBook rhs Book being passed in
+    * @return true
+    * @return false
+    */
+   virtual bool operator<(const Book *&rhsBook) = 0;
+
+   /**
+     *
+     * Greater than operator. compares LHS and RHS for greater value.
+     * @param rhsBook rhs Book being passed in for comparison
+     * @return true
+     * @return false
+     */
+   virtual bool operator>(const Book *&rhsBook) = 0;
+
+   /**
+     * Equals operator. Determines if two Book objects are equal.
+     *
+     * @param rhsBook rhs Book being passed in for equals comparison
+     * @return true
+     * @return false
+     */
+   virtual bool operator==(const Book *&rhsBook) = 0;
+
+   /**
+     * Does not equals operator. Determines if two books are not equal.
+     *
+     * @param rhsBook
+     * @return true
+     * @return false
+     */
+
+   virtual bool operator!=(const Book *&rhsBook) = 0;
 
 private:
     // author of the book, last then first

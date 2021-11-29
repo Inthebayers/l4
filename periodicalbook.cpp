@@ -75,3 +75,12 @@ int PeriodicalBook::getYear() {
 bool PeriodicalBook::setTitle(string title) {
     title_ = title;
 }
+// TODO: 
+// [ ] Less than operator < 
+// [ ] Greater than operator >
+// [ ] Equals to operator==
+// [ ] Does not equals operator!=
+// [ ] getYear
+// [ ] setYear
+// [ ] getAuthor
+// [ ] setAuthor

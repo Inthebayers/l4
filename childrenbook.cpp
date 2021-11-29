@@ -19,7 +19,7 @@ ChildrenBook::ChildrenBook()
 ChildrenBook::~ChildrenBook()
 {
 }
-
+// [ ]
 //---------------------------------------------------------------------------
  /** create
   * @brief Creates a children book object, then returns a copy of that object
@@ -71,15 +71,6 @@ int ChildrenBook::getYear() const {
     return year_;
 }
 
-string ChildrenBook::getTitle() const {
-    return title_;
-}
-
-int ChildrenBook::setTitle(string title) const {
-    // TODO: CHANGE THIS
-    title_ = title;
-}
-
 /**
      * Less than operator. Compares LHS and RHS for lesser value.
      * @param rhsBook rhs Book being passed in
@@ -88,7 +79,7 @@ int ChildrenBook::setTitle(string title) const {
      */
 bool ChildrenBook::operator<(const Book*& rhsBook) {
     bool holder = false; 
-    (title_ < rhsBook->getTitle()) ? holder = true : holder = false; 
+    (getTitle() < rhsBook->getTitle()) ? holder = true : holder = false; 
 
     return holder;
 }
@@ -102,7 +93,7 @@ bool ChildrenBook::operator<(const Book*& rhsBook) {
  */
 bool ChildrenBook::operator>(const Book*& rhsBook) {
     bool holder = false;
-    (title_ < rhsBook->getTitle()) ? holder = true : holder = false;
+    (getTitle() < rhsBook->getTitle()) ? holder = true : holder = false;
 
     return holder;
 }
@@ -116,8 +107,8 @@ bool ChildrenBook::operator>(const Book*& rhsBook) {
  */
 bool ChildrenBook::operator==(const Book*& rhsBook) {
     bool holder = false; 
-    if (getTitle() == rhsBook->getTitle() && getYear() == rhsBook->getYear()
-        && getAuthor() == rhsBook->getAuthor()) {
+    // TODO: CHECK THIS WITH KENDRA (PROBABLY DOESN'T WORK)
+    if (*this == rhsBook) {
         holder = true; 
     }
 
@@ -131,6 +122,7 @@ bool ChildrenBook::operator==(const Book*& rhsBook) {
  * @return true
  * @return false
  */
-bool operator!=(const Book*& rhsBook) {
+bool ChildrenBook::operator!=(const Book*& rhsBook) {
     return (this == rhsBook);
 }
+

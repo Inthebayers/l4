@@ -63,3 +63,13 @@ string FictionBook::getAuthor() const {
 int FictionBook::getYear() const {
     return year_;
 }
+
+// TODO: 
+// [ ] Less than operator < 
+// [ ] Greater than operator >
+// [ ] Equals to operator==
+// [ ] Does not equals operator!=
+// [ ] getYear
+// [ ] setYear
+// [ ] getAuthor
+// [ ] setAuthor
