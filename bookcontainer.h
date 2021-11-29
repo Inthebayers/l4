@@ -66,6 +66,11 @@ public:
     */
     bool retrieve(Book*& target, Book*& returned) const;
 
+    // TODO
+    bool checkout(Book*& target);
+
+    bool isInContainer(Book*& target);
+
     /** display
     * @brief prints the contents of the tree in-order
     * @pre a non empty tree
