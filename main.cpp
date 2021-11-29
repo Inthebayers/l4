@@ -26,3 +26,10 @@ int main() {
     lib.commandHandler(commands); // initialize commands
     return 0;
 }
+
+void testBooks() {
+    Library lib;
+    ifstream books;
+    books.open"data4books.txt";
+
+}
