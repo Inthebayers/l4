@@ -122,7 +122,7 @@ public:
     * @return true
     * @return false
     */
-   // TODO: CHANGED FROM REFERENCE POINTER
+
    virtual bool operator<(const Book &rhsBook) const = 0;
 
    /**

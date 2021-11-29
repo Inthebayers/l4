@@ -122,7 +122,7 @@ bool ChildrenBook::operator>(const Book& rhsBook) const {
  * @return true
  * @return false
  */
-// TODO: Changed Book to ChildrenBook in parameter to compare fields
+
 bool ChildrenBook::operator==(const Book& rhsBook) const {
     bool holder = false; 
 
@@ -144,7 +144,7 @@ bool ChildrenBook::operator==(const Book& rhsBook) const {
  */
 bool ChildrenBook::operator!=(const Book& rhsBook) const {
     // use comparison operator to return value
-    return (!*this == rhsBook);
+    return !(*this == rhsBook);
 }
 
 // TODO: Add spacing

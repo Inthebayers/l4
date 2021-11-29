@@ -88,7 +88,7 @@ public:
     * @return true
     * @return false
     */
-   bool operator<(const FictionBook *&rhsBook);
+   bool operator<(const Book &rhsBook) const;
 
    /**
      *
@@ -97,7 +97,7 @@ public:
      * @return true
      * @return false
      */
-   bool operator>(const FictionBook *&rhsBook);
+   bool operator>(const Book &rhsBook) const;
 
    /**
      * Equals operator. Determines if two Book objects are equal.
@@ -106,7 +106,7 @@ public:
      * @return true
      * @return false
      */
-   bool operator==(const FictionBook *&rhsBook);
+   bool operator==(const Book &rhsBook) const;
 
    /**
      * Does not equals operator. Determines if two books are not equal.
@@ -116,7 +116,7 @@ public:
      * @return false
      */
 
-   bool operator!=(const FictionBook *&rhsBook);
+   bool operator!=(const Book &rhsBook) const;
 
 private:
     // author of the book, last then first name
