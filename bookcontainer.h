@@ -3,17 +3,20 @@
 //---------------------------------------------------------------------------
 // A BookContainer class to contain one genre of books. Acts as interface
 // between bookcase and book.
-// BookContainer is a binary search tree containing nodeData objects that
-// Contian pointers to book objects
+// BookContainer is a binary search tree containing Node structs that
+// Contain pointers to book objects, left child, and right child.
 //
 // Assumptions:
 //  -- container has no limit
 //  -- each book is uniquely identified by its sorting criteria
+//  -- each BookContainer will store only one genre of books
+//  -- Comparison operators are not needed
+//  -- books will not be removed from the library
 // Implementation
-//  -- uses a hash table of binary search trees to store the books
-//  -- first letter of book title is used to get the array index
-//  -- array size is 26, letters a...z correlate directly to index 0...25
-//  -- first letter of genre is stored as char
+//  -- root data member is a pointer to the root of the tree
+//  -- genre_ data member stores the BookContainer genre type
+//  -- Does not allow duplicate books to be inserted
+//  -- Does not allow books to be removed from the library
 //---------------------------------------------------------------------------
 
 #ifndef BOOKCONTAINER_H
@@ -45,7 +48,7 @@ public:
 
     //---------------------------------------------------------------------------
     /** insert
-    * @brief inserts book into container
+    * @brief calls private helper method to insert book as Node is BookConatiner
     * @pre existing book and BookContainer
     * @post book is unchanged
     * @return true book inserted, false book not inserted
@@ -55,28 +58,50 @@ public:
 
     //---------------------------------------------------------------------------
     /** checkOut
-    * @brief sets book to checked out
+    * @brief sets book to checked out and returns by reference
     * @pre existing book in container
     * @return true book was checked out, false book was not checked out
     * @param book to be checkout out
+    * @param returned book returned by reference if found
     */
-    bool retrieve(Book*& target, Book*& returned);
+    bool retrieve(Book*& target, Book*& returned) const;
 
     /** display
     * @brief prints the contents of the tree in-order
     * @pre a non empty tree
     * @post contents displayed to console
     */
-    void display();
+    void display() const;
 
     /** makeEmpty
      * @brief clears the BookContainer structure
-     * @pre
-     * @post
+     * @pre a non empty BookContainer 
+     * @post An empty BookContainer
      */
     void makeEmpty();
 
-    void isEmpty();
+    /** isEmpty
+     * @brief Checks if the BookContainer tree is empty
+     * @return true if empty, false if not empty
+     */
+    bool isEmpty() const;
+
+    /** setGenre
+    *@brief setter method for the genre_ data member
+    * genre can only be set while BookContainer is empty 
+    *  - as in it can not later be changed
+    *@post BookContainer genreType Specified
+    */
+    bool setGenre(char genre); 
+
+    /** getGenre
+    * @brief retrieves the BookContainer genre_ data member
+    * @pre none
+    * @return char of genre type 
+    */
+    char getGenre() const;
+
+
 
 private:
 
@@ -84,11 +109,38 @@ private:
         Book* book;
         Node* left;
         Node* right;
+        // default constructor
+        Node();
+        // destructor
+        ~Node;
     };
+
+    // root of the BookContaier BST
     Node* root;
 
     //genre of this bookcontainer
     char genre_;
+
+    /** insertNode
+    * @brief inserts a Node object containing a book pointer into the tree
+    * @pre valid Node* to insert
+    * @post Book* is stored in a Node and placed into sorted position
+    * duplicates are not inserted, returns a boolean value
+    */
+    bool insertNode(const Node*);
+
+    /** dsiplayHelper
+    * @brief recursive helper function for display
+    * traverses the BookContainer tree in order and displays books
+    * @post display() called on all book objects in order
+    */
+    void displayHelper(Node* cur) const;
+
+    /** clear
+    * @brief recursive helper function for makeEmpty
+    * @post the BookContainer is empty
+    */
+    void clear(Node* cur);
 };
 
 #endif

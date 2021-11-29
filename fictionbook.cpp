@@ -15,7 +15,7 @@ FictionBook::FictionBook() {
     author_ = "";
     year_ = 0;
     title_ = "";
-    book_code_ = "F";
+    bookCode_ = 'F';
 }
 
 //destructor

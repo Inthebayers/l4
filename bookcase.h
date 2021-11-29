@@ -10,6 +10,13 @@
 //  -- uses a hash table to store containers for differnt genres
 //  -- each genre is associated with a letter e.g: F- fiction
 //  -- array size is 26, letters a...z correlate directly to index 0...25
+// 
+// TODO - these comments came from bookContainer - seem more applicable here
+// //  -- uses a hash table of binary search trees to store the books
+//  -- first letter of book title is used to get the array index
+//  -- array size is 26, letters a...z correlate directly to index 0...25
+//  -- first letter of genre is stored as char
+
 //---------------------------------------------------------------------------
 
 #ifndef BOOKCASE_H
@@ -22,6 +29,7 @@ class Bookcase {
     friend ostream& operator<<(ostream&, const Bookcase&);
 
 public:
+
     Bookcase();  // contructor
     ~Bookcase(); // destructor
 
@@ -44,6 +52,8 @@ public:
     * @param book to be checkout out
     */
     bool checkOutBook(Book*& target);
+
+    void display() const;
 
 private:
     int hash(char) const;          // hash funtion to get genre type
