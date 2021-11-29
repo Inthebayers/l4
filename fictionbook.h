@@ -71,7 +71,7 @@ public:
     /** getAuthor
      * @brief gets and returns the book author
      * @pre book object has set author
-     * @post string of authro is returned
+     * @post string of author is returned
      */
     string getAuthor() const;
 
@@ -81,6 +81,42 @@ public:
      * @post int year is returned
      */
     int getYear() const;
+
+           /**
+    * Less than operator. Compares LHS and RHS for lesser value.
+    * @param rhsBook rhs Book being passed in
+    * @return true
+    * @return false
+    */
+   bool operator<(const FictionBook *&rhsBook);
+
+   /**
+     *
+     * Greater than operator. compares LHS and RHS for greater value.
+     * @param rhsBook rhs Book being passed in for comparison
+     * @return true
+     * @return false
+     */
+   bool operator>(const FictionBook *&rhsBook);
+
+   /**
+     * Equals operator. Determines if two Book objects are equal.
+     *
+     * @param rhsBook rhs Book being passed in for equals comparison
+     * @return true
+     * @return false
+     */
+   bool operator==(const FictionBook *&rhsBook);
+
+   /**
+     * Does not equals operator. Determines if two books are not equal.
+     *
+     * @param rhsBook
+     * @return true
+     * @return false
+     */
+
+   bool operator!=(const FictionBook *&rhsBook);
 
 private:
     // author of the book, last then first name

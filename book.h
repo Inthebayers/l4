@@ -48,18 +48,8 @@ public:
       * @pre: Assumes book has amount to check out
       * @post: Book will remove 1 copy of itself from the library stores
       */
-   virtual bool checkOut() = 0;
+   virtual bool checkOut();
 
-   //---------------------------------------------------------------------------
-   /**
-      * @brief Get the title of the current book object.
-      *
-      * @return string containing the title of the current book
-      *
-      * @pre: Assumes valid book with title has been created.
-      * @post: No changes.
-      */
-   virtual string getTitle() const = 0;
 
    //---------------------------------------------------------------------------
    /**
@@ -72,7 +62,7 @@ public:
       * @pre: Assumes book is checked out
       * @post: Book is returned to library, incrementing the number of copies
       */
-   virtual bool returnToLibrary() = 0;
+   bool returnToLibrary();
 
    //---------------------------------------------------------------------------
    /**
@@ -83,40 +73,41 @@ public:
       * @pre: Assumes valid code and properly created book.
       * @post: No changes to data.
       */
-   virtual char getBookCode() const = 0;
+   char getBookCode() const;
 
+   //---------------------------------------------------------------------------
    /**
-     * Gets the title of the given book. Pure virtual.
-     */
-   virtual string getTitle();
+      * @brief Get the title of the current book object.
+      *
+      * @return string containing the title of the current book
+      *
+      * @pre: Assumes valid book with title has been created.
+      * @post: No changes.
+      */
+   string getTitle() const;
 
    /**
      * Sets the title of the given book. Pure virtual.
      */
-   virtual void setTitle(string incomingTitle);
+   void setTitle(string incomingTitle);
 
-   virtual void setBookCode(char);
+   void setBookCode(char);
 
-   virtual void setAvailableCopies(int);
+   void setAvailableCopies(int);
 
-   virtual int getAvailableCopies();
-   virtual char getBookCode();
+   int getAvailableCopies() const;
 
-   virtual bool checkOutOneBook();
+   bool setTotalCopies(int);
 
-   virtual bool returnOneBook();
-
-   virtual bool setTotalCopies(int);
-
-   virtual int getTotalCopies();
+   int getTotalCopies();
 
    /** display
-     * @brief prints the contents of the book to consoel,
+     * @brief prints the contents of the book to console,
      * pure virtual function
      * @pre implemented display() in child classes
      * @post book contents displayed to console
      */
-   virtual void display() = 0;
+   virtual void display() const = 0;
 
    /** create
      * @brief creates a new book object, pure virutal funciton
@@ -131,7 +122,8 @@ public:
     * @return true
     * @return false
     */
-   virtual bool operator<(const Book *&rhsBook) = 0;
+   // TODO: CHANGED FROM REFERENCE POINTER
+   virtual bool operator<(const Book &rhsBook) const = 0;
 
    /**
      *
@@ -140,7 +132,7 @@ public:
      * @return true
      * @return false
      */
-   virtual bool operator>(const Book *&rhsBook) = 0;
+   virtual bool operator>(const Book &rhsBook) const = 0;
 
    /**
      * Equals operator. Determines if two Book objects are equal.
@@ -149,7 +141,7 @@ public:
      * @return true
      * @return false
      */
-   virtual bool operator==(const Book *&rhsBook) = 0;
+   virtual bool operator==(const Book &rhsBook) const = 0;
 
    /**
      * Does not equals operator. Determines if two books are not equal.
@@ -159,7 +151,7 @@ public:
      * @return false
      */
 
-   virtual bool operator!=(const Book *&rhsBook) = 0;
+   virtual bool operator!=(const Book &rhsBook) const = 0;
 
 protected:
    // title of book

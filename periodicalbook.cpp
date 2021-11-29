@@ -84,3 +84,4 @@ bool PeriodicalBook::setTitle(string title) {
 // [ ] setYear
 // [ ] getAuthor
 // [ ] setAuthor
+// TODO: COPY CONSTRUCTOR

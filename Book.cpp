@@ -21,7 +21,7 @@ void Book::setTitle(string incomingTitle)
    title_ = incomingTitle;
 }
 
-string Book::getTitle()
+string Book::getTitle() const
 {
    return title_;
 }
@@ -31,7 +31,7 @@ void Book::setBookCode(char incomingChar)
    bookCode_ = incomingChar;
 }
 
-char Book::getBookCode()
+char Book::getBookCode() const
 {
    return bookCode_;
 }
@@ -41,12 +41,22 @@ void Book::setAvailableCopies(int newNumberOfCopies)
    availableCopies_ = newNumberOfCopies;
 }
 
-int Book::getAvailableCopies()
+int Book::getAvailableCopies() const
 {
    return availableCopies_;
 }
 
-bool Book::checkOutOneBook()
+   //---------------------------------------------------------------------------
+   /**
+      * @brief Handles the field management required to check out a book.
+      *
+      * @return true if check out was successful
+      * @return false if check out was not sucessful
+      *
+      * @pre: Assumes book has amount to check out
+      * @post: Book will remove 1 copy of itself from the library stores
+      */
+bool Book::checkOut()
 {
    if (availableCopies_ > 0)
    {
@@ -56,7 +66,7 @@ bool Book::checkOutOneBook()
    return false;
 }
 
-bool Book::returnOneBook()
+bool Book::returnToLibrary()
 {
    if (availableCopies_ < totalCopies_)
    {
