@@ -25,35 +25,46 @@ ostream& operator<<(ostream& out, const Bookcase& bc) {
 // constructor
 Bookcase::Bookcase() {
     // initialize known bookCodes_
-    // 
-    // childrenBook
-    knownBookCodes[2] = true;
-    // FictionBook
-    knownBookCodes[5] = true;
-    // PeriodicalBook
-    knownBookCodes[15] = true;
+    // 2 = childrenbook 5 = fictionbook 15 = periodicalbook
+    for (int i = 0; i < GENRE_TYPES; i++) {
+        if (i == 2 || i == 5 || i == 15) {
+            knownBookCodes[i] = true;
+            containers[i] = new BookContainer();
+        }
+        else {
+            knownBookCodes[i] = false;
+            containers[i] = NULL;
+        }
+    }
+
 }
 
 
 //---------------------------------------------------------------------------
 // insert
 bool Bookcase::insert(const Book& toInsert) {
+    bool success = false;
     //check for type
-    char type = toInsert.getBookCode();
-    //check if valid
-
-    if (knownBookCodes[check]) {
-
+    //check if valid and call insert on correlated BookContainer
+    int subscript = hash(toInsert.getBookCode());
+    if (knownBookCodes[subscript]) {
+        success = containers[subscript]->insert(toInsert);
     }
-    // send to hash
-    // call insert at bst
+    return success;
 }
 
 //---------------------------------------------------------------------------
 // checkOut
-bool Bookcase::checkOut(Book*& target) const {
-    // calls checkout on bookcontainer type
-    
+bool Bookcase::checkOut(Book& target) {
+    // check for type
+    // send to hash
+    // call checkout on bookcontainer type
+    bool success = false;
+    int subscript = hash(target.getBookCode());
+    if (knownBookCodes[subscript]) {
+        success = containers[subscript]->checkout(target);
+    }
+    return success;
 }
 
 //---------------------------------------------------------------------------
@@ -62,7 +73,7 @@ void Bookcase::display() const {
     // loop through container and display in order each BookContainer stored
     for (int i = 0; i < GENRE_TYPES; i++) {
         if (containers[i] != nullptr) {
-            *containers[i].display();
+            containers[i].display();
         }
     }
 }
@@ -70,5 +81,7 @@ void Bookcase::display() const {
 //---------------------------------------------------------------------------
 // hash
 int Bookcase::hash(char genre) const {
-
+    genre = toupper(genre);
+    int subscript = genre - 'A';
+    return subscript;
 }

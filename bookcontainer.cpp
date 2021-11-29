@@ -63,12 +63,13 @@ BookContainter::~BookContainer() {
 
 //---------------------------------------------------------------------------
 // insert
-bool BookContainer::insert(const Book*& theBook) {
+bool BookContainer::insert(const Book& theBook) {
     bool success = false;
     // first check that the book is the correct type
-    if (theBook.bookCode_ == genre_) {
+    if (theBook.getBookCode() == genre_) {
         // and the book is not already in container
-        Book* temp = nullptr;
+        Book temp;
+        //TODO change to isInContainer
         if (!retrieve(theBook, temp)) {
             //then send to insertNode 
             Node* toInsert = new Node;
@@ -83,7 +84,7 @@ bool BookContainer::insert(const Book*& theBook) {
 
 //---------------------------------------------------------------------------
 // retrieve
-bool BookContainer::retrieve(Book*& target, Book*& returned) const {
+bool BookContainer::retrieve(Book& target, Book& returned) const {
     returned = nullptr;
     bool success = false;
     Node* cur = root;
@@ -91,7 +92,7 @@ bool BookContainer::retrieve(Book*& target, Book*& returned) const {
     while (cur != nullptr) {
         if (*cur->book == target) {
             success = true;
-            returned = cur->book;
+            returned = *cur->book;
             break;
             // move to left subtree
         }

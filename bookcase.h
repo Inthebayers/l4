@@ -37,7 +37,7 @@ public:
      * @return true book inserted, false book not inserted
      * @param book to be inserted
      */
-    bool insert(const Book*&);
+    bool insert(const Book&);
 
     //--------------------------------------------------------------------------
     /** checkOut
@@ -54,14 +54,17 @@ public:
 
 private:
 
-    const int GENRE_TYPES = 26;
+    static const int GENRE_TYPES = 26;
 
     // to store current known book types to check for
     // genre validity
+    // TODO this might be useless if you can just check containers[i] != NULL
     bool knownBookCodes[GENRE_TYPES]; 
 
     // hash funtion to get genre 
     int hash(char) const;
+    
+    int array[10];
     
     // array that stores containers by genre
     BookContainer* containers[GENRE_TYPES]; 
