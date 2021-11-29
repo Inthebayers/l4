@@ -84,7 +84,7 @@ public:
 
 private:
     // author of the book, last then first name
-    string author;
+    string author_;
     //publishing year
-    int year;
+    int year_;
 };
