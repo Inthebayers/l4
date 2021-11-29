@@ -1,12 +1,13 @@
 #include "childrenbook.h"
+
 #include "book.h"
 
 using namespace std;
 //---------------------------------------------------------------------------
 // Constructor
 ChildrenBook::ChildrenBook() {
-  author_ = "";
-  year_ = 0;
+    author_ = "";
+    year_ = 0;
 }
 
 //---------------------------------------------------------------------------
@@ -17,22 +18,22 @@ ChildrenBook::~ChildrenBook() {}
 // buildBook
 
 bool ChildrenBook::buildBook(istream &inFile) {
-  string title = "";
-  string author = "";
-  int year;
+    string title = "";
+    string author = "";
+    int year;
 
-  inFile.get();
+    inFile.get();
 
-  getline(inFile, author, ',');
-  inFile.get(); // remove blank space
-  getline(inFile, title, ',');
-  inFile.get(); // remove blank space
-  inFile >> year;
-  setAuthor(author);
-  setTitle(title);
-  setYear(year);
+    getline(inFile, author, ',');
+    inFile.get();  // remove blank space
+    getline(inFile, title, ',');
+    inFile.get();  // remove blank space
+    inFile >> year;
+    setAuthor(author);
+    setTitle(title);
+    setYear(year);
 
-  return (getAuthor() == author && getTitle() == title && getYear() == year);
+    return (getAuthor() == author && getTitle() == title && getYear() == year);
 }
 
 //---------------------------------------------------------------------------
@@ -50,11 +51,11 @@ string ChildrenBook::getAuthor() const { return author_; }
 //---------------------------------------------------------------------------
 // setYear
 bool ChildrenBook::setYear(int year) {
-  if (year > 0) {
-    year_ = year;
-    return true;
-  }
-  return false;
+    if (year > 0) {
+        year_ = year;
+        return true;
+    }
+    return false;
 }
 
 //---------------------------------------------------------------------------
@@ -65,7 +66,7 @@ int ChildrenBook::getYear() const { return year_; }
 // display
 // TODO: Add spacing
 void ChildrenBook::display() const {
-  cout << title_ << author_ << year_ << endl;
+    cout << title_ << author_ << year_ << endl;
 }
 
 //---------------------------------------------------------------------------
@@ -76,62 +77,62 @@ void ChildrenBook::display() const {
 //---------------------------------------------------------------------------
 // overloaded operator <
 bool ChildrenBook::operator<(const Book &rhsBook) const {
-  bool holder = false;
+    bool holder = false;
 
-  // cast book to children's book
-  const ChildrenBook &rhsBookCasted =
-      static_cast<const ChildrenBook &>(rhsBook);
+    // cast book to children's book
+    const ChildrenBook &rhsBookCasted =
+        static_cast<const ChildrenBook &>(rhsBook);
 
-  // compare titles
-  (getTitle() < rhsBookCasted.getTitle()) ? holder = true : holder = false;
+    // compare titles
+    (getTitle() < rhsBookCasted.getTitle()) ? holder = true : holder = false;
 
-  // if the book titles are the same compare authors
-  if (getTitle() == rhsBookCasted.getTitle()) {
-    (getAuthor() < rhsBookCasted.getAuthor()) ? holder = true : holder = false;
-  }
-  return holder;
+    // if the book titles are the same compare authors
+    if (getTitle() == rhsBookCasted.getTitle()) {
+        (getAuthor() < rhsBookCasted.getAuthor()) ? holder = true : holder = false;
+    }
+    return holder;
 }
 
 //---------------------------------------------------------------------------
 // overloaded operator>
 bool ChildrenBook::operator>(const Book &rhsBook) const {
-  bool holder = false;
+    bool holder = false;
 
-  // cast book to children's book
-  const ChildrenBook &rhsBookCasted =
-      static_cast<const ChildrenBook &>(rhsBook);
+    // cast book to children's book
+    const ChildrenBook &rhsBookCasted =
+        static_cast<const ChildrenBook &>(rhsBook);
 
-  // compare titles, adjust bool as needed
-  (getTitle() > rhsBookCasted.getTitle()) ? holder = true : holder = false;
+    // compare titles, adjust bool as needed
+    (getTitle() > rhsBookCasted.getTitle()) ? holder = true : holder = false;
 
-  // if the book titles are the same compare authors
-  if (getTitle() == rhsBookCasted.getTitle()) {
-    (getAuthor() > rhsBookCasted.getAuthor()) ? holder = true : holder = false;
-  }
-  return holder;
+    // if the book titles are the same compare authors
+    if (getTitle() == rhsBookCasted.getTitle()) {
+        (getAuthor() > rhsBookCasted.getAuthor()) ? holder = true : holder = false;
+    }
+    return holder;
 }
 
 //---------------------------------------------------------------------------
 // overloaded operator==
 bool ChildrenBook::operator==(const Book &rhsBook) const {
-  bool holder = false;
+    bool holder = false;
 
-  // cast rhs book to children's book
-  const ChildrenBook &rhsBookCasted =
-      static_cast<const ChildrenBook &>(rhsBook);
+    // cast rhs book to children's book
+    const ChildrenBook &rhsBookCasted =
+        static_cast<const ChildrenBook &>(rhsBook);
 
-  // compare author, title, and year between two books
-  if (rhsBookCasted.getAuthor() == getAuthor() &&
-      rhsBookCasted.getTitle() == getTitle() &&
-      rhsBookCasted.getYear() == getYear()) {
-    holder = true;
-  }
-  return holder;
+    // compare author, title, and year between two books
+    if (rhsBookCasted.getAuthor() == getAuthor() &&
+        rhsBookCasted.getTitle() == getTitle() &&
+        rhsBookCasted.getYear() == getYear()) {
+        holder = true;
+    }
+    return holder;
 }
 
 //---------------------------------------------------------------------------
 // overloaded operator !=
 bool ChildrenBook::operator!=(const Book &rhsBook) const {
-  // use comparison operator to return value
-  return !(*this == rhsBook);
+    // use comparison operator to return value
+    return !(*this == rhsBook);
 }
