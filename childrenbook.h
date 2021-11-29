@@ -18,17 +18,17 @@ class ChildrenBook : public Book {
     //---------------------------------------------------------------------------
      /**
       * @brief Output operator overload for ChildrenBook object. Dictates output
-      * formatting and functionality for a fiction book.
+      * formatting and functionality for a children book.
       *
       * @return ostream& containing information to be output in a formatted style
-      * @pre: Assumes valid FictionBook object being passed in.
+      * @pre: Assumes valid childrenBook object being passed in.
       * @post: Data not changed, but is output.
       */
     friend ostream& operator<<(ostream&, const ChildrenBook&);
 
 public:
     /**
-     * @brief Construct a new Children object. Creates new fiction book with
+     * @brief Construct a new Children object. Creates new Children book with
      * title, author, and amount of books owned by library.
      *
      * @param title is the title of the book being created
@@ -37,7 +37,7 @@ public:
      * @param totalTitlesOwned dictates the total amount of this book owned
      * by library
      * @pre: assumes object needs to be created
-     * @post: fiction object will be destroyed, with memory freed
+     * @post: children object will be destroyed, with memory freed
      */
     ChildrenBook();
 
