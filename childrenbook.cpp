@@ -122,7 +122,7 @@ bool ChildrenBook::operator>(const Book& rhsBook) const {
  * @return true
  * @return false
  */
-// TODO: Changed Book to ChildrenBook in parameter to compare fields
+
 bool ChildrenBook::operator==(const Book& rhsBook) const {
     bool holder = false; 
 
