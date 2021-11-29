@@ -82,10 +82,13 @@ bool ChildrenBook::operator<(const Book& rhsBook) const {
     // cast book to children's book 
     const ChildrenBook& rhsBookCasted = static_cast<const ChildrenBook&>(rhsBook);
 
-        // compare titles
+    // compare titles
     (getTitle() < rhsBookCasted.getTitle()) ? holder = true : holder = false;
-    
 
+    // if the book titles are the same compare authors
+    if (getTitle() == rhsBookCasted.getTitle()) {
+        (getAuthor() < rhsBookCasted.getAuthor()) ? holder = true : holder = false;
+    }
     return holder;
 }
 
@@ -104,7 +107,11 @@ bool ChildrenBook::operator>(const Book& rhsBook) const {
 
     // compare titles, adjust bool as needed
     (getTitle() > rhsBookCasted.getTitle()) ? holder = true : holder = false;
-    
+
+    // if the book titles are the same compare authors
+    if (getTitle() == rhsBookCasted.getTitle()) {
+        (getAuthor() > rhsBookCasted.getAuthor()) ? holder = true : holder = false;
+    }
     return holder;
 }
 
@@ -126,7 +133,6 @@ bool ChildrenBook::operator==(const Book& rhsBook) const {
     if (rhsBookCasted.getAuthor() == getAuthor() && rhsBookCasted.getTitle() == getTitle() && rhsBookCasted.getYear() == getYear()) {
         holder = true; 
     }
-
     return holder;
 }
 
@@ -139,7 +145,7 @@ bool ChildrenBook::operator==(const Book& rhsBook) const {
  */
 bool ChildrenBook::operator!=(const Book& rhsBook) const {
     // use comparison operator to return value
-    return *this == rhsBook;
+    return (!*this == rhsBook);
 }
 
 // TODO: Add spacing

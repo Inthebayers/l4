@@ -7,6 +7,9 @@
 //
 // Assumptions:
 //  -- initial character in input dictates 'c' for children
+//  -- Comparison operators will only be with other ChildrenBook
+// Implementation:
+//  -- 
 //---------------------------------------------------------------------------
 #include "book.h"
 #include <iostream>
