@@ -12,50 +12,58 @@
 #include "book.h"
 using namespace std;
 
+//---------------------------------------------------------------------------
+// constructor
 Book::Book()
 {
+    title_ = "";
+    bookCode_ = '';
 }
 
-void Book::setTitle(string incomingTitle)
+//---------------------------------------------------------------------------
+// setTitle
+void Book::setTitle(string title)
 {
    title_ = incomingTitle;
 }
 
+//---------------------------------------------------------------------------
+// getTitle
 string Book::getTitle() const
 {
    return title_;
 }
 
+//---------------------------------------------------------------------------
+// setBookCode
 void Book::setBookCode(char incomingChar)
 {
    bookCode_ = incomingChar;
 }
 
+//---------------------------------------------------------------------------
+// getBookCode
 char Book::getBookCode() const
 {
    return bookCode_;
 }
 
+//---------------------------------------------------------------------------
+// setAvailableCopies
 void Book::setAvailableCopies(int newNumberOfCopies)
 {
    availableCopies_ = newNumberOfCopies;
 }
 
+//---------------------------------------------------------------------------
+// getAvailableCopies
 int Book::getAvailableCopies() const
 {
    return availableCopies_;
 }
 
-   //---------------------------------------------------------------------------
-   /**
-      * @brief Handles the field management required to check out a book.
-      *
-      * @return true if check out was successful
-      * @return false if check out was not sucessful
-      *
-      * @pre: Assumes book has amount to check out
-      * @post: Book will remove 1 copy of itself from the library stores
-      */
+//---------------------------------------------------------------------------
+// checkOut
 bool Book::checkOut()
 {
    if (availableCopies_ > 0)
@@ -66,6 +74,8 @@ bool Book::checkOut()
    return false;
 }
 
+//---------------------------------------------------------------------------
+// returnToLibrary
 bool Book::returnToLibrary()
 {
    if (availableCopies_ < totalCopies_)
@@ -74,6 +84,8 @@ bool Book::returnToLibrary()
    }
 }
 
+//---------------------------------------------------------------------------
+// setTotalCopies
 bool Book::setTotalCopies(int newTotalCopyAmount)
 {
    if (newTotalCopyAmount > 0)
@@ -82,6 +94,8 @@ bool Book::setTotalCopies(int newTotalCopyAmount)
    }
 }
 
+//---------------------------------------------------------------------------
+// getTotalCopies
 int Book::getTotalCopies() {
    return totalCopies_;
 }

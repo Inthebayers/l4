@@ -21,22 +21,25 @@ public:
     PatronContainer();  // constructor
     ~PatronContainer(); // destructor
 
-//---------------------------------------------------------------------------
+    //---------------------------------------------------------------------------
     /** insert()
-     * @brief Inserts created Patron object into container (the array of
-     * patrons)
-     * @param patron info from file
-     * @return true if added, false otherwise
-     */
+    * @brief Inserts created Patron object into container (the array of
+    * patrons)
+    * @param patron info from file
+    * @return true if added, false otherwise
+    */
     bool insert(istream&);
 
     //---------------------------------------------------------------------------
-        /** retrieve()
-         * @brief retrieves the patron
-         * @param the uniqueID of the patron
-         * @return the Patron with the associated uniqueID
-         */
+    /** retrieve()
+    * @brief retrieves the patron
+    * @param the uniqueID of the patron
+    * @return the Patron with the associated uniqueID
+    */
     Patron& retrieve(int) const;
+    
+    // TODO write comment
+    void printHistory(const Patron&) const;
 
 private:
     int hash(int) const;       // hash function to search patron with uniqueID

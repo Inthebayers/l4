@@ -5,6 +5,9 @@
 // book, containing title, author, number of copies "owned" by the library,
 // and copies of this book currently checked in. Parent class of fictionbook,
 // periodicalbook, and childrenbook.
+// 
+// Assumptions:
+// -- All books will have 5 copies in the library
 //
 //---------------------------------------------------------------------------
 #pragma once
@@ -18,7 +21,6 @@ class Book : public Item
 public:
    ///**
    // * @brief Construct a new Book object
-   // *
    // * @param title of book being created
    // * @param bookCode code of book being created to determine type of book
    // */
@@ -32,19 +34,26 @@ public:
    //---------------------------------------------------------------------------
    /**
       * @brief Destroy the Book object
-      *
       * @pre: Assumes valid object has been created
       * @post: Object will be deleted and memory freed.
       */
    virtual ~Book();
 
    //---------------------------------------------------------------------------
+    /** buildBook
+   * @brief creates book object readign from data file
+   * @pre: A correctly formatted open data file
+   * @post: a new book object 
+   */
+   bool buildBook(istream& in) = 0;
+   // TODO every book would need to get buildBook implemented
+
+
+   //---------------------------------------------------------------------------
    /**
       * @brief Handles the field management required to check out a book.
-      *
       * @return true if check out was successful
       * @return false if check out was not sucessful
-      *
       * @pre: Assumes book has amount to check out
       * @post: Book will remove 1 copy of itself from the library stores
       */
@@ -55,10 +64,8 @@ public:
    /**
       * @brief Returns book copy to library, adjusting values for currently
       * checked in copies.
-      *
       * @return true if value is modified
       * @return false if value is not modified
-      *
       * @pre: Assumes book is checked out
       * @post: Book is returned to library, incrementing the number of copies
       */
@@ -67,9 +74,7 @@ public:
    //---------------------------------------------------------------------------
    /**
       * @brief Get the code/genre of the book for hashing purposes.
-      *
       * @return char corresponding to the code/genre of the book. hell and now we're going past 80
-      *
       * @pre: Assumes valid code and properly created book.
       * @post: No changes to data.
       */
@@ -78,9 +83,7 @@ public:
    //---------------------------------------------------------------------------
    /**
       * @brief Get the title of the current book object.
-      *
       * @return string containing the title of the current book
-      *
       * @pre: Assumes valid book with title has been created.
       * @post: No changes.
       */
@@ -91,6 +94,8 @@ public:
      */
    void setTitle(string incomingTitle);
 
+
+   // TODO - comments on these functions
    void setBookCode(char);
 
    void setAvailableCopies(int);
@@ -145,7 +150,6 @@ public:
 
    /**
      * Does not equals operator. Determines if two books are not equal.
-     *
      * @param rhsBook
      * @return true
      * @return false
@@ -161,11 +165,13 @@ protected:
    char bookCode_;
 
    // copies of book checked into library
-   int availableCopies_;
+   int availableCopies_ = COPIES;
 
    // total amount of copies the library owns
-   int totalCopies_;
+   int totalCopies_ = COPIES;
 
    // default booktype
    char bookType_ = 'H';
+
+   static const int COPIES = 5;
 };
