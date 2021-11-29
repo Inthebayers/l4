@@ -30,8 +30,9 @@ bool ChildrenBook::buildBook(istream &inFile) {
   inFile >> year;
   setAuthor(author);
   setTitle(title);
+  setYear(year);
 
-  return (setYear(year));
+  return (getAuthor() == author && getTitle() == title && getYear() == year);
 }
 
 //---------------------------------------------------------------------------
