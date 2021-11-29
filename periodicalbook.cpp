@@ -25,6 +25,14 @@ PeriodicalBook:: ~PeriodicalBook() {
 }
 
 //---------------------------------------------------------------------------
+// buildBook
+// TODO implement
+bool PeriodicalBook::buildBook(istream& in) {
+
+}
+
+
+//---------------------------------------------------------------------------
 // create
 Book* PeriodicalBook::create() {
     return new PeriodicalBook();

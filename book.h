@@ -29,7 +29,7 @@ public:
    /**
      * Default constructor
      */
-   Book();
+   virtual Book();
 
    //---------------------------------------------------------------------------
    /**
@@ -41,12 +41,14 @@ public:
 
    //---------------------------------------------------------------------------
     /** buildBook
-   * @brief creates book object readign from data file
+   * @brief creates book object reading from data file
    * @pre: A correctly formatted open data file
    * @post: a new book object 
    */
-   bool buildBook(istream& in) = 0;
+   virtual bool buildBook(istream& in) = 0;
    // TODO every book would need to get buildBook implemented
+   // calls bookFactory --> bookFactory will read first char
+   // bookFactor returns 
 
 
    //---------------------------------------------------------------------------

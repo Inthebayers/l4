@@ -51,6 +51,14 @@ public:
     ~ChildrenBook();
 
     //---------------------------------------------------------------------------
+     /** buildBook
+    * @brief creates book object reading from data file
+    * @pre: A correctly formatted open data file
+    * @post: a new book object
+    */
+    bool buildBook(istream& in);
+
+    //---------------------------------------------------------------------------
      /** create
       * @brief Creates a children book object, then returns a copy of that object
       * for the factory to function properly.

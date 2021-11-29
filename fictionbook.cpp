@@ -10,6 +10,7 @@
 //---------------------------------------------------------------------------
 #include "fictionbook.h"
 
+//---------------------------------------------------------------------------
 //default constructor
 FictionBook::FictionBook() {
     author_ = "";
@@ -18,8 +19,16 @@ FictionBook::FictionBook() {
     bookCode_ = 'F';
 }
 
+//---------------------------------------------------------------------------
 //destructor
 FictionBook::~FictionBook() {
+}
+
+//---------------------------------------------------------------------------
+// buildBook
+// TODO implement
+bool FictionBook::buildBook(istream& in) {
+
 }
 
 //---------------------------------------------------------------------------
@@ -64,6 +73,14 @@ int FictionBook::getYear() const {
     return year_;
 }
 
+//---------------------------------------------------------------------------
+// overloaded comparison operators 
+// Ficiton sorted by author, then title
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+// overloaded operator<
 bool FictionBook::operator<(const Book & rhsBook) const { 
     bool holder = false; 
         const FictionBook& rhsBookCasted = static_cast<const FictionBook&>(rhsBook);
@@ -78,6 +95,8 @@ bool FictionBook::operator<(const Book & rhsBook) const {
     return holder; 
 }
 
+//---------------------------------------------------------------------------
+// overloaded operator>
 bool FictionBook::operator>(const Book& rhsBook) const {
     bool holder = false;
 
@@ -94,13 +113,8 @@ bool FictionBook::operator>(const Book& rhsBook) const {
     return holder;
 }
 
-   /**
-     * Equals operator. Determines if two Book objects are equal.
-     *
-     * @param rhsBook rhs Book being passed in for equals comparison
-     * @return true
-     * @return false
-     */
+//---------------------------------------------------------------------------
+// overloaded operator == 
 bool FictionBook::operator==(const Book& rhsBook) const {
     bool holder = false; 
 
@@ -114,13 +128,8 @@ bool FictionBook::operator==(const Book& rhsBook) const {
     return holder;
 }
 
-   /**
-     * Does not equals operator. Determines if two books are not equal.
-     *
-     * @param rhsBook
-     * @return true
-     * @return false
-     */
+//---------------------------------------------------------------------------
+// overloaded operator !=
 bool FictionBook::operator!=(const Book& rhsBook) const {
     return !(*this == rhsBook);
 }
@@ -134,3 +143,4 @@ bool FictionBook::operator!=(const Book& rhsBook) const {
 // [x] setYear
 // [x] getAuthor
 // [x] setAuthor
+// [ ] buildBook
