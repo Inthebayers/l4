@@ -23,7 +23,7 @@
 BookFactory::BookFactory() {
 
     for (int i = 0; i < BOOKTYPES; i++) {
-        bookTypes[i] = NULL;
+        bookTypes[i] = nullptr;
     }
 
     bookTypes[2] = new ChildrenBook;
@@ -36,12 +36,12 @@ BookFactory::BookFactory() {
 // destructor
 //TODO destructor needed  because new keyword ^^ ??
 BookFactory::~BookFactory() {
-    //for (int i = 0; i < BOOKTYPES; i++) {
-    //    if (bookTypes[i] != NULL) {
-    //        delete bookTypes[i];
-    //        bookTypes[i] = NULL;
-    //    }
-    //}
+    for (int i = 0; i < BOOKTYPES; i++) {
+        if (bookTypes[i] != nullptr) {
+            delete bookTypes[i];
+            bookTypes[i] = nullptr;
+        }
+    }
 }
 
 //---------------------------------------------------------------------------
