@@ -36,12 +36,14 @@ BookFactory::BookFactory() {
 // destructor
 //TODO destructor needed  because new keyword ^^ ??
 BookFactory::~BookFactory() {
-    for (int i = 0; i < BOOKTYPES; i++) {
-        if (bookTypes[i] != nullptr) {
-            delete bookTypes[i];
-            bookTypes[i] = nullptr;
-        }
-    }
+    delete bookTypes[2];
+    bookTypes[2] = nullptr;
+    delete bookTypes[5];
+    bookTypes[5] = nullptr;
+    delete bookTypes[15];
+    bookTypes[15] = nullptr;
+
+
 }
 
 //---------------------------------------------------------------------------
