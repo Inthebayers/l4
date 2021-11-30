@@ -70,11 +70,6 @@ private:
 
     static const int GENRE_TYPES = 26;
 
-    // to store current known book types to check for
-    // genre validity
-    // TODO this might be useless if you can just check containers[i] != NULL
-    bool knownBookCodes[GENRE_TYPES]; 
-
     // hash funtion to get genre 
     int hash(char) const;
     

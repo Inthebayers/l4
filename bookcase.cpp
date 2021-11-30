@@ -29,18 +29,16 @@ Bookcase::Bookcase() {
     // 2 = childrenbook 5 = fictionbook 15 = periodicalbook
     for (int i = 0; i < GENRE_TYPES; i++) {
         if (i == 2 || i == 5 || i == 15) {
-            knownBookCodes[i] = true;
             containers[i] = new BookContainer();
         }
         else {
-            knownBookCodes[i] = false;
-            containers[i] = nullptr;
+            containers[i] = nullptr; 
         }
     }
 
     //initialize container types
     containers[2]->setGenre('C');
-    containers[5]->setGenre('F');
+    containers[5]->setGenre('F'); 
     containers[15]->setGenre('P');
 
 }
@@ -53,7 +51,7 @@ bool Bookcase::insert(Book* toInsert) {
     //check for type
     //check if valid and call insert on correlated BookContainer
     int subscript = hash(toInsert->getBookCode());
-    if (knownBookCodes[subscript]) {
+    if (containers[subscript] != nullptr) {
         success = containers[subscript]->insert(toInsert);
     }
     return success;
@@ -71,19 +69,25 @@ bool Bookcase::buildBook(istream& in) {
         if (in.eof()) {
             break;
         }
+
         // test for end of file
         in.get(); //get and ignore next blank space
+
         //newBook stores newly created book object
         Book* newBook;
+
         //check for type validity
-        if (knownBookCodes[code]) {
+        if (containers[code] != nullptr) {
             newBook = bf.createBook(code);
+
             //book class responsible for filling in rest of book information
             if (newBook->buildBook(in)) {
+
                 // if book info was set insert in containers
                 success = insert(newBook);
             }
         }
+
         // skip over the rest of the line
         else {
             string garbage;
@@ -102,7 +106,7 @@ bool Bookcase::checkOut(Book& target) {
     // call checkout on bookcontainer type
     bool success = false;
     int subscript = hash(target.getBookCode());
-    if (knownBookCodes[subscript]) {
+    if (containers[subscript] != nullptr) {
         Book* retrieved;
         if (containers[subscript]->retrieve(target, retrieved)) {
 
