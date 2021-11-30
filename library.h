@@ -15,7 +15,6 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
-#include "book.h"
 #include "bookcase.h"
 #include "bookfactory.h"
 #include "command.h"
@@ -47,7 +46,7 @@ public:
     * @brief prints patron book history to console
     * @param patron to get history from
     */
-    void printPatronHistory(const Patron&) const;
+   // void printPatronHistory(const Patron&) const;
 
 //---------------------------------------------------------------------------
     /** buildBook
@@ -60,7 +59,7 @@ public:
     /** displayContents
     * @brief displays books by category, sorted within the category
     */
-    void displayItems() const;
+    void displayBooks() const;
     //TODO implement for compiling
 
 //---------------------------------------------------------------------------
@@ -73,9 +72,10 @@ private:
 
     // private data memebers
     BookFactory bookFactory;
-    CommandFactory commFactory;
-    PatronContainer patronContainer;
+  //  CommandFactory commFactory;
+  //  PatronContainer patronContainer;
     Bookcase bookcase;
+    Item item;
 
 };
 

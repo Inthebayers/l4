@@ -28,16 +28,17 @@
 using namespace std;
 
 class BookContainer {
-    /** operator<<
-     * @brief fills ostream with all the information of the books in container
-     *        in sorted order
-     * @pre existing ostream and BookContainer
-     * @post BookContainer unchanged
-     * @return filled ostream
-     * @param ostream to be filled
-     * @param book container to get books from
-     */
-    friend ostream& operator<<(ostream&, const BookContainer&);
+    //TODO delete this if we never need it 
+    ///** operator<<
+    // * @brief fills ostream with all the information of the books in container
+    // *        in sorted order
+    // * @pre existing ostream and BookContainer
+    // * @post BookContainer unchanged
+    // * @return filled ostream
+    // * @param ostream to be filled
+    // * @param book container to get books from
+    // */
+    //friend ostream& operator<<(ostream&, const BookContainer&);
 
 public:
     //constructor
@@ -54,7 +55,7 @@ public:
     * @return true book inserted, false book not inserted
     * @param book to be inserted
     */
-    bool insert(const Book&);
+    bool insert(Book*);
 
     //---------------------------------------------------------------------------
     /** checkOut
@@ -64,12 +65,10 @@ public:
     * @param book to be checkout out
     * @param returned book returned by reference if found
     */
-    bool retrieve(Book& target, Book& returned) const;
+    bool retrieve(const Book& target, Book*& returned) const;
 
-    // TODO
-    bool checkout(Book& target);
-
-    bool isInContainer(Book& target);
+    //TODO implement and comment
+    bool isInContainer(const Book* target) const;
 
     /** display
     * @brief prints the contents of the tree in-order
@@ -117,7 +116,7 @@ private:
         // default constructor
         Node();
         // destructor
-        ~Node;
+        ~Node();
     };
 
     // root of the BookContaier BST
@@ -132,7 +131,7 @@ private:
     * @post Book* is stored in a Node and placed into sorted position
     * duplicates are not inserted, returns a boolean value
     */
-    bool insertNode(const Node*);
+    bool insertNode(Node*);
 
     /** dsiplayHelper
     * @brief recursive helper function for display

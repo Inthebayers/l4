@@ -50,13 +50,6 @@ public:
    */
   ~ChildrenBook();
 
-  //---------------------------------------------------------------------------
-  /** buildBook
-   * @brief creates book object reading from data file
-   * @pre: A correctly formatted open data file
-   * @post: a new book object
-   */
-  bool buildBook(istream &in);
 
   //---------------------------------------------------------------------------
   /** create

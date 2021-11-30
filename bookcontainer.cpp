@@ -23,7 +23,7 @@
 
 //---------------------------------------------------------------------------
 // Node Constructor
-Node::Node() {
+BookContainer::Node::Node() {
     book = nullptr;
     left = nullptr;
     right = nullptr;
@@ -31,18 +31,11 @@ Node::Node() {
 
 //---------------------------------------------------------------------------
 // Node Destructor
-Node::~Node(
+BookContainer::Node::~Node() {
     delete book;
     book = nullptr;
     left = nullptr;
     right = nullptr;
-)
-
-//---------------------------------------------------------------------------
-// Overloaded << operator
-// TODO implement this
-Ostream& operator<<(ostream& out, const BookContainer& bc) {
-
 }
 
 //---------------------------------------------------------------------------
@@ -52,28 +45,26 @@ Ostream& operator<<(ostream& out, const BookContainer& bc) {
 //constructor
 BookContainer::BookContainer() {
     root = nullptr;
-    genre_ = "";
+    genre_ = ' ';
 }
 
 //---------------------------------------------------------------------------
 // Destructor
-BookContainter::~BookContainer() {
+BookContainer::~BookContainer() {
     makeEmpty();
 }
 
 //---------------------------------------------------------------------------
 // insert
-bool BookContainer::insert(const Book& theBook) {
+bool BookContainer::insert(Book* theBook) {
     bool success = false;
     // first check that the book is the correct type
-    if (theBook.getBookCode() == genre_) {
+    if (theBook->getBookCode() == genre_) {
         // and the book is not already in container
-        Book temp;
-        //TODO change to isInContainer
-        if (!retrieve(theBook, temp)) {
+        if (!isInContainer(theBook)) {
             //then send to insertNode 
-            Node* toInsert = new Node;
-            toInsert->book = thebook;
+            Node* toInsert = new Node();
+            toInsert->book = theBook;
             if (insertNode(toInsert)) {
                 success = true;
             }
@@ -84,7 +75,7 @@ bool BookContainer::insert(const Book& theBook) {
 
 //---------------------------------------------------------------------------
 // retrieve
-bool BookContainer::retrieve(Book& target, Book& returned) const {
+bool BookContainer::retrieve(const Book& target, Book*& returned) const {
     returned = nullptr;
     bool success = false;
     Node* cur = root;
@@ -92,7 +83,7 @@ bool BookContainer::retrieve(Book& target, Book& returned) const {
     while (cur != nullptr) {
         if (*cur->book == target) {
             success = true;
-            returned = *cur->book;
+            returned = cur->book;
             break;
             // move to left subtree
         }
@@ -104,10 +95,20 @@ bool BookContainer::retrieve(Book& target, Book& returned) const {
             cur = cur->right;
         }
         // not found break loop and return
-        else
+        else {
             break;
+        }
+            
     }
+
     return success;
+}
+
+//---------------------------------------------------------------------------
+// isInContainer
+bool BookContainer::isInContainer(const Book* target) const {
+    Book* temp;
+    return retrieve(*target, temp);
 }
 
 //---------------------------------------------------------------------------
@@ -180,12 +181,12 @@ char BookContainer::getGenre() const {
 //---------------------------------------------------------------------------
 // insertNode
 // helper function to insert into a tree 
-bool BookContainer::insertNode(const Node* node) {
+bool BookContainer::insertNode(Node* node) {
     bool inserted = false; 
 
     // if the tree is empty
     if (root == nullptr) {
-        root = toInsert;
+        root = node;
         inserted = true;
     }
     //if its not empty traverse the tree
@@ -199,7 +200,7 @@ bool BookContainer::insertNode(const Node* node) {
             if (*node->book < *cur->book) {
                 // and there is an empty space, insert
                 if (cur->left == nullptr) {
-                    cur->left == node;
+                    cur->left = node;
                     inserted = true;
                 }
                 // if theres not an empty space move cur left

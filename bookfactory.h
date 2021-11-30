@@ -44,7 +44,7 @@ public:
 
 
 private:
-    const int BOOKTYPES = 26;
+    static const int BOOKTYPES = 26;
 
     // array containing indexes for all possible bookTypes in future
     Book* bookTypes[BOOKTYPES];

@@ -13,6 +13,8 @@
 
 #include "bookfactory.h"
 #include "childrenbook.h"
+#include "fictionbook.h"
+#include "periodicalbook.h"
 #include <ctype.h>
 
 
@@ -35,7 +37,7 @@ BookFactory::~BookFactory() {
 
 //---------------------------------------------------------------------------
 // createBook
-Book* BookFactory::createBook(char type) const {
+Book* BookFactory::createBook(char type) {
     int subscript = hash(type);
     return bookTypes[subscript]->create();
 }

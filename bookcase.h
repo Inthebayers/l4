@@ -38,7 +38,7 @@ public:
      * @return true book inserted, false book not inserted
      * @param book to be inserted
      */
-    bool insert(const Book&);
+    bool insert(Book*);
 
     //---------------------------------------------------------------------------
     /** buildBook
@@ -55,7 +55,7 @@ public:
     * @return true if successful false if not
     * @param book to be checkout out
     */
-    bool checkOut(Book*& target) ;
+    bool checkOut(Book& target) ;
 
     //---------------------------------------------------------------------------
     /** display
@@ -77,8 +77,6 @@ private:
 
     // hash funtion to get genre 
     int hash(char) const;
-    
-    int array[10];
     
     // array that stores containers by genre
     BookContainer* containers[GENRE_TYPES]; 

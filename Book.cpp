@@ -17,14 +17,18 @@ using namespace std;
 Book::Book()
 {
     title_ = "";
-    bookCode_ = '';
+    bookCode_ = ' ';
 }
+//---------------------------------------------------------------------------
+// destructor
+    Book::~Book() {
+   }
 
 //---------------------------------------------------------------------------
 // setTitle
 void Book::setTitle(string title)
 {
-   title_ = incomingTitle;
+   title_ = title;
 }
 
 //---------------------------------------------------------------------------
@@ -81,7 +85,10 @@ bool Book::returnToLibrary()
    if (availableCopies_ < totalCopies_)
    {
       availableCopies_ += 1;
+      return true;
    }
+
+   return false; 
 }
 
 //---------------------------------------------------------------------------
@@ -91,7 +98,11 @@ bool Book::setTotalCopies(int newTotalCopyAmount)
    if (newTotalCopyAmount > 0)
    {
       totalCopies_ = newTotalCopyAmount;
+
+      return true;
    }
+
+   return false; 
 }
 
 //---------------------------------------------------------------------------

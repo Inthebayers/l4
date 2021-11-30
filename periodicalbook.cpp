@@ -16,7 +16,6 @@ PeriodicalBook::PeriodicalBook() {
     month_ = 0;
     year_ = 0;
     title_ = "";
-    bookCode_ = "P";
 }
 
 //---------------------------------------------------------------------------
@@ -74,7 +73,7 @@ bool PeriodicalBook::setMonth(int month) {
 
 //---------------------------------------------------------------------------
 // getMonth
-bool PeriodicalBook::getMonth() const {
+int PeriodicalBook::getMonth() const {
     return month_;
 }
 
@@ -164,14 +163,14 @@ bool PeriodicalBook::operator>(const Book& rhsBook) const {
 bool PeriodicalBook::operator==(const Book& rhsBook) const {
     bool holder = false;
     // check if it's the same object
-    if (this == rhsBook) {
-        return true;
-    }
+    //if (this == rhsBook) {
+    //    return true;
+    //}
     // cast rhs book to periodical's book
     const PeriodicalBook& rhsBookCasted = static_cast<const PeriodicalBook&>(rhsBook);
 
     // compare year, month, title
-    if (year_ == rhsBookCasted.getYear && month_ == rhsBookCasted.getMonth() && title_ == rhsBookCasted.getTitle()) {
+    if (year_ == rhsBookCasted.getYear() && month_ == rhsBookCasted.getMonth() && title_ == rhsBookCasted.getTitle()) {
         holder = true;
     }
 
@@ -182,7 +181,7 @@ bool PeriodicalBook::operator==(const Book& rhsBook) const {
 // overloaded operator!=
 bool PeriodicalBook::operator!=(const Book& rhsBook) const {
     // use comparison operator to return value
-    return (!*this == rhsBook);
+    return !(*this == rhsBook);
 }
 
 

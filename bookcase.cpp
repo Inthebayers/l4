@@ -19,6 +19,7 @@
 // overloaded operator<<
 // TODO can we use this??
 ostream& operator<<(ostream& out, const Bookcase& bc) {
+    return out;
 }
 
 //---------------------------------------------------------------------------
@@ -42,11 +43,11 @@ Bookcase::Bookcase() {
 
 //---------------------------------------------------------------------------
 // insert
-bool Bookcase::insert(const Book& toInsert) {
+bool Bookcase::insert(Book* toInsert) {
     bool success = false;
     //check for type
     //check if valid and call insert on correlated BookContainer
-    int subscript = hash(toInsert.getBookCode());
+    int subscript = hash(toInsert->getBookCode());
     if (knownBookCodes[subscript]) {
         success = containers[subscript]->insert(toInsert);
     }
@@ -55,7 +56,7 @@ bool Bookcase::insert(const Book& toInsert) {
 
 //---------------------------------------------------------------------------
 // buildBook
-bool BookCase::buildBook(istream& in) {
+bool Bookcase::buildBook(istream& in) {
     bool success = false;
     BookFactory bf;
     char code;
@@ -63,7 +64,7 @@ bool BookCase::buildBook(istream& in) {
     in >> code;
     in.get(); //get and ignore next blank space
     //newBook stores newly created book object
-    Book newBook;
+    Book* newBook;
     newBook = bf.createBook(code);
     //book class responsible for filling in rest of book information
     if (newBook->buildBook(in)) {
@@ -83,7 +84,10 @@ bool Bookcase::checkOut(Book& target) {
     bool success = false;
     int subscript = hash(target.getBookCode());
     if (knownBookCodes[subscript]) {
-        success = containers[subscript]->checkout(target);
+        Book* retrieved;
+        if (containers[subscript]->retrieve(target, retrieved)) {
+
+       }
     }
     return success;
 }
@@ -94,7 +98,7 @@ void Bookcase::display() const {
     // loop through container and display in order each BookContainer stored
     for (int i = 0; i < GENRE_TYPES; i++) {
         if (containers[i] != nullptr) {
-            containers[i].display();
+            containers[i]->display();
         }
     }
 }
