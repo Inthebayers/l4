@@ -45,6 +45,18 @@ Bookcase::Bookcase() {
 
 }
 
+//---------------------------------------------------------------------------
+// destructor
+Bookcase::~Bookcase() {
+    for (int i = 0; i < GENRE_TYPES; i++) {
+        if (validCodes) {
+            delete containers[i];
+            containers[i] = nullptr;
+        }
+    }
+}
+
+
 
 //---------------------------------------------------------------------------
 // insert
@@ -76,7 +88,7 @@ bool Bookcase::buildBook(istream& in) {
         in.get(); //get and ignore next blank space
 
         //newBook stores newly created book object
-        Book* newBook;
+        Book* newBook = nullptr;
 
         //check for type validity
         if (validCodes[hash(code)]) {
@@ -89,6 +101,7 @@ bool Bookcase::buildBook(istream& in) {
                 success = insert(newBook);
             }
         }
+
 
         // skip over the rest of the line
         else {

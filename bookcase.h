@@ -30,6 +30,8 @@ public:
 
     Bookcase();  // contructor
 
+    ~Bookcase(); // destructor
+
 //--------------------------------------------------------------------------
     /** insert
      * @brief inserts book into a container 

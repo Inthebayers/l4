@@ -134,7 +134,9 @@ void BookContainer::displayHelper(Node* cur) const {
 //---------------------------------------------------------------------------
 // makeEmpty 
 void BookContainer::makeEmpty() {
-    clear(root);
+    if (root != nullptr) {
+        clear(root);
+    }
 }
 
 //---------------------------------------------------------------------------
