@@ -84,6 +84,11 @@ bool Bookcase::buildBook(istream& in) {
                 success = insert(newBook);
             }
         }
+        // skip over the rest of the line
+        else {
+            string garbage;
+            getline(in, garbage);
+        }
     }
     return success;
     
