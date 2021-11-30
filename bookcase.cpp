@@ -34,9 +34,14 @@ Bookcase::Bookcase() {
         }
         else {
             knownBookCodes[i] = false;
-            containers[i] = NULL;
+            containers[i] = nullptr;
         }
     }
+
+    //initialize container types
+    containers[2]->setGenre('C');
+    containers[5]->setGenre('F');
+    containers[15]->setGenre('P');
 
 }
 
@@ -60,16 +65,25 @@ bool Bookcase::buildBook(istream& in) {
     bool success = false;
     BookFactory bf;
     char code;
-    // read bookCode (genre type)
-    in >> code;
-    in.get(); //get and ignore next blank space
-    //newBook stores newly created book object
-    Book* newBook;
-    newBook = bf.createBook(code);
-    //book class responsible for filling in rest of book information
-    if (newBook->buildBook(in)) {
-        // if book info was set insert in containers
-       success = insert(newBook);
+    for (;;) {
+        // read bookCode (genre type)
+        in >> code;
+        if (in.eof()) {
+            break;
+        }
+        // test for end of file
+        in.get(); //get and ignore next blank space
+        //newBook stores newly created book object
+        Book* newBook;
+        //check for type validity
+        if (knownBookCodes[code]) {
+            newBook = bf.createBook(code);
+            //book class responsible for filling in rest of book information
+            if (newBook->buildBook(in)) {
+                // if book info was set insert in containers
+                success = insert(newBook);
+            }
+        }
     }
     return success;
     

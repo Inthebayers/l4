@@ -164,9 +164,9 @@ bool BookContainer::isEmpty() const {
 // once books are stored the genre can not be changed
 bool BookContainer::setGenre(char genre) {
     bool success = false;
-    if (root == nullptr && genre >= 'a' && genre <= 'Z') {
+    if (root == nullptr && genre >= 'A' && genre <= 'z') {
         // uppercase for consistency
-        genre = toupper(genre);
+        genre_ = toupper(genre);
         success = true;
     }
     return success;
@@ -209,7 +209,7 @@ bool BookContainer::insertNode(Node* node) {
                 }
             }
             // if its greater than 
-            else if (*node->book > *node->book) {
+            else if (*node->book > *cur->book) {
                 // and theres an empty space, insert
                 if (cur->right == nullptr) {
                     cur->right = node;
@@ -221,6 +221,7 @@ bool BookContainer::insertNode(Node* node) {
                 }
             }
             // if its equal, delete the node and return false
+            // TODO why the frick is dragon wagon crescent == williams jay?
             else if (*node->book == *cur->book) {
                 node->book = nullptr;
                 delete node;

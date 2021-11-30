@@ -8,6 +8,7 @@ using namespace std;
 ChildrenBook::ChildrenBook() {
     author_ = "";
     year_ = 0;
+    bookCode_ = 'C';
 }
 
 //---------------------------------------------------------------------------
@@ -21,8 +22,6 @@ bool ChildrenBook::buildBook(istream &inFile) {
     string title = "";
     string author = "";
     int year;
-
-    inFile.get();
 
     getline(inFile, author, ',');
     inFile.get();  // remove blank space

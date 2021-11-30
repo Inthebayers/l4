@@ -21,25 +21,40 @@
 //---------------------------------------------------------------------------
 // constructor
 BookFactory::BookFactory() {
+
+    for (int i = 0; i < BOOKTYPES; i++) {
+        bookTypes[i] = NULL;
+    }
+
     bookTypes[2] = new ChildrenBook;
     bookTypes[5] = new FictionBook;
     bookTypes[15] = new PeriodicalBook;
+
 }
 
 //---------------------------------------------------------------------------
 // destructor
+//TODO destructor needed  because new keyword ^^ ??
 BookFactory::~BookFactory() {
-    for (int i = 0; i < BOOKTYPES; i++) {
-        delete bookTypes[i];
-        bookTypes[i] = NULL;
-    }
+    //for (int i = 0; i < BOOKTYPES; i++) {
+    //    if (bookTypes[i] != NULL) {
+    //        delete bookTypes[i];
+    //        bookTypes[i] = NULL;
+    //    }
+    //}
 }
 
 //---------------------------------------------------------------------------
 // createBook
 Book* BookFactory::createBook(char type) {
+    Book* toReturn = nullptr;
     int subscript = hash(type);
-    return bookTypes[subscript]->create();
+
+    if (bookTypes[subscript] != NULL) {
+       toReturn =  bookTypes[subscript]->create();
+    }
+
+    return toReturn;
 }
 
 

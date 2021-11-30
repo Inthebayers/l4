@@ -16,14 +16,25 @@ using namespace std;
   */
 
 int main() {
-    //Library lib;
+
+    string compare = "Danny Dunn & the Homework Machine";
+    string comrade = "I Hate My Brother Harry";
+
+    (compare < comrade ) ? cout << compare << " is smaller" : cout << comrade << " is smaller";
+
+    Library lib;
+    ifstream books;
     //ifstream books, patrons, commands;
-    //books.open("booksFile");
-    //lib.buildBooks(books); // initialize books
+    books.open("data4books.txt");
+    lib.buildBooks(books); // initialize books
+    lib.displayBooks();
     //patrons.open("patronsFile");
     //lib.buildPatrons(patrons); // initialize patrons
     //commands.open("commandFile");
     //lib.commandHandler(commands); // initialize commands
+
+
     return 0;
 }
+
 

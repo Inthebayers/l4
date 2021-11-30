@@ -24,9 +24,10 @@
 
 using namespace std;
 
-class Library {
-public:
 
+class Library {
+
+public:
     // default constructor
     Library(); 
 

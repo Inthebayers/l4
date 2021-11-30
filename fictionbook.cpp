@@ -4,6 +4,8 @@
 // A fiction book object. Handles the creation and storage of a fiction book,
 // containing title, author, number of copies "owned" by the library, and
 // copies of this book currently checked in.
+// 
+// Ficiton sorted by author, then title
 //
 // Implementation:
 //  -- initial character in input dictates 'f' for fiction
