@@ -49,7 +49,7 @@ Bookcase::Bookcase() {
 // destructor
 Bookcase::~Bookcase() {
     for (int i = 0; i < GENRE_TYPES; i++) {
-        if (validCodes) {
+        if (validCodes[i]) {
             delete containers[i];
             containers[i] = nullptr;
         }
