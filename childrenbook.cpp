@@ -65,7 +65,7 @@ int ChildrenBook::getYear() const { return year_; }
 // display
 // TODO: Add spacing
 void ChildrenBook::display() const {
-    cout << title_ << author_ << year_ << endl;
+    cout << availableCopies_<< "    " << title_ << author_ << year_ << endl;
 }
 
 //---------------------------------------------------------------------------

@@ -30,9 +30,11 @@ Bookcase::Bookcase() {
     for (int i = 0; i < GENRE_TYPES; i++) {
         if (i == 2 || i == 5 || i == 15) {
             containers[i] = new BookContainer();
+            validCodes[i] = true;
         }
         else {
             containers[i] = nullptr; 
+            validCodes[i] = false;
         }
     }
 
@@ -77,7 +79,7 @@ bool Bookcase::buildBook(istream& in) {
         Book* newBook;
 
         //check for type validity
-        if (containers[code] != nullptr) {
+        if (validCodes[hash(code)]) {
             newBook = bf.createBook(code);
 
             //book class responsible for filling in rest of book information
@@ -119,6 +121,7 @@ bool Bookcase::checkOut(Book& target) {
 // display
 void Bookcase::display() const {
     // loop through container and display in order each BookContainer stored
+
     for (int i = 0; i < GENRE_TYPES; i++) {
         if (containers[i] != nullptr) {
             containers[i]->display();

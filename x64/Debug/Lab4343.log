@@ -1,7 +1,3 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (lab4.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  bookcase.cpp
-  bookfactory.cpp
-  library.cpp
-  main.cpp
-  Generating Code...
+  childrenbook.cpp
   Lab4343.vcxproj -> C:\Users\Kendr\OneDrive - UW\CSS 343 Data Structures\New folder\x64\Debug\Lab4343.exe

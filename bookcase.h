@@ -73,6 +73,9 @@ private:
     // hash funtion to get genre 
     int hash(char) const;
     
+    bool validCodes[GENRE_TYPES];
+
+
     // array that stores containers by genre
     BookContainer* containers[GENRE_TYPES]; 
 };

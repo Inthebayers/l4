@@ -103,5 +103,8 @@
     <Text Include="data4books.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="books.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -61,7 +61,7 @@ public:
     * @brief displays books by category, sorted within the category
     */
     void displayBooks() const;
-    //TODO implement for compiling
+   
 
 //---------------------------------------------------------------------------
     /** commandHandler
