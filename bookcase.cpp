@@ -38,6 +38,8 @@ Bookcase::Bookcase() {
         }
     }
 
+    // TODO dont hard code this 
+    // use A hash
     //initialize container types
     containers[2]->setGenre('C');
     containers[5]->setGenre('F'); 
