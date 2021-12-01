@@ -20,8 +20,6 @@ int main() {
     string compare = "Danny Dunn & the Homework Machine";
     string comrade = "I Hate My Brother Harry";
 
-    (compare < comrade ) ? cout << compare << " is smaller" : cout << comrade << " is smaller";
-
     Library lib;
     ifstream books;
     //ifstream books, patrons, commands;
