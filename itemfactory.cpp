@@ -11,7 +11,7 @@
 //  -- book type character will correspond to present book type
 //---------------------------------------------------------------------------
 
-#include "bookfactory.h"
+#include "itemfactory.h"
 #include "childrenbook.h"
 #include "fictionbook.h"
 #include "periodicalbook.h"
@@ -20,8 +20,8 @@
 
 //---------------------------------------------------------------------------
 // constructor
-BookFactory::BookFactory() {
-
+ItemFactory::ItemFactory() {
+    // TODO: Do we need to change this (booktypes -> itemtypes?)
     for (int i = 0; i < BOOKTYPES; i++) {
         bookTypes[i] = nullptr;
     }
@@ -35,7 +35,7 @@ BookFactory::BookFactory() {
 //---------------------------------------------------------------------------
 // destructor
 //TODO destructor needed  because new keyword ^^ ??
-BookFactory::~BookFactory() {
+ItemFactory::~ItemFactory() {
     delete bookTypes[2];
     bookTypes[2] = nullptr;
     delete bookTypes[5];
@@ -48,7 +48,7 @@ BookFactory::~BookFactory() {
 
 //---------------------------------------------------------------------------
 // createBook
-Book* BookFactory::createBook(char type) {
+Book* ItemFactory::createBook(char type) {
     Book* toReturn = nullptr;
     int subscript = hash(type);
 
@@ -62,7 +62,7 @@ Book* BookFactory::createBook(char type) {
 
 //---------------------------------------------------------------------------
 // hash
-int BookFactory::hash(char genre) const {
+int ItemFactory::hash(char genre) const {
     //change to uppercase if it's not
     genre = toupper(genre);
     int subscript = genre - 'A';

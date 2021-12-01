@@ -30,7 +30,7 @@ FictionBook::~FictionBook() {
 //---------------------------------------------------------------------------
 // buildBook
 // file format: type author, title, year : istream passed in beginning at author
-bool FictionBook::buildBook(istream& in) {
+bool FictionBook::buildItem(istream& in) {
     string author;
     string title;
     int year;
@@ -50,13 +50,12 @@ bool FictionBook::buildBook(istream& in) {
 
 //---------------------------------------------------------------------------
 // create
-Book* FictionBook::create() {
+Item* FictionBook::create() {
     return new FictionBook();
 }
 
 //---------------------------------------------------------------------------
 //display
-// TODO: Add spacing
 void FictionBook::display() const {
     cout << setw(5) << left << availableCopies_ << setw(37) << left << author_ <<  setw(37) << left << title_ << setw(37) << left << year_ << endl;
 }
@@ -92,15 +91,15 @@ int FictionBook::getYear() const {
 
 //---------------------------------------------------------------------------
 // overloaded comparison operators 
-// Ficiton sorted by author, then title
+// Fiction sorted by author, then title
 //---------------------------------------------------------------------------
 
 
 //---------------------------------------------------------------------------
 // overloaded operator<
-bool FictionBook::operator<(const Book & rhsBook) const { 
+bool FictionBook::operator<(const Item & rhsItem) const { 
     bool holder = false; 
-        const FictionBook& rhsBookCasted = static_cast<const FictionBook&>(rhsBook);
+        const FictionBook& rhsBookCasted = static_cast<const FictionBook&>(rhsItem);
     
     (getAuthor() < rhsBookCasted.getAuthor()) ? holder = true : holder = false;
 
@@ -114,11 +113,11 @@ bool FictionBook::operator<(const Book & rhsBook) const {
 
 //---------------------------------------------------------------------------
 // overloaded operator>
-bool FictionBook::operator>(const Book& rhsBook) const {
+bool FictionBook::operator>(const Item& rhsItem) const {
     bool holder = false;
 
     // cast book to fiction book 
-    const FictionBook& rhsBookCasted = static_cast<const FictionBook&>(rhsBook);
+    const FictionBook& rhsBookCasted = static_cast<const FictionBook&>(rhsItem);
 
     // compare titles, adjust bool as needed
     (getAuthor() > rhsBookCasted.getAuthor()) ? holder = true : holder = false;
@@ -132,11 +131,11 @@ bool FictionBook::operator>(const Book& rhsBook) const {
 
 //---------------------------------------------------------------------------
 // overloaded operator == 
-bool FictionBook::operator==(const Book& rhsBook) const {
+bool FictionBook::operator==(const Item& rhsItem) const {
     bool holder = false; 
 
     // cast rhs book to fiction book
-    const FictionBook& rhsBookCasted = static_cast<const FictionBook&>(rhsBook);
+    const FictionBook& rhsBookCasted = static_cast<const FictionBook&>(rhsItem);
 
     // compare author, title, and year between two books 
     if (rhsBookCasted.getAuthor() == getAuthor() && rhsBookCasted.getTitle() == getTitle() && rhsBookCasted.getYear() == getYear()) {
@@ -147,17 +146,7 @@ bool FictionBook::operator==(const Book& rhsBook) const {
 
 //---------------------------------------------------------------------------
 // overloaded operator !=
-bool FictionBook::operator!=(const Book& rhsBook) const {
-    return !(*this == rhsBook);
+bool FictionBook::operator!=(const Item& rhsItem) const {
+    return !(*this == rhsItem);
 }
 
-// TODO: 
-// [x] Less than operator < 
-// [x] Greater than operator >
-// [x] Equals to operator==
-// [x] Does not equals operator!=
-// [x] getYear
-// [x] setYear
-// [x] getAuthor
-// [x] setAuthor
-// [ ] buildBook

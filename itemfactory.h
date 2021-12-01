@@ -11,20 +11,20 @@
 //  -- book type character will correspond to present book type
 //---------------------------------------------------------------------------
 
-#ifndef BOOKFACTORY_H
-#define BOOKFACTORY_H
+#ifndef ITEMFACTORY_H
+#define ITEMFACTORY_H
 
 #include "book.h"
 #include <iostream>
 
-class BookFactory {
+class ItemFactory {
 public:
     //---------------------------------------------------------------------------
         /**
          * @brief Construct a new Book Factory object. Default constructor.
          * @post: BookFactory object will be created.
          */
-    BookFactory();
+    ItemFactory();
 
     //---------------------------------------------------------------------------
         /**
@@ -32,7 +32,7 @@ public:
          * @pre: Assumes valid BookFactory object to be deleted.
          * @post: BookFactory object will be deleted, with memory freed.
          */
-    ~BookFactory();
+    ~ItemFactory();
 
     //---------------------------------------------------------------------------
     /**
@@ -40,13 +40,16 @@ public:
     * stream information. Can create a fiction, periodical, or children's book.
     * @return Book pointer pointing to the newly created book object.
     */
+   // TODO: This should be fine right? If music is added, createMusic?
     Book* createBook(char type);
 
 
 private:
+    // TODO: Do we need to change this to book-> item?
     static const int BOOKTYPES = 26;
 
     // array containing indexes for all possible bookTypes in future
+    // TODO: Do we need to change this to book-> item?
     Book* bookTypes[BOOKTYPES];
 
     // hash function

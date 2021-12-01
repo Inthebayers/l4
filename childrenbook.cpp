@@ -20,7 +20,7 @@ ChildrenBook::~ChildrenBook() {}
 //---------------------------------------------------------------------------
 // buildBook
 
-bool ChildrenBook::buildBook(istream &inFile) {
+bool ChildrenBook::buildItem(istream &inFile) {
     string title = "";
     string author = "";
     int year;
@@ -39,7 +39,7 @@ bool ChildrenBook::buildBook(istream &inFile) {
 
 //---------------------------------------------------------------------------
 // create
-Book *ChildrenBook::create() { return new ChildrenBook(); }
+Item *ChildrenBook::create() { return new ChildrenBook(); }
 
 //---------------------------------------------------------------------------
 // setAuthor
@@ -65,7 +65,7 @@ int ChildrenBook::getYear() const { return year_; }
 
 //---------------------------------------------------------------------------
 // display
-// TODO: Add spacing
+
 void ChildrenBook::display() const {
     cout << setw(5) << left << availableCopies_<< setw(37) << left << title_ << setw(37) << left <<  author_ << setw(37) << left << year_ << endl;
 }
@@ -77,12 +77,12 @@ void ChildrenBook::display() const {
 
 //---------------------------------------------------------------------------
 // overloaded operator <
-bool ChildrenBook::operator<(const Book &rhsBook) const {
+bool ChildrenBook::operator<(const Item &rhsItem) const {
     bool holder = false;
 
     // cast book to children's book
     const ChildrenBook &rhsBookCasted =
-        static_cast<const ChildrenBook &>(rhsBook);
+        static_cast<const ChildrenBook &>(rhsItem);
 
     // compare titles
     (getTitle() < rhsBookCasted.getTitle()) ? holder = true : holder = false;
@@ -96,12 +96,12 @@ bool ChildrenBook::operator<(const Book &rhsBook) const {
 
 //---------------------------------------------------------------------------
 // overloaded operator>
-bool ChildrenBook::operator>(const Book &rhsBook) const {
+bool ChildrenBook::operator>(const Item &rhsItem) const {
     bool holder = false;
 
     // cast book to children's book
     const ChildrenBook &rhsBookCasted =
-        static_cast<const ChildrenBook &>(rhsBook);
+        static_cast<const ChildrenBook &>(rhsItem);
 
     // compare titles, adjust bool as needed
     (getTitle() > rhsBookCasted.getTitle()) ? holder = true : holder = false;
@@ -115,12 +115,12 @@ bool ChildrenBook::operator>(const Book &rhsBook) const {
 
 //---------------------------------------------------------------------------
 // overloaded operator==
-bool ChildrenBook::operator==(const Book &rhsBook) const {
+bool ChildrenBook::operator==(const Item &rhsItem) const {
     bool holder = false;
 
     // cast rhs book to children's book
     const ChildrenBook &rhsBookCasted =
-        static_cast<const ChildrenBook &>(rhsBook);
+        static_cast<const ChildrenBook &>(rhsItem);
 
     // compare author, title, and year between two books
     if (rhsBookCasted.getAuthor() == getAuthor() &&
@@ -133,7 +133,7 @@ bool ChildrenBook::operator==(const Book &rhsBook) const {
 
 //---------------------------------------------------------------------------
 // overloaded operator !=
-bool ChildrenBook::operator!=(const Book &rhsBook) const {
+bool ChildrenBook::operator!=(const Item &rhsItem) const {
     // use comparison operator to return value
-    return !(*this == rhsBook);
+    return !(*this == rhsItem);
 }

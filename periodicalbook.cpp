@@ -27,7 +27,7 @@ PeriodicalBook:: ~PeriodicalBook() {
 //---------------------------------------------------------------------------
 // buildBook
 // file format: type title, month year
-bool PeriodicalBook::buildBook(istream& in) {
+bool PeriodicalBook::buildItem(istream& in) {
     string title;
     int month;
     int year;
@@ -50,7 +50,7 @@ bool PeriodicalBook::buildBook(istream& in) {
 
 //---------------------------------------------------------------------------
 // create
-Book* PeriodicalBook::create() {
+Item* PeriodicalBook::create() {
     return new PeriodicalBook();
 }
 
@@ -104,11 +104,11 @@ int PeriodicalBook::getYear() const {
 
 //---------------------------------------------------------------------------
 // overloaded operator<
-bool PeriodicalBook::operator<(const Book& rhsBook) const {
+bool PeriodicalBook::operator<(const Item& rhsItem) const {
     bool holder = false;
 
     // cast book to preiodical book 
-    const PeriodicalBook& rhsBookCasted = static_cast<const PeriodicalBook&>(rhsBook);
+    const PeriodicalBook& rhsBookCasted = static_cast<const PeriodicalBook&>(rhsItem);
 
     // compare year
     if (year_ < rhsBookCasted.getYear()) {
@@ -133,11 +133,11 @@ bool PeriodicalBook::operator<(const Book& rhsBook) const {
 //---------------------------------------------------------------------------
 // overloaded operator >
 
-bool PeriodicalBook::operator>(const Book& rhsBook) const {
+bool PeriodicalBook::operator>(const Item& rhsItem) const {
     bool holder = false;
 
     // cast book to preiodical book 
-    const PeriodicalBook& rhsBookCasted = static_cast<const PeriodicalBook&>(rhsBook);
+    const PeriodicalBook& rhsBookCasted = static_cast<const PeriodicalBook&>(rhsItem);
 
     // compare year
     if (year_ > rhsBookCasted.getYear()) {
@@ -161,14 +161,14 @@ bool PeriodicalBook::operator>(const Book& rhsBook) const {
 
 //---------------------------------------------------------------------------
 // overloaded operator==
-bool PeriodicalBook::operator==(const Book& rhsBook) const {
+bool PeriodicalBook::operator==(const Item& rhsItem) const {
     bool holder = false;
     // check if it's the same object
-    //if (this == rhsBook) {
+    //if (this == rhsItem) {
     //    return true;
     //}
     // cast rhs book to periodical's book
-    const PeriodicalBook& rhsBookCasted = static_cast<const PeriodicalBook&>(rhsBook);
+    const PeriodicalBook& rhsBookCasted = static_cast<const PeriodicalBook&>(rhsItem);
 
     // compare year, month, title
     if (year_ == rhsBookCasted.getYear() && month_ == rhsBookCasted.getMonth() && title_ == rhsBookCasted.getTitle()) {
@@ -180,9 +180,9 @@ bool PeriodicalBook::operator==(const Book& rhsBook) const {
 
 //---------------------------------------------------------------------------
 // overloaded operator!=
-bool PeriodicalBook::operator!=(const Book& rhsBook) const {
+bool PeriodicalBook::operator!=(const Item& rhsItem) const {
     // use comparison operator to return value
-    return !(*this == rhsBook);
+    return !(*this == rhsItem);
 }
 
 
