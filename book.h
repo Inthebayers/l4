@@ -39,17 +39,6 @@ public:
       */
    virtual ~Book();
 
-   //---------------------------------------------------------------------------
-    /** buildBook
-   * @brief creates book object reading from data file
-   * @pre: A correctly formatted open data file
-   * @post: a new book object 
-   */
-   virtual bool buildBook(istream& in) = 0;
-   // TODO: Move this to Item, change factory to item factory
-   // TODO every book would need to get buildBook implemented
-   // TODO: Make buildItem? Change factory with this change
-
 
    //---------------------------------------------------------------------------
    /**
@@ -137,60 +126,6 @@ public:
     * @return int of total number of copies of book owned by library. 
     */
    int getTotalCopies();
-
-   /** display
-     * @brief prints the contents of the book to console,
-     * pure virtual function
-     * @pre implemented display() in child classes
-     * @post book contents displayed to console
-     */
-   virtual void display() const = 0;
-   // TODO: Move to Item
-
-   /** create
-     * @brief creates a new book object, pure virutal funciton
-     * @pre implemented create() in child classes
-     * @return returns a pointer to a new book object
-     */
-   virtual Book *create() = 0;
-  //TODO: Move to Item, return item
-
-   /**
-    * Less than operator. Compares LHS and RHS for lesser value.
-    * @param rhsBook rhs Book being passed in
-    * @return true
-    * @return false
-    */
-
-   virtual bool operator<(const Book &rhsBook) const = 0;
-  // TODO Move to item, change from book to item
-   /**
-     *
-     * Greater than operator. compares LHS and RHS for greater value.
-     * @param rhsBook rhs Book being passed in for comparison
-     * @return true
-     * @return false
-     */
-   virtual bool operator>(const Book &rhsBook) const = 0;
-// TODO Move to item, change from book to item
-   /**
-     * Equals operator. Determines if two Book objects are equal.
-     *
-     * @param rhsBook rhs Book being passed in for equals comparison
-     * @return true
-     * @return false
-     */
-   virtual bool operator==(const Book &rhsBook) const = 0;
-// TODO Move to item, change from book to item
-   /**
-     * Does not equals operator. Determines if two books are not equal.
-     * @param rhsBook
-     * @return true
-     * @return false
-     */
-
-   virtual bool operator!=(const Book &rhsBook) const = 0;
-// TODO Move to item, change from book to item
 
 protected:
    // title of book
