@@ -2,6 +2,8 @@
 
 #include "book.h"
 
+#include <iomanip>
+
 using namespace std;
 //---------------------------------------------------------------------------
 // Constructor
@@ -65,7 +67,7 @@ int ChildrenBook::getYear() const { return year_; }
 // display
 // TODO: Add spacing
 void ChildrenBook::display() const {
-    cout << availableCopies_<< "    " << title_ << author_ << year_ << endl;
+    cout << setw(5) << left << availableCopies_<< setw(37) << left << title_ << setw(37) << left <<  author_ << setw(37) << left << year_ << endl;
 }
 
 //---------------------------------------------------------------------------

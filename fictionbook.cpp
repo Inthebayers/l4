@@ -12,6 +12,7 @@
 //---------------------------------------------------------------------------
 #include "fictionbook.h"
 
+#include <iomanip>
 //---------------------------------------------------------------------------
 //default constructor
 FictionBook::FictionBook() {
@@ -57,7 +58,7 @@ Book* FictionBook::create() {
 //display
 // TODO: Add spacing
 void FictionBook::display() const {
-    cout << availableCopies_ << author_ << title_ << year_ << endl;
+    cout << setw(5) << left << availableCopies_ << setw(37) << left << author_ <<  setw(37) << left << title_ << setw(37) << left << year_ << endl;
 }
 
 //---------------------------------------------------------------------------
