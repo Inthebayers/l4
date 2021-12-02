@@ -157,10 +157,7 @@ bool PeriodicalBook::operator>(const Item& rhsItem) const {
 // overloaded operator==
 bool PeriodicalBook::operator==(const Item& rhsItem) const {
     bool holder = false;
-    // check if it's the same object
-    //if (this == rhsItem) {
-    //    return true;
-    //}
+
     // cast rhs book to periodical's book
     const PeriodicalBook& rhsBookCasted = static_cast<const PeriodicalBook&>(rhsItem);
 
