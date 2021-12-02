@@ -4,14 +4,14 @@ using namespace std;
 
 Item::Item(char incomingItem)
 {
-    itemType = incomingItem;
+    itemType_ = incomingItem;
 }
 
 Item::Item()
 {
-    itemType = ' ';
+    itemType_ = ' ';
 }
 
 char Item::getType() const {
-    return itemType;
+    return itemType_;
 }

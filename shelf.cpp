@@ -146,8 +146,8 @@ void Shelf::display() const {
 
 //---------------------------------------------------------------------------
 // hash
-int Shelf::hash(char genre) const {
-    genre = toupper(genre);
-    int subscript = genre - 'A';
+int Shelf::hash(char code) const {
+    code = toupper(code);
+    int subscript = code - 'A';
     return subscript;
 }

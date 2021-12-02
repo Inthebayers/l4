@@ -95,6 +95,6 @@ public:
 private:
 
 protected:
-    char itemType; 
+    char itemType_; 
      
 };

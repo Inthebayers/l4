@@ -19,7 +19,7 @@ FictionBook::FictionBook() {
     author_ = "";
     year_ = 0;
     title_ = "";
-    bookCode_ = 'F';
+    itemType_ = 'F';
 }
 
 //---------------------------------------------------------------------------

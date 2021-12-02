@@ -18,9 +18,6 @@
     <ClCompile Include="Book.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bookcontainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="childrenbook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

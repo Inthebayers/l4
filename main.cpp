@@ -19,13 +19,12 @@ int main() {
 
     string compare = "Danny Dunn & the Homework Machine";
     string comrade = "I Hate My Brother Harry";
-
     Library lib;
     ifstream books;
     //ifstream books, patrons, commands;
     books.open("data4books.txt");
-    lib.buildBooks(books); // initialize books
-    lib.displayBooks();
+    lib.buildItem(books); // initialize books
+    lib.displayItems();
     //patrons.open("patronsFile");
     //lib.buildPatrons(patrons); // initialize patrons
     //commands.open("commandFile");

@@ -49,7 +49,7 @@ bool Library::buildItem(istream& in) {
 
 //---------------------------------------------------------------------------
 // displayItems
-void Library::displayBooks() const {
+void Library::displayItems() const {
     shelf.display();
 }
 

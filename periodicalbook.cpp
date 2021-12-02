@@ -16,7 +16,7 @@ PeriodicalBook::PeriodicalBook() {
     month_ = 0;
     year_ = 0;
     title_ = "";
-    bookCode_ = 'P';
+    itemType_ = 'P';
 }
 
 //---------------------------------------------------------------------------

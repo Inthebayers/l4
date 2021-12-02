@@ -60,7 +60,7 @@ public:
     /** displayContents
     * @brief displays books by category, sorted within the category
     */
-    void displayBooks() const;
+    void displayItems() const;
    
 
 //---------------------------------------------------------------------------
@@ -72,7 +72,7 @@ public:
 private:
 
     // private data memebers
-    ItemFactory bookFactory;
+    ItemFactory itemF;
   //  CommandFactory commFactory;
   //  PatronContainer patronContainer;
     Shelf shelf;

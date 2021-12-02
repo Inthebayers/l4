@@ -10,7 +10,7 @@ using namespace std;
 ChildrenBook::ChildrenBook() {
     author_ = "";
     year_ = 0;
-    bookCode_ = 'C';
+    itemType_ = 'C';
 }
 
 //---------------------------------------------------------------------------
