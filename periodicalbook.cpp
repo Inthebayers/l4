@@ -43,11 +43,7 @@ bool PeriodicalBook::buildItem(istream& in) {
     setYear(year);
 
     return (getTitle() == title && getMonth() == month && getYear() == year);
-
-
-
 }
-
 
 //---------------------------------------------------------------------------
 // create
@@ -95,12 +91,10 @@ int PeriodicalBook::getYear() const {
     return year_;
 }
 
-
 //---------------------------------------------------------------------------
 // overloaded comparison operators 
 // Periodicals sorted by date (year, then month), then by title 
 //---------------------------------------------------------------------------
-
 
 //---------------------------------------------------------------------------
 // overloaded operator<
@@ -184,15 +178,3 @@ bool PeriodicalBook::operator!=(const Item& rhsItem) const {
     // use comparison operator to return value
     return !(*this == rhsItem);
 }
-
-
-// TODO: 
-// [x] Less than operator < 
-// [x] Greater than operator >
-// [x] Equals to operator==
-// [x] Does not equals operator!=
-// [x] getYear
-// [x] setYear
-// [x] getAuthor - no author
-// [x] setAuthor - no author 
-// [x] COPY CONSTRUCTOR - not necessary
