@@ -27,3 +27,5 @@ slnx.sqlite
 *.sln
 
 /cssLab4/.vs/
+
+.gch
