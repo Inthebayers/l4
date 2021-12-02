@@ -1,14 +1,14 @@
 //---------------------------------------------------------------------------
-// bookfactory.h
+// itemfactory.cpp
 //---------------------------------------------------------------------------
-// A Book factory class. Handles the creation of Book objects based on the
-// book code being taken from input. Works as an intermidiate class to process
-// any type of book creation in one class. Able to create periodicals, fiction,
-// and children's books based on incoming book code.
+// A Item factory class. Handles the creation of Item objects based on the
+// Item code being taken from input. Works as an intermidiate class to process
+// any type of Item creation in one class. Able to create periodicals, fiction,
+// and children's books based on incoming Item code.
 //
 // Assumptions:
 //  -- valid character corresponding to book type from input
-//  -- book type character will correspond to present book type
+//  -- book type character will correspond to present Item type
 //---------------------------------------------------------------------------
 
 #ifndef ITEMFACTORY_H
@@ -41,16 +41,16 @@ public:
     * @return Book pointer pointing to the newly created book object.
     */
    // TODO: This should be fine right? If music is added, createMusic?
-    Book* createBook(char type);
+    Item* createItem(char type);
 
 
 private:
     // TODO: Do we need to change this to book-> item?
-    static const int BOOKTYPES = 26;
+    static const int TYPES = 26;
 
     // array containing indexes for all possible bookTypes in future
     // TODO: Do we need to change this to book-> item?
-    Book* bookTypes[BOOKTYPES];
+    Item* types[TYPES];
 
     // hash function
     int hash(char ch) const;

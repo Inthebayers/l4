@@ -15,8 +15,8 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
-#include "bookcase.h"
-#include "bookfactory.h"
+#include "shelf.h"
+#include "itemfactory.h"
 #include "command.h"
 #include "commandfactory.h"
 #include "patroncontainer.h"
@@ -54,7 +54,7 @@ public:
     * @brief interface between data file and book addition
     * @return true if book was added, false if not
     */
-    bool buildBooks(istream&);
+    bool buildItem(istream&);
 
 //---------------------------------------------------------------------------
     /** displayContents
@@ -72,11 +72,10 @@ public:
 private:
 
     // private data memebers
-    BookFactory bookFactory;
+    ItemFactory bookFactory;
   //  CommandFactory commFactory;
   //  PatronContainer patronContainer;
-    Bookcase bookcase;
-    Item item;
+    Shelf shelf;
 
 };
 

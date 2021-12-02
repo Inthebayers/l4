@@ -1,14 +1,14 @@
 //---------------------------------------------------------------------------
-// bookfactory.cpp
+// itemfactory.cpp
 //---------------------------------------------------------------------------
-// A Book factory class. Handles the creation of Book objects based on the
-// book code being taken from input. Works as an intermidiate class to process
-// any type of book creation in one class. Able to create periodicals, fiction,
-// and children's books based on incoming book code.
+// A Item factory class. Handles the creation of Item objects based on the
+// Item code being taken from input. Works as an intermidiate class to process
+// any type of Item creation in one class. Able to create periodicals, fiction,
+// and children's books based on incoming Item code.
 //
 // Assumptions:
 //  -- valid character corresponding to book type from input
-//  -- book type character will correspond to present book type
+//  -- book type character will correspond to present Item type
 //---------------------------------------------------------------------------
 
 #include "itemfactory.h"
@@ -22,13 +22,13 @@
 // constructor
 ItemFactory::ItemFactory() {
     // TODO: Do we need to change this (booktypes -> itemtypes?)
-    for (int i = 0; i < BOOKTYPES; i++) {
-        bookTypes[i] = nullptr;
+    for (int i = 0; i < TYPES; i++) {
+        types[i] = nullptr;
     }
 
-    bookTypes[2] = new ChildrenBook;
-    bookTypes[5] = new FictionBook;
-    bookTypes[15] = new PeriodicalBook;
+    types[2] = new ChildrenBook;
+    types[5] = new FictionBook;
+    types[15] = new PeriodicalBook;
 
 }
 
@@ -36,24 +36,24 @@ ItemFactory::ItemFactory() {
 // destructor
 //TODO destructor needed  because new keyword ^^ ??
 ItemFactory::~ItemFactory() {
-    delete bookTypes[2];
-    bookTypes[2] = nullptr;
-    delete bookTypes[5];
-    bookTypes[5] = nullptr;
-    delete bookTypes[15];
-    bookTypes[15] = nullptr;
+    for (int i = 0; i < TYPES; i++) {
+        if (types[i] != nullptr) {
+            delete types[i];
+            types[i] = nullptr;
+        }
+    }
 
 
 }
 
 //---------------------------------------------------------------------------
 // createBook
-Book* ItemFactory::createBook(char type) {
-    Book* toReturn = nullptr;
+Item* ItemFactory::createItem(char type) {
+    Item* toReturn = nullptr;
     int subscript = hash(type);
 
-    if (bookTypes[subscript] != NULL) {
-       toReturn =  bookTypes[subscript]->create();
+    if (types[subscript] != nullptr) {
+       toReturn =  types[subscript]->create();
     }
 
     return toReturn;
@@ -62,9 +62,9 @@ Book* ItemFactory::createBook(char type) {
 
 //---------------------------------------------------------------------------
 // hash
-int ItemFactory::hash(char genre) const {
+int ItemFactory::hash(char type) const {
     //change to uppercase if it's not
-    genre = toupper(genre);
-    int subscript = genre - 'A';
+    type = toupper(type);
+    int subscript = type - 'A';
     return subscript;
 }

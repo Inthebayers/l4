@@ -20,7 +20,7 @@
 #define SHELF
 
 #include "itemcontainer.h"
-#include "bookfactory.h"
+#include "itemfactory.h"
 #include <iostream>
 
 class Shelf {
@@ -47,7 +47,7 @@ public:
     * @brief interface between data file and book addition
     * @return true if book was added, false if not
     */
-    bool buildBook(istream& in);
+    bool buildItem(istream& in);
 
     //--------------------------------------------------------------------------
     /** checkOut

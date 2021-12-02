@@ -39,7 +39,7 @@ Shelf::Shelf() {
     }
 
     // TODO dont hard code this 
-    // use A hash
+    // use A hash in the for loop 
     //initialize container types
     containers[2]->setGenre('C');
     containers[5]->setGenre('F'); 
@@ -66,7 +66,7 @@ bool Shelf::insert(Item* toInsert) {
     bool success = false;
     //check for type
     //check if valid and call insert on correlated BookContainer
-    int subscript = hash(toInsert->getBookCode());
+    int subscript = hash(toInsert->getType());
     if (containers[subscript] != nullptr) {
         success = containers[subscript]->insert(toInsert);
     }
@@ -75,9 +75,9 @@ bool Shelf::insert(Item* toInsert) {
 
 //---------------------------------------------------------------------------
 // buildBook
-bool Shelf::buildBook(istream& in) {
+bool Shelf::buildItem(istream& in) {
     bool success = false;
-    BookFactory bf;
+    ItemFactory itemF;
     char code;
     for (;;) {
         // read bookCode (genre type)
@@ -90,17 +90,17 @@ bool Shelf::buildBook(istream& in) {
         in.get(); //get and ignore next blank space
 
         //newBook stores newly created book object
-        Book* newBook = nullptr;
+        Item* newItem = nullptr;
 
         //check for type validity
         if (validCodes[hash(code)]) {
-            newBook = bf.createBook(code);
+            newItem = itemF.createItem(code);
 
             //book class responsible for filling in rest of book information
-            if (newBook->buildBook(in)) {
+            if (newItem->buildItem(in)) {
 
                 // if book info was set insert in containers
-                success = insert(newBook);
+                success = insert(newItem);
             }
         }
 
@@ -122,9 +122,9 @@ bool Shelf::checkOut(Item& target) {
     // send to hash
     // call checkout on bookcontainer type
     bool success = false;
-    int subscript = hash(target.getBookCode());
+    int subscript = hash(target.getType());
     if (containers[subscript] != nullptr) {
-        Book* retrieved;
+        Item* retrieved;
         if (containers[subscript]->retrieve(target, retrieved)) {
 
        }

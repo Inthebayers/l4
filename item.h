@@ -21,7 +21,7 @@ public:
      *
      * @param incomingItem
      */
-    Item(string incomingItem);
+    Item(char incomingItem);
 
     Item();
 
@@ -49,6 +49,8 @@ public:
      * @return returns a pointer to a new item object
      */
    virtual Item *create() = 0;
+
+   char getType() const;
 
 
      /**
@@ -93,5 +95,6 @@ public:
 private:
 
 protected:
-    string itemType;
+    char itemType; 
+     
 };

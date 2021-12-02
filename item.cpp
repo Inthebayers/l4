@@ -2,11 +2,16 @@
 
 using namespace std;
 
-Item::Item(string incomingItem)
+Item::Item(char incomingItem)
 {
     itemType = incomingItem;
 }
 
 Item::Item()
 {
+    itemType = ' ';
+}
+
+char Item::getType() const {
+    return itemType;
 }

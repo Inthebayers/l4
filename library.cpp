@@ -42,15 +42,15 @@ Library::~Library() {
 
 //---------------------------------------------------------------------------
 // buildBook
-bool Library::buildBooks(istream& in) {
-   return bookcase.buildBook(in);
+bool Library::buildItem(istream& in) {
+   return shelf.buildItem(in);
 }
 
 
 //---------------------------------------------------------------------------
 // displayItems
 void Library::displayBooks() const {
-    bookcase.display();
+    shelf.display();
 }
 
 //---------------------------------------------------------------------------
