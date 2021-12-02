@@ -51,10 +51,10 @@ Shelf::Shelf() {
 // destructor
 Shelf::~Shelf() {
     for (int i = 0; i < ITEM_TYPES; i++) {
-        if (validCodes[i]) {
+
             delete containers[i];
             containers[i] = nullptr;
-        }
+        
     }
 }
 

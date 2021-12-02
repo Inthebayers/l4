@@ -12,6 +12,10 @@ Item::Item()
     itemType_ = ' ';
 }
 
+Item::~Item() {
+    
+}
+
 char Item::getType() const {
     return itemType_;
 }

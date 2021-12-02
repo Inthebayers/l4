@@ -9,6 +9,7 @@
 //  -- initial character in input dictates 'p' for periodical
 //---------------------------------------------------------------------------
 #include "periodicalbook.h"
+#include <iomanip>
 
 //---------------------------------------------------------------------------
 // default constructor
@@ -56,9 +57,8 @@ Item* PeriodicalBook::create() {
 
 //---------------------------------------------------------------------------
 // display
-// TODO needs spacing
 void PeriodicalBook::display() const {
-    cout << availableCopies_  << month_ << year_ << title_ << endl;
+    cout << setw(5) << left << availableCopies_ << setw(3) <<  month_ << setw(34) << left <<  year_ << setw(30) << title_ << endl;
 }
 
 //---------------------------------------------------------------------------

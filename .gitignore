@@ -18,7 +18,7 @@
 /.vs
 /gitignore
 
-slnx.sqlite
+*.slnx.sqlite
 
 /.vs/slnx.sqlite
 
@@ -28,4 +28,10 @@ slnx.sqlite
 
 /cssLab4/.vs/
 
-.gch
+*.gch
+
+*.h.gch
+itemcontainer.h.gch
+.gitignore
+lab4tester
+.gitignore

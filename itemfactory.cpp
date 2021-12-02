@@ -34,15 +34,11 @@ ItemFactory::ItemFactory() {
 
 //---------------------------------------------------------------------------
 // destructor
-//TODO destructor needed  because new keyword ^^ ??
 ItemFactory::~ItemFactory() {
-    for (int i = 0; i < TYPES; i++) {
-        if (types[i] != nullptr) {
+    for (int i = 0; i < TYPES; i++) {   
             delete types[i];
             types[i] = nullptr;
-        }
     }
-
 
 }
 

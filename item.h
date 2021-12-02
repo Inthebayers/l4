@@ -25,6 +25,8 @@ public:
 
     Item();
 
+    virtual ~Item();
+
 //---------------------------------------------------------------------------
     /** buildItem
    * @brief creates item object reading from data file
