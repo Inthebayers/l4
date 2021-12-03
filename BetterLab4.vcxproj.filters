@@ -45,6 +45,12 @@
     <ClCompile Include="shelf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="patron.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patroncontainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="book.h">
