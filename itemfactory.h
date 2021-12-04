@@ -40,16 +40,13 @@ public:
     * stream information. Can create a fiction, periodical, or children's book.
     * @return Book pointer pointing to the newly created book object.
     */
-   // TODO: This should be fine right? If music is added, createMusic?
     Item* createItem(char type);
 
 
 private:
-    // TODO: Do we need to change this to book-> item?
     static const int TYPES = 26;
 
     // array containing indexes for all possible bookTypes in future
-    // TODO: Do we need to change this to book-> item?
     Item* types[TYPES];
 
     // hash function

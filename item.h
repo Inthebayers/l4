@@ -17,11 +17,7 @@ using namespace std;
 class Item {
 public:
 
-    /**
-     *
-     * @param incomingItem
-     */
-    Item(char incomingItem);
+
 
     Item();
 
@@ -34,7 +30,6 @@ public:
    * @post: a new item object 
    */
    virtual bool buildItem(istream& in) = 0;
-   // TODO: Change the factory to ItemFactory with this
 
       /** display
      * @brief prints the contents of the item to console,

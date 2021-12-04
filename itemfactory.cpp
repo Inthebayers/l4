@@ -21,7 +21,7 @@
 //---------------------------------------------------------------------------
 // constructor
 ItemFactory::ItemFactory() {
-    // TODO: Do we need to change this (booktypes -> itemtypes?)
+
     for (int i = 0; i < TYPES; i++) {
         types[i] = nullptr;
     }
