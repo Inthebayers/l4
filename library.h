@@ -20,6 +20,7 @@
 #include "command.h"
 #include "commandfactory.h"
 #include "patroncontainer.h"
+#include "commandmanager.h"
 #include <iostream>
 
 using namespace std;
@@ -50,6 +51,10 @@ public:
    // void printPatronHistory(const Patron&) const;
 
 //---------------------------------------------------------------------------
+// TODO comment
+    bool runCommands(istream&);
+
+//---------------------------------------------------------------------------
     /** buildBook
     * @brief interface between data file and book addition
     * @return true if book was added, false if not
@@ -76,6 +81,9 @@ private:
   //  CommandFactory commFactory;
   //  PatronContainer patronContainer;
     Shelf shelf;
+
+ //  CommandFactory object
+    CommandManager commManager;
 
 };
 

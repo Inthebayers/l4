@@ -11,6 +11,7 @@
 class Checkout : public Command {
 public:
     Checkout(); // default
+
     ~Checkout();
 
     //---------------------------------------------------------------------------
@@ -21,4 +22,8 @@ public:
          *       if any were available to begin with
          */
     virtual bool execute(istream&);
+
+private:
+    Item* item;
+    Patron* patron;
 };

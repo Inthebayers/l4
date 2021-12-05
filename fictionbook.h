@@ -131,4 +131,8 @@ private:
     string author_;
     //publishing year
     int year_;
+
+    static const int COPIES = 5;
+    int availableCopies_ = COPIES;
+    int totalCopies = COPIES;
 };

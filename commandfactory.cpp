@@ -2,14 +2,14 @@
 
 //---------------------------------------------------------------------------
 // commandFactory()
-CommandFactory::commandFactory() {
+CommandFactory::CommandFactory() {
     for (int i = 0; i < ALPHABET; i++) {
-        commandTypes[i] = NULL;
+        commandTypes[i] = nullptr;
     }
     // Checkout, Return, History
-    // commandTypes[2] = new Checkout;
+     commandTypes[2] = new Checkout;
     commandTypes[7] = new History;
-    // commandTypes[17] = new Return;
+     commandTypes[17] = new Return;
 }
 
 

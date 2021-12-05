@@ -21,6 +21,8 @@
 //---------------------------------------------------------------------------
 // Constructor
 Patron::Patron() {
+
+// initialize member fields
 	nameLastFirst_ = "";
 	userID_ = 0;
 }
@@ -34,28 +36,14 @@ Patron::~Patron() {
 
 //---------------------------------------------------------------------------
 // buildPatron
-bool Patron::buildPatron(istream& inFile) {
-	
-	int userID;
-
+bool Patron::buildPatron(istream& inFile, int userID) {
 	string nameLastFirst;
+	userID_ = userID;
 
-	// check if userID is correct
-	if (userID > 0) {
-		inFile >> userID;
-
-		inFile.get();
-
-		getline(inFile, nameLastFirst);
-
-		userID_ = userID;
-
-		nameLastFirst_ = nameLastFirst;
-
-		return true;
-	}
-
-	return false;
+    // take name from inFile 
+    getline(inFile, nameLastFirst);
+    nameLastFirst_ = nameLastFirst;
+	return true;
 }
 
 //---------------------------------------------------------------------------
@@ -75,10 +63,9 @@ int Patron::getID() const {
 void Patron::printHistory() const {
 	// go through list of commands ie. checkout, returns 
 	// print via command functions the history
+
+	for (Command historyCommand : itemHistory) {
+		historyCommand.display();
+	}
 }
 
-//---------------------------------------------------------------------------
-// addHistory
-bool Patron::addToHistory(const Item& item) {
-
-}

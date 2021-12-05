@@ -11,8 +11,7 @@
 //
 //---------------------------------------------------------------------------
 #pragma once
-#include "bookcase.h"
-#include "patroncontainer.h"
+#include "library.h"
 
 class Command {
 public:
@@ -30,15 +29,6 @@ public:
      */
     virtual ~Command();
 
-    //---------------------------------------------------------------------------
-    /**
-    * @brief Initialize structures across subclasses for access.
-    * @post: Bookcase and PatronContainer objects will be accessible.
-    */
-    void setStructures(PatronContainer*& p, Bookcase*& b);
-    // TODO: What the hell is setStructures?
-
-
 
     //---------------------------------------------------------------------------
     /**
@@ -50,7 +40,11 @@ public:
    // TODO: I don't think this is virtual, how would it work?
     virtual bool execute(istream) = 0;
 
+    virtual bool display() = 0;
+
+
 private:
     static PatronContainer* patronContainer;
-    static Bookcase* bookcase;
+    static Shelf* shelf;
+    static Library library;
 };

@@ -41,6 +41,13 @@ Library::~Library() {
 //}
 
 //---------------------------------------------------------------------------
+// runCommands
+bool Library::runCommands(istream& inFile) {
+    return commManager.runCommands(inFile);
+}
+
+
+//---------------------------------------------------------------------------
 // buildBook
 bool Library::buildItem(istream& in) {
    return shelf.buildItem(in);

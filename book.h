@@ -135,7 +135,6 @@ protected:
    char bookCode_;
 
    // copies of book checked into library
-   int availableCopies_ = COPIES;
 
    // total amount of copies the library owns
    int totalCopies_ = COPIES;

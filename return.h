@@ -41,6 +41,8 @@ public:
     virtual bool execute(istream& input);
 
 private:
+    Item* theItem;
+    Patron* thePatron;
 };
 
 #endif

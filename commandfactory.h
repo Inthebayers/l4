@@ -28,11 +28,12 @@ public:
    Command* createCommand(char type) const;
 
 private:
+
+    static const int ALPHABET = 36;
+
    //arrya of command types
    Command* commandTypes[ALPHABET];
 
    // hash function
    int hash(char ch) const;
-
-   int ALPHABET = 36;
 };

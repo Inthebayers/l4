@@ -66,10 +66,10 @@ public:
     * @param book to be checkout out
     * @param returned book returned by reference if found
     */
-    bool retrieve(const Item& target, Item*& returned) const;
+    bool retrieve( Item& target, Item*& returned) const;
 
     //TODO implement and comment
-    bool isInContainer(const Item* target) const;
+    bool isInContainer(Item* target) const;
 
     /** display
     * @brief prints the contents of the tree in-order

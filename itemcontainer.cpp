@@ -73,7 +73,7 @@ bool ItemContainer::insert(Item* theItem) {
 
 //---------------------------------------------------------------------------
 // retrieve
-bool ItemContainer::retrieve(const Item& target, Item*& returned) const {
+bool ItemContainer::retrieve( Item& target, Item*& returned) const {
     returned = nullptr;
     bool success = false;
     Node* cur = root;
@@ -104,7 +104,7 @@ bool ItemContainer::retrieve(const Item& target, Item*& returned) const {
 
 //---------------------------------------------------------------------------
 // isInContainer
-bool ItemContainer::isInContainer(const Item* target) const {
+bool ItemContainer::isInContainer( Item* target) const {
     Item* temp;
     return retrieve(*target, temp);
 }

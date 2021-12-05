@@ -44,8 +44,9 @@ public:
          * @brief sets the userID, firstName and lastName of patron
          * @post Patron userID firstName lastName data members set
          * @param infile data from file
+         * @param userID user ID passed from patron container
          */
-    bool buildPatron(istream& infile);
+    bool buildPatron(istream& infile, int userID);
 
     //---------------------------------------------------------------------------
         /** getFirst
