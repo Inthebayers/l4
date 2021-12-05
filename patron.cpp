@@ -73,7 +73,7 @@ void Patron::printHistory() const {
 
 //---------------------------------------------------------------------------
 // addToHistory
-bool Patron::addToHistory(const Command comm) {
+bool Patron::addToHistory(const Command* comm) {
 
 	// push history object to back of list (newest)
 	itemHistory.push_back(comm);

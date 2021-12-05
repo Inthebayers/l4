@@ -16,8 +16,6 @@ using namespace std;
 
 class Item {
 public:
-
-
     //---------------------------------------------------------------------------
     //constructor
     Item();

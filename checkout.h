@@ -12,10 +12,11 @@ class Checkout : public Command {
 public:
     Checkout(); // default
 
-    ~Checkout();
+    virtual ~Checkout();
     /** display()     
      * @brief Handles output and display of the checkout information
      */
+
     virtual void display();
 
     /**
@@ -26,7 +27,7 @@ public:
      */
     virtual bool execute();
 
-private:
+protected:
     Item* item_;
     Patron* patron_;
 };

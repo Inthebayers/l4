@@ -6,7 +6,6 @@ Item::Item()
 {
     // initialize known formats
     validFormat[7] = true;
-
 }
 
 Item::Item()
@@ -14,9 +13,7 @@ Item::Item()
     itemType_ = ' ';
 }
 
-Item::~Item() {
-    
-}
+Item::~Item() }
 
 char Item::getType() const {
     return itemType_;

@@ -14,26 +14,26 @@
 
 class CommandFactory {
 public:
-   //constructor
-   CommandFactory();
+    //constructor
+    CommandFactory();
 
-   ~CommandFactory();
+    ~CommandFactory();
 
-   /** createCommand
-    * @brief creates a new empty command object of a certain type
-    * @param type char specifying the command type to create
-    * @post new command object created
-    * @return pointer to the new command object
-    */
-   Command* createCommand(char type) const;
+    /** createCommand
+     * @brief creates a new empty command object of a certain type
+     * @param type char specifying the command type to create
+     * @post new command object created
+     * @return pointer to the new command object
+     */
+    Command* createCommand(char type);
 
 private:
 
     static const int ALPHABET = 36;
 
-   //array of command types
-   Command* commandTypes[ALPHABET];
+    //array of command types
+    Command* commandTypes[ALPHABET];
 
-   // hash function
-   int hash(char ch) const;
+    // hash function
+    int hash(char ch) const;
 };

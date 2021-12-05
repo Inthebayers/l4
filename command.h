@@ -37,15 +37,11 @@ public:
     * @return true if command was sucessfully executed
     * @return false if command was not successfully executed
         */
-
-        // TODO: I don't think this is virtual, how would it work?
     virtual bool execute() = 0;
 
     virtual void display() = 0;
 
     bool buildCommand(istream& inFile, Library& library);
-
-private:
 
 protected:
     Library& library_;

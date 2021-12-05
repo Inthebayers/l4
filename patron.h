@@ -78,7 +78,7 @@ public:
      * @return boolean value of successful addition to list
      * @param item the item to add to history
      */
-    bool addToHistory(const Command);
+    bool addToHistory(const Command*);
 
     //---------------------------------------------------------------------------
     // searchCheckouts

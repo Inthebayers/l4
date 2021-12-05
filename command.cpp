@@ -3,7 +3,7 @@
 //---------------------------------------------------------------------------
 // Handles the commands from the file. Manages subclasses using input command
 // characters.
-// 
+//
 // Assumptions:
 // --
 // Implementation:
@@ -16,17 +16,15 @@
 //---------------------------------------------------------------------------
 // constructor
 Command::Command() {
-//
-
+    //
 }
 
 //---------------------------------------------------------------------------
 // destructor
 Command::~Command() {
     patron_ = nullptr;
-    item_ = nullptr; 
+    item_ = nullptr;
 }
-
 
 //---------------------------------------------------------------------------
 // buildCommand
@@ -34,7 +32,6 @@ Command::~Command() {
 bool Command::buildCommand(istream& inFile, Library& library) {
     //has access to library
     library_ = library;
-
 
     int patronID;
     inFile >> patronID; // user ID is stored
@@ -46,18 +43,17 @@ bool Command::buildCommand(istream& inFile, Library& library) {
         cout << "User ID: " << patronID << " is an invalid user ID" << endl;
         return false;
         // if the patron exists then check library for the item
-         
         // build the target item from the data file for comparison
         // create copy of item being checked out
         // place in this checkout
         // decrement the original item currentAvailable_
-        // place this into patron 
+        // place this into patron
     }
     else {
         patron_ = patron;
     }
     // patron is valid here
-    // check if item is valid 
+    // check if item is valid
 
     // create an item from the data file for comparison
     Item* target;
@@ -85,7 +81,5 @@ bool Command::buildCommand(istream& inFile, Library& library) {
         item_ = found;
     }
 
-
     return execute();
-
 }
