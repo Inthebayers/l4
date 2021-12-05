@@ -2,9 +2,11 @@
 
 using namespace std;
 
-Item::Item(char incomingItem)
+Item::Item()
 {
-    itemType_ = incomingItem;
+    // initialize known formats
+    validFormat[7] = true;
+
 }
 
 Item::Item()
@@ -18,4 +20,13 @@ Item::~Item() {
 
 char Item::getType() const {
     return itemType_;
+}
+
+bool Item::setFormat(char format) {
+    bool success = false;
+    if (validFormat[format]) {
+        format_ = format;
+        success = true;
+    }
+    return success;
 }

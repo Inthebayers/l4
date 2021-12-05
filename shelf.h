@@ -57,7 +57,7 @@ public:
     * @return true if successful false if not
     * @param item to be checkout out
     */
-    bool checkOut(Item& target);
+    bool retrieve(Item& target, Item*& toReturn);
 
     //---------------------------------------------------------------------------
     /** display

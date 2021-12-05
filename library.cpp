@@ -43,7 +43,7 @@ Library::~Library() {
 //---------------------------------------------------------------------------
 // runCommands
 bool Library::runCommands(istream& inFile) {
-    return commManager.runCommands(inFile);
+    return commManager.runCommands(inFile, *this);
 }
 
 
@@ -61,10 +61,36 @@ void Library::displayItems() const {
 }
 
 //---------------------------------------------------------------------------
-// commandHandler
-void Library::commandHandler(istream& in) {
+// getPatron
+bool Library::getPatron(int userID, Patron*& patron) {
+    bool success = false;
 
+    // valid ID retrieve patron from PatronContainer
+    if (userID > 0 && userID < 10000) {
+        patContainer.retrieve(userID, patron);
+        success = true;
+    }
+    return success;
 }
 
 //---------------------------------------------------------------------------
-//
+// getItem
+bool Library::getItem(Item& target, Item*& toReturn) {
+
+    bool success = false;
+
+    // retrieve item from shelf
+    Item* retrieved;
+
+    // if successfully retrieved item
+    if (shelf.retrieve(target, retrieved)) {
+        
+        // set referenced to item to found item 
+        toReturn = retrieved;
+        success = true;
+
+    }
+
+    return success;
+    
+}

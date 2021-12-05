@@ -31,7 +31,7 @@ private:
 
     static const int ALPHABET = 36;
 
-   //arrya of command types
+   //array of command types
    Command* commandTypes[ALPHABET];
 
    // hash function

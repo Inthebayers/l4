@@ -24,7 +24,7 @@ public:
      * @param inFile incoming file stream containing commands to be executed
      * @return bool if commands were successfully executed
      */
-    bool runCommands(istream& inFile);
+    bool runCommands(istream& inFile, Library& library);
 
 
 private:

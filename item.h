@@ -18,9 +18,12 @@ class Item {
 public:
 
 
-
+    //---------------------------------------------------------------------------
+    //constructor
     Item();
 
+    //---------------------------------------------------------------------------
+    //destuctor
     virtual ~Item();
 
 //---------------------------------------------------------------------------
@@ -48,6 +51,8 @@ public:
    virtual Item *create() = 0;
 
    char getType() const;
+
+   virtual bool setFormat(char format);
 
 
      /**
@@ -93,5 +98,7 @@ private:
 
 protected:
     char itemType_; 
-     
+    char format_;
+    static const int FORMATS = 26;
+    bool validFormat[FORMATS] = { false };
 };

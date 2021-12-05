@@ -68,11 +68,32 @@ public:
     void displayItems() const;
    
 
+
 //---------------------------------------------------------------------------
-    /** commandHandler
-    * @brief reads command codes and calls command factory
+    /**
+    * getPatron()
+    * 
+    * @brief Finds and returns a patron within the library system. Assigns desired
+    * patron to a pointer to be used by calling function.
+    * 
+    * @param userID the ID of the Patron which is trying to be found
+    * @param patron the pointer to be assigned to the found patron within 
+    * container  
+    * 
+    * @return bool whether patron was successfully found 
     */
-    void commandHandler(istream&);
+    bool getPatron(int userID, Patron*& patron); // how does this work? Is this supposed to be a pointer reference?
+
+//---------------------------------------------------------------------------
+    /**getItem
+    * @brief retrieves an item from the library
+    * @param target, the target item to fine
+    * @param toReturn, Item returned by reference if found
+    * @return true if found, false if not found
+    */
+    bool getItem(Item& target, Item*& toReturn);
+
+
 
 private:
 
@@ -85,6 +106,7 @@ private:
  //  CommandFactory object
     CommandManager commManager;
 
+    PatronContainer patContainer;
 };
 
 #endif

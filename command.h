@@ -12,6 +12,7 @@
 //---------------------------------------------------------------------------
 #pragma once
 #include "library.h"
+#include "itemfactory.h"
 
 class Command {
 public:
@@ -42,9 +43,14 @@ public:
 
     virtual bool display() = 0;
 
+    bool buildCommand(istream& inFile);
+
 
 private:
-    static PatronContainer* patronContainer;
-    static Shelf* shelf;
-    static Library library;
+
+protected:
+        Library& library;
+        ItemFactory itemFactory;
+        
+
 };

@@ -34,17 +34,24 @@ PatronContainer::~PatronContainer() {
 // data  format: userID First Last
 bool PatronContainer::insert(istream& inFile) {
     bool success = false;
-    int userID;
-    inFile >> userID;
-    inFile.get(); //clear empty space
-    //check for valid ID #
-    if (userID > 0 && userID < 10000) {
-        //create a new patron
-        Patron* patron = new Patron();
-        success = patron->buildPatron(inFile, userID);
-    }
-    else {
-        cout << "User ID: " << userID << " is an invalid User ID " << endl;
+   
+    for (;;) {
+        int userID;
+        inFile >> userID;
+        if (inFile.eof()) {
+            success = true;
+            break;
+        }
+        inFile.get(); //clear empty space
+        //check for valid ID #
+        if (userID > 0 && userID < 10000) {
+            //create a new patron
+            Patron* patron = new Patron();
+            success = patron->buildPatron(inFile, userID);
+        }
+        else {
+            cout << "User ID: " << userID << " is an invalid User ID " << endl;
+        }
     }
 
     return success;

@@ -127,6 +127,8 @@ public:
     */
    int getTotalCopies();
 
+
+
 protected:
    // title of book
    string title_;
@@ -134,13 +136,10 @@ protected:
    // code of book
    char bookCode_;
 
+   static const int COPIES = 5;
    // copies of book checked into library
-
+   int availableCopies_ = COPIES;
    // total amount of copies the library owns
    int totalCopies_ = COPIES;
 
-   // default booktype
-   char bookType_ = 'H';
-
-   static const int COPIES = 5;
 };

@@ -117,7 +117,7 @@ bool Shelf::buildItem(istream& in) {
 
 //---------------------------------------------------------------------------
 // checkOut
-bool Shelf::checkOut(Item& target) {
+bool Shelf::retrieve(Item& target, Item*& toReturn) {
     // check for type
     // send to hash
     // call checkout on bookcontainer type
@@ -126,7 +126,8 @@ bool Shelf::checkOut(Item& target) {
     if (containers[subscript] != nullptr) {
         Item* retrieved;
         if (containers[subscript]->retrieve(target, retrieved)) {
-
+            toReturn = retrieved;
+            success = true;
        }
     }
     return success;

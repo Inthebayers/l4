@@ -9,7 +9,7 @@
  * 
  * @param inFile incoming file stream containing commands and run information
  */
-bool CommandManager::runCommands(istream& inFile) {
+bool CommandManager::runCommands(istream& inFile, Library& library) {
     
     // instantiate bool tracker
     bool success = false;
@@ -20,21 +20,30 @@ bool CommandManager::runCommands(istream& inFile) {
     // create pointer to empty command
     Command* newCommand;
 
-    // bring in first character in file to commandType
-    inFile >> commandType;
-    inFile.get(); // for empty space
+    for (;;) {
+        // bring in first character in file to commandType
+        inFile >> commandType;
+        if (inFile.eof()) {
+            break;
+        }
+        inFile.get(); // for empty space
 
-    //create a new command of type
-    newCommand = commFactory.createCommand(commandType);
+        //create a new command of type
+        newCommand = commFactory.createCommand(commandType);
 
-    // if command character was invalid
-    if (newCommand == nullptr) {
-        // output error message
-        cout << "Command: " << commandType << " is an invalid command" << endl;
+        // if command character was invalid
+        if (newCommand == nullptr) {
+            // output error message
+            cout << "Command: " << commandType << " is an invalid command" << endl;
+        }
+        else {
+            //then fill the data, 
+        }
     }
-    else {
 
-    }
+
+
+    
 
     return success;
     //newCommand object is empty - fill data
