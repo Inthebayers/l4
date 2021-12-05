@@ -40,6 +40,8 @@ public:
          */
     virtual bool execute(istream& input);
 
+    virtual void display();
+
 private:
     Item* theItem;
     Patron* thePatron;

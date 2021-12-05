@@ -35,6 +35,7 @@ public:
     //---------------------------------------------------------------------------
     // default constructor
     Patron();
+
     //---------------------------------------------------------------------------
     // default constructor
     ~Patron();
@@ -77,14 +78,18 @@ public:
      * @return boolean value of successful addition to list
      * @param item the item to add to history
      */
-    bool addToHistory(const Item& item);
+    bool addToHistory(const Command);
+
+    //---------------------------------------------------------------------------
+    // searchCheckouts
+    bool searchCheckouts(const Item* target) const;
 
 private:
+
     // private data members
     string nameLastFirst_;
     int userID_;
 
     // list to store Patron book rental history
     list<Command*> itemHistory;
-
 };

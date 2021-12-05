@@ -92,6 +92,25 @@ int PeriodicalBook::getYear() const {
 }
 
 //---------------------------------------------------------------------------
+//changeAvailable
+bool PeriodicalBook::changeAvailable(int num) {
+    bool success = false;
+    // if return, check that a copy is missing
+    if (num == 1 && availableCopies_ < COPIES) {
+        availableCopies_ += num;
+        success = true;
+    }
+    //if checkout, make sure there are copies
+    if (num == -1 && availableCopies_ > 0) {
+        availableCopies_ += num;
+        success = true;
+    }
+    return success;
+
+}
+
+
+//---------------------------------------------------------------------------
 // overloaded comparison operators 
 // Periodicals sorted by date (year, then month), then by title 
 //---------------------------------------------------------------------------

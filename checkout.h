@@ -13,17 +13,20 @@ public:
     Checkout(); // default
 
     ~Checkout();
+    /** display()     
+     * @brief Handles output and display of the checkout information
+     */
+    virtual void display();
 
-    //---------------------------------------------------------------------------
-        /**
-         * @brief checks out a book to a patron
-         * @return true able to checkout book, false otherwise
-         * @post patron is assigned a book and one less copy of book is available
-         *       if any were available to begin with
-         */
-    virtual bool execute(istream&);
+    /**
+     * @brief checks out a book to a patron
+     * @return true able to checkout book, false otherwise
+     * @post patron is assigned a book and one less copy of book is available
+     *       if any were available to begin with
+     */
+    virtual bool execute();
 
 private:
-    Item* item;
-    Patron* patron;
+    Item* item_;
+    Patron* patron_;
 };

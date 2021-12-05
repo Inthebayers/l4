@@ -3,7 +3,7 @@
 //---------------------------------------------------------------------------
 // Handles the commands from the file. Manages subclasses using input command
 // characters.
-// 
+//
 // Assumptions:
 // --
 // Implementation:
@@ -30,27 +30,25 @@ public:
      */
     virtual ~Command();
 
-
     //---------------------------------------------------------------------------
     /**
     * @brief Handles the execution of given code determined by input.
     * @param istream for execution of command
     * @return true if command was sucessfully executed
     * @return false if command was not successfully executed
-    */
-   // TODO: I don't think this is virtual, how would it work?
-    virtual bool execute(istream) = 0;
+        */
 
-    virtual bool display() = 0;
+        // TODO: I don't think this is virtual, how would it work?
+    virtual bool execute() = 0;
 
-    bool buildCommand(istream& inFile);
+    virtual void display() = 0;
 
+    bool buildCommand(istream& inFile, Library& library);
 
 private:
 
 protected:
-        Library& library;
-        ItemFactory itemFactory;
-        
-
-};
+    Library& library_;
+    ItemFactory itemFactory_;
+    Patron* patron_;
+    Item* item_;

@@ -71,6 +71,24 @@ void ChildrenBook::display() const {
 }
 
 //---------------------------------------------------------------------------
+// changeAvailable
+bool ChildrenBook::changeAvailable(int num) {
+    bool success = false;
+
+    // if return, check that a copy is missing
+    if (num == 1 && availableCopies_ < COPIES) {
+        availableCopies_ += num;
+        success = true;
+    }
+    //if checkout, make sure there are copies
+    if (num == -1 && availableCopies_ > 0) {
+        availableCopies_ += num;
+        success = true;
+    }
+    return success;
+}
+
+//---------------------------------------------------------------------------
 // overloaded comparison operators
 // Children sorted by title, then author
 //---------------------------------------------------------------------------

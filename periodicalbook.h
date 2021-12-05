@@ -89,6 +89,12 @@ public:
      */
     int getYear() const;
 
+    /** changeAvailable
+     * @brief changes the available copies for the given item
+     * @return bool if change was successful
+     */
+    virtual bool changeAvailable(int num);
+
     /**
     * Less than operator. Compares LHS and RHS for lesser value.
     * @param rhsItem rhs Book being passed in

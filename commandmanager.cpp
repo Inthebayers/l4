@@ -4,9 +4,7 @@
 
 /** 
  * runCommands()
- * 
  * Handles the parsing and execution calls for commands coming in through istream. 
- * 
  * @param inFile incoming file stream containing commands and run information
  */
 bool CommandManager::runCommands(istream& inFile, Library& library) {
@@ -35,17 +33,13 @@ bool CommandManager::runCommands(istream& inFile, Library& library) {
         if (newCommand == nullptr) {
             // output error message
             cout << "Command: " << commandType << " is an invalid command" << endl;
+            success = false;
         }
         else {
-            //then fill the data, 
+            return (newCommand->buildCommand(inFile, library));
         }
     }
 
-
-
-    
-
     return success;
-    //newCommand object is empty - fill data
 
 }

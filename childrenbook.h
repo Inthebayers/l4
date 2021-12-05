@@ -89,6 +89,9 @@ public:
    */
   int getYear() const;
 
+  //TODO comments
+  virtual bool changeAvailable(int num);
+
   /**
    * Less than operator. Compares LHS and RHS for lesser value.
    * @param rhsItem rhs Book being passed in

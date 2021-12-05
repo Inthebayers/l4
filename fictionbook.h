@@ -90,49 +90,57 @@ public:
      */
     int getYear() const;
 
-           /**
-    * Less than operator. Compares LHS and RHS for lesser value.
-    * @param rhsItem rhs Book being passed in
-    * @return true
-    * @return false
-    */
-   bool operator<(const Item &rhsItem) const;
-
-   /**
-     *
-     * Greater than operator. compares LHS and RHS for greater value.
-     * @param rhsItem rhs Book being passed in for comparison
-     * @return true
-     * @return false
+    /** changeAvailable
+     * @brief changes the available copies for the given item
+     * @return bool if change was successful
      */
-   bool operator>(const Item &rhsItem) const;
+    virtual bool changeAvailable(int num);
 
-   /**
-     * Equals operator. Determines if two Book objects are equal.
-     *
-     * @param rhsItem rhs Book being passed in for equals comparison
-     * @return true
-     * @return false
-     */
-   bool operator==(const Item &rhsItem) const;
+    /**
+* Less than operator. Compares LHS and RHS for lesser value.
+* @param rhsItem rhs Book being passed in
+* @return true
+* @return false
+*/
+    bool operator<(const Item& rhsItem) const;
 
-   /**
-     * Does not equals operator. Determines if two books are not equal.
-     *
-     * @param rhsItem
-     * @return true
-     * @return false
-     */
+    /**
+      *
+      * Greater than operator. compares LHS and RHS for greater value.
+      * @param rhsItem rhs Book being passed in for comparison
+      * @return true
+      * @return false
+      */
+    bool operator>(const Item& rhsItem) const;
 
-   bool operator!=(const Item &rhsItem) const;
+    /**
+      * Equals operator. Determines if two Book objects are equal.
+      *
+      * @param rhsItem rhs Book being passed in for equals comparison
+      * @return true
+      * @return false
+      */
+    bool operator==(const Item& rhsItem) const;
+
+    /**
+      * Does not equals operator. Determines if two books are not equal.
+      *
+      * @param rhsItem
+      * @return true
+      * @return false
+      */
+
+    bool operator!=(const Item& rhsItem) const;
 
 private:
+
     // author of the book, last then first name
     string author_;
+
     //publishing year
     int year_;
 
     static const int COPIES = 5;
     int availableCopies_ = COPIES;
-    int totalCopies = COPIES;
+    int totalCopies_ = COPIES;
 };

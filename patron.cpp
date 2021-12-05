@@ -61,11 +61,27 @@ int Patron::getID() const {
 //---------------------------------------------------------------------------
 // printHistory
 void Patron::printHistory() const {
+
 	// go through list of commands ie. checkout, returns 
 	// print via command functions the history
-
-	for (Command historyCommand : itemHistory) {
-		historyCommand.display();
-	}
+	// TODO
+	//for (Command historyCommand : itemHistory) {
+	//	historyCommand.display();
+	//}
 }
 
+
+//---------------------------------------------------------------------------
+// addToHistory
+bool Patron::addToHistory(const Command comm) {
+
+	// push history object to back of list (newest)
+	itemHistory.push_back(comm);
+
+}
+
+//---------------------------------------------------------------------------
+// searchCheckouts
+bool Patron::searchCheckouts(const Item* target) const  {
+
+}

@@ -54,6 +54,7 @@ public:
 
    virtual bool setFormat(char format);
 
+   virtual bool changeAvailable(int num) = 0;
 
      /**
     * Less than operator. Compares LHS and RHS for lesser value.

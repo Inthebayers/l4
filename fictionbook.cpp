@@ -90,6 +90,22 @@ int FictionBook::getYear() const {
 }
 
 //---------------------------------------------------------------------------
+// changeAvailable
+bool FictionBook::changeAvailable(int num) {
+    bool success = false;
+
+    if (num == 1 && availableCopies_ < totalCopies_) {
+        availableCopies_ += num;
+        success = true;
+    }
+    else if (num == -1 && availableCopies_ > 0) {
+        availableCopies_ += num;
+        success = true;
+    }
+    return success;
+ }
+
+//---------------------------------------------------------------------------
 // overloaded comparison operators 
 // Fiction sorted by author, then title
 //---------------------------------------------------------------------------
