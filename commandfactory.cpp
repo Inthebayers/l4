@@ -29,7 +29,6 @@ Command* CommandFactory::createCommand(char type){
     if (commandTypes[subscript] != nullptr) {
         toReturn = commandTypes[subscript]->create();
     }
-    // TODO: Disucss if we need to do error handling? Too lazy to look at spec rn, think we do. If so, cout here & the 800000 places we haven't put it yet
 
     return toReturn;
 }

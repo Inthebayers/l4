@@ -30,7 +30,10 @@ Patron::Patron() {
 //---------------------------------------------------------------------------
 // destructor
 Patron::~Patron() {
-
+	for (list<Command*>::iterator it2 = itemHistory.begin();
+		it2 != itemHistory.end(); it2++) {
+		delete (*it2);
+	}
 }
 
 

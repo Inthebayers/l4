@@ -40,6 +40,7 @@ bool CommandManager::runCommands(istream& inFile, Library* library) {
             cout << "Command: " << commandType << " is an invalid command" << endl;
             string garbage;
             getline(inFile, garbage);
+            delete newCommand;
             success = false;
         }
         else { // command type is valid, next read patron
@@ -54,6 +55,7 @@ bool CommandManager::runCommands(istream& inFile, Library* library) {
                 cout << "User ID: " << patronID << " is an invalid user ID" << endl;
                 string garbage;
                 getline(inFile, garbage);
+                delete newCommand;
             }
             //patron should now be a pointer to the specific patorn
 
@@ -64,12 +66,15 @@ bool CommandManager::runCommands(istream& inFile, Library* library) {
                     // store command in patron
                     patron->addToHistory(newCommand);
                 }
+                else {
+                    delete newCommand;
+                }
 
             }
+            
         }
-
+        
     }
-
     return success;
 
 }

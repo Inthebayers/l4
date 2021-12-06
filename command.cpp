@@ -56,6 +56,7 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
     // create new item of  type
     Item* target = nullptr;
     target = itemFactory_.createItem(type);
+
     // item now has default format
     if (target == nullptr) {
         string garbage;
@@ -75,6 +76,7 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
         // discard the rest of the line and return 
         string garbage;
         getline(inFile, garbage);
+        delete target;
         return false;
     }
     // if format is valid, fill an item object with the rest of the data line
@@ -85,11 +87,13 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
         item_ = found;
 
         bool success = execute();
+         delete target;
         return success;
     }
     else {
         target->display();
         cout << " is not a valid item" << endl;
+         delete target;
         return false;
     }
 
