@@ -11,8 +11,11 @@
 //  -- initial character in input dictates 'f' for fiction
 //---------------------------------------------------------------------------
 #include "fictionbook.h"
-
 #include <iomanip>
+#include <iostream>
+
+using namespace std;
+
 //---------------------------------------------------------------------------
 //default constructor
 FictionBook::FictionBook() {

@@ -12,8 +12,7 @@
 
 #ifndef ITEM_H
 #define ITEM_H
-
-#include <string>
+#include <iostream>
 using namespace std;
 
 class Item {

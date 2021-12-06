@@ -71,7 +71,7 @@ public:
          * @brief prints the itemHistory to console
          * @post rentalHistory printed to console in order of events
          */
-    void printHistory() const;
+    void printHistory();
 
     //---------------------------------------------------------------------------
     /** addHistory

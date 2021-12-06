@@ -10,6 +10,10 @@
 //---------------------------------------------------------------------------
 #include "periodicalbook.h"
 #include <iomanip>
+#include <iostream>
+
+using namespace std;
+
 
 //---------------------------------------------------------------------------
 // default constructor

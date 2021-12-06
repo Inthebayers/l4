@@ -1,5 +1,6 @@
 
 #include "history.h"
+#include "patroncontainer.h"
 
 //---------------------------------------------------------------------------
 // constructor
@@ -16,10 +17,18 @@ History::~History() {
 //---------------------------------------------------------------------------
 // execute
 bool History::execute() {
-    return false;
+    patronPtr_->printHistory();
+    return true;
 }
+
 //---------------------------------------------------------------------------
 // display
 void History::display() {
 
+}
+
+//---------------------------------------------------------------------------
+// create
+Command* History::create() {
+    return new History();
 }

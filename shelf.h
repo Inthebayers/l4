@@ -21,7 +21,6 @@
 
 #include "itemcontainer.h"
 #include "itemfactory.h"
-#include <iostream>
 
 class Shelf {
     friend ostream& operator<<(ostream&, const Shelf&);

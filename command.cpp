@@ -1,5 +1,5 @@
 //---------------------------------------------------------------------------
-// command.h
+// command.cpp
 //---------------------------------------------------------------------------
 // Handles the commands from the file. Manages subclasses using input command
 // characters.
@@ -31,10 +31,11 @@ Command::~Command() {
 //---------------------------------------------------------------------------
 // buildCommand
 // data format passed in: Patron userID ItemType  itemFormat  then item specific data(author, titiel, or date for p)
-bool Command::buildCommand(istream& inFile, Library* library, int patronID) {
+bool Command::buildCommand(istream& inFile, Library* library, int patronID, Patron* patronPtr) {
     //has access to library
     Library* library_ = library;
     patron_ = patronID;
+    patronPtr_ = patronPtr;
 
     // create an item from the data file for comparison
     Item* target;
@@ -45,8 +46,14 @@ bool Command::buildCommand(istream& inFile, Library* library, int patronID) {
     //set Item Format
     char format;
     inFile >> format;
+
+    // create new itemfactory
     ItemFactory itemFactory_;
+
+    // create new item with type
     target = itemFactory_.createItem(type);
+
+    // if media format is not valid, output error
     if (!target->setFormat(format)) {
         cout << "Item Format: " << format << " is and invalid format" << endl;
         string garbage;
@@ -72,4 +79,5 @@ Item* Command::getItem() {
 char Command::getCommandType() {
     return commType_;
 }
+
 

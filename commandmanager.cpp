@@ -56,7 +56,7 @@ bool CommandManager::runCommands(istream& inFile, Library* library) {
 
             // if a new command object was built
             // buildcommand will execute command on library
-            if (newCommand->buildCommand(inFile, library, patronID)) {
+            if (newCommand->buildCommand(inFile, library, patronID, patron)) {
                 // store command in patron
                 patron->addToHistory(newCommand);
 

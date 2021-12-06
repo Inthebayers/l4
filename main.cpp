@@ -11,7 +11,7 @@ using namespace std;
 //---------------------------------------------------------------------------
  /**
   * @brief
-  * @pre
+  * @pre hello
   * @post
   */
 
@@ -25,9 +25,9 @@ int main() {
     books.open("data4books.txt");
     lib.buildItem(books); // initialize books
     lib.displayItems();
-    //patrons.open("patronsFile");
-    //lib.buildPatrons(patrons); // initialize patrons
-    //commands.open("commandFile");
+    patrons.open("patronsFile");
+    lib.buildPatrons(patrons); // initialize patrons
+    commands.open("commandFile");
     //lib.commandHandler(commands); // initialize commands
 
 

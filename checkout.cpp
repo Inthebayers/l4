@@ -6,6 +6,8 @@
 // constructor
 Checkout::Checkout() {
     commType_ = 'C';
+    item_ = nullptr; 
+    patron_ = nullptr;
 }
 
 //---------------------------------------------------------------------------
@@ -24,15 +26,14 @@ void Checkout::display() {
 // execute
 // patron_ and item_ data fields are set
 bool Checkout::execute() {
-    bool success = false;
-
+    
     // decrement available copies
-    //add *this to user history
+    return item_->changeAvailable(-1);
 
-    // search the library for    //decrease book number available if theres some available
-    // add to patron history
+}
 
-    return success;
-    // TODO: FINISH THIS
-
+//---------------------------------------------------------------------------
+// checkout
+Command* Checkout::create() {
+    return new Checkout();
 }
