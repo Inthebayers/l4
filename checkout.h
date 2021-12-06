@@ -36,7 +36,6 @@ public:
 
 
 protected:
-    Item* item_;
     Patron* patron_;
 };
 

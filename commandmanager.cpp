@@ -38,6 +38,8 @@ bool CommandManager::runCommands(istream& inFile, Library* library) {
         if (newCommand == nullptr) {
             // output error message
             cout << "Command: " << commandType << " is an invalid command" << endl;
+            string garbage;
+            getline(inFile, garbage);
             success = false;
         }
         else { // command type is valid, next read patron
@@ -50,15 +52,18 @@ bool CommandManager::runCommands(istream& inFile, Library* library) {
             Patron* patron = nullptr;
             if (!library->getPatron(patronID, patron)) {
                 cout << "User ID: " << patronID << " is an invalid user ID" << endl;
-                return false;
+                string garbage;
+                getline(inFile, garbage);
             }
             //patron should now be a pointer to the specific patorn
 
             // if a new command object was built
             // buildcommand will execute command on library
-            if (newCommand->buildCommand(inFile, library, patronID, patron)) {
-                // store command in patron
-                patron->addToHistory(newCommand);
+            else {
+                if (newCommand->buildCommand(inFile, library, patronID, patron)) {
+                    // store command in patron
+                    patron->addToHistory(newCommand);
+                }
 
             }
         }

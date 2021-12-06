@@ -33,7 +33,7 @@ Command::~Command() {
 //---------------------------------------------------------------------------
 // buildCommand
 // data format passed in: Patron userID ItemType  itemFormat  then item specific data(author, titiel, or date for p)
-bool Command::buildCommand(istream& inFile, Library* library, int patronID, Patron* patronPtr) {
+bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Patron* patronPtr) {
     //has access to library
     Library* library_ = library;
     patron_ = patronID;
@@ -57,12 +57,18 @@ bool Command::buildCommand(istream& inFile, Library* library, int patronID, Patr
     Item* target = nullptr;
     target = itemFactory_.createItem(type);
     // item now has default format
-    
+    if (target == nullptr) {
+        string garbage;
+        getline(inFile, garbage);
+        return false;
+    }
     //set Item Format from incoming data 
     char format;
     inFile >> format;
+    inFile.get();
 
     //check that the input was a valid format
+    
     if (!target->setFormat(format)) {
         cout << "Item Format: " << format << " is and invalid format" << endl;
 
@@ -75,16 +81,15 @@ bool Command::buildCommand(istream& inFile, Library* library, int patronID, Patr
     target->fill(inFile);
     Item* found;
     if (library->getItem(*target, found)) {
-        //TODO nothing getting found
-        found->display();
-        cout << "Was Found!!!!!!" << endl;
            
         item_ = found;
-        return execute();
+
+        bool success = execute();
+        return success;
     }
     else {
         target->display();
-        cout << " is not a valid item";
+        cout << " is not a valid item" << endl;
         return false;
     }
 

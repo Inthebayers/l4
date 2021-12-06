@@ -47,7 +47,7 @@ public:
     //TODO comment
     virtual Command* create() = 0;
 
-    bool buildCommand(istream& inFile, Library* library, int patronID, Patron* patronPtr);
+    bool buildCommand(istream& inFile, Library*& library, int patronID, Patron* patronPtr);
 
     Item* getItem();
 
