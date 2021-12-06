@@ -10,8 +10,8 @@
 #ifndef COMMANDMANAGER_H
 #define COMMANDMANAGER_H
 
+class Library;
 #include "command.h"
-#include "library.h"
 #include <iostream>
 
 class CommandManager {

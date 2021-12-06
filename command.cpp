@@ -12,11 +12,14 @@
 //---------------------------------------------------------------------------
 
 #include "command.h"
+#include "library.h"
 
 //---------------------------------------------------------------------------
 // constructor
 Command::Command() {
-    //
+    commType_ = ' ';
+    patron_ = 0;
+    item_ = nullptr;
 }
 
 //---------------------------------------------------------------------------
@@ -30,7 +33,7 @@ Command::~Command() {
 // data format passed in: Patron userID ItemType  itemFormat  then item specific data(author, titiel, or date for p)
 bool Command::buildCommand(istream& inFile, Library* library, int patronID) {
     //has access to library
-    library_ = library;
+    Library* library_ = library;
     patron_ = patronID;
 
     // create an item from the data file for comparison
@@ -42,7 +45,7 @@ bool Command::buildCommand(istream& inFile, Library* library, int patronID) {
     //set Item Format
     char format;
     inFile >> format;
-
+    ItemFactory itemFactory_;
     target = itemFactory_.createItem(type);
     if (!target->setFormat(format)) {
         cout << "Item Format: " << format << " is and invalid format" << endl;

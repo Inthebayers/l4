@@ -13,7 +13,8 @@
 #ifndef COMMAND_H
 #define COMMAND_H 
 
-#include "library.h"
+class Library;
+//#include "library.h"
 #include "item.h"
 
 class Command {
@@ -53,8 +54,6 @@ public:
     char getCommandType();
 
 protected:
-    Library* library_;
-    ItemFactory itemFactory_;
     int patron_;
     Item* item_;
     char commType_;

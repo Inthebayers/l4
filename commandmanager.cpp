@@ -2,6 +2,7 @@
 
 #include "commandmanager.h"
 #include "commandfactory.h"
+#include "library.h"
 #include "patron.h"
 
 

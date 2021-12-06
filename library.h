@@ -15,9 +15,10 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
+//forward declaration for commands
+#include "commandmanager.h"
 #include "shelf.h"
 #include "patroncontainer.h"
-#include "commandmanager.h"
 #include <iostream>
 
 using namespace std;
@@ -96,8 +97,6 @@ private:
 
     // private data memebers
     Shelf shelf;
-
-    CommandManager commManager;
 
     PatronContainer patContainer;
 };

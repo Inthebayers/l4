@@ -46,8 +46,6 @@ public:
 
 
 private:
-    Item* theItem;
-    Patron* thePatron;
 };
 
 #endif
