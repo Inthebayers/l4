@@ -9,7 +9,10 @@
 // Implementation:
 //  --
 //---------------------------------------------------------------------------
-#pragma once
+
+#ifndef COMMANDFACTORY_H
+#define COMMANDFACTORY_H
+
 #include "command.h"
 
 class CommandFactory {
@@ -37,3 +40,4 @@ private:
     // hash function
     int hash(char ch) const;
 };
+#endif

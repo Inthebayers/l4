@@ -6,6 +6,9 @@
 // Implementation:
 //  -- library calls execute to check out a book to a patron
 //---------------------------------------------------------------------------
+#ifndef CHECKOUT_H
+#define CHECKOUT_H
+
 #include "command.h"
 
 class Checkout : public Command {
@@ -27,7 +30,12 @@ public:
      */
     virtual bool execute();
 
+    virtual Command* create();
+
+
 protected:
     Item* item_;
     Patron* patron_;
 };
+
+#endif

@@ -16,7 +16,10 @@
 //  -- Once a book is added to currentCheckOuts it is added to rentalHistory
 //---------------------------------------------------------------------------
 
-#pragma once
+#ifndef PATRON_H
+#define PATRON_H
+
+
 #include "Item.h"
 #include "command.h"
 #include <list>
@@ -78,11 +81,11 @@ public:
      * @return boolean value of successful addition to list
      * @param item the item to add to history
      */
-    bool addToHistory(const Command*);
+    bool addToHistory(Command*);
 
     //---------------------------------------------------------------------------
     // searchCheckouts
-    bool searchCheckouts(const Item* target) const;
+    bool searchCheckouts(const Item* target);
 
 private:
 
@@ -93,3 +96,4 @@ private:
     // list to store Patron book rental history
     list<Command*> itemHistory;
 };
+#endif // !PATRON_H

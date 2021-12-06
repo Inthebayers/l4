@@ -10,7 +10,9 @@
 //  --
 //---------------------------------------------------------------------------
 
-#pragma once
+#ifndef ITEM_H
+#define ITEM_H
+
 #include <string>
 using namespace std;
 
@@ -101,3 +103,5 @@ protected:
     static const int FORMATS = 26;
     bool validFormat[FORMATS] = { false };
 };
+
+#endif // !ITEM_H

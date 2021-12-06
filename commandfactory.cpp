@@ -1,4 +1,7 @@
 #include "commandfactory.h"
+#include "checkout.h"
+#include "return.h"
+#include "history.h"
 
 //---------------------------------------------------------------------------
 // commandFactory()
@@ -15,7 +18,7 @@ CommandFactory::CommandFactory() {
 
 //---------------------------------------------------------------------------
 // createCommand()
-Command* CommandFactory::createCommand(char type) const {
+Command* CommandFactory::createCommand(char type){
     // create new command pointer
     Command* toReturn = nullptr;
 

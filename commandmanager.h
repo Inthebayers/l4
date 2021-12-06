@@ -7,9 +7,11 @@
  * 
  */
 
-#pragma once
+#ifndef COMMANDMANAGER_H
+#define COMMANDMANAGER_H
 
 #include "command.h"
+#include "library.h"
 #include <iostream>
 
 class CommandManager {
@@ -24,13 +26,11 @@ public:
      * @param inFile incoming file stream containing commands to be executed
      * @return bool if commands were successfully executed
      */
-    bool runCommands(istream& inFile, Library& library);
+    bool runCommands(istream& inFile, Library* library);
 
 
 private:
-    /** 
-     * Intantiates command factory for use within the manager. Handles the 
-     * creation of commands.
-     */
-    CommandFactory commFactory;
+
 };
+
+#endif

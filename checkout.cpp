@@ -1,9 +1,11 @@
 #include "checkout.h"
 #include <iostream>
+#include "patroncontainer.h"
 
 //---------------------------------------------------------------------------
 // constructor
 Checkout::Checkout() {
+    commType_ = 'C';
 }
 
 //---------------------------------------------------------------------------

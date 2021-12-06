@@ -16,9 +16,6 @@
 #define LIBRARY_H
 
 #include "shelf.h"
-#include "itemfactory.h"
-#include "command.h"
-#include "commandfactory.h"
 #include "patroncontainer.h"
 #include "commandmanager.h"
 #include <iostream>
@@ -82,7 +79,7 @@ public:
     * 
     * @return bool whether patron was successfully found 
     */
-    bool getPatron(int userID, Patron*& patron); // how does this work? Is this supposed to be a pointer reference?
+    bool getPatron(int userID, Patron*&); // how does this work? Is this supposed to be a pointer reference?
 
 //---------------------------------------------------------------------------
     /**getItem
@@ -98,12 +95,8 @@ public:
 private:
 
     // private data memebers
-    ItemFactory itemF;
-  //  CommandFactory commFactory;
-  //  PatronContainer patronContainer;
     Shelf shelf;
 
- //  CommandFactory object
     CommandManager commManager;
 
     PatronContainer patContainer;

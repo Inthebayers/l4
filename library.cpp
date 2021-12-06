@@ -43,7 +43,7 @@ Library::~Library() {
 //---------------------------------------------------------------------------
 // runCommands
 bool Library::runCommands(istream& inFile) {
-    return commManager.runCommands(inFile, *this);
+    return commManager.runCommands(inFile, this);
 }
 
 
@@ -62,13 +62,17 @@ void Library::displayItems() const {
 
 //---------------------------------------------------------------------------
 // getPatron
-bool Library::getPatron(int userID, Patron*& patron) {
+bool Library::getPatron(int userID, Patron*& toReturn) {
     bool success = false;
 
     // valid ID retrieve patron from PatronContainer
     if (userID > 0 && userID < 10000) {
+        Patron* patron = nullptr;
         patContainer.retrieve(userID, patron);
-        success = true;
+        if (patron != nullptr) {
+            toReturn = patron;
+            success = true;
+        }
     }
     return success;
 }

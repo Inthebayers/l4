@@ -22,38 +22,16 @@ Command::Command() {
 //---------------------------------------------------------------------------
 // destructor
 Command::~Command() {
-    patron_ = nullptr;
     item_ = nullptr;
 }
 
 //---------------------------------------------------------------------------
 // buildCommand
 // data format passed in: Patron userID ItemType  itemFormat  then item specific data(author, titiel, or date for p)
-bool Command::buildCommand(istream& inFile, Library& library) {
+bool Command::buildCommand(istream& inFile, Library* library, int patronID) {
     //has access to library
     library_ = library;
-
-    int patronID;
-    inFile >> patronID; // user ID is stored
-    inFile.get(); // clear empty space
-
-    // search the library for existing patron
-    Patron* patron;
-    if (!library.getPatron(patronID, patron)) {
-        cout << "User ID: " << patronID << " is an invalid user ID" << endl;
-        return false;
-        // if the patron exists then check library for the item
-        // build the target item from the data file for comparison
-        // create copy of item being checked out
-        // place in this checkout
-        // decrement the original item currentAvailable_
-        // place this into patron
-    }
-    else {
-        patron_ = patron;
-    }
-    // patron is valid here
-    // check if item is valid
+    patron_ = patronID;
 
     // create an item from the data file for comparison
     Item* target;
@@ -73,13 +51,22 @@ bool Command::buildCommand(istream& inFile, Library& library) {
         return false;
     }
     // empty command object
-    // pass the patron, and the item. and call.
-
+    // create item object for comparison
     target->buildItem(inFile);
     Item* found;
-    if (library.getItem(*target, found)) {
+    if (library->getItem(*target, found)) {
         item_ = found;
     }
 
     return execute();
 }
+
+
+Item* Command::getItem() {
+    return item_;
+}
+
+char Command::getCommandType() {
+    return commType_;
+}
+

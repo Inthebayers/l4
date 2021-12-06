@@ -1,13 +1,16 @@
 
 
 #include "commandmanager.h"
+#include "commandfactory.h"
+#include "patron.h"
+
 
 /** 
  * runCommands()
  * Handles the parsing and execution calls for commands coming in through istream. 
  * @param inFile incoming file stream containing commands and run information
  */
-bool CommandManager::runCommands(istream& inFile, Library& library) {
+bool CommandManager::runCommands(istream& inFile, Library* library) {
     
     // instantiate bool tracker
     bool success = false;
@@ -27,6 +30,7 @@ bool CommandManager::runCommands(istream& inFile, Library& library) {
         inFile.get(); // for empty space
 
         //create a new command of type
+        CommandFactory commFactory;
         newCommand = commFactory.createCommand(commandType);
 
         // if command character was invalid
@@ -35,9 +39,29 @@ bool CommandManager::runCommands(istream& inFile, Library& library) {
             cout << "Command: " << commandType << " is an invalid command" << endl;
             success = false;
         }
-        else {
-            return (newCommand->buildCommand(inFile, library));
+        else { // command type is valid, next read patron
+            int patronID;
+            inFile >> patronID;
+            inFile.get(); // clear empty space
+
+            //search the library for existing patron
+
+            Patron* patron = nullptr;
+            if (!library->getPatron(patronID, patron)) {
+                cout << "User ID: " << patronID << " is an invalid user ID" << endl;
+                return false;
+            }
+            //patron should now be a pointer to the specific patorn
+
+            // if a new command object was built
+            // buildcommand will execute command on library
+            if (newCommand->buildCommand(inFile, library, patronID)) {
+                // store command in patron
+                patron->addToHistory(newCommand);
+
+            }
         }
+
     }
 
     return success;

@@ -8,6 +8,11 @@
 // Assumptions:
 //  -- initial character in input dictates 'f' for fiction
 //---------------------------------------------------------------------------
+
+#ifndef FICTIONBOOK_H
+#define FICTIONBOOK_H
+
+
 #include "book.h"
 #include <iostream>
 
@@ -144,3 +149,4 @@ private:
     int availableCopies_ = COPIES;
     int totalCopies_ = COPIES;
 };
+#endif // !FICTIONBOOK_H

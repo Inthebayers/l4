@@ -10,9 +10,11 @@
 // --
 //
 //---------------------------------------------------------------------------
-#pragma once
+#ifndef COMMAND_H
+#define COMMAND_H 
+
 #include "library.h"
-#include "itemfactory.h"
+#include "item.h"
 
 class Command {
 public:
@@ -41,10 +43,21 @@ public:
 
     virtual void display() = 0;
 
-    bool buildCommand(istream& inFile, Library& library);
+    //TODO comment
+    virtual Command* create() = 0;
+
+    bool buildCommand(istream& inFile, Library* library, int patronID);
+
+    Item* getItem();
+
+    char getCommandType();
 
 protected:
-    Library& library_;
+    Library* library_;
     ItemFactory itemFactory_;
-    Patron* patron_;
+    int patron_;
     Item* item_;
+    char commType_;
+};
+
+#endif

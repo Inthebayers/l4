@@ -8,6 +8,11 @@
 // Assumptions:
 //  -- initial character in input dictates 'p' for periodical
 //---------------------------------------------------------------------------
+
+#ifndef PERIODICALBOOK_H
+#define PERIODICALBOOK_H
+
+
 #include "book.h"
 #include <iostream>
 
@@ -138,3 +143,4 @@ private:
     int availableCopies_ = COPIES;
     int totalCopies = COPIES;
 };
+#endif // !PERIODICALBOOK_H

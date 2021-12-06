@@ -12,7 +12,10 @@
 //  -- Patrons are stored in an array
 //---------------------------------------------------------------------------
 
-#pragma once
+#ifndef PATRONCONTAINER_H
+#define PATRONCONTAINER_H
+
+
 #include "patron.h"
 using namespace std;
 
@@ -45,3 +48,4 @@ private:
     Patron* patronList[PATRON_LIMIT] = { nullptr }; // array of patrons
    
 }; // end of PatronContainer class
+#endif // !PATRONCONTAINER_H

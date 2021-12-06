@@ -73,7 +73,7 @@ void Patron::printHistory() const {
 
 //---------------------------------------------------------------------------
 // addToHistory
-bool Patron::addToHistory(const Command* comm) {
+bool Patron::addToHistory(Command* comm) {
 
 	// push history object to back of list (newest)
 	itemHistory.push_back(comm);
@@ -82,6 +82,22 @@ bool Patron::addToHistory(const Command* comm) {
 
 //---------------------------------------------------------------------------
 // searchCheckouts
-bool Patron::searchCheckouts(const Item* target) const  {
+bool Patron::searchCheckouts(const Item* target) {
+	int checkCount = 0;
+	int returnCount = 0;
+	for (list<Command*>::iterator it = itemHistory.begin(); it != itemHistory.end(); it++) {
+		if (*target ==  *(*it)->getItem()) {
+			if ((*it)->getCommandType() == 'C') {
+				checkCount++;
+			}
+			if ((*it)->getCommandType() == 'R') {
+				returnCount++;
+			}
+		}
 
+		if (checkCount - returnCount > 0) {
+			return true;
+		}
+		return false;
+	}
 }

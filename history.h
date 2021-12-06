@@ -40,7 +40,12 @@ public:
          * @return true if command was sucessfully executed
          * @return false if command was not successfully executed
          */
-    virtual bool execute(istream& input);
+    virtual bool execute();
+
+    virtual void display();
+
+    virtual Command* create();
+
 
 private:
 };
