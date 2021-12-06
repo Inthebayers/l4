@@ -25,9 +25,18 @@ int main() {
     books.open("data4books.txt");
     lib.buildItem(books); // initialize books
     lib.displayItems();
-    patrons.open("patronsFile");
-    lib.buildPatrons(patrons); // initialize patrons
-    commands.open("commandFile");
+
+    ifstream patrons;
+    patrons.open("data4patrons.txt");
+    lib.buildPatrons(patrons);
+    
+    ifstream commands;
+    commands.open("data4commands.txt");
+    lib.runCommands(commands);
+    ////
+    //patrons.open("patronsFile");
+    //lib.buildPatrons(patrons); // initialize patrons
+    //commands.open("commandFile");
     //lib.commandHandler(commands); // initialize commands
 
 

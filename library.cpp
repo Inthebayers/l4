@@ -29,18 +29,11 @@ Library::~Library() {
 
 //---------------------------------------------------------------------------
 // buildPatron
-//bool Library::buildPatrons(istream& in) {
-//    // data format --> ID# Last First
-//    //return patronContainer.insert(in);
-//    // no patron factory - create patron object here?
-//    return false;
-//}
+// data format --> ID# Last First
+bool Library::buildPatrons(istream& inFile) {
+    return patContainer.insert(inFile);
+}
 
-//---------------------------------------------------------------------------
-// printPatronHistory
-//void Library::printPatronHistory(const Patron&) const {
-    //TODO do we want to go directly to patron? or access through patron container
-//}
 
 //---------------------------------------------------------------------------
 // runCommands

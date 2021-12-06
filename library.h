@@ -41,12 +41,6 @@ public:
      */
     bool buildPatrons(istream&);
 
-//---------------------------------------------------------------------------
-    /** getPatronHistory
-    * @brief prints patron book history to console
-    * @param patron to get history from
-    */
-   // void printPatronHistory(const Patron&) const;
 
 //---------------------------------------------------------------------------
 // TODO comment

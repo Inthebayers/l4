@@ -15,6 +15,7 @@
 
 #include "shelf.h"
 #include <iostream> 
+#include <string> //for getline()
 using namespace std;
 
 
