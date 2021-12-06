@@ -11,6 +11,8 @@
 
 #include "command.h"
 
+class Patron;
+
 class Checkout : public Command {
 public:
     Checkout(); // default

@@ -31,4 +31,8 @@ bool Checkout::execute() {
 
     // search the library for    //decrease book number available if theres some available
     // add to patron history
+
+    return success;
+    // TODO: FINISH THIS
+
 }

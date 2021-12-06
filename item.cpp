@@ -4,16 +4,14 @@ using namespace std;
 
 Item::Item()
 {
+    itemType_ = ' ';
+    
     // initialize known formats
     validFormat[7] = true;
 }
 
-Item::Item()
-{
-    itemType_ = ' ';
+Item::~Item()  {
 }
-
-Item::~Item() }
 
 char Item::getType() const {
     return itemType_;

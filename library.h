@@ -98,7 +98,9 @@ private:
     // private data memebers
     Shelf shelf;
 
-    PatronContainer patContainer;
+    PatronContainer patContainer; 
+
+    CommandManager commManager;
 };
 
 #endif
