@@ -63,7 +63,8 @@ Item* PeriodicalBook::create() {
 void PeriodicalBook::fill(istream& inFile) {
     inFile >> year_;
     inFile >> month_;
-    getline(inFile, title_);
+    inFile.get();
+    getline(inFile, title_, ',');
 }
 
 
