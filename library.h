@@ -59,6 +59,12 @@ public:
     */
     void displayItems() const;
    
+    //---------------------------------------------------------------------------
+    /** displayPatrons
+    * @brief displays all patrons
+    */
+    void displayPatrons() const;
+
 
 
 //---------------------------------------------------------------------------

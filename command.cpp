@@ -13,6 +13,7 @@
 
 #include "command.h"
 #include "library.h"
+#include "patron.h"
 
 //---------------------------------------------------------------------------
 // constructor
@@ -20,6 +21,7 @@ Command::Command() {
     commType_ = ' ';
     patron_ = 0;
     item_ = nullptr;
+    patronPtr_ = nullptr;
 }
 
 //---------------------------------------------------------------------------

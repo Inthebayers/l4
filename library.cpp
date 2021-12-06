@@ -56,6 +56,13 @@ void Library::displayItems() const {
 }
 
 //---------------------------------------------------------------------------
+//displayPatrons
+void Library::displayPatrons() const {
+    patContainer.display();
+}
+
+
+//---------------------------------------------------------------------------
 // getPatron
 bool Library::getPatron(int userID, Patron*& toReturn) {
     bool success = false;

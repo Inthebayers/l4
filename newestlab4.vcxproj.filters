@@ -127,5 +127,8 @@
     <Text Include="data4patrons.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="data4commands.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

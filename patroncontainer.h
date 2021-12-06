@@ -40,6 +40,8 @@ public:
     * @return the Patron with the associated uniqueID
     */
     bool retrieve(const int userID, Patron*&) const;
+
+    void display() const;
     
 private:
     static const int PATRON_LIMIT = 10010;

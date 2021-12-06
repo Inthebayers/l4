@@ -68,3 +68,13 @@ bool PatronContainer::retrieve(const int userID, Patron*& toReturn) const {
     }
     return success;
 }
+
+void PatronContainer::display() const {
+    for (int i = 0; i < PATRON_LIMIT; i++) {
+        if (patronList[i] != nullptr) {
+            string name = patronList[i]->getName();
+            int id = patronList[i]->getID();
+            cout << id << "   " << name << endl;
+        }
+    }
+}

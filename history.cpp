@@ -1,6 +1,7 @@
 
 #include "history.h"
 #include "patroncontainer.h"
+#include <iostream>
 
 //---------------------------------------------------------------------------
 // constructor
@@ -17,6 +18,7 @@ History::~History() {
 //---------------------------------------------------------------------------
 // execute
 bool History::execute() {
+    cout << "TWAS NOT EXECUTED! - History" << endl;
     patronPtr_->printHistory();
     return true;
 }

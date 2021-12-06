@@ -29,10 +29,16 @@ int main() {
     ifstream patrons;
     patrons.open("data4patrons.txt");
     lib.buildPatrons(patrons);
+
+    lib.displayPatrons();
     
+    /*
     ifstream commands;
     commands.open("data4commands.txt");
-    lib.runCommands(commands);
+    lib.runCommands(commands);*/
+
+
+
     ////
     //patrons.open("patronsFile");
     //lib.buildPatrons(patrons); // initialize patrons

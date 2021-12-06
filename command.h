@@ -14,7 +14,7 @@
 #define COMMAND_H 
 
 class Library;
-#include "patron.h"
+class Patron;
 #include "item.h"
 
 class Command {
