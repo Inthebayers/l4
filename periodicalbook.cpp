@@ -71,7 +71,7 @@ void PeriodicalBook::fill(istream& inFile) {
 //---------------------------------------------------------------------------
 // display
 void PeriodicalBook::display() const {
-    cout << setw(5) << left << availableCopies_ << setw(3) <<  month_ << setw(34) << left <<  year_ << setw(30) << title_ << endl;
+    cout << setw(7) << left << availableCopies_ << setw(7) <<  month_ << setw(11) << left <<  year_ << setw(26) << title_ << endl;
 }
 
 //---------------------------------------------------------------------------
@@ -90,6 +90,11 @@ bool PeriodicalBook::setMonth(int month) {
 int PeriodicalBook::getMonth() const {
     return month_;
 }
+
+void PeriodicalBook::displayBookHeader() const {
+    
+    cout << endl << "PERIODICALS" << endl << "AVAIL  MONTH  YEAR       TITLE" << endl;
+} 
 
 //---------------------------------------------------------------------------
 //setYear

@@ -41,7 +41,8 @@ public:
      */
    virtual void display() const = 0;
 
-
+   virtual void displayBookHeader() const = 0; 
+   
       /** create
      * @brief creates a new item object, pure virutal funciton
      * @pre implemented create() in child classes

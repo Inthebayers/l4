@@ -112,7 +112,9 @@ bool ItemContainer::isInContainer( Item* target) const {
 //---------------------------------------------------------------------------
 //display
 void ItemContainer::display() const {
+
     if (root != nullptr) {
+        root ->item->displayBookHeader();
         displayHelper(root);
     }
 }

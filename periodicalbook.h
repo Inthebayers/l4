@@ -63,6 +63,7 @@ public:
     //TODO comment
     virtual void fill(istream&);
 
+    virtual void displayBookHeader() const; 
 
     //---------------------------------------------------------------------------
     /** display

@@ -18,14 +18,6 @@
 #include <string> //for getline()
 using namespace std;
 
-
-//---------------------------------------------------------------------------
-// overloaded operator<<
-// TODO can we use this??
-ostream& operator<<(ostream& out, const Shelf& bc) {
-    return out;
-}
-
 //---------------------------------------------------------------------------
 // constructor
 Shelf::Shelf() {

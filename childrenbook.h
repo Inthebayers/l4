@@ -64,7 +64,8 @@ public:
   //TODO comment
   virtual void fill(istream&);
 
-
+  virtual void displayBookHeader() const;
+   
   /** setAuthor
    * @brief sets the book author
    * @pre a new book object

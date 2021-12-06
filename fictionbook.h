@@ -63,6 +63,8 @@ public:
     //TODO comment
     virtual void fill(istream&);
 
+    virtual void displayBookHeader() const;
+
     //---------------------------------------------------------------------------
     /** display
      * @brief displays the book copies, author, title and year to console.

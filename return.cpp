@@ -21,7 +21,7 @@ bool Return::execute() {
 //---------------------------------------------------------------------------
 //display
 void Return::display() {
-    cout << "Return  ";
+    cout << "Return    ";
     item_->display();
 }
 

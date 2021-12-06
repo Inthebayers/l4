@@ -87,6 +87,8 @@ public:
     // searchCheckouts
     bool searchCheckouts(const Item* target);
 
+    void displayPatron();
+
 private:
 
     // private data members

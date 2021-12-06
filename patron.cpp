@@ -17,6 +17,8 @@
 //---------------------------------------------------------------------------
 
 #include "patron.h"
+#include <vector>
+#include <sstream>
 
 //---------------------------------------------------------------------------
 // Constructor
@@ -68,6 +70,7 @@ void Patron::printHistory() {
 	//if the list is not empty
 	if (!itemHistory.empty()) {
 		// long iterator loop
+		
 		for (list<Command*>::iterator it2 = itemHistory.begin();
 			it2 != itemHistory.end(); it2++) {
 			(*it2)->display();
@@ -84,6 +87,24 @@ bool Patron::addToHistory(Command* comm) {
 	itemHistory.push_back(comm);
 
 	return true; 
+
+}
+//---------------------------------------------------------------------------
+// displayPatron()
+void Patron::displayPatron() {
+	char splitChar = ' ';
+	string firstName;
+	string lastName; 
+
+    vector<string> result;
+    stringstream ss (nameLastFirst_);
+    string item;
+
+    while (getline (ss, item, splitChar)) {
+        result.push_back (item);
+    }
+	cout << endl << getID() << " " << result.at(0) << ", " << result.at(1)  << ":" << endl;
+    
 
 }
 
