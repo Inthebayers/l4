@@ -37,7 +37,7 @@ Patron::~Patron() {
 //---------------------------------------------------------------------------
 // buildPatron
 bool Patron::buildPatron(istream& inFile, int userID) {
-	string nameLastFirst;
+	string nameLastFirst = "";
 	userID_ = userID;
 
     // take name from inFile 
@@ -62,12 +62,14 @@ int Patron::getID() const {
 // printHistory
 void Patron::printHistory() {
 
-	// long iterator loop
-	for (list<Command*>::iterator it2 = itemHistory.begin(); 
-		it2 != itemHistory.end(); it2++) {
-		(*it2)->display();
+	//if the list is not empty
+	if (!itemHistory.empty()) {
+		// long iterator loop
+		for (list<Command*>::iterator it2 = itemHistory.begin();
+			it2 != itemHistory.end(); it2++) {
+			(*it2)->display();
+		}
 	}
-
 }
 
 

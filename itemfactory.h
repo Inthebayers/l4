@@ -50,7 +50,7 @@ private:
     Item* types[TYPES];
 
     // hash function
-    int hash(char ch) const;
+    int hash(char ch) ;
 };
 
 #endif

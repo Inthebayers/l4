@@ -114,9 +114,6 @@ protected:
     // title of book
     string title_;
 
-    // code of book
-    char bookCode_;
-
     static const int COPIES = 5;
     // copies of book checked into library
     int availableCopies_ = COPIES;

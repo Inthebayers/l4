@@ -45,6 +45,16 @@ bool ChildrenBook::buildItem(istream &inFile) {
 Item *ChildrenBook::create() { return new ChildrenBook(); }
 
 //---------------------------------------------------------------------------
+// fill
+// data format: title, author
+void ChildrenBook::fill(istream& inFile) {
+    getline(inFile, title_, ',');
+    inFile.get(); // remove blank space
+    getline(inFile, author_, ',');
+}
+
+
+//---------------------------------------------------------------------------
 // setAuthor
 void ChildrenBook::setAuthor(string author) { author_ = author; }
 
@@ -145,8 +155,7 @@ bool ChildrenBook::operator==(const Item &rhsItem) const {
 
     // compare author, title, and year between two books
     if (rhsBookCasted.getAuthor() == getAuthor() &&
-        rhsBookCasted.getTitle() == getTitle() &&
-        rhsBookCasted.getYear() == getYear()) {
+        rhsBookCasted.getTitle() == getTitle()) {
         holder = true;
     }
     return holder;

@@ -32,10 +32,10 @@ int main() {
 
     lib.displayPatrons();
     
-    /*
+    
     ifstream commands;
     commands.open("data4commands.txt");
-    lib.runCommands(commands);*/
+    lib.runCommands(commands);
 
 
 

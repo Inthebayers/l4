@@ -61,6 +61,10 @@ public:
    */
   virtual Item *create();
 
+  //TODO comment
+  virtual void fill(istream&);
+
+
   /** setAuthor
    * @brief sets the book author
    * @pre a new book object

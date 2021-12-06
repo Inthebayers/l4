@@ -39,38 +39,56 @@ bool Command::buildCommand(istream& inFile, Library* library, int patronID, Patr
     patron_ = patronID;
     patronPtr_ = patronPtr;
 
+    // H data ends after patron so nothing to do but execute
+    if (commType_ == 'H') {
+        return execute();
+    }
+
     // create an item from the data file for comparison
-    Item* target;
+    // store itemtype from data file
     char type;
     inFile >> type;
     inFile.get(); // skips blank space
 
-    //set Item Format
-    char format;
-    inFile >> format;
-
     // create new itemfactory
     ItemFactory itemFactory_;
 
-    // create new item with type
+    // create new item of  type
+    Item* target = nullptr;
     target = itemFactory_.createItem(type);
+    // item now has default format
+    
+    //set Item Format from incoming data 
+    char format;
+    inFile >> format;
 
-    // if media format is not valid, output error
+    //check that the input was a valid format
     if (!target->setFormat(format)) {
         cout << "Item Format: " << format << " is and invalid format" << endl;
+
+        // discard the rest of the line and return 
         string garbage;
         getline(inFile, garbage);
         return false;
     }
-    // empty command object
-    // create item object for comparison
-    target->buildItem(inFile);
+    // if format is valid, fill an item object with the rest of the data line
+    target->fill(inFile);
     Item* found;
     if (library->getItem(*target, found)) {
+        //TODO nothing getting found
+        found->display();
+        cout << "Was Found!!!!!!" << endl;
+           
         item_ = found;
+        return execute();
+    }
+    else {
+        target->display();
+        cout << " is not a valid item";
+        return false;
     }
 
-    return execute();
+   
 }
 
 

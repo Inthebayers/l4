@@ -49,6 +49,12 @@ public:
      */
    virtual Item *create() = 0;
 
+   // fills and item with data from command data file which
+   // is in a differnt format than data4books.txt
+   //TODO comment
+   virtual void fill(istream&) = 0;
+
+
    char getType() const;
 
    virtual bool setFormat(char format);

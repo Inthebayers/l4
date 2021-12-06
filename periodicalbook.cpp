@@ -52,9 +52,20 @@ bool PeriodicalBook::buildItem(istream& in) {
 
 //---------------------------------------------------------------------------
 // create
+// file format: type title, month year
 Item* PeriodicalBook::create() {
     return new PeriodicalBook();
 }
+
+//---------------------------------------------------------------------------
+// create
+// file format: type year, month title
+void PeriodicalBook::fill(istream& inFile) {
+    inFile >> year_;
+    inFile >> month_;
+    getline(inFile, title_);
+}
+
 
 //---------------------------------------------------------------------------
 // display

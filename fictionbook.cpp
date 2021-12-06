@@ -59,6 +59,16 @@ Item* FictionBook::create() {
 }
 
 //---------------------------------------------------------------------------
+// fill
+// data format: author, title
+void FictionBook::fill(istream& inFile) {
+    getline(inFile, author_, ',');
+    inFile.get(); // remove blank space
+    getline(inFile, title_, ',');
+    
+}
+
+//---------------------------------------------------------------------------
 //display
 void FictionBook::display() const {
     cout << setw(5) << left << availableCopies_ << setw(37) << left << author_ <<  setw(37) << left << title_ << setw(37) << left << year_ << endl;
@@ -158,7 +168,7 @@ bool FictionBook::operator==(const Item& rhsItem) const {
     const FictionBook& rhsBookCasted = static_cast<const FictionBook&>(rhsItem);
 
     // compare author, title, and year between two books 
-    if (rhsBookCasted.getAuthor() == getAuthor() && rhsBookCasted.getTitle() == getTitle() && rhsBookCasted.getYear() == getYear()) {
+    if (rhsBookCasted.getAuthor() == getAuthor() && rhsBookCasted.getTitle() == getTitle()) {
         holder = true; 
     }
     return holder;

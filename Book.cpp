@@ -17,7 +17,6 @@ using namespace std;
 Book::Book()
 {
     title_ = "";
-    bookCode_ = ' ';
     format_ = 'H';
 }
 //---------------------------------------------------------------------------
@@ -39,19 +38,7 @@ string Book::getTitle() const
    return title_;
 }
 
-//---------------------------------------------------------------------------
-// setBookCode
-void Book::setBookCode(char incomingChar)
-{
-   bookCode_ = incomingChar;
-}
 
-//---------------------------------------------------------------------------
-// getBookCode
-char Book::getBookCode() const
-{
-   return bookCode_;
-}
 
 //---------------------------------------------------------------------------
 // setAvailableCopies

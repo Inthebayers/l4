@@ -60,6 +60,9 @@ public:
      */
     virtual Item* create();
 
+    //TODO comment
+    virtual void fill(istream&);
+
     //---------------------------------------------------------------------------
     /** display
      * @brief displays the book copies, author, title and year to console.

@@ -19,7 +19,8 @@ char Item::getType() const {
 
 bool Item::setFormat(char format) {
     bool success = false;
-    if (validFormat[format]) {
+    int checkHash = toupper(format) - 'A';
+    if (validFormat[checkHash]) {
         format_ = format;
         success = true;
     }

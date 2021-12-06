@@ -58,7 +58,7 @@ Item* ItemFactory::createItem(char type) {
 
 //---------------------------------------------------------------------------
 // hash
-int ItemFactory::hash(char type) const {
+int ItemFactory::hash(char type)  {
     //change to uppercase if it's not
     type = toupper(type);
     int subscript = type - 'A';

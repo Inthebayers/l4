@@ -49,6 +49,8 @@ bool PatronContainer::insert(istream& inFile) {
             //create a new patron
             Patron* patron = new Patron();
             success = patron->buildPatron(inFile, userID);
+            // then place it in the hash
+            patronList[userID] = patron;
         }
         else {
             cout << "User ID: " << userID << " is an invalid User ID " << endl;
