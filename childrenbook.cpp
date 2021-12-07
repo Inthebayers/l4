@@ -172,12 +172,15 @@ bool ChildrenBook::operator>(const Item &rhsItem) const {
 // overloaded operator==
 bool ChildrenBook::operator==(const Item &rhsItem) const {
     bool holder = false;
-
+    if (this->getType() != rhsItem.getType()) {
+        return holder; 
+    }
     // cast rhs book to children's book
     const ChildrenBook &rhsBookCasted =
         static_cast<const ChildrenBook &>(rhsItem);
 
     // compare author, title, and year between two books
+    // read error here TODO
     if (rhsBookCasted.getAuthor() == getAuthor() &&
         rhsBookCasted.getTitle() == getTitle()) {
         holder = true;

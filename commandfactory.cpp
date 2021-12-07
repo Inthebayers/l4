@@ -28,7 +28,7 @@ Command* CommandFactory::createCommand(char type){
     int subscript = hash(type);
 
     // if command exists at hash location
-    if (commandTypes[subscript] != nullptr) {
+    if (subscript > 0 && commandTypes[subscript] != nullptr) {
         toReturn = commandTypes[subscript]->create();
     }
 

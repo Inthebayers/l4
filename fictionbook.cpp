@@ -76,7 +76,7 @@ void FictionBook::display() const {
 
 void FictionBook::errorDisplay() const
 {
-    cout << " \"" << setw(12) << left << title_.substr(0, 28) << "\" by " << setw(12) << left << author_;
+    cout << " \"" << setw(12) << left << title_.substr(0, 27) << "\" by " << setw(12) << left << author_;
 }
 
 void FictionBook::historyDisplay() const {

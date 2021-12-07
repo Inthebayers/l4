@@ -78,7 +78,13 @@ bool CommandManager::runCommands(istream& inFile, Library* library) {
             else {
                 if (newCommand->buildCommand(inFile, library, patronID, patron)) {
                     // store command in patron
-                    patron->addToHistory(newCommand);
+                    if (commandType != 'H') {
+                        patron->addToHistory(newCommand);
+                    }
+                    else {
+                        delete newCommand;
+                    }
+                    
                 }
                 else {
                     delete newCommand;

@@ -58,16 +58,6 @@ public:
           * @post: Book is returned to library, incrementing the number of copies
           */
     bool returnToLibrary();
-    // TODO: Same as above
-
-       //---------------------------------------------------------------------------
-       /**
-          * @brief Get the code/genre of the book for hashing purposes.
-          * @return char corresponding to the code/genre of the book. hell and now we're going past 80
-          * @pre: Assumes valid code and properly created book.
-          * @post: No changes to data.
-          */
-    char getBookCode() const;
 
     //---------------------------------------------------------------------------
     /**
@@ -84,16 +74,10 @@ public:
     void setTitle(string incomingTitle);
 
     /**
-     * @brief Set the code of the current book object. Attributes the book code
-     * used to create the object with the book in order to enable easy comparison.
-     *     * @param char, the character the code should be set to
-     */
-    void setBookCode(char);
-
-    /**
      * @brief Set the number of available copies within a book to a set amount passed     * in by parameter.
      *     * @param int, the number of books that should be set available after function.     */
-    void setAvailableCopies(int);    /**
+    void setAvailableCopies(int);    
+    /**
      * @brief Get the amount of available copies of this given book.
      *     * @return int, the amount of books currently checked in and available.     */
     int getAvailableCopies() const;

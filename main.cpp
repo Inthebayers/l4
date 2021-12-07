@@ -16,6 +16,7 @@ int main() {
     ifstream patrons;
     patrons.open("data4patrons.txt");
     lib.buildPatrons(patrons);
+   
     //ifstream books, patrons, commands;
     books.open("data4books.txt");
     lib.buildItem(books); // initialize books

@@ -97,12 +97,23 @@ bool Shelf::buildItem(istream& in) {
 
                 // if book info was set insert in containers
                 success = insert(newItem);
+
+                if (!success) {
+                    cout << "ERROR: Item "; 
+                    newItem->errorDisplay();
+                    cout << " already exists in library" << endl;
+                    delete newItem;
+                }
+            }
+            else {
+                delete newItem;
             }
         }
 
 
         // skip over the rest of the line
         else {
+            cout << "ERROR: Book code: \"" << code << "\" is an invalid code" << endl;
             string garbage;
             getline(in, garbage);
         }

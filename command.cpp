@@ -93,6 +93,14 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
             delete target; 
             return false;
         }
+        else if (commType_ == 'R' && patronPtr_->searchCheckouts(target) != true) {
+            cout << endl << "ERROR: Patron " << patronID
+                << " is attempting to return a book they do not have checked out."
+                << endl;
+
+            delete target; 
+            return false; 
+        }
         item_ = found;
 
         bool success = execute();

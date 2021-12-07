@@ -113,7 +113,9 @@ void Patron::displayPatron() {
 bool Patron::searchCheckouts(const Item* target) {
 	int checkCount = 0;
 	int returnCount = 0;
+	// for each command object stored in patron
 	for (list<Command*>::iterator it = itemHistory.begin(); it != itemHistory.end(); it++) {
+		// error is here
 		if (*target ==  *(*it)->getItem()) {
 			if ((*it)->getCommandType() == 'C') {
 				checkCount++;
@@ -121,6 +123,9 @@ bool Patron::searchCheckouts(const Item* target) {
 			if ((*it)->getCommandType() == 'R') {
 				returnCount++;
 			}
+		}
+		else {
+			continue;
 		}
 
 		if (checkCount - returnCount > 0) {
