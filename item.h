@@ -41,7 +41,18 @@ public:
      */
    virtual void display() const = 0;
 
+   /** 
+    * errorDisplay() 
+    * 
+    * Handles the output of an invalid book's data field for error message.
+    */
+   virtual void errorDisplay() const = 0; 
+
+   virtual void historyDisplay() const = 0; 
+
    virtual void displayBookHeader() const = 0; 
+
+   virtual int getCopiesAvailable() const = 0; 
    
       /** create
      * @brief creates a new item object, pure virutal funciton

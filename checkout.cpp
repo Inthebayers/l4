@@ -18,8 +18,8 @@ Checkout::~Checkout() {
 //---------------------------------------------------------------------------
 // display
 void Checkout::display() {
-    cout << "CheckOut  ";
-    item_->display();
+    cout << "  CheckOut  ";
+    item_->historyDisplay();
 }
 
 //---------------------------------------------------------------------------

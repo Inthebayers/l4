@@ -22,6 +22,7 @@ Command::Command() {
     patron_ = 0;
     item_ = nullptr;
     patronPtr_ = nullptr;
+    libraryPtr_ = nullptr; 
 }
 
 //---------------------------------------------------------------------------
@@ -35,12 +36,13 @@ Command::~Command() {
 // data format passed in: Patron userID ItemType  itemFormat  then item specific data(author, titiel, or date for p)
 bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Patron* patronPtr) {
     //has access to library
-    Library* library_ = library;
+    /*Library* library_ = library;*/
+    libraryPtr_ = library;
     patron_ = patronID;
     patronPtr_ = patronPtr;
 
     // H data ends after patron so nothing to do but execute
-    if (commType_ == 'H') {
+    if (commType_ == 'H' || commType_ == 'D') {
         return execute();
     }
 
@@ -71,7 +73,7 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
     //check that the input was a valid format
     
     if (!target->setFormat(format)) {
-        cout << "Item Format: " << format << " is and invalid format" << endl;
+        cout << endl << "ERROR: Item Format: \"" << format << "\" is an invalid format" << endl;
 
         // discard the rest of the line and return 
         string garbage;
@@ -83,7 +85,14 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
     target->fill(inFile);
     Item* found;
     if (library->getItem(*target, found)) {
-           
+        if (found->getCopiesAvailable() == 0 && commType_ == 'C') {
+            cout << endl << "ERROR: Patron " << patronID << " checkout failed due to no copies available of";
+            found->errorDisplay();
+            cout << endl;
+             
+
+            return false;
+        }
         item_ = found;
 
         bool success = execute();
@@ -91,8 +100,11 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
         return success;
     }
     else {
-        target->display();
-        cout << " is not a valid item" << endl;
+
+        
+        target->errorDisplay();
+        
+        cout << endl;
          delete target;
         return false;
     }

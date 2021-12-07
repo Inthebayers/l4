@@ -72,6 +72,13 @@ public:
      */
     virtual void display() const;
 
+    virtual void errorDisplay() const; 
+
+    virtual void historyDisplay() const; 
+
+    virtual int getCopiesAvailable() const; 
+
+
     /** setMonth
      * @brief sets the publishing month data of the periodical
      * @pre a new periodical book object

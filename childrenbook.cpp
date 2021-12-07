@@ -12,7 +12,7 @@ using namespace std;
 // Constructor
 ChildrenBook::ChildrenBook() {
     author_ = "";
-    year_ = 0;
+    year_ = 0; 
     itemType_ = 'C';
 }
 
@@ -80,13 +80,33 @@ int ChildrenBook::getYear() const { return year_; }
 // display
 
 void ChildrenBook::display() const {
-    cout << setw(7) << left << availableCopies_<< setw(32) << left << title_.substr(0, 28) << setw(27) << left <<  author_ << setw(5) << left << year_ << endl;
+    cout << setw(7) << left << availableCopies_<< setw(32) << left 
+        << title_.substr(0, 28) << setw(36) << left <<  author_ 
+        << setw(5) << left << year_ << endl;
+}
+
+void ChildrenBook::errorDisplay() const
+{
+    cout << endl << "ERROR: Item: " << setw(12) << left 
+        << title_.substr(0, 28) << "by " << setw(12) << left << author_ 
+        << " was not found in the library!";
 }
 
 void ChildrenBook::displayBookHeader() const {
-    cout << endl << "CHILDREN BOOKS" << endl << "AVAIL  TITLE                           AUTHOR                     YEAR" << endl;
-} 
+    cout << endl << "CHILDREN BOOKS" << endl << "AVAIL  TITLE                 ";
+    cout << "          AUTHOR                              YEAR" << endl;
+}
+int ChildrenBook::getCopiesAvailable() const
+{
+    return availableCopies_;
+}
 
+
+void ChildrenBook::historyDisplay() const {
+   
+        cout << setw(32) << left << title_.substr(0, 28) << setw(25) << left << author_  << setw(5) << left << year_ << endl;
+   
+}
 //---------------------------------------------------------------------------
 // changeAvailable
 bool ChildrenBook::changeAvailable(int num) {

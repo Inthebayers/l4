@@ -21,18 +21,13 @@ int main() {
     string comrade = "I Hate My Brother Harry";
     Library lib;
     ifstream books;
-    //ifstream books, patrons, commands;
-    books.open("data4books.txt");
-    lib.buildItem(books); // initialize books
-    lib.displayItems();
-
     ifstream patrons;
     patrons.open("data4patrons.txt");
     lib.buildPatrons(patrons);
-
-    lib.displayPatrons();
-    
-    
+    //ifstream books, patrons, commands;
+    books.open("data4books.txt");
+    lib.buildItem(books); // initialize books
+       
     ifstream commands;
     commands.open("data4commands.txt");
     lib.runCommands(commands);

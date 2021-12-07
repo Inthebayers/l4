@@ -58,6 +58,7 @@ protected:
     Patron* patronPtr_;
     Item* item_;
     char commType_;
+    Library* libraryPtr_;
 };
 
 #endif

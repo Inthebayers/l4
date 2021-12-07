@@ -75,6 +75,20 @@ void PeriodicalBook::display() const {
 }
 
 //---------------------------------------------------------------------------
+//errorDisplay
+void PeriodicalBook::errorDisplay() const
+{
+    cout << endl << "ERROR: Item: " << setw(12) << left << title_.substr(0, 28) << " was not found in the library!";
+}
+
+void PeriodicalBook::historyDisplay() const {
+    cout << setw(7) << left << month_ << setw(11) << left << year_ << setw(26) << title_ << endl;
+}
+int PeriodicalBook::getCopiesAvailable() const
+{
+    return availableCopies_;
+}
+//---------------------------------------------------------------------------
 //setMonth
 bool PeriodicalBook::setMonth(int month) {
     bool success = false;
@@ -93,7 +107,7 @@ int PeriodicalBook::getMonth() const {
 
 void PeriodicalBook::displayBookHeader() const {
     
-    cout << endl << "PERIODICALS" << endl << "AVAIL  MONTH  YEAR       TITLE" << endl;
+    cout << endl << "PERIODICAL BOOKS" << endl << "AVAIL  MONTH  YEAR       TITLE" << endl;
 } 
 
 //---------------------------------------------------------------------------

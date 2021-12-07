@@ -21,8 +21,8 @@ bool Return::execute() {
 //---------------------------------------------------------------------------
 //display
 void Return::display() {
-    cout << "Return    ";
-    item_->display();
+    cout << "  Return    ";
+    item_->historyDisplay();
 }
 
 Command* Return::create() {

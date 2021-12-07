@@ -121,10 +121,12 @@ bool Shelf::retrieve(Item& target, Item*& toReturn) {
     int subscript = hash(target.getType());
     if (containers[subscript] != nullptr) {
         Item* retrieved;
+       
         if (containers[subscript]->retrieve(target, retrieved)) {
             toReturn = retrieved;
             success = true;
        }
+        
     }
     return success;
 }

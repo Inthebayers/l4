@@ -72,6 +72,12 @@ public:
      */
     virtual void display() const;
 
+    virtual void errorDisplay() const; 
+
+    virtual void historyDisplay() const; 
+
+    virtual int getCopiesAvailable() const; 
+
     /** setAuthor
      * @brief sets the author data member of the book
      * @pre a new book object
