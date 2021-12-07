@@ -2,13 +2,14 @@
 #define DISPLAY_H
 
 #include "command.h"
-class Display :
-    public Command
+#include <iostream>
+
+class Display : public Command
 {
 public:
     Display();
 
-    virtual ~Display();
+    ~Display();
 
     virtual bool execute();
 

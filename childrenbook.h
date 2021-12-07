@@ -74,13 +74,13 @@ public:
 	  *
 	  * Handles the output of an invalid book's data field for error message.
 	  */
-	virtual void errorDisplay() const;
+	void errorDisplay() const;
 
-	virtual void historyDisplay() const;
+	void historyDisplay() const;
 
-	virtual void displayBookHeader() const;
+	void displayBookHeader() const;
 
-	virtual int getCopiesAvailable() const; 
+	int getCopiesAvailable() const; 
 
 	/** setAuthor
 	 * @brief sets the book author

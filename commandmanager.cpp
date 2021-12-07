@@ -54,6 +54,7 @@ bool CommandManager::runCommands(istream& inFile, Library* library) {
         else if (newCommand->getCommandType() == 'D') {
             newCommand->buildCommand(inFile, library, 0, nullptr);
             success = true;
+            delete newCommand;
 
         }
         else { // command type is valid, next read patron

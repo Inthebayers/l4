@@ -8,17 +8,9 @@
 
 using namespace std;
 
-//---------------------------------------------------------------------------
- /**
-  * @brief
-  * @pre hello
-  * @post
-  */
-
 int main() {
 
-    string compare = "Danny Dunn & the Homework Machine";
-    string comrade = "I Hate My Brother Harry";
+
     Library lib;
     ifstream books;
     ifstream patrons;
@@ -43,5 +35,3 @@ int main() {
 
     return 0;
 }
-
-

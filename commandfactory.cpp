@@ -13,7 +13,7 @@ CommandFactory::CommandFactory() {
     // Checkout, Return, History
      commandTypes[2] = new Checkout;
      commandTypes[3] = new Display;
-    commandTypes[7] = new History;
+     commandTypes[7] = new History;
      commandTypes[17] = new Return;
 }
 

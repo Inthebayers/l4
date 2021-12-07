@@ -90,7 +90,7 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
             found->errorDisplay();
             cout << endl;
              
-
+            delete target; 
             return false;
         }
         item_ = found;
