@@ -89,9 +89,11 @@ void ChildrenBook::errorDisplay() const
 {
     cout << endl << "ERROR: Item: " << setw(12) << left 
         << title_.substr(0, 28) << "by " << setw(12) << left << author_ 
-        << " was not found in the library!";
+        << " was not found in the library";
 }
 
+//---------------------------------------------------------------------------
+// displayBookHeader() 
 void ChildrenBook::displayBookHeader() const {
     cout << endl << "CHILDREN BOOKS" << endl << "AVAIL  TITLE                 ";
     cout << "          AUTHOR                              YEAR" << endl;

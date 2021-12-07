@@ -76,11 +76,11 @@ void FictionBook::display() const {
 
 void FictionBook::errorDisplay() const
 {
-    cout << " \"" << setw(12) << left << title_.substr(0, 27) << "\" by " << setw(12) << left << author_;
+    cout << " \"" << setw(10) << left << title_.substr(0, 29) << "\" by " << setw(12) << left << author_;
 }
 
 void FictionBook::historyDisplay() const {
-    cout << setw(32) << left << author_ << setw(25) << left << title_.substr(0, 28) << setw(5) << left << year_ << endl;
+    cout << setw(32) << left << author_ << setw(25) << left << title_.substr(0, 22) << setw(5) << left << year_ << endl;
 }
 int FictionBook::getCopiesAvailable() const
 {

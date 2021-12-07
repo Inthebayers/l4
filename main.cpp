@@ -25,14 +25,5 @@ int main() {
     commands.open("data4commands.txt");
     lib.runCommands(commands);
 
-
-
-    ////
-    //patrons.open("patronsFile");
-    //lib.buildPatrons(patrons); // initialize patrons
-    //commands.open("commandFile");
-    //lib.commandHandler(commands); // initialize commands
-
-
     return 0;
 }

@@ -53,12 +53,12 @@ C 6000 F H Higgins Colin, Harold and Maude,
 C 2000 F H Higgins Colin, Harold and Maude,
 R 2222 F H Higgins Colin, Harold and Maude,
 
-R 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance, 1974
-C 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance, 1974
-C 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance, 1974
-C 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance, 1974
-C 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance, 1974
-C 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance, 1974
+R 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance,
+C 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance,
+C 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance,
+C 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance,
+C 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance,
+C 2222 F H Pirsig Robert, Zen & the Art of Motorcycle Maintenance,
 D
 H 1000
 H 1111

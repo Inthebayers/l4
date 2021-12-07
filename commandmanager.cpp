@@ -16,8 +16,7 @@ bool CommandManager::runCommands(istream& inFile, Library* library) {
     // instantiate bool tracker
     bool success = false;
 
-    
-
+   
     // create storage for command char 
     char commandType;
 

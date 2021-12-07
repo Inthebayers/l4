@@ -96,6 +96,10 @@ bool PeriodicalBook::setMonth(int month) {
         month_ = month;
         success = true;
     }
+    else {
+        cout << "ERROR: Month \"" << month << "\" is an invalid month" << endl;
+        success = false; 
+    }
     return success;
 }
 
@@ -117,6 +121,10 @@ bool PeriodicalBook::setYear(int year) {
     if (year > 0) {
         year_ = year;
         success = true;
+    }
+    else {
+        cout << "ERROR: Year \"" << year << "\" is an invalid year" << endl;
+        success = false;
     }
     return success;
 }
