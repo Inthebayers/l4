@@ -30,7 +30,6 @@ class Book : public Item {
     // default constructor
     Book();
 
-    //---------------------------------------------------------------------------
     /**
      * @brief Destroy the Book object
      * @pre: Assumes valid object has been created
@@ -38,7 +37,6 @@ class Book : public Item {
      */
     virtual ~Book();
 
-    //---------------------------------------------------------------------------
     /** getTitle
      * @brief Get the title of the current book object.
      * @return string containing the title of the current book
@@ -47,7 +45,6 @@ class Book : public Item {
      */
     string getTitle() const;
 
-    //---------------------------------------------------------------------------
     /** setTitle
      * @brief Sets the title of the given book.
      * @post book title set or changed

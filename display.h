@@ -26,7 +26,6 @@ class Display : public Command {
     // destructor
     ~Display();
 
-    //---------------------------------------------------------------------------
     /** execute
      * @brief calls display on the library object to display all items
      * @pre a valid library object
@@ -35,14 +34,12 @@ class Display : public Command {
      */
     virtual bool execute();
 
-    //---------------------------------------------------------------------------
     /** create
      * @brief creates a new display command object
      * @return a Command object pointer to new display object
      */
     virtual Command *create();
 
-    //---------------------------------------------------------------------------
     /** display
      * @brief calls display on the library object to display all items
      * @pre a valid library object

@@ -30,7 +30,6 @@ class History : public Command {
      */
     History();
 
-    //---------------------------------------------------------------------------
     /** destructor
      * @brief Destroy the History object and free memory.
      *
@@ -39,7 +38,6 @@ class History : public Command {
      */
     ~History();
 
-    //---------------------------------------------------------------------------
     /**
      * @brief Handles the execution of the history retrieval for a patron
      * object. Outputs the check-out history of a given patron in a organized
@@ -56,7 +54,6 @@ class History : public Command {
      */
     virtual void display();
 
-    //---------------------------------------------------------------------------
     /** create
      * @brief returns new History object, dynamic memory
      * @return pointer to new dynamically allocated Checkout object

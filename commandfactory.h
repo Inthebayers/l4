@@ -23,7 +23,6 @@ class CommandFactory {
     // destructor
     ~CommandFactory();
 
-    //---------------------------------------------------------------------------
     /** createCommand
      * @brief creates a new empty command object of a certain type
      * @param type char specifying the command type to create
@@ -38,7 +37,6 @@ class CommandFactory {
     // array of command types
     Command *commandTypes[ALPHABET] = {nullptr};
 
-    //---------------------------------------------------------------------------
     /** hash
      * @brief hashes a char to find correct subscript for array
      * @pre a char

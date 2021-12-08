@@ -20,7 +20,6 @@
 class FictionBook : public Book {
 
   public:
-    //---------------------------------------------------------------------------
     /** constructor
      * @brief Construct a new FictionBook object
      * @pre: assumes object needs to be created
@@ -28,7 +27,6 @@ class FictionBook : public Book {
      */
     FictionBook();
 
-    //---------------------------------------------------------------------------
     /** destructor
      * @brief Destroy the FictionBook object.
      * @pre: assumes valid object to be deleted
@@ -36,7 +34,6 @@ class FictionBook : public Book {
      */
     ~FictionBook();
 
-    //---------------------------------------------------------------------------
     /** buildItem
      * @brief creates book object reading from data file
      * @pre: A correctly formatted open data file
@@ -44,7 +41,6 @@ class FictionBook : public Book {
      */
     bool buildItem(istream &in);
 
-    //---------------------------------------------------------------------------
     /** create
      * @brief Creates a fiction book object, then returns a copy of that object
      * for the factory to function properly.
@@ -53,7 +49,6 @@ class FictionBook : public Book {
      */
     virtual Item *create();
 
-    //---------------------------------------------------------------------------
     /** fill
      * @brief fills data for a fictionBook item from Command Data file format
      * @pre an empty ChildrenBook item
@@ -61,7 +56,6 @@ class FictionBook : public Book {
      */
     virtual void fill(istream &);
 
-    //---------------------------------------------------------------------------
     /** displayBookHeader
      * @brief displays the categories and format of data for fictionBook list
      * @pre none
@@ -69,7 +63,6 @@ class FictionBook : public Book {
      */
     virtual void displayBookHeader() const;
 
-    //---------------------------------------------------------------------------
     /** diaplay
      * @brief displays the information of the current book in sort order
      * @pre a non-empty book object
@@ -77,7 +70,6 @@ class FictionBook : public Book {
      */
     virtual void display() const;
 
-    //---------------------------------------------------------------------------
     /** errorDisplay
      * @brief handles the ouput of an invalid FictionBook's - prints to console
      * @pre FicitonBook object has title_ and author_ set
@@ -85,7 +77,6 @@ class FictionBook : public Book {
      */
     virtual void errorDisplay() const;
 
-    //---------------------------------------------------------------------------
     /** historyDisplay
      * @brief formats the output when FictionBook Item is displayed from patron
      * history list
@@ -94,7 +85,6 @@ class FictionBook : public Book {
      */
     virtual void historyDisplay() const;
 
-    //---------------------------------------------------------------------------
     /** getCopiesAvailable
      * @brief gets and returns the available copies of this object
      * @pre none
@@ -102,28 +92,27 @@ class FictionBook : public Book {
      * @return int of availableCopies_
      */
     virtual int getCopiesAvailable() const;
-    //---------------------------------------------------------------------------
+
     /** setAuthor
      * @brief sets the author data member of the book
      * @pre a new book object
      * @post a book object with a set author
      */
     void setAuthor(string author);
-    //---------------------------------------------------------------------------
     /** setYear
      * @brief sets the year data member
      * @pre a new book object
      * @post a book object with a published year
      */
     bool setYear(int year);
-    //---------------------------------------------------------------------------
+
     /** getAuthor
      * @brief gets and returns the book author
      * @pre book object has set author
      * @post string of author is returned
      */
     string getAuthor() const;
-    //---------------------------------------------------------------------------
+
     /** getYear
      * @brief returns the book published year
      * @pre a book object with set year
@@ -131,7 +120,6 @@ class FictionBook : public Book {
      */
     int getYear() const;
 
-    //---------------------------------------------------------------------------
     /** changeAvailable
      * @brief increment or decrement availableCopies_
      * @pre Childrenbook to be checkedOut or returned by patron
@@ -140,9 +128,9 @@ class FictionBook : public Book {
      */
     virtual bool changeAvailable(int num);
 
-    //---------------------------------------------------------------------------
-    // Overloaded Operators
-    //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+// Overloaded Operators
+//---------------------------------------------------------------------------
 
     /**
      * Less than operator. Compares LHS and RHS for lesser value.

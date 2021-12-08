@@ -22,14 +22,12 @@ class Patron;
 
 class Command {
   public:
-    //---------------------------------------------------------------------------
     /** constructor
      * @brief Construct a new Command object. Default constructor.
      * @post: Command object will be created.
      */
     Command();
 
-    //---------------------------------------------------------------------------
     /** destructor
      * @brief Destroy the Return object and free memory.
      * @pre: Assumes valid command object created.
@@ -37,7 +35,6 @@ class Command {
      */
     virtual ~Command();
 
-    //---------------------------------------------------------------------------
     /** execute
      * @brief Handles the execution of given code determined by input.
      * @param istream for execution of command
@@ -46,21 +43,18 @@ class Command {
      */
     virtual bool execute() = 0;
 
-    //---------------------------------------------------------------------------
     /** display
      * @brief Handles the display of command object
      * @post command object displayed to console in correct format
      */
     virtual void display() = 0;
 
-    //---------------------------------------------------------------------------
     /** create
      * @brief creates and returns a new command object pointer
      * @return pointer to a new dynamically allocated command object
      */
     virtual Command *create() = 0;
 
-    //---------------------------------------------------------------------------
     /** buildCommand
      * @brief builds a command from data file
      * @pre correctly formatted data file
@@ -74,14 +68,12 @@ class Command {
     bool buildCommand(istream &inFile, Library *&library, int patronID,
                       Patron *patronPtr);
 
-    //---------------------------------------------------------------------------
     /** getItem
      * @brief gets and returns the Item object associated with command
      * @return an item pointer
      */
     Item *getItem();
 
-    //---------------------------------------------------------------------------
     /** getCommandType
      * @brief gets and returns the char code for command type
      * @return char of command code

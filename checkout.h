@@ -29,7 +29,6 @@ class Checkout : public Command {
     // destructor
     virtual ~Checkout();
 
-    //---------------------------------------------------------------------------
     /** display
      * @brief displays "CheckOut" to cout and calls historyDisplay on Item
      * @pre a previously executed checkout object
@@ -37,7 +36,6 @@ class Checkout : public Command {
      */
     virtual void display();
 
-    //---------------------------------------------------------------------------
     /** execute
      * @brief calls changeAvailable method on Item to decrement by 1
      * @return true able to checkout book, false otherwise
@@ -45,7 +43,6 @@ class Checkout : public Command {
      */
     virtual bool execute();
 
-    //---------------------------------------------------------------------------
     /** create
      * @brief returns new Checkout object, dynamic memory
      * @return pointer to new dynamically allocated Checkout object

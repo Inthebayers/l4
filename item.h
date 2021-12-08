@@ -28,7 +28,6 @@ class Item {
     // destuctor
     virtual ~Item();
 
-    //---------------------------------------------------------------------------
     /** buildItem
      * @brief creates item object reading from data file
      * @pre: A correctly formatted open data file
@@ -36,7 +35,6 @@ class Item {
      */
     virtual bool buildItem(istream &in) = 0;
 
-    //---------------------------------------------------------------------------
     /** display
      * @brief prints the contents of the item to console,
      * pure virtual function
@@ -44,16 +42,13 @@ class Item {
      * @post book contents displayed to console
      */
     virtual void display() const = 0;
-    //---------------------------------------------------------------------------
 
-    //---------------------------------------------------------------------------
     /** errorDisplay
      * @brief handles the ouput of an invalid Item - prints to console
      * @post error messaged displayed
      */
     virtual void errorDisplay() const = 0;
 
-    //---------------------------------------------------------------------------
     /** historyDisplay
      * @brief formats the output when Item is displayed from patron
      * history list
@@ -62,7 +57,6 @@ class Item {
      */
     virtual void historyDisplay() const = 0;
 
-    //---------------------------------------------------------------------------
     /** displayBookHeader
      * @brief displays the categories and format of data for Item list
      * @pre none
@@ -70,7 +64,6 @@ class Item {
      */
     virtual void displayBookHeader() const = 0;
 
-    //---------------------------------------------------------------------------
     /** getCopiesAvailable
      * @brief gets and returns the available copies of this object
      * @pre none
@@ -79,7 +72,6 @@ class Item {
      */
     virtual int getCopiesAvailable() const = 0;
 
-    //---------------------------------------------------------------------------
     /** create
      * @brief creates a new item object, pure virutal funciton
      * @pre implemented create() in child classes
@@ -87,7 +79,6 @@ class Item {
      */
     virtual Item *create() = 0;
 
-    //---------------------------------------------------------------------------
     /** fill
      * @brief fills data for an item from Command Data file format
      * @pre an empty item
@@ -95,7 +86,6 @@ class Item {
      */
     virtual void fill(istream &) = 0;
 
-    //---------------------------------------------------------------------------
     /** getType
      * @brief gets and returns itemtpye code
      * @pre a non-empty Item object
@@ -103,7 +93,6 @@ class Item {
      */
     char getType() const;
 
-    //---------------------------------------------------------------------------
     /** setFormat
      * @brief sets the Item format type
      * @post format_ is set to a valid Char
@@ -111,7 +100,6 @@ class Item {
      */
     virtual bool setFormat(char format);
 
-    //---------------------------------------------------------------------------
     /** changeAvailable
      * @brief increment or decrement availableCopies_
      * @pre Childrenbook to be checkedOut or returned by patron
@@ -120,9 +108,9 @@ class Item {
      */
     virtual bool changeAvailable(int num) = 0;
 
-    //---------------------------------------------------------------------------
-    // Overloaded Operators
-    //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+// Overloaded Operators
+//---------------------------------------------------------------------------
 
     /**
      * Less than operator. Compares LHS and RHS for lesser value.
