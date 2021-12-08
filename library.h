@@ -33,41 +33,40 @@ public:
     // default destructor
     ~Library(); 
 
-//---------------------------------------------------------------------------
     /** addPatron
-     * @brief adds patron to patron container
-     * @return true if patron was added, false if not
-     * @param istream patron info from file
-     */
+    * @brief adds patron to patron container
+    * @return true if patron was added, false if not
+    * @param istream patron info from file
+    */
     bool buildPatrons(istream&);
 
 
-//---------------------------------------------------------------------------
-// TODO comment
+    /** runCommands
+    * @brief interface between data file and command execution
+    * @return bool true if commands file was succesfully read and executed
+    */
     bool runCommands(istream&);
 
-//---------------------------------------------------------------------------
+
     /** buildBook
     * @brief interface between data file and book addition
     * @return true if book was added, false if not
     */
     bool buildItem(istream&);
 
-//---------------------------------------------------------------------------
+
     /** displayContents
     * @brief displays books by category, sorted within the category
     */
     void displayItems() const;
    
-    //---------------------------------------------------------------------------
+
     /** displayPatrons
-    * @brief displays all patrons
+    * @brief displays all patrons in the library by order of ID
     */
     void displayPatrons() const;
 
 
-
-//---------------------------------------------------------------------------
     /**
     * getPatron()
     * 
@@ -82,7 +81,7 @@ public:
     */
     bool getPatron(int userID, Patron*&); // how does this work? Is this supposed to be a pointer reference?
 
-//---------------------------------------------------------------------------
+
     /**getItem
     * @brief retrieves an item from the library
     * @param target, the target item to fine
@@ -95,14 +94,14 @@ public:
 
 private:
 
-    // private data memebers
+    //contents of the library
     Shelf shelf;
 
+    // holds patrons of the library
     PatronContainer patContainer; 
 
+    //interface with command objects
     CommandManager commManager;
 };
 
 #endif
-// TODO go through and delete uneccessary destructors - no strings & no dynamic memory
-// TODO other functions we want in this class? from assignment

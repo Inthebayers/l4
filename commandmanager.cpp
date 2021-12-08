@@ -1,11 +1,24 @@
-
+//---------------------------------------------------------------------------
+// commandmanager.h
+//---------------------------------------------------------------------------
+// CommandManager handles the operations of parsing command inputs from an
+// incoming source. Managaer the operations needed in order to process 
+// checkouts, returns, and the retrieval of a patrons history.
+//
+// Assumptions:
+//  -- data file will be correctly formatted 
+// 
+// Implementation:
+//  -- reaching eof character breaks the for loop
+//  -- prints error messages on invalid input from file
+//---------------------------------------------------------------------------
 
 #include "commandmanager.h"
 #include "commandfactory.h"
 #include "library.h"
 #include "patron.h"
 
-
+//---------------------------------------------------------------------------
 /** 
  * runCommands()
  * Handles the parsing and execution calls for commands coming in through istream. 

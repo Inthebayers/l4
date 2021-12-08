@@ -1,11 +1,17 @@
-/** 
- * commandmanager.h
- * 
- * CommandManager handles the operations of parsing command inputs from an
- * incoming source. Manages the operations needed in order to 
- * process checkouts, returns, and the retrieval of a patron's history.
- * 
- */
+ //---------------------------------------------------------------------------
+ // commandmanager.h
+ //---------------------------------------------------------------------------
+ // CommandManager handles the operations of parsing command inputs from an
+ // incoming source. Managaer the operations needed in order to process 
+ // checkouts, returns, and the retrieval of a patrons history.
+ //
+ // Assumptions:
+ //  -- data file will be correctly formatted 
+ // 
+ // Implementation:
+ //  -- reaching eof character breaks the for loop
+ //  -- prints error messages on invalid input from file
+ //---------------------------------------------------------------------------
 
 #ifndef COMMANDMANAGER_H
 #define COMMANDMANAGER_H
@@ -27,9 +33,6 @@ public:
      * @return bool if commands were successfully executed
      */
     bool runCommands(istream& inFile, Library* library);
-
-
-private:
 
 };
 

@@ -1,16 +1,19 @@
 //---------------------------------------------------------------------------
-// bookcase.cpp
+// shelf.cpp
 //---------------------------------------------------------------------------
-// Holds containers of books of different genres.
-// Genre's are stored in a hash
+// Holds containers of items of different genres.
 //
 // Assumptions:
 //  -- each genre is uniquely identified by a letter
 //  -- there cannot be two genres with the same letter
 // Implementation
+//  -- containers[] 
 //  -- uses a hash table to store containers for differnt genres
 //  -- each genre is associated with a letter e.g: F- fiction
 //  -- array size is 26, letters a...z correlate directly to index 0...25
+//  -- uses a hash table of binary search trees to store the books
+//  -- first letter of genre is stored as char
+//  -- no destructor - no dynamically allocated memory
 //---------------------------------------------------------------------------
 
 #include "shelf.h"
@@ -50,7 +53,6 @@ Shelf::~Shelf() {
 
             delete containers[i];
             containers[i] = nullptr;
-        
     }
 }
 
@@ -110,7 +112,6 @@ bool Shelf::buildItem(istream& in) {
             }
         }
 
-
         // skip over the rest of the line
         else {
             cout << "ERROR: Book code: \"" << code << "\" is an invalid code" << endl;
@@ -136,8 +137,8 @@ bool Shelf::retrieve(Item& target, Item*& toReturn) {
         if (containers[subscript]->retrieve(target, retrieved)) {
             toReturn = retrieved;
             success = true;
-       }
-        
+        }
+
     }
     return success;
 }

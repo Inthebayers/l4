@@ -23,7 +23,6 @@
 #include "itemfactory.h"
 
 class Shelf {
-    friend ostream& operator<<(ostream&, const Shelf&);
 
 public:
 
@@ -31,7 +30,6 @@ public:
 
     ~Shelf(); // destructor
 
-//--------------------------------------------------------------------------
     /** insert
      * @brief inserts book into a container 
      * @pre existing book object of any type
@@ -41,14 +39,12 @@ public:
      */
     bool insert(Item*);
 
-    //---------------------------------------------------------------------------
-    /** buildBook
+    /** buildItem
     * @brief interface between data file and book addition
     * @return true if book was added, false if not
     */
     bool buildItem(istream& in);
 
-    //--------------------------------------------------------------------------
     /** checkOut
     * @brief checks and gets the item that needs to be checked out
     * @pre Item object of target
@@ -58,12 +54,10 @@ public:
     */
     bool retrieve(Item& target, Item*& toReturn);
 
-    //---------------------------------------------------------------------------
     /** display
     * @brief displays all the contents of containers to console
     * @post each BookContainer in containers displayed to console
     */
-
     void display() const;
 
 
@@ -74,8 +68,8 @@ private:
     // hash funtion to get genre 
     int hash(char) const;
     
+    // array of known item Types
     bool validCodes[ITEM_TYPES];
-
 
     // array that stores containers by genre
     ItemContainer* containers[ITEM_TYPES]; 

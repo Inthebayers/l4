@@ -1,23 +1,25 @@
 //---------------------------------------------------------------------------
-// bookContainer.h
+// ItemContainer.h
 //---------------------------------------------------------------------------
 // An itemContainer class to contain one genre of books. Acts as interface
 // between bookcase and book.
-// BookContainer is a binary search tree containing Node structs that
+// ItemContainer is a binary search tree containing Node structs that
 // Contain pointers to book objects, left child, and right child.
 //
 // Assumptions:
 //  -- container has no limit
 //  -- each item is uniquely identified by its sorting criteria
 //  -- each ItemContainer will store only one type
-//  -- Comparison operators are not needed
-//  -- books will not be removed from the library
+//  -- items will not be removed from the library
+// 
 // Implementation
 //  -- root data member is a pointer to the root of the tree
 //  -- genre_ data member stores the itemContainer genre type
 //  -- Does not allow duplicate items to be inserted
-//  -- Does not allow items to be removed from the library
-// TODO ask about removing items
+//  -- uses a hash table of binary search trees to store the items
+//  -- first letter of item title is used to get the array index
+//  -- array size is 26, letters a...z correlate directly to index 0...25
+//  -- first letter of genre is stored as char
 //---------------------------------------------------------------------------
 
 #ifndef ITEMCONTAINER_H
@@ -29,17 +31,6 @@
 using namespace std;
 
 class ItemContainer {
-    //TODO delete this if we never need it 
-    ///** operator<<
-    // * @brief fills ostream with all the information of the books in container
-    // *        in sorted order
-    // * @pre existing ostream and BookContainer
-    // * @post BookContainer unchanged
-    // * @return filled ostream
-    // * @param ostream to be filled
-    // * @param book container to get books from
-    // */
-    //friend ostream& operator<<(ostream&, const BookContainer&);
 
 public:
     //constructor
@@ -48,7 +39,6 @@ public:
     //destructor
     ~ItemContainer();
 
-    //---------------------------------------------------------------------------
     /** insert
     * @brief calls private helper method to insert book as Node is BookConatiner
     * @pre existing book and BookContainer
@@ -58,7 +48,6 @@ public:
     */
     bool insert(Item*);
 
-    //---------------------------------------------------------------------------
     /** checkOut
     * @brief sets book to checked out and returns by reference
     * @pre existing book in container
@@ -68,7 +57,11 @@ public:
     */
     bool retrieve( Item& target, Item*& returned) const;
 
-    //TODO implement and comment
+    /** isInContainer
+    * @brief checks if an item object is found in the container
+    * @param target a complete Item object pointer as target
+    * @return bool true if found, false if not
+    */
     bool isInContainer(Item* target) const;
 
     /** display
@@ -110,10 +103,13 @@ public:
 
 private:
 
+    // Node struct that holds item objects in tree
     struct Node {
+
         Item* item;
         Node* left;
         Node* right;
+
         // default constructor
         Node();
         // destructor

@@ -24,7 +24,6 @@ public:
     PatronContainer();  // constructor
     ~PatronContainer(); // destructor
 
-    //---------------------------------------------------------------------------
     /** insert()
     * @brief Inserts created Patron object into container (the array of
     * patrons)
@@ -33,7 +32,6 @@ public:
     */
     bool insert(istream&);
 
-    //---------------------------------------------------------------------------
     /** retrieve()
     * @brief retrieves the patron
     * @param the uniqueID of the patron
@@ -41,13 +39,18 @@ public:
     */
     bool retrieve(const int userID, Patron*&) const;
 
+    /** display
+    * @brief dsiplays all the patrons in contianer by sorted order
+    * @post patrons displayed to cout
+    */
     void display() const;
     
 private:
+
     static const int PATRON_LIMIT = 10010;
 
     // array of patron objects, userID is a direct hash
     Patron* patronList[PATRON_LIMIT] = { nullptr }; // array of patrons
    
-}; // end of PatronContainer class
+}; 
 #endif // !PATRONCONTAINER_H

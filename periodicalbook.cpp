@@ -7,7 +7,14 @@
 //
 // Assumptions:
 //  -- initial character in input dictates 'p' for periodical
+//  -- Comparison operators will only be used with other Periodicals
+//  -- istream data will always be in the correct format
+// 
+// Implementation:
+//  -- data format from command data file handled in fill() method
+//  -- data format from book data file handled in buildItem()
 //---------------------------------------------------------------------------
+
 #include "periodicalbook.h"
 #include <iomanip>
 #include <iostream>

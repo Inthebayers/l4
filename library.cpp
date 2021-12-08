@@ -58,7 +58,6 @@ void Library::displayPatrons() const {
     patContainer.display();
 }
 
-
 //---------------------------------------------------------------------------
 // getPatron
 bool Library::getPatron(int userID, Patron*& toReturn) {

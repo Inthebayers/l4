@@ -28,74 +28,70 @@
 using namespace std;
 
 class Patron {
-    /** overloaded << operator
-     * @brief prints the Patron information to console
-     */
-    friend ostream& operator<<(ostream&, const Patron&);
 
 public:
 
-    //---------------------------------------------------------------------------
     // default constructor
     Patron();
 
-    //---------------------------------------------------------------------------
     // default constructor
     ~Patron();
 
-    //---------------------------------------------------------------------------
-        /** setPatron
-         * @brief sets the userID, firstName and lastName of patron
-         * @post Patron userID firstName lastName data members set
-         * @param infile data from file
-         * @param userID user ID passed from patron container
-         */
+    /** setPatron
+    * @brief sets the userID, firstName and lastName of patron
+    * @post Patron userID firstName lastName data members set
+    * @param infile data from file
+    * @param userID user ID passed from patron container
+    */
     bool buildPatron(istream& infile, int userID);
 
-    //---------------------------------------------------------------------------
-        /** getFirst
-         * @brief retrieves and returns firstName
-         * @return string firstName
-         */
+    /** getFirst
+    * @brief retrieves and returns firstName
+    * @return string firstName
+    */
     string getName() const;
 
-    //---------------------------------------------------------------------------
-        /** getID
-         * @brief retrieves and returns userID
-         * @return int userID
-         */
+    /** getID
+    * @brief retrieves and returns userID
+    * @return int userID
+    */
     int getID() const;
 
-    //---------------------------------------------------------------------------
-        /** printHistory
-         * @brief prints the itemHistory to console
-         * @post rentalHistory printed to console in order of events
-         */
+    /** printHistory
+    * @brief prints the itemHistory to console
+    * @post rentalHistory printed to console in order of events
+    */
     void printHistory();
 
-    //---------------------------------------------------------------------------
     /** addHistory
-     * @brief adds a Item object to patron itemHistory
-     * @pre item must be checked out by Patron
-     * @post addHistory list now includes latest checkout
-     * @return boolean value of successful addition to list
-     * @param item the item to add to history
-     */
+    * @brief adds a Item object to patron itemHistory
+    * @pre item must be checked out by Patron
+    * @post addHistory list now includes latest checkout
+    * @return boolean value of successful addition to list
+    * @param item the item to add to history
+    */
     bool addToHistory(Command*);
 
-    //---------------------------------------------------------------------------
-    // searchCheckouts
+    /** searchCheckOuts
+    * @brief searches checkout history to see if an item is viable for return
+    * @return true if item is currently checked out by patron
+    */
     bool searchCheckouts(const Item* target);
 
+    /** displayPatron
+    * @brief displays the patron information, ID, Last, First
+    */
     void displayPatron();
 
 private:
 
-    // private data members
+    // patron name
     string nameLastFirst_;
+
+    //patron unique ID
     int userID_;
 
-    // list to store Patron book rental history
+    // list to store Patron item rental history
     list<Command*> itemHistory;
 };
 #endif // !PATRON_H

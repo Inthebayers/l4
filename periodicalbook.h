@@ -7,6 +7,12 @@
 //
 // Assumptions:
 //  -- initial character in input dictates 'p' for periodical
+//  -- Comparison operators will only be used with other Periodicals
+//  -- istream data will always be in the correct format
+// 
+// Implementation:
+//  -- data format from command data file handled in fill() method
+//  -- data format from book data file handled in buildItem()
 //---------------------------------------------------------------------------
 
 #ifndef PERIODICALBOOK_H
@@ -17,53 +23,51 @@
 #include <iostream>
 
 class PeriodicalBook : public Book {
-    /**
-     * @brief Output operator overload for PeriodicalBook object. Dictates
-     * output formatting and functionality for a periodical book.
-     *
-     * @return ostream& containing information to be output in a formatted style
-     * @pre: Assumes valid FictionBook object being passed in.
-     * @post: Data not changed, but is output.
-     */
-    friend ostream& operator<<(ostream&, const PeriodicalBook&);
 
 public:
-    /**
-     * @brief Construct a new Periodical Book object.
-     */
+
+    //constructor
     PeriodicalBook();
 
-    //---------------------------------------------------------------------------
-        /**
-         * @brief Destroy the Periodical Book object.
-         *
-         * @pre: Assumes valid created object to be destroyed
-         * @post: Periodical object will be deleted and memory freed
-         */
+    /**
+    * @brief Destroy the Periodical Book object.
+    *
+    * @pre: Assumes valid created object to be destroyed
+    * @post: Periodical object will be deleted and memory freed
+    */
     ~PeriodicalBook();
 
-    //---------------------------------------------------------------------------
-     /** buildBook
+    /** buildBook
     * @brief creates book object reading from data file
     * @pre: A correctly formatted open data file
     * @post: a new book object
     */
      bool buildItem(istream& in);
 
-    //---------------------------------------------------------------------------
-        /** create
-         * @brief Creates a periodical book object, then returns a copy of that
-         * object for the factory to function properly.
-         *
-         * @return PeriodicalBook copy of newly created book object
-         * @post: new periodical book object is created and returned.
-         */
+    /** create
+    * @brief Creates a periodical book object, then returns a copy of that
+    * object for the factory to function properly.
+    *
+    * @return PeriodicalBook copy of newly created book object
+    * @post: new periodical book object is created and returned.
+    */
     virtual Item* create();
 
-    //TODO comment
+    //---------------------------------------------------------------------------
+    /** fill
+    * @brief fills data for a periodical item from Command Data file format
+    * @pre an empty periodical item
+    * @post only author and title data fields are set
+    */
     virtual void fill(istream&);
 
-    virtual void displayBookHeader() const; 
+    //---------------------------------------------------------------------------
+    /** displayBookHeader
+    * @brief displays the categories and format of data for periodcial list
+    * @pre none
+    * @post periodical book item list header printed to cout
+    */
+    virtual void displayBookHeader() const;
 
     //---------------------------------------------------------------------------
     /** display
@@ -72,11 +76,30 @@ public:
      */
     virtual void display() const;
 
-    virtual void errorDisplay() const; 
+    //---------------------------------------------------------------------------
+    /** errorDisplay
+    * @brief handles the ouput of an invalid periodical's - prints to console
+    * @post error messaged displayed
+    */
+    virtual void errorDisplay() const;
 
-    virtual void historyDisplay() const; 
+    //---------------------------------------------------------------------------
+    /** historyDisplay
+    * @brief formats the output when periodcica Item is displayed from patron
+    * history list
+    * @pre periodical Item previously added to patron history
+    * @post data members printed to console in history format
+    */
+    virtual void historyDisplay() const;
 
-    virtual int getCopiesAvailable() const; 
+    //---------------------------------------------------------------------------
+    /** getCopiesAvailable
+    * @brief gets and returns the available copies of this object
+    * @pre none
+    * @post availableCopies_ returned
+    * @return int of availableCopies_
+    */
+    virtual int getCopiesAvailable() const;
 
 
     /** setMonth
@@ -106,11 +129,18 @@ public:
      */
     int getYear() const;
 
+    //---------------------------------------------------------------------------
     /** changeAvailable
-     * @brief changes the available copies for the given item
-     * @return bool if change was successful
-     */
+    * @brief increment or decrement availableCopies_
+    * @pre Childrenbook to be checkedOut or returned by patron
+    * @post availableCopies_ value changes by 1
+    * @return bool true if successful
+    */
     virtual bool changeAvailable(int num);
+
+    //---------------------------------------------------------------------------
+    // Overloaded Operators
+    //---------------------------------------------------------------------------
 
     /**
     * Less than operator. Compares LHS and RHS for lesser value.
@@ -147,12 +177,13 @@ public:
 
 
 private:
+
     // month periodical was written/published
     int month_;
+
     // year periodical was written/published
     int year_;
+
     static const int COPIES = 1;
-    //int availableCopies_ = COPIES;
-    //int totalCopies = COPIES;
 };
 #endif // !PERIODICALBOOK_H

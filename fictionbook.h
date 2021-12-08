@@ -5,6 +5,8 @@
 // containing title, author, number of copies "owned" by the library, and
 // copies of this book currently checked in.
 //
+// Ficiton sorted by author, then title
+// 
 // Assumptions:
 //  -- initial character in input dictates 'f' for fiction
 //---------------------------------------------------------------------------
@@ -17,26 +19,18 @@
 #include <iostream>
 
 class FictionBook : public Book {
-    /**
-     * @brief Output operator overload for FictionBook object. Dictates output
-     * formatting and functionality for a fiction book.
-     *
-     * @return ostream& containing information to be output in a formatted style
-     * @pre: Assumes valid FictionBook object being passed in.
-     * @post: none
-     */
-    friend ostream& operator<<(ostream&, const FictionBook&);
 
 public:
-    /**
-     * @brief Construct a new FictionBook object
-     * @pre: assumes object needs to be created
-     * @post: new FictionBook object
-     */
+    //---------------------------------------------------------------------------
+    /** constructor
+    * @brief Construct a new FictionBook object
+    * @pre: assumes object needs to be created
+    * @post: new FictionBook object
+    */
     FictionBook();
 
     //---------------------------------------------------------------------------
-    /**
+    /** destructor
     * @brief Destroy the FictionBook object.
     * @pre: assumes valid object to be deleted
     * @post: object will be deleted & memory freed
@@ -44,7 +38,7 @@ public:
     ~FictionBook();
 
     //---------------------------------------------------------------------------
-     /** buildBook
+     /** buildItem
     * @brief creates book object reading from data file
     * @pre: A correctly formatted open data file
     * @post: a new book object
@@ -60,45 +54,77 @@ public:
      */
     virtual Item* create();
 
-    //TODO comment
+    //---------------------------------------------------------------------------
+    /** fill
+    * @brief fills data for a fictionBook item from Command Data file format
+    * @pre an empty ChildrenBook item
+    * @post only author and title data fields are set
+    */
     virtual void fill(istream&);
 
+    //---------------------------------------------------------------------------
+    /** displayBookHeader
+    * @brief displays the categories and format of data for fictionBook list
+    * @pre none
+    * @post Children book item list header printed to cout
+    */
     virtual void displayBookHeader() const;
 
     //---------------------------------------------------------------------------
-    /** display
-     * @brief displays the book copies, author, title and year to console.
-     * @post contents displayed to console
-     */
+    /** diaplay
+    * @brief displays the information of the current book in sort order
+    * @pre a non-empty book object
+    * @post contents displayed to console,
+    */
     virtual void display() const;
 
-    virtual void errorDisplay() const; 
+    //---------------------------------------------------------------------------
+    /** errorDisplay
+    * @brief handles the ouput of an invalid FictionBook's - prints to console
+    * @pre FicitonBook object has title_ and author_ set
+    * @post error messaged displayed
+    */
+    virtual void errorDisplay() const;
 
-    virtual void historyDisplay() const; 
+    //---------------------------------------------------------------------------
+    /** historyDisplay
+    * @brief formats the output when FictionBook Item is displayed from patron
+    * history list
+    * @pre FictionBook Item previously added to patron history
+    * @post data members printed to console in history format
+    */
+    virtual void historyDisplay() const;
 
-    virtual int getCopiesAvailable() const; 
-
+    //---------------------------------------------------------------------------
+    /** getCopiesAvailable
+    * @brief gets and returns the available copies of this object
+    * @pre none
+    * @post availableCopies_ returned
+    * @return int of availableCopies_
+    */
+    virtual int getCopiesAvailable() const;
+    //---------------------------------------------------------------------------
     /** setAuthor
      * @brief sets the author data member of the book
      * @pre a new book object
      * @post a book object with a set author
      */
     void setAuthor(string author);
-
+    //---------------------------------------------------------------------------
     /** setYear
      * @brief sets the year data member
      * @pre a new book object
      * @post a book object with a published year
      */
     bool setYear(int year);
-
+    //---------------------------------------------------------------------------
     /** getAuthor
      * @brief gets and returns the book author
      * @pre book object has set author
      * @post string of author is returned
      */
     string getAuthor() const;
-
+    //---------------------------------------------------------------------------
     /** getYear
      * @brief returns the book published year
      * @pre a book object with set year
@@ -106,18 +132,25 @@ public:
      */
     int getYear() const;
 
+    //---------------------------------------------------------------------------
     /** changeAvailable
-     * @brief changes the available copies for the given item
-     * @return bool if change was successful
-     */
+    * @brief increment or decrement availableCopies_
+    * @pre Childrenbook to be checkedOut or returned by patron
+    * @post availableCopies_ value changes by 1
+    * @return bool true if successful
+    */
     virtual bool changeAvailable(int num);
 
+    //---------------------------------------------------------------------------
+    // Overloaded Operators
+    //---------------------------------------------------------------------------
+
     /**
-* Less than operator. Compares LHS and RHS for lesser value.
-* @param rhsItem rhs Book being passed in
-* @return true
-* @return false
-*/
+    * Less than operator. Compares LHS and RHS for lesser value.
+    * @param rhsItem rhs Book being passed in
+    * @return true
+    * @return false
+    */
     bool operator<(const Item& rhsItem) const;
 
     /**
@@ -156,8 +189,7 @@ private:
     //publishing year
     int year_;
 
+    //default copies available
     static const int COPIES = 5;
-    //int availableCopies_ = COPIES;
-    //int totalCopies_ = COPIES;
 };
 #endif // !FICTIONBOOK_H

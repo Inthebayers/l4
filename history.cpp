@@ -1,3 +1,18 @@
+//---------------------------------------------------------------------------
+// history.cpp
+//---------------------------------------------------------------------------
+// Handles the operation of retrieving the history of a Patron within the
+// library system. Returns and outputs their rental history of books from the
+// library.
+// 
+// Assumptions:
+// -- will only be called on a valid item in the library
+// 
+// Implementation:
+//  -- no destructor implementation for dynamic memory in create() method - 
+//  -- memory deallocation to be handled by Patron class where commands are 
+//  -- are stored in itemHistory list
+//---------------------------------------------------------------------------
 
 #include "history.h"
 #include "patroncontainer.h"

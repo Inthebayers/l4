@@ -1,15 +1,21 @@
 //---------------------------------------------------------------------------
-// itemcontainer.cpp
+// ItemContainer.cpp
 //---------------------------------------------------------------------------
-// A ItemContainer class to contain one genre of books. Acts as interface
-// between shelf and items.
-// ItemContainer is a binary search tree containing nodeData objects that
-// Contian pointers to item objects
+// An itemContainer class to contain one genre of books. Acts as interface
+// between bookcase and book.
+// ItemContainer is a binary search tree containing Node structs that
+// Contain pointers to book objects, left child, and right child.
 //
 // Assumptions:
 //  -- container has no limit
 //  -- each item is uniquely identified by its sorting criteria
+//  -- each ItemContainer will store only one type
+//  -- items will not be removed from the library
+// 
 // Implementation
+//  -- root data member is a pointer to the root of the tree
+//  -- genre_ data member stores the itemContainer genre type
+//  -- Does not allow duplicate items to be inserted
 //  -- uses a hash table of binary search trees to store the items
 //  -- first letter of item title is used to get the array index
 //  -- array size is 26, letters a...z correlate directly to index 0...25
@@ -20,6 +26,7 @@
 
 //---------------------------------------------------------------------------
 // Node functions
+//---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
 // Node Constructor
@@ -223,7 +230,6 @@ bool ItemContainer::insertNode(Node* node) {
                 }
             }
             // if its equal, delete the node and return false
-            // TODO why the frick is dragon wagon crescent == williams jay?
             else if (*node->item == *cur->item) {
                 node->item = nullptr;
                 delete node;

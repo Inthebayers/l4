@@ -21,6 +21,8 @@ PatronContainer::PatronContainer() {
 
 }
 
+//---------------------------------------------------------------------------
+// destructor
 PatronContainer::~PatronContainer() {
     for (int i = 0; i < PATRON_LIMIT; i++) {
         if (patronList[i] != nullptr) {
@@ -68,6 +70,8 @@ bool PatronContainer::insert(istream& inFile) {
     return success;
 }
 
+//---------------------------------------------------------------------------
+// retrieve
 bool PatronContainer::retrieve(const int userID, Patron*& toReturn) const {
     bool success = false;
     if (userID > 0 && userID < 10000) {
@@ -79,6 +83,8 @@ bool PatronContainer::retrieve(const int userID, Patron*& toReturn) const {
     return success;
 }
 
+//---------------------------------------------------------------------------
+// display
 void PatronContainer::display() const {
     for (int i = 0; i < PATRON_LIMIT; i++) {
         if (patronList[i] != nullptr) {

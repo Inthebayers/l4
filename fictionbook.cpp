@@ -72,19 +72,34 @@ void FictionBook::fill(istream& inFile) {
 }
 
 //---------------------------------------------------------------------------
+//dsiplayBookHeader
+void FictionBook::displayBookHeader() const {
+    cout << endl << "FICTION BOOKS " << endl <<
+        setw(39) << "AVAIL  AUTHOR";
+    cout << "TITLE                               YEAR" << endl;
+}
+
+//---------------------------------------------------------------------------
 //display
 void FictionBook::display() const {
     cout << setw(7) << left << availableCopies_ << setw(32) << left << author_ << setw(36) << left << title_.substr(0, 28)  << setw(5) << left << year_ << endl;
 }
 
+//---------------------------------------------------------------------------
+//errorDisplay
 void FictionBook::errorDisplay() const
 {
     cout << " \"" << setw(10) << left << title_.substr(0, 29) << "\" by " << setw(12) << left << author_;
 }
 
+//---------------------------------------------------------------------------
+//historyDisplay
 void FictionBook::historyDisplay() const {
     cout << setw(32) << left << author_ << setw(25) << left << title_.substr(0, 22) << setw(5) << left << year_ << endl;
 }
+
+//---------------------------------------------------------------------------
+//getCopiesAvailable
 int FictionBook::getCopiesAvailable() const
 {
     return availableCopies_;
@@ -95,11 +110,6 @@ void FictionBook::setAuthor(string author) {
     author_ = author;
 }
 
-void FictionBook::displayBookHeader() const {
-    cout << endl << "FICTION BOOKS " << endl <<
-        setw(39)<< "AVAIL  AUTHOR";
-    cout << "TITLE                               YEAR" << endl;
-} 
 //---------------------------------------------------------------------------
 // setYear
 bool FictionBook::setYear(int year) {

@@ -2,11 +2,12 @@
 // checkout.h
 //---------------------------------------------------------------------------
 // Subclass of command.
-// Handles checking out a book, will attempt to decrement avaialble copies 
+// Handles checking out an item, will attempt to decrement avaialble copies 
 // of the book by one.
 //
 // Assumptions:
 // -- will only be called on a valid item in the library
+// -- patronPtr will point to a valid patron
 // 
 // Implementation:
 //  -- Execute calls changeAvailable method on Item
