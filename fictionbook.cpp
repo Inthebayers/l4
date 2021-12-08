@@ -24,6 +24,9 @@ FictionBook::FictionBook() {
     year_ = 0;
     title_ = "";
     itemType_ = 'F';
+    availableCopies_ = COPIES;
+    totalCopies_ = COPIES;
+
 }
 
 //---------------------------------------------------------------------------

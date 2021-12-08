@@ -1,42 +1,57 @@
 //---------------------------------------------------------------------------
 // checkout.h
 //---------------------------------------------------------------------------
-// Handles checking out a book.
+// Subclass of command.
+// Handles checking out a book, will attempt to decrement avaialble copies 
+// of the book by one.
 //
+// Assumptions:
+// -- will only be called on a valid item in the library
+// 
 // Implementation:
-//  -- library calls execute to check out a book to a patron
+//  -- Execute calls changeAvailable method on Item
+//  -- Item to do error handling with available copies
+//  -- no destructor implementation for dynamic memory in create() method - 
+//  -- memory deallocation to be handled by Patron class where commands are 
+//  -- are stored in itemHistory list
 //---------------------------------------------------------------------------
+
 #ifndef CHECKOUT_H
 #define CHECKOUT_H
-
 #include "command.h"
-
-class Patron;
 
 class Checkout : public Command {
 public:
-    Checkout(); // default
+    // constructor
+    Checkout();
 
+    // destructor
     virtual ~Checkout();
-    /** display()     
-     * @brief Handles output and display of the checkout information
-     */
 
+    //---------------------------------------------------------------------------
+    /** display
+    * @brief displays "CheckOut" to cout and calls historyDisplay on Item
+    * @pre a previously executed checkout object
+    * @post Checkout and item spedific historyDisplay printed to console
+    */
     virtual void display();
 
-    /**
-     * @brief checks out a book to a patron
+    //---------------------------------------------------------------------------
+    /** execute
+     * @brief calls changeAvailable method on Item to decrement by 1
      * @return true able to checkout book, false otherwise
-     * @post patron is assigned a book and one less copy of book is available
-     *       if any were available to begin with
+     * @post itemAvailable copies decremented by one or error message printed
      */
     virtual bool execute();
 
+    //---------------------------------------------------------------------------
+    /** create
+    * @brief returns new Checkout object, dynamic memory
+    * @return pointer to new dynamically allocated Checkout object
+    * @post new Checkout Command object created and returned
+    */
     virtual Command* create();
 
-
-protected:
-    Patron* patron_;
 };
 
 #endif

@@ -152,7 +152,7 @@ private:
     // year periodical was written/published
     int year_;
     static const int COPIES = 1;
-    int availableCopies_ = COPIES;
-    int totalCopies = COPIES;
+    //int availableCopies_ = COPIES;
+    //int totalCopies = COPIES;
 };
 #endif // !PERIODICALBOOK_H

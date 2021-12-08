@@ -8,13 +8,21 @@
 
 using namespace std;
 
+//---------------------------------------------------------------------------
+/**
+* @brief
+* @pre
+* @post
+* @return
+*/
+
 int main() {
 
 
     Library lib;
     ifstream books;
     ifstream patrons;
-    patrons.open("data4patrons.txt");
+    patrons.open("repeatpatrons.txt");
     lib.buildPatrons(patrons);
    
     //ifstream books, patrons, commands;

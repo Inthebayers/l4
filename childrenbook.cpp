@@ -1,9 +1,6 @@
 #include "childrenbook.h"
-
 #include "book.h"
-
 #include <iomanip>
-
 #include <iostream>
 #include <string>
 
@@ -14,6 +11,9 @@ ChildrenBook::ChildrenBook() {
     author_ = "";
     year_ = 0; 
     itemType_ = 'C';
+    availableCopies_ = COPIES;
+    totalCopies_ = COPIES;
+
 }
 
 //---------------------------------------------------------------------------
@@ -22,12 +22,12 @@ ChildrenBook::~ChildrenBook() {}
 
 //---------------------------------------------------------------------------
 // buildBook
-
 bool ChildrenBook::buildItem(istream &inFile) {
     string title = "";
     string author = "";
     int year;
 
+    // set methods used to verify incoming data is valid
     getline(inFile, author, ',');
     inFile.get();  // remove blank space
     getline(inFile, title, ',');
@@ -42,7 +42,9 @@ bool ChildrenBook::buildItem(istream &inFile) {
 
 //---------------------------------------------------------------------------
 // create
-Item *ChildrenBook::create() { return new ChildrenBook(); }
+Item *ChildrenBook::create() { 
+    return new ChildrenBook();
+}
 
 //---------------------------------------------------------------------------
 // fill
@@ -52,7 +54,6 @@ void ChildrenBook::fill(istream& inFile) {
     inFile.get(); // remove blank space
     getline(inFile, author_, ',');
 }
-
 
 //---------------------------------------------------------------------------
 // setAuthor

@@ -1,13 +1,22 @@
 //---------------------------------------------------------------------------
 // book.h
 //---------------------------------------------------------------------------
+// Subclass of Item
 // A book object. Handles the creation and storage of a
 // book, containing title, author, number of copies "owned" by the library,
 // and copies of this book currently checked in. Parent class of fictionbook,
 // periodicalbook, and childrenbook.
 //
+// Assumptions:
+// -- book copies will be initialized by subclass
+// -- all books will have a title
+// 
+// Implementation:
+// -- available and total copies initialized to 0 for generic book object
+// -- subclasses will initialize total and available copies
+//
 //---------------------------------------------------------------------------
-#pragma once
+
 #include <iostream>
 #include "book.h"
 using namespace std;
@@ -18,6 +27,8 @@ Book::Book()
 {
     title_ = "";
     format_ = 'H';
+    availableCopies_ = 0;
+    totalCopies_ = 0;
 }
 //---------------------------------------------------------------------------
 // destructor
@@ -26,9 +37,9 @@ Book::Book()
 
 //---------------------------------------------------------------------------
 // setTitle
-void Book::setTitle(string title)
+void Book::setTitle(string incomingTitle)
 {
-   title_ = title;
+   title_ = incomingTitle;
 }
 
 //---------------------------------------------------------------------------
@@ -38,63 +49,3 @@ string Book::getTitle() const
    return title_;
 }
 
-
-
-//---------------------------------------------------------------------------
-// setAvailableCopies
-void Book::setAvailableCopies(int newNumberOfCopies)
-{
-   availableCopies_ = newNumberOfCopies;
-}
-
-//---------------------------------------------------------------------------
-// getAvailableCopies
-int Book::getAvailableCopies() const
-{
-   return availableCopies_;
-}
-
-//---------------------------------------------------------------------------
-// checkOut
-bool Book::checkOut()
-{
-   if (availableCopies_ > 0)
-   {
-      availableCopies_ = availableCopies_ - 1;
-      return true;
-   }
-   return false;
-}
-
-//---------------------------------------------------------------------------
-// returnToLibrary
-bool Book::returnToLibrary()
-{
-   if (availableCopies_ < totalCopies_)
-   {
-      availableCopies_ += 1;
-      return true;
-   }
-
-   return false; 
-}
-
-//---------------------------------------------------------------------------
-// setTotalCopies
-bool Book::setTotalCopies(int newTotalCopyAmount)
-{
-   if (newTotalCopyAmount > 0)
-   {
-      totalCopies_ = newTotalCopyAmount;
-
-      return true;
-   }
-
-   return false; 
-}
-
-//---------------------------------------------------------------------------
-// getTotalCopies
-int Book::getTotalCopies() {
-   return totalCopies_;
-}

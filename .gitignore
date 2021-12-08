@@ -36,3 +36,4 @@ itemcontainer.h.gch
 lab4tester
 .gitignore
 item.h.gch
+/newestlab4.vcxproj.filters

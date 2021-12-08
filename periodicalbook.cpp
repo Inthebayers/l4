@@ -23,6 +23,8 @@ PeriodicalBook::PeriodicalBook() {
     year_ = 0;
     title_ = "";
     itemType_ = 'P';
+    availableCopies_ = COPIES;
+    totalCopies_ = COPIES;
 }
 
 //---------------------------------------------------------------------------
