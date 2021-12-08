@@ -1,3 +1,16 @@
+//---------------------------------------------------------------------------
+// commandfactory.cpp
+//---------------------------------------------------------------------------
+// A command factory class to create new instances of command objects.
+//
+// Assumptions:
+//  -- Each command will have a unique char identifier
+// 
+// Implementation:
+//  -- character case is handled by the hash
+//---------------------------------------------------------------------------
+
+
 #include "commandfactory.h"
 #include "checkout.h"
 #include "return.h"
@@ -7,16 +20,23 @@
 //---------------------------------------------------------------------------
 // commandFactory()
 CommandFactory::CommandFactory() {
-    for (int i = 0; i < ALPHABET; i++) {
-        commandTypes[i] = nullptr;
-    }
-    // Checkout, Return, History
+    // Checkout, display, Return, History
      commandTypes[2] = new Checkout;
      commandTypes[3] = new Display;
      commandTypes[7] = new History;
      commandTypes[17] = new Return;
 }
 
+//---------------------------------------------------------------------------
+// destructor()
+CommandFactory::~CommandFactory() {
+    for (int i = 0; i < ALPHABET; i++) {
+        if (commandTypes[i] != nullptr) {
+            delete commandTypes[i];
+            commandTypes[i] = nullptr;
+        }
+    }
+}
 
 //---------------------------------------------------------------------------
 // createCommand()
@@ -35,20 +55,15 @@ Command* CommandFactory::createCommand(char type){
     return toReturn;
 }
 
-//---------------------------------------------------------------------------
-// destructor()
-CommandFactory::~CommandFactory() {
-    for (int i = 0; i < ALPHABET; i++) {
-        delete commandTypes[i];
-        commandTypes[i] = nullptr;
-    }
-}
 
 //---------------------------------------------------------------------------
 // hash
 int CommandFactory::hash(char type) const {
-    // change to uppercase if it's not
-    type = toupper(type);
-    int subscript = type - 'A';
+    int subscript = 0;
+    if (type > 'A' && type < 'z') {
+        // change to uppercase if it's not
+        type = toupper(type);
+        subscript = type - 'A';
+    }
     return subscript;
 }
