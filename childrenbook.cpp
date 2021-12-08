@@ -1,3 +1,23 @@
+//---------------------------------------------------------------------------
+// childrenbook.cpp
+//---------------------------------------------------------------------------
+// Subclass of Book
+// A children book object. Handles the creation and storage of a children's
+// book, containing title, author, number of copies "owned" by the library,
+// and copies of this book currently checked in.
+//
+// Assumptions:
+//  -- initial character in input dictates 'C' for children
+//  -- Comparison operators will only be used with other ChildrenBook
+//  -- istream data will always be in the correct format
+// 
+// Implementation:
+//  -- data format from command data file handled in fill() method
+//  -- data format from book data file handled in buildItem()
+//  -- separate display methods 
+// 
+//---------------------------------------------------------------------------
+
 #include "childrenbook.h"
 #include "book.h"
 #include <iomanip>
@@ -43,16 +63,56 @@ bool ChildrenBook::buildItem(istream &inFile) {
 //---------------------------------------------------------------------------
 // create
 Item *ChildrenBook::create() { 
+    // dynamic memory deallocated in itemContainer
     return new ChildrenBook();
 }
 
 //---------------------------------------------------------------------------
 // fill
-// data format: title, author
+// command file data format: title, author
 void ChildrenBook::fill(istream& inFile) {
     getline(inFile, title_, ',');
     inFile.get(); // remove blank space
     getline(inFile, author_, ',');
+}
+
+//---------------------------------------------------------------------------
+// display
+void ChildrenBook::display() const {
+    cout << setw(7) << left << availableCopies_ << setw(32) << left
+        << title_.substr(0, 28) << setw(36) << left << author_
+        << setw(5) << left << year_ << endl;
+}
+
+//---------------------------------------------------------------------------
+// errorDisplay
+void ChildrenBook::errorDisplay() const
+{
+    cout << endl << "ERROR: Item: " << setw(12) << left
+        << title_.substr(0, 28) << "by " << setw(12) << left << author_
+        << " was not found in the library";
+}
+
+//---------------------------------------------------------------------------
+// historyDisplay
+void ChildrenBook::historyDisplay() const {
+
+    cout << setw(32) << left << title_.substr(0, 28) << setw(25) << left << author_ << setw(5) << left << year_ << endl;
+
+}
+
+//---------------------------------------------------------------------------
+// displayBookHeader() 
+void ChildrenBook::displayBookHeader() const {
+    cout << endl << "CHILDREN BOOKS" << endl << "AVAIL  TITLE                 ";
+    cout << "          AUTHOR                              YEAR" << endl;
+}
+
+//---------------------------------------------------------------------------
+// getCopiesAvailable
+int ChildrenBook::getCopiesAvailable() const
+{
+    return availableCopies_;
 }
 
 //---------------------------------------------------------------------------
@@ -77,39 +137,7 @@ bool ChildrenBook::setYear(int year) {
 // getYear
 int ChildrenBook::getYear() const { return year_; }
 
-//---------------------------------------------------------------------------
-// display
 
-void ChildrenBook::display() const {
-    cout << setw(7) << left << availableCopies_<< setw(32) << left 
-        << title_.substr(0, 28) << setw(36) << left <<  author_ 
-        << setw(5) << left << year_ << endl;
-}
-
-void ChildrenBook::errorDisplay() const
-{
-    cout << endl << "ERROR: Item: " << setw(12) << left 
-        << title_.substr(0, 28) << "by " << setw(12) << left << author_ 
-        << " was not found in the library";
-}
-
-//---------------------------------------------------------------------------
-// displayBookHeader() 
-void ChildrenBook::displayBookHeader() const {
-    cout << endl << "CHILDREN BOOKS" << endl << "AVAIL  TITLE                 ";
-    cout << "          AUTHOR                              YEAR" << endl;
-}
-int ChildrenBook::getCopiesAvailable() const
-{
-    return availableCopies_;
-}
-
-
-void ChildrenBook::historyDisplay() const {
-   
-        cout << setw(32) << left << title_.substr(0, 28) << setw(25) << left << author_  << setw(5) << left << year_ << endl;
-   
-}
 //---------------------------------------------------------------------------
 // changeAvailable
 bool ChildrenBook::changeAvailable(int num) {

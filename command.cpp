@@ -1,13 +1,16 @@
 //---------------------------------------------------------------------------
 // command.cpp
 //---------------------------------------------------------------------------
+// Parent class to child command classes
 // Handles the commands from the file. Manages subclasses using input command
-// characters.
+// characters. Builds command objects from data file and calls execute.  
 //
 // Assumptions:
-// --
+// -- Data file format is correct
+// 
 // Implementation:
-// --
+// -- Has access to Library class through a reference to a pointer
+// -- Builds and checks command type and values
 //
 //---------------------------------------------------------------------------
 
@@ -120,11 +123,13 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
    
 }
 
-
+//---------------------------------------------------------------------------
+// getItem
 Item* Command::getItem() {
     return item_;
 }
-
+//---------------------------------------------------------------------------
+// getCommandType
 char Command::getCommandType() {
     return commType_;
 }
