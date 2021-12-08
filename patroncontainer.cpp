@@ -46,11 +46,19 @@ bool PatronContainer::insert(istream& inFile) {
         inFile.get(); //clear empty space
         //check for valid ID #
         if (userID > 0 && userID < 10000) {
-            //create a new patron
+            // create a new patron
             Patron* patron = new Patron();
             success = patron->buildPatron(inFile, userID);
-            // then place it in the hash
-            patronList[userID] = patron;
+            // check if ID is already in use
+             if (patronList[userID] != nullptr) {
+                 delete patron;
+                 patron = nullptr;
+                cout << "User ID: " << userID << " is already in use" << endl;
+            }
+            else{
+                //otherwise place it in the hash
+                patronList[userID] = patron;
+            }
         }
         else {
             cout << "User ID: " << userID << " is an invalid User ID " << endl;
