@@ -5,26 +5,25 @@
 //
 // Assumptions:
 //  -- Each command will have a unique char identifier
-// 
+//
 // Implementation:
 //  -- character case is handled by the hash
 //---------------------------------------------------------------------------
 
-
 #include "commandfactory.h"
 #include "checkout.h"
-#include "return.h"
-#include "history.h"
 #include "display.h"
+#include "history.h"
+#include "return.h"
 
 //---------------------------------------------------------------------------
 // commandFactory()
 CommandFactory::CommandFactory() {
     // Checkout, display, Return, History
-     commandTypes[2] = new Checkout;
-     commandTypes[3] = new Display;
-     commandTypes[7] = new History;
-     commandTypes[17] = new Return;
+    commandTypes[2] = new Checkout;
+    commandTypes[3] = new Display;
+    commandTypes[7] = new History;
+    commandTypes[17] = new Return;
 }
 
 //---------------------------------------------------------------------------
@@ -40,9 +39,9 @@ CommandFactory::~CommandFactory() {
 
 //---------------------------------------------------------------------------
 // createCommand()
-Command* CommandFactory::createCommand(char type){
+Command *CommandFactory::createCommand(char type) {
     // create new command pointer
-    Command* toReturn = nullptr;
+    Command *toReturn = nullptr;
 
     // create subscript from hash
     int subscript = hash(type);
@@ -54,7 +53,6 @@ Command* CommandFactory::createCommand(char type){
 
     return toReturn;
 }
-
 
 //---------------------------------------------------------------------------
 // hash

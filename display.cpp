@@ -2,12 +2,12 @@
 // display.cpp
 //---------------------------------------------------------------------------
 // Subclass of command.
-// Displays the contents of the library. 
-// 
+// Displays the contents of the library.
+//
 // Assumptions:
 // -- Will display all items stored in the library
 // -- will only be called on a valid library object
-// 
+//
 // Implementation:
 // -- calls display on library object
 //---------------------------------------------------------------------------
@@ -18,37 +18,28 @@
 //---------------------------------------------------------------------------
 // constructor
 Display::Display() {
-	libraryPtr_ = nullptr; 
-	commType_ = 'D';
+    libraryPtr_ = nullptr;
+    commType_ = 'D';
 }
 
 //---------------------------------------------------------------------------
 // destructor
-Display::~Display()
-{
-}
+Display::~Display() {}
 
 //---------------------------------------------------------------------------
 // execute
-bool Display::execute()
-{
-	if (libraryPtr_ != nullptr) {
-		libraryPtr_->displayItems();
-		return true;
-	}
-	return false;
+bool Display::execute() {
+    if (libraryPtr_ != nullptr) {
+        libraryPtr_->displayItems();
+        return true;
+    }
+    return false;
 }
 
 //---------------------------------------------------------------------------
 // display
-void Display::display() {
-	execute();
-}
+void Display::display() { execute(); }
 
 //---------------------------------------------------------------------------
 // create
-Command* Display::create()
-{
-	return new Display();
-}
-
+Command *Display::create() { return new Display(); }

@@ -4,14 +4,14 @@
 // Handles the operation of retrieving the history of a Patron within the
 // library system. Returns and outputs their rental history of books from the
 // library.
-// 
+//
 // Assumptions:
 // -- will only be called on a valid item in the library
 // -- patronPtr will point to a valid patron
-// 
+//
 // Implementation:
-//  -- no destructor implementation for dynamic memory in create() method - 
-//  -- memory deallocation to be handled by Patron class where commands are 
+//  -- no destructor implementation for dynamic memory in create() method -
+//  -- memory deallocation to be handled by Patron class where commands are
 //  -- are stored in itemHistory list
 //---------------------------------------------------------------------------
 
@@ -22,8 +22,7 @@
 #include <iostream>
 
 class History : public Command {
-public:
-
+  public:
     /** constructor
      * @brief Construct a new History object. Default constructor.
      *
@@ -33,42 +32,39 @@ public:
 
     //---------------------------------------------------------------------------
     /** destructor
-    * @brief Destroy the History object and free memory.
-    *
-    * @pre: Assumes valid history object created.
-    * @post: History object will be deleted and memory freed.
-    */
+     * @brief Destroy the History object and free memory.
+     *
+     * @pre: Assumes valid history object created.
+     * @post: History object will be deleted and memory freed.
+     */
     ~History();
 
     //---------------------------------------------------------------------------
     /**
-    * @brief Handles the execution of the history retrieval for a patron
-    * object. Outputs the check-out history of a given patron in a organized
-    * fashion.
-    *
-    * @param input for execution of command
-    * @return true if command was sucessfully executed
-    * @return false if command was not successfully executed
-    */
+     * @brief Handles the execution of the history retrieval for a patron
+     * object. Outputs the check-out history of a given patron in a organized
+     * fashion.
+     *
+     * @param input for execution of command
+     * @return true if command was sucessfully executed
+     * @return false if command was not successfully executed
+     */
     virtual bool execute();
 
-
     /** display
-    * @brief pure virtual method
-    */
+     * @brief pure virtual method
+     */
     virtual void display();
-
 
     //---------------------------------------------------------------------------
     /** create
-    * @brief returns new History object, dynamic memory
-    * @return pointer to new dynamically allocated Checkout object
-    * @post new Checkout Command object created and returned
-    */
-    virtual Command* create();
+     * @brief returns new History object, dynamic memory
+     * @return pointer to new dynamically allocated Checkout object
+     * @post new Checkout Command object created and returned
+     */
+    virtual Command *create();
 
-
-private:
+  private:
 };
 
 #endif

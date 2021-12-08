@@ -15,92 +15,84 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
-//forward declaration for commands
+// forward declaration for commands
 #include "commandmanager.h"
-#include "shelf.h"
 #include "patroncontainer.h"
+#include "shelf.h"
 #include <iostream>
 
 using namespace std;
 
-
 class Library {
 
-public:
+  public:
     // default constructor
-    Library(); 
+    Library();
 
     // default destructor
-    ~Library(); 
+    ~Library();
 
     /** addPatron
-    * @brief adds patron to patron container
-    * @return true if patron was added, false if not
-    * @param istream patron info from file
-    */
-    bool buildPatrons(istream&);
-
+     * @brief adds patron to patron container
+     * @return true if patron was added, false if not
+     * @param istream patron info from file
+     */
+    bool buildPatrons(istream &);
 
     /** runCommands
-    * @brief interface between data file and command execution
-    * @return bool true if commands file was succesfully read and executed
-    */
-    bool runCommands(istream&);
-
+     * @brief interface between data file and command execution
+     * @return bool true if commands file was succesfully read and executed
+     */
+    bool runCommands(istream &);
 
     /** buildBook
-    * @brief interface between data file and book addition
-    * @return true if book was added, false if not
-    */
-    bool buildItem(istream&);
-
+     * @brief interface between data file and book addition
+     * @return true if book was added, false if not
+     */
+    bool buildItem(istream &);
 
     /** displayContents
-    * @brief displays books by category, sorted within the category
-    */
+     * @brief displays books by category, sorted within the category
+     */
     void displayItems() const;
-   
 
     /** displayPatrons
-    * @brief displays all patrons in the library by order of ID
-    */
+     * @brief displays all patrons in the library by order of ID
+     */
     void displayPatrons() const;
 
-
     /**
-    * getPatron()
-    * 
-    * @brief Finds and returns a patron within the library system. Assigns desired
-    * patron to a pointer to be used by calling function.
-    * 
-    * @param userID the ID of the Patron which is trying to be found
-    * @param patron the pointer to be assigned to the found patron within 
-    * container  
-    * 
-    * @return bool whether patron was successfully found 
-    */
-    bool getPatron(int userID, Patron*&); // how does this work? Is this supposed to be a pointer reference?
-
+     * getPatron()
+     *
+     * @brief Finds and returns a patron within the library system. Assigns
+     * desired patron to a pointer to be used by calling function.
+     *
+     * @param userID the ID of the Patron which is trying to be found
+     * @param patron the pointer to be assigned to the found patron within
+     * container
+     *
+     * @return bool whether patron was successfully found
+     */
+    bool getPatron(int userID,
+                   Patron *&); // how does this work? Is this supposed to be a
+                               // pointer reference?
 
     /**getItem
-    * @brief retrieves an item from the library
-    * @param target, the target item to fine
-    * @param toReturn, Item returned by reference if found
-    * @return true if found, false if not found
-    */
-    bool getItem(Item& target, Item*& toReturn);
+     * @brief retrieves an item from the library
+     * @param target, the target item to fine
+     * @param toReturn, Item returned by reference if found
+     * @return true if found, false if not found
+     */
+    bool getItem(Item &target, Item *&toReturn);
 
-
-
-private:
-
-    //contents of the library
+  private:
+    // contents of the library
     Shelf shelf;
 
     // holds patrons of the library
-    PatronContainer patContainer; 
+    PatronContainer patContainer;
 
-    //interface with command objects
+    // interface with command objects
     CommandManager commManager;
 };
 

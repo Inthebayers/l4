@@ -11,7 +11,7 @@
 //  -- each item is uniquely identified by its sorting criteria
 //  -- each ItemContainer will store only one type
 //  -- items will not be removed from the library
-// 
+//
 // Implementation
 //  -- root data member is a pointer to the root of the tree
 //  -- genre_ data member stores the itemContainer genre type
@@ -49,7 +49,7 @@ ItemContainer::Node::~Node() {
 // ItemContainer Methods
 
 //---------------------------------------------------------------------------
-//constructor
+// constructor
 ItemContainer::ItemContainer() {
     root = nullptr;
     type = ' ';
@@ -57,33 +57,31 @@ ItemContainer::ItemContainer() {
 
 //---------------------------------------------------------------------------
 // Destructor
-ItemContainer::~ItemContainer() {
-    makeEmpty();
-}
+ItemContainer::~ItemContainer() { makeEmpty(); }
 
 //---------------------------------------------------------------------------
 // insert
-bool ItemContainer::insert(Item* theItem) {
+bool ItemContainer::insert(Item *theItem) {
     bool success = false;
 
-        // and the book is not already in container
-        if (!isInContainer(theItem)) {
-            //then send to insertNode 
-            Node* toInsert = new Node();
-            toInsert->item = theItem;
-            if (insertNode(toInsert)) {
-                success = true;
-            }
+    // and the book is not already in container
+    if (!isInContainer(theItem)) {
+        // then send to insertNode
+        Node *toInsert = new Node();
+        toInsert->item = theItem;
+        if (insertNode(toInsert)) {
+            success = true;
         }
+    }
     return success;
 }
 
 //---------------------------------------------------------------------------
 // retrieve
-bool ItemContainer::retrieve( Item& target, Item*& returned) const {
+bool ItemContainer::retrieve(Item &target, Item *&returned) const {
     returned = nullptr;
     bool success = false;
-    Node* cur = root;
+    Node *cur = root;
 
     while (cur != nullptr) {
         if (*cur->item == target) {
@@ -91,19 +89,16 @@ bool ItemContainer::retrieve( Item& target, Item*& returned) const {
             returned = cur->item;
             break;
             // move to left subtree
-        }
-        else if (target < *cur->item && cur->left != nullptr) {
+        } else if (target < *cur->item && cur->left != nullptr) {
             cur = cur->left;
             // move to right subtree
-        }
-        else if (target > *cur->item && cur->right != nullptr) {
+        } else if (target > *cur->item && cur->right != nullptr) {
             cur = cur->right;
         }
         // not found break loop and return
         else {
             break;
         }
-            
     }
 
     return success;
@@ -111,17 +106,17 @@ bool ItemContainer::retrieve( Item& target, Item*& returned) const {
 
 //---------------------------------------------------------------------------
 // isInContainer
-bool ItemContainer::isInContainer( Item* target) const {
-    Item* temp;
+bool ItemContainer::isInContainer(Item *target) const {
+    Item *temp;
     return retrieve(*target, temp);
 }
 
 //---------------------------------------------------------------------------
-//display
+// display
 void ItemContainer::display() const {
 
     if (root != nullptr) {
-        root ->item->displayBookHeader();
+        root->item->displayBookHeader();
         displayHelper(root);
     }
 }
@@ -129,7 +124,7 @@ void ItemContainer::display() const {
 //---------------------------------------------------------------------------
 // displayHelper
 // recursive helper for display
-void ItemContainer::displayHelper(Node* cur) const {
+void ItemContainer::displayHelper(Node *cur) const {
     if (cur == nullptr) {
         return;
     }
@@ -139,7 +134,7 @@ void ItemContainer::displayHelper(Node* cur) const {
 }
 
 //---------------------------------------------------------------------------
-// makeEmpty 
+// makeEmpty
 void ItemContainer::makeEmpty() {
     if (root != nullptr) {
         clear(root);
@@ -149,12 +144,12 @@ void ItemContainer::makeEmpty() {
 //---------------------------------------------------------------------------
 // clear
 // recursive helper function for makeEmpty
-void ItemContainer::clear(Node* cur) {
+void ItemContainer::clear(Node *cur) {
     // base case
     if (cur == nullptr) {
         return;
     }
-    //post-order traversal
+    // post-order traversal
     clear(cur->left);
     clear(cur->right);
     delete cur;
@@ -163,9 +158,7 @@ void ItemContainer::clear(Node* cur) {
 
 //---------------------------------------------------------------------------
 // isEmpty
-bool ItemContainer::isEmpty() const {
-    return (root == nullptr);
-}
+bool ItemContainer::isEmpty() const { return (root == nullptr); }
 
 //---------------------------------------------------------------------------
 // setGenre
@@ -183,29 +176,27 @@ bool ItemContainer::setGenre(char genre) {
 
 //---------------------------------------------------------------------------
 // getGenre
-char ItemContainer::getGenre() const {
-    return type;
-}
+char ItemContainer::getGenre() const { return type; }
 
 //---------------------------------------------------------------------------
 // insertNode
-// helper function to insert into a tree 
-bool ItemContainer::insertNode(Node* node) {
-    bool inserted = false; 
+// helper function to insert into a tree
+bool ItemContainer::insertNode(Node *node) {
+    bool inserted = false;
 
     // if the tree is empty
     if (root == nullptr) {
         root = node;
         inserted = true;
     }
-    //if its not empty traverse the tree
+    // if its not empty traverse the tree
     else {
-        Node* cur = root;
-        //if the book is less thn the curernt book insert in the left subtree
+        Node *cur = root;
+        // if the book is less thn the curernt book insert in the left subtree
         // otherwise insert in the right subtree
 
         while (!inserted) {
-            // if its less than 
+            // if its less than
             if (*node->item < *cur->item) {
                 // and there is an empty space, insert
                 if (cur->left == nullptr) {
@@ -217,7 +208,7 @@ bool ItemContainer::insertNode(Node* node) {
                     cur = cur->left;
                 }
             }
-            // if its greater than 
+            // if its greater than
             else if (*node->item > *cur->item) {
                 // and theres an empty space, insert
                 if (cur->right == nullptr) {
@@ -241,5 +232,4 @@ bool ItemContainer::insertNode(Node* node) {
     }
 
     return inserted;
-
 }

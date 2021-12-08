@@ -10,21 +10,20 @@
 // Assumptions:
 // -- book copies will be initialized by subclass
 // -- all books will have a title
-// 
+//
 // Implementation:
 // -- available and total copies initialized to 0 for generic book object
 // -- subclasses will initialize total and available copies
 //
 //---------------------------------------------------------------------------
 
-#include <iostream>
 #include "book.h"
+#include <iostream>
 using namespace std;
 
 //---------------------------------------------------------------------------
 // constructor
-Book::Book()
-{
+Book::Book() {
     title_ = "";
     format_ = 'H';
     availableCopies_ = 0;
@@ -32,20 +31,12 @@ Book::Book()
 }
 //---------------------------------------------------------------------------
 // destructor
-    Book::~Book() {
-   }
+Book::~Book() {}
 
 //---------------------------------------------------------------------------
 // setTitle
-void Book::setTitle(string incomingTitle)
-{
-   title_ = incomingTitle;
-}
+void Book::setTitle(string incomingTitle) { title_ = incomingTitle; }
 
 //---------------------------------------------------------------------------
 // getTitle
-string Book::getTitle() const
-{
-   return title_;
-}
-
+string Book::getTitle() const { return title_; }

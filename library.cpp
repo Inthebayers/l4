@@ -16,56 +16,45 @@
 
 //---------------------------------------------------------------------------
 // constructor
-Library::Library() {
-}
+Library::Library() {}
 
 //---------------------------------------------------------------------------
 // destructor
-Library::~Library() {
-}
+Library::~Library() {}
 
 //---------------------------------------------------------------------------
 // buildPatron
 // data format --> ID# Last First
-bool Library::buildPatrons(istream& inFile) {
+bool Library::buildPatrons(istream &inFile) {
     return patContainer.insert(inFile);
 }
 
-
 //---------------------------------------------------------------------------
 // runCommands
-bool Library::runCommands(istream& inFile) {
+bool Library::runCommands(istream &inFile) {
     return commManager.runCommands(inFile, this);
 }
 
-
 //---------------------------------------------------------------------------
 // buildBook
-bool Library::buildItem(istream& in) {
-   return shelf.buildItem(in);
-}
-
+bool Library::buildItem(istream &in) { return shelf.buildItem(in); }
 
 //---------------------------------------------------------------------------
 // displayItems
-void Library::displayItems() const {
-    shelf.display();
-}
+void Library::displayItems() const { shelf.display(); }
 
 //---------------------------------------------------------------------------
-//displayPatrons
-void Library::displayPatrons() const {
-    patContainer.display();
-}
+// displayPatrons
+void Library::displayPatrons() const { patContainer.display(); }
 
 //---------------------------------------------------------------------------
 // getPatron
-bool Library::getPatron(int userID, Patron*& toReturn) {
+bool Library::getPatron(int userID, Patron *&toReturn) {
     bool success = false;
 
     // valid ID retrieve patron from PatronContainer
     if (userID > 0 && userID < 10000) {
-        Patron* patron = nullptr;
+        Patron *patron = nullptr;
         patContainer.retrieve(userID, patron);
         if (patron != nullptr) {
             toReturn = patron;
@@ -77,22 +66,20 @@ bool Library::getPatron(int userID, Patron*& toReturn) {
 
 //---------------------------------------------------------------------------
 // getItem
-bool Library::getItem(Item& target, Item*& toReturn) {
+bool Library::getItem(Item &target, Item *&toReturn) {
 
     bool success = false;
 
     // retrieve item from shelf
-    Item* retrieved;
+    Item *retrieved;
 
     // if successfully retrieved item
     if (shelf.retrieve(target, retrieved)) {
-        
-        // set referenced to item to found item 
+
+        // set referenced to item to found item
         toReturn = retrieved;
         success = true;
-
     }
 
     return success;
-    
 }

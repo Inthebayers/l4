@@ -3,11 +3,11 @@
 //---------------------------------------------------------------------------
 // Parent class to child command classes
 // Handles the commands from the file. Manages subclasses using input command
-// characters. Builds command objects from data file and calls execute.  
+// characters. Builds command objects from data file and calls execute.
 //
 // Assumptions:
 // -- Data file format is correct
-// 
+//
 // Implementation:
 // -- Has access to Library class through a reference to a pointer
 // -- Builds and checks command type and values
@@ -25,20 +25,20 @@ Command::Command() {
     patron_ = 0;
     item_ = nullptr;
     patronPtr_ = nullptr;
-    libraryPtr_ = nullptr; 
+    libraryPtr_ = nullptr;
 }
 
 //---------------------------------------------------------------------------
 // destructor
-Command::~Command() {
-    item_ = nullptr;
-}
+Command::~Command() { item_ = nullptr; }
 
 //---------------------------------------------------------------------------
 // buildCommand
-// data format passed in: Patron userID ItemType  itemFormat  then item specific data(author, titiel, or date for p)
-bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Patron* patronPtr) {
-    //has access to library
+// data format passed in: Patron userID ItemType  itemFormat  then item specific
+// data(author, titiel, or date for p)
+bool Command::buildCommand(istream &inFile, Library *&library, int patronID,
+                           Patron *patronPtr) {
+    // has access to library
     /*Library* library_ = library;*/
     libraryPtr_ = library;
     patron_ = patronID;
@@ -59,7 +59,7 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
     ItemFactory itemFactory_;
 
     // create new item of  type
-    Item* target = nullptr;
+    Item *target = nullptr;
     target = itemFactory_.createItem(type);
 
     // item now has default format
@@ -68,17 +68,19 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
         getline(inFile, garbage);
         return false;
     }
-    //set Item Format from incoming data 
+    // set Item Format from incoming data
     char format;
     inFile >> format;
     inFile.get();
 
-    //check that the input was a valid format
-    
-    if (!target->setFormat(format)) {
-        cout << endl << "ERROR: Item Format: \"" << format << "\" is an invalid format" << endl;
+    // check that the input was a valid format
 
-        // discard the rest of the line and return 
+    if (!target->setFormat(format)) {
+        cout << endl
+             << "ERROR: Item Format: \"" << format << "\" is an invalid format"
+             << endl;
+
+        // discard the rest of the line and return
         string garbage;
         getline(inFile, garbage);
         delete target;
@@ -86,52 +88,46 @@ bool Command::buildCommand(istream& inFile, Library*& library, int patronID, Pat
     }
     // if format is valid, fill an item object with the rest of the data line
     target->fill(inFile);
-    Item* found;
+    Item *found;
     if (library->getItem(*target, found)) {
         if (found->getCopiesAvailable() == 0 && commType_ == 'C') {
-            cout << endl << "ERROR: Patron " << patronID << " checkout failed due to no copies available of";
+            cout << endl
+                 << "ERROR: Patron " << patronID
+                 << " checkout failed due to no copies available of";
             found->errorDisplay();
             cout << endl;
-             
-            delete target; 
-            return false;
-        }
-        else if (commType_ == 'R' && patronPtr_->searchCheckouts(target) != true) {
-            cout << endl << "ERROR: Patron " << patronID
-                << " is attempting to return a book they do not have checked out."
-                << endl;
 
-            delete target; 
-            return false; 
+            delete target;
+            return false;
+        } else if (commType_ == 'R' &&
+                   patronPtr_->searchCheckouts(target) != true) {
+            cout << endl
+                 << "ERROR: Patron " << patronID
+                 << " is attempting to return a book they do not have checked "
+                    "out."
+                 << endl;
+
+            delete target;
+            return false;
         }
         item_ = found;
 
         bool success = execute();
-         delete target;
+        delete target;
         return success;
-    }
-    else {
+    } else {
 
-        
         target->errorDisplay();
-        
+
         cout << endl;
-         delete target;
+        delete target;
         return false;
     }
-
-   
 }
 
 //---------------------------------------------------------------------------
 // getItem
-Item* Command::getItem() {
-    return item_;
-}
+Item *Command::getItem() { return item_; }
 //---------------------------------------------------------------------------
 // getCommandType
-char Command::getCommandType() {
-    return commType_;
-}
-
-
+char Command::getCommandType() { return commType_; }

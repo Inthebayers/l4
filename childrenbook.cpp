@@ -10,12 +10,12 @@
 //  -- initial character in input dictates 'C' for children
 //  -- Comparison operators will only be used with other ChildrenBook
 //  -- istream data will always be in the correct format
-// 
+//
 // Implementation:
 //  -- data format from command data file handled in fill() method
 //  -- data format from book data file handled in buildItem()
-//  -- separate display methods 
-// 
+//  -- separate display methods
+//
 //---------------------------------------------------------------------------
 
 #include "childrenbook.h"
@@ -29,11 +29,10 @@ using namespace std;
 // Constructor
 ChildrenBook::ChildrenBook() {
     author_ = "";
-    year_ = 0; 
+    year_ = 0;
     itemType_ = 'C';
     availableCopies_ = COPIES;
     totalCopies_ = COPIES;
-
 }
 
 //---------------------------------------------------------------------------
@@ -49,9 +48,9 @@ bool ChildrenBook::buildItem(istream &inFile) {
 
     // set methods used to verify incoming data is valid
     getline(inFile, author, ',');
-    inFile.get();  // remove blank space
+    inFile.get(); // remove blank space
     getline(inFile, title, ',');
-    inFile.get();  // remove blank space
+    inFile.get(); // remove blank space
     inFile >> year;
     setAuthor(author);
     setTitle(title);
@@ -62,7 +61,7 @@ bool ChildrenBook::buildItem(istream &inFile) {
 
 //---------------------------------------------------------------------------
 // create
-Item *ChildrenBook::create() { 
+Item *ChildrenBook::create() {
     // dynamic memory deallocated in itemContainer
     return new ChildrenBook();
 }
@@ -70,7 +69,7 @@ Item *ChildrenBook::create() {
 //---------------------------------------------------------------------------
 // fill
 // command file data format: title, author
-void ChildrenBook::fill(istream& inFile) {
+void ChildrenBook::fill(istream &inFile) {
     getline(inFile, title_, ',');
     inFile.get(); // remove blank space
     getline(inFile, author_, ',');
@@ -80,29 +79,28 @@ void ChildrenBook::fill(istream& inFile) {
 // display
 void ChildrenBook::display() const {
     cout << setw(7) << left << availableCopies_ << setw(32) << left
-        << title_.substr(0, 28) << setw(36) << left << author_
-        << setw(5) << left << year_ << endl;
+         << title_.substr(0, 28) << setw(36) << left << author_ << setw(5)
+         << left << year_ << endl;
 }
 
 //---------------------------------------------------------------------------
 // errorDisplay
-void ChildrenBook::errorDisplay() const
-{
-    cout << endl << "ERROR: Item: " << setw(12) << left
-        << title_.substr(0, 28) << "by " << setw(12) << left << author_
-        << " was not found in the library";
+void ChildrenBook::errorDisplay() const {
+    cout << endl
+         << "ERROR: Item: " << setw(12) << left << title_.substr(0, 28) << "by "
+         << setw(12) << left << author_ << " was not found in the library";
 }
 
 //---------------------------------------------------------------------------
 // historyDisplay
 void ChildrenBook::historyDisplay() const {
 
-    cout << setw(32) << left << title_.substr(0, 28) << setw(25) << left << author_ << setw(5) << left << year_ << endl;
-
+    cout << setw(32) << left << title_.substr(0, 28) << setw(25) << left
+         << author_ << setw(5) << left << year_ << endl;
 }
 
 //---------------------------------------------------------------------------
-// displayBookHeader() 
+// displayBookHeader()
 void ChildrenBook::displayBookHeader() const {
     cout << endl << "CHILDREN BOOKS" << endl << "AVAIL  TITLE                 ";
     cout << "          AUTHOR                              YEAR" << endl;
@@ -110,10 +108,7 @@ void ChildrenBook::displayBookHeader() const {
 
 //---------------------------------------------------------------------------
 // getCopiesAvailable
-int ChildrenBook::getCopiesAvailable() const
-{
-    return availableCopies_;
-}
+int ChildrenBook::getCopiesAvailable() const { return availableCopies_; }
 
 //---------------------------------------------------------------------------
 // setAuthor
@@ -137,7 +132,6 @@ bool ChildrenBook::setYear(int year) {
 // getYear
 int ChildrenBook::getYear() const { return year_; }
 
-
 //---------------------------------------------------------------------------
 // changeAvailable
 bool ChildrenBook::changeAvailable(int num) {
@@ -148,7 +142,7 @@ bool ChildrenBook::changeAvailable(int num) {
         availableCopies_ += num;
         success = true;
     }
-    //if checkout, make sure there are copies
+    // if checkout, make sure there are copies
     if (num == -1 && availableCopies_ > 0) {
         availableCopies_ += num;
         success = true;
@@ -175,7 +169,8 @@ bool ChildrenBook::operator<(const Item &rhsItem) const {
 
     // if the book titles are the same compare authors
     if (getTitle() == rhsBookCasted.getTitle()) {
-        (getAuthor() < rhsBookCasted.getAuthor()) ? holder = true : holder = false;
+        (getAuthor() < rhsBookCasted.getAuthor()) ? holder = true
+                                                  : holder = false;
     }
     return holder;
 }
@@ -194,7 +189,8 @@ bool ChildrenBook::operator>(const Item &rhsItem) const {
 
     // if the book titles are the same compare authors
     if (getTitle() == rhsBookCasted.getTitle()) {
-        (getAuthor() > rhsBookCasted.getAuthor()) ? holder = true : holder = false;
+        (getAuthor() > rhsBookCasted.getAuthor()) ? holder = true
+                                                  : holder = false;
     }
     return holder;
 }
@@ -204,7 +200,7 @@ bool ChildrenBook::operator>(const Item &rhsItem) const {
 bool ChildrenBook::operator==(const Item &rhsItem) const {
     bool holder = false;
     if (this->getType() != rhsItem.getType()) {
-        return holder; 
+        return holder;
     }
     // cast rhs book to children's book
     const ChildrenBook &rhsBookCasted =

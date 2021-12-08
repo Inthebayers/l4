@@ -17,9 +17,7 @@
 
 //---------------------------------------------------------------------------
 // constructor
-PatronContainer::PatronContainer() {
-
-}
+PatronContainer::PatronContainer() {}
 
 //---------------------------------------------------------------------------
 // destructor
@@ -35,9 +33,9 @@ PatronContainer::~PatronContainer() {
 //---------------------------------------------------------------------------
 // insert
 // data  format: userID First Last
-bool PatronContainer::insert(istream& inFile) {
+bool PatronContainer::insert(istream &inFile) {
     bool success = false;
-   
+
     for (;;) {
         int userID;
         inFile >> userID;
@@ -45,24 +43,22 @@ bool PatronContainer::insert(istream& inFile) {
             success = true;
             break;
         }
-        inFile.get(); //clear empty space
-        //check for valid ID #
+        inFile.get(); // clear empty space
+        // check for valid ID #
         if (userID > 0 && userID < 10000) {
             // create a new patron
-            Patron* patron = new Patron();
+            Patron *patron = new Patron();
             success = patron->buildPatron(inFile, userID);
             // check if ID is already in use
-             if (patronList[userID] != nullptr) {
-                 delete patron;
-                 patron = nullptr;
+            if (patronList[userID] != nullptr) {
+                delete patron;
+                patron = nullptr;
                 cout << "User ID: " << userID << " is already in use" << endl;
-            }
-            else{
-                //otherwise place it in the hash
+            } else {
+                // otherwise place it in the hash
                 patronList[userID] = patron;
             }
-        }
-        else {
+        } else {
             cout << "User ID: " << userID << " is an invalid User ID " << endl;
         }
     }
@@ -72,7 +68,7 @@ bool PatronContainer::insert(istream& inFile) {
 
 //---------------------------------------------------------------------------
 // retrieve
-bool PatronContainer::retrieve(const int userID, Patron*& toReturn) const {
+bool PatronContainer::retrieve(const int userID, Patron *&toReturn) const {
     bool success = false;
     if (userID > 0 && userID < 10000) {
         if (patronList[userID] != nullptr) {

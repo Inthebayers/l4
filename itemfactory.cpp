@@ -17,7 +17,6 @@
 #include "periodicalbook.h"
 #include <ctype.h>
 
-
 //---------------------------------------------------------------------------
 // constructor
 ItemFactory::ItemFactory() {
@@ -29,37 +28,34 @@ ItemFactory::ItemFactory() {
     types[2] = new ChildrenBook;
     types[5] = new FictionBook;
     types[15] = new PeriodicalBook;
-
 }
 
 //---------------------------------------------------------------------------
 // destructor
 ItemFactory::~ItemFactory() {
-    for (int i = 0; i < TYPES; i++) {   
-            delete types[i];
-            types[i] = nullptr;
+    for (int i = 0; i < TYPES; i++) {
+        delete types[i];
+        types[i] = nullptr;
     }
-
 }
 
 //---------------------------------------------------------------------------
 // createBook
-Item* ItemFactory::createItem(char type) {
-    Item* toReturn = nullptr;
+Item *ItemFactory::createItem(char type) {
+    Item *toReturn = nullptr;
     int subscript = hash(type);
 
     if (types[subscript] != nullptr) {
-       toReturn =  types[subscript]->create();
+        toReturn = types[subscript]->create();
     }
 
     return toReturn;
 }
 
-
 //---------------------------------------------------------------------------
 // hash
-int ItemFactory::hash(char type)  {
-    //change to uppercase if it's not
+int ItemFactory::hash(char type) {
+    // change to uppercase if it's not
     type = toupper(type);
     int subscript = type - 'A';
     return subscript;

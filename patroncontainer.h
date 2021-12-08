@@ -15,42 +15,39 @@
 #ifndef PATRONCONTAINER_H
 #define PATRONCONTAINER_H
 
-
 #include "patron.h"
 using namespace std;
 
 class PatronContainer {
-public:
+  public:
     PatronContainer();  // constructor
     ~PatronContainer(); // destructor
 
     /** insert()
-    * @brief Inserts created Patron object into container (the array of
-    * patrons)
-    * @param patron info from file
-    * @return true if added, false otherwise
-    */
-    bool insert(istream&);
+     * @brief Inserts created Patron object into container (the array of
+     * patrons)
+     * @param patron info from file
+     * @return true if added, false otherwise
+     */
+    bool insert(istream &);
 
     /** retrieve()
-    * @brief retrieves the patron
-    * @param the uniqueID of the patron
-    * @return the Patron with the associated uniqueID
-    */
-    bool retrieve(const int userID, Patron*&) const;
+     * @brief retrieves the patron
+     * @param the uniqueID of the patron
+     * @return the Patron with the associated uniqueID
+     */
+    bool retrieve(const int userID, Patron *&) const;
 
     /** display
-    * @brief dsiplays all the patrons in contianer by sorted order
-    * @post patrons displayed to cout
-    */
+     * @brief dsiplays all the patrons in contianer by sorted order
+     * @post patrons displayed to cout
+     */
     void display() const;
-    
-private:
 
+  private:
     static const int PATRON_LIMIT = 10010;
 
     // array of patron objects, userID is a direct hash
-    Patron* patronList[PATRON_LIMIT] = { nullptr }; // array of patrons
-   
-}; 
+    Patron *patronList[PATRON_LIMIT] = {nullptr}; // array of patrons
+};
 #endif // !PATRONCONTAINER_H

@@ -18,36 +18,35 @@
 #include <iostream>
 
 class ItemFactory {
-public:
+  public:
     /**
-    * @brief Construct a new Book Factory object. Default constructor.
-    * @post: BookFactory object will be created.
-    */
+     * @brief Construct a new Book Factory object. Default constructor.
+     * @post: BookFactory object will be created.
+     */
     ItemFactory();
 
     /**
-    * @brief Destructor for BookFactory object.
-    * @pre: Assumes valid BookFactory object to be deleted.
-    * @post: BookFactory object will be deleted, with memory freed.
-    */
+     * @brief Destructor for BookFactory object.
+     * @pre: Assumes valid BookFactory object to be deleted.
+     * @post: BookFactory object will be deleted, with memory freed.
+     */
     ~ItemFactory();
 
     /** createItem
-    * @brief Create a Book object. Determines type of book based on incoming
-    * stream information. Can create a fiction, periodical, or children's book.
-    * @return Book pointer pointing to the newly created book object.
-    */
-    Item* createItem(char type);
+     * @brief Create a Book object. Determines type of book based on incoming
+     * stream information. Can create a fiction, periodical, or children's book.
+     * @return Book pointer pointing to the newly created book object.
+     */
+    Item *createItem(char type);
 
-
-private:
+  private:
     static const int TYPES = 26;
 
     // array containing indexes for all possible bookTypes in future
-    Item* types[TYPES];
+    Item *types[TYPES];
 
     // hash function
-    int hash(char ch) ;
+    int hash(char ch);
 };
 
 #endif

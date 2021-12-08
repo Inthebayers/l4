@@ -11,7 +11,7 @@
 //  -- each item is uniquely identified by its sorting criteria
 //  -- each ItemContainer will store only one type
 //  -- items will not be removed from the library
-// 
+//
 // Implementation
 //  -- root data member is a pointer to the root of the tree
 //  -- genre_ data member stores the itemContainer genre type
@@ -32,48 +32,49 @@ using namespace std;
 
 class ItemContainer {
 
-public:
-    //constructor
+  public:
+    // constructor
     ItemContainer();
 
-    //destructor
+    // destructor
     ~ItemContainer();
 
     /** insert
-    * @brief calls private helper method to insert book as Node is BookConatiner
-    * @pre existing book and BookContainer
-    * @post book is unchanged
-    * @return true book inserted, false book not inserted
-    * @param book to be inserted
-    */
-    bool insert(Item*);
+     * @brief calls private helper method to insert book as Node is
+     * BookConatiner
+     * @pre existing book and BookContainer
+     * @post book is unchanged
+     * @return true book inserted, false book not inserted
+     * @param book to be inserted
+     */
+    bool insert(Item *);
 
     /** checkOut
-    * @brief sets book to checked out and returns by reference
-    * @pre existing book in container
-    * @return true book was checked out, false book was not checked out
-    * @param book to be checkout out
-    * @param returned book returned by reference if found
-    */
-    bool retrieve( Item& target, Item*& returned) const;
+     * @brief sets book to checked out and returns by reference
+     * @pre existing book in container
+     * @return true book was checked out, false book was not checked out
+     * @param book to be checkout out
+     * @param returned book returned by reference if found
+     */
+    bool retrieve(Item &target, Item *&returned) const;
 
     /** isInContainer
-    * @brief checks if an item object is found in the container
-    * @param target a complete Item object pointer as target
-    * @return bool true if found, false if not
-    */
-    bool isInContainer(Item* target) const;
+     * @brief checks if an item object is found in the container
+     * @param target a complete Item object pointer as target
+     * @return bool true if found, false if not
+     */
+    bool isInContainer(Item *target) const;
 
     /** display
-    * @brief prints the contents of the tree in-order
-    * @pre a non empty tree
-    * @post contents displayed to console
-    */
+     * @brief prints the contents of the tree in-order
+     * @pre a non empty tree
+     * @post contents displayed to console
+     */
     void display() const;
 
     /** makeEmpty
      * @brief clears the BookContainer structure
-     * @pre a non empty BookContainer 
+     * @pre a non empty BookContainer
      * @post An empty BookContainer
      */
     void makeEmpty();
@@ -85,30 +86,27 @@ public:
     bool isEmpty() const;
 
     /** setGenre
-    *@brief setter method for the genre_ data member
-    * genre can only be set while BookContainer is empty 
-    *  - as in it can not later be changed
-    *@post BookContainer genreType Specified
-    */
-    bool setGenre(char genre); 
+     *@brief setter method for the genre_ data member
+     * genre can only be set while BookContainer is empty
+     *  - as in it can not later be changed
+     *@post BookContainer genreType Specified
+     */
+    bool setGenre(char genre);
 
     /** getGenre
-    * @brief retrieves the BookContainer genre_ data member
-    * @pre none
-    * @return char of genre type 
-    */
+     * @brief retrieves the BookContainer genre_ data member
+     * @pre none
+     * @return char of genre type
+     */
     char getGenre() const;
 
-
-
-private:
-
+  private:
     // Node struct that holds item objects in tree
     struct Node {
 
-        Item* item;
-        Node* left;
-        Node* right;
+        Item *item;
+        Node *left;
+        Node *right;
 
         // default constructor
         Node();
@@ -117,31 +115,31 @@ private:
     };
 
     // root of the BookContaier BST
-    Node* root;
+    Node *root;
 
-    //genre of this bookcontainer
+    // genre of this bookcontainer
     char type;
 
     /** insertNode
-    * @brief inserts a Node object containing a book pointer into the tree
-    * @pre valid Node* to insert
-    * @post Book* is stored in a Node and placed into sorted position
-    * duplicates are not inserted, returns a boolean value
-    */
-    bool insertNode(Node*);
+     * @brief inserts a Node object containing a book pointer into the tree
+     * @pre valid Node* to insert
+     * @post Book* is stored in a Node and placed into sorted position
+     * duplicates are not inserted, returns a boolean value
+     */
+    bool insertNode(Node *);
 
     /** dsiplayHelper
-    * @brief recursive helper function for display
-    * traverses the BookContainer tree in order and displays books
-    * @post display() called on all book objects in order
-    */
-    void displayHelper(Node* cur) const;
+     * @brief recursive helper function for display
+     * traverses the BookContainer tree in order and displays books
+     * @post display() called on all book objects in order
+     */
+    void displayHelper(Node *cur) const;
 
     /** clear
-    * @brief recursive helper function for makeEmpty
-    * @post the BookContainer is empty
-    */
-    void clear(Node* cur);
+     * @brief recursive helper function for makeEmpty
+     * @post the BookContainer is empty
+     */
+    void clear(Node *cur);
 };
 
 #endif

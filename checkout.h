@@ -2,18 +2,18 @@
 // checkout.h
 //---------------------------------------------------------------------------
 // Subclass of command.
-// Handles checking out an item, will attempt to decrement avaialble copies 
+// Handles checking out an item, will attempt to decrement avaialble copies
 // of the book by one.
 //
 // Assumptions:
 // -- will only be called on a valid item in the library
 // -- patronPtr will point to a valid patron
-// 
+//
 // Implementation:
 //  -- Execute calls changeAvailable method on Item
 //  -- Item to do error handling with available copies
-//  -- no destructor implementation for dynamic memory in create() method - 
-//  -- memory deallocation to be handled by Patron class where commands are 
+//  -- no destructor implementation for dynamic memory in create() method -
+//  -- memory deallocation to be handled by Patron class where commands are
 //  -- are stored in itemHistory list
 //---------------------------------------------------------------------------
 
@@ -22,7 +22,7 @@
 #include "command.h"
 
 class Checkout : public Command {
-public:
+  public:
     // constructor
     Checkout();
 
@@ -31,10 +31,10 @@ public:
 
     //---------------------------------------------------------------------------
     /** display
-    * @brief displays "CheckOut" to cout and calls historyDisplay on Item
-    * @pre a previously executed checkout object
-    * @post Checkout and item spedific historyDisplay printed to console
-    */
+     * @brief displays "CheckOut" to cout and calls historyDisplay on Item
+     * @pre a previously executed checkout object
+     * @post Checkout and item spedific historyDisplay printed to console
+     */
     virtual void display();
 
     //---------------------------------------------------------------------------
@@ -47,12 +47,11 @@ public:
 
     //---------------------------------------------------------------------------
     /** create
-    * @brief returns new Checkout object, dynamic memory
-    * @return pointer to new dynamically allocated Checkout object
-    * @post new Checkout Command object created and returned
-    */
-    virtual Command* create();
-
+     * @brief returns new Checkout object, dynamic memory
+     * @return pointer to new dynamically allocated Checkout object
+     * @post new Checkout Command object created and returned
+     */
+    virtual Command *create();
 };
 
 #endif

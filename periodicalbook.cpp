@@ -9,7 +9,7 @@
 //  -- initial character in input dictates 'p' for periodical
 //  -- Comparison operators will only be used with other Periodicals
 //  -- istream data will always be in the correct format
-// 
+//
 // Implementation:
 //  -- data format from command data file handled in fill() method
 //  -- data format from book data file handled in buildItem()
@@ -21,7 +21,6 @@
 #include <string>
 
 using namespace std;
-
 
 //---------------------------------------------------------------------------
 // default constructor
@@ -36,13 +35,12 @@ PeriodicalBook::PeriodicalBook() {
 
 //---------------------------------------------------------------------------
 // destructor
-PeriodicalBook:: ~PeriodicalBook() {
-}
+PeriodicalBook::~PeriodicalBook() {}
 
 //---------------------------------------------------------------------------
 // buildBook
 // file format: type title, month year
-bool PeriodicalBook::buildItem(istream& in) {
+bool PeriodicalBook::buildItem(istream &in) {
     string title;
     int month;
     int year;
@@ -62,76 +60,71 @@ bool PeriodicalBook::buildItem(istream& in) {
 //---------------------------------------------------------------------------
 // create
 // file format: type title, month year
-Item* PeriodicalBook::create() {
-    return new PeriodicalBook();
-}
+Item *PeriodicalBook::create() { return new PeriodicalBook(); }
 
 //---------------------------------------------------------------------------
 // create
 // file format: type year, month title
-void PeriodicalBook::fill(istream& inFile) {
+void PeriodicalBook::fill(istream &inFile) {
     inFile >> year_;
     inFile >> month_;
     inFile.get();
     getline(inFile, title_, ',');
 }
 
-
 //---------------------------------------------------------------------------
 // display
 void PeriodicalBook::display() const {
-    cout << setw(7) << left << availableCopies_ << setw(7) <<  month_ << setw(11) << left <<  year_ << setw(26) << title_ << endl;
+    cout << setw(7) << left << availableCopies_ << setw(7) << month_ << setw(11)
+         << left << year_ << setw(26) << title_ << endl;
 }
 
 //---------------------------------------------------------------------------
-//errorDisplay
-void PeriodicalBook::errorDisplay() const
-{
-    cout << endl << "ERROR: Item: " << setw(12) << left << title_.substr(0, 28) << " was not found in the library!";
+// errorDisplay
+void PeriodicalBook::errorDisplay() const {
+    cout << endl
+         << "ERROR: Item: " << setw(12) << left << title_.substr(0, 28)
+         << " was not found in the library!";
 }
 
 void PeriodicalBook::historyDisplay() const {
-    cout << setw(7) << left << month_ << setw(11) << left << year_ << setw(26) << title_ << endl;
+    cout << setw(7) << left << month_ << setw(11) << left << year_ << setw(26)
+         << title_ << endl;
 }
-int PeriodicalBook::getCopiesAvailable() const
-{
-    return availableCopies_;
-}
+int PeriodicalBook::getCopiesAvailable() const { return availableCopies_; }
 //---------------------------------------------------------------------------
-//setMonth
+// setMonth
 bool PeriodicalBook::setMonth(int month) {
     bool success = false;
     if (month > 0 && month <= 12) {
         month_ = month;
         success = true;
-    }
-    else {
+    } else {
         cout << "ERROR: Month \"" << month << "\" is an invalid month" << endl;
-        success = false; 
+        success = false;
     }
     return success;
 }
 
 //---------------------------------------------------------------------------
 // getMonth
-int PeriodicalBook::getMonth() const {
-    return month_;
-}
+int PeriodicalBook::getMonth() const { return month_; }
 
 void PeriodicalBook::displayBookHeader() const {
-    
-    cout << endl << "PERIODICAL BOOKS" << endl << "AVAIL  MONTH  YEAR       TITLE" << endl;
-} 
+
+    cout << endl
+         << "PERIODICAL BOOKS" << endl
+         << "AVAIL  MONTH  YEAR       TITLE" << endl;
+}
 
 //---------------------------------------------------------------------------
-//setYear
+// setYear
 bool PeriodicalBook::setYear(int year) {
     bool success = false;
     if (year > 0) {
         year_ = year;
         success = true;
-    }
-    else {
+    } else {
         cout << "ERROR: Year \"" << year << "\" is an invalid year" << endl;
         success = false;
     }
@@ -139,13 +132,11 @@ bool PeriodicalBook::setYear(int year) {
 }
 
 //---------------------------------------------------------------------------
-//getYear
-int PeriodicalBook::getYear() const {
-    return year_;
-}
+// getYear
+int PeriodicalBook::getYear() const { return year_; }
 
 //---------------------------------------------------------------------------
-//changeAvailable
+// changeAvailable
 bool PeriodicalBook::changeAvailable(int num) {
     bool success = false;
     // if return, check that a copy is missing
@@ -153,28 +144,27 @@ bool PeriodicalBook::changeAvailable(int num) {
         availableCopies_ += num;
         success = true;
     }
-    //if checkout, make sure there are copies
+    // if checkout, make sure there are copies
     if (num == -1 && availableCopies_ > 0) {
         availableCopies_ += num;
         success = true;
     }
     return success;
-
 }
 
-
 //---------------------------------------------------------------------------
-// overloaded comparison operators 
-// Periodicals sorted by date (year, then month), then by title 
+// overloaded comparison operators
+// Periodicals sorted by date (year, then month), then by title
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
 // overloaded operator<
-bool PeriodicalBook::operator<(const Item& rhsItem) const {
+bool PeriodicalBook::operator<(const Item &rhsItem) const {
     bool holder = false;
 
-    // cast book to preiodical book 
-    const PeriodicalBook& rhsBookCasted = static_cast<const PeriodicalBook&>(rhsItem);
+    // cast book to preiodical book
+    const PeriodicalBook &rhsBookCasted =
+        static_cast<const PeriodicalBook &>(rhsItem);
 
     // compare year
     if (year_ < rhsBookCasted.getYear()) {
@@ -199,11 +189,12 @@ bool PeriodicalBook::operator<(const Item& rhsItem) const {
 //---------------------------------------------------------------------------
 // overloaded operator >
 
-bool PeriodicalBook::operator>(const Item& rhsItem) const {
+bool PeriodicalBook::operator>(const Item &rhsItem) const {
     bool holder = false;
 
-    // cast book to preiodical book 
-    const PeriodicalBook& rhsBookCasted = static_cast<const PeriodicalBook&>(rhsItem);
+    // cast book to preiodical book
+    const PeriodicalBook &rhsBookCasted =
+        static_cast<const PeriodicalBook &>(rhsItem);
 
     // compare year
     if (year_ > rhsBookCasted.getYear()) {
@@ -227,14 +218,17 @@ bool PeriodicalBook::operator>(const Item& rhsItem) const {
 
 //---------------------------------------------------------------------------
 // overloaded operator==
-bool PeriodicalBook::operator==(const Item& rhsItem) const {
+bool PeriodicalBook::operator==(const Item &rhsItem) const {
     bool holder = false;
 
     // cast rhs book to periodical's book
-    const PeriodicalBook& rhsBookCasted = static_cast<const PeriodicalBook&>(rhsItem);
+    const PeriodicalBook &rhsBookCasted =
+        static_cast<const PeriodicalBook &>(rhsItem);
 
     // compare year, month, title
-    if (year_ == rhsBookCasted.getYear() && month_ == rhsBookCasted.getMonth() && title_ == rhsBookCasted.getTitle()) {
+    if (year_ == rhsBookCasted.getYear() &&
+        month_ == rhsBookCasted.getMonth() &&
+        title_ == rhsBookCasted.getTitle()) {
         holder = true;
     }
 
@@ -243,7 +237,7 @@ bool PeriodicalBook::operator==(const Item& rhsItem) const {
 
 //---------------------------------------------------------------------------
 // overloaded operator!=
-bool PeriodicalBook::operator!=(const Item& rhsItem) const {
+bool PeriodicalBook::operator!=(const Item &rhsItem) const {
     // use comparison operator to return value
     return !(*this == rhsItem);
 }

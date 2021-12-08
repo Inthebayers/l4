@@ -5,7 +5,7 @@
 //
 // Assumptions:
 //  -- Each command will have a unique char identifier
-// 
+//
 // Implementation:
 //  -- character case is handled by the hash
 //---------------------------------------------------------------------------
@@ -16,37 +16,35 @@
 #include "command.h"
 
 class CommandFactory {
-public:
-
-    //constructor
+  public:
+    // constructor
     CommandFactory();
 
-    //destructor
+    // destructor
     ~CommandFactory();
 
-//---------------------------------------------------------------------------
+    //---------------------------------------------------------------------------
     /** createCommand
      * @brief creates a new empty command object of a certain type
      * @param type char specifying the command type to create
      * @post new command object created
      * @return pointer to the new command object
      */
-    Command* createCommand(char type);
+    Command *createCommand(char type);
 
-private:
-
+  private:
     static const int ALPHABET = 26;
 
-    //array of command types
-    Command* commandTypes[ALPHABET] = { nullptr };
+    // array of command types
+    Command *commandTypes[ALPHABET] = {nullptr};
 
     //---------------------------------------------------------------------------
     /** hash
-    * @brief hashes a char to find correct subscript for array
-    * @pre a char
-    * @post subscript returned if valid 
-    * @return
-    */
+     * @brief hashes a char to find correct subscript for array
+     * @pre a char
+     * @post subscript returned if valid
+     * @return
+     */
     int hash(char ch) const;
 };
 #endif

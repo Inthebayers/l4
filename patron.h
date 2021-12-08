@@ -19,9 +19,8 @@
 #ifndef PATRON_H
 #define PATRON_H
 
-
-#include "item.h"
 #include "command.h"
+#include "item.h"
 #include <list>
 #include <string>
 
@@ -29,8 +28,7 @@ using namespace std;
 
 class Patron {
 
-public:
-
+  public:
     // default constructor
     Patron();
 
@@ -38,60 +36,59 @@ public:
     ~Patron();
 
     /** setPatron
-    * @brief sets the userID, firstName and lastName of patron
-    * @post Patron userID firstName lastName data members set
-    * @param infile data from file
-    * @param userID user ID passed from patron container
-    */
-    bool buildPatron(istream& infile, int userID);
+     * @brief sets the userID, firstName and lastName of patron
+     * @post Patron userID firstName lastName data members set
+     * @param infile data from file
+     * @param userID user ID passed from patron container
+     */
+    bool buildPatron(istream &infile, int userID);
 
     /** getFirst
-    * @brief retrieves and returns firstName
-    * @return string firstName
-    */
+     * @brief retrieves and returns firstName
+     * @return string firstName
+     */
     string getName() const;
 
     /** getID
-    * @brief retrieves and returns userID
-    * @return int userID
-    */
+     * @brief retrieves and returns userID
+     * @return int userID
+     */
     int getID() const;
 
     /** printHistory
-    * @brief prints the itemHistory to console
-    * @post rentalHistory printed to console in order of events
-    */
+     * @brief prints the itemHistory to console
+     * @post rentalHistory printed to console in order of events
+     */
     void printHistory();
 
     /** addHistory
-    * @brief adds a Item object to patron itemHistory
-    * @pre item must be checked out by Patron
-    * @post addHistory list now includes latest checkout
-    * @return boolean value of successful addition to list
-    * @param item the item to add to history
-    */
-    bool addToHistory(Command*);
+     * @brief adds a Item object to patron itemHistory
+     * @pre item must be checked out by Patron
+     * @post addHistory list now includes latest checkout
+     * @return boolean value of successful addition to list
+     * @param item the item to add to history
+     */
+    bool addToHistory(Command *);
 
     /** searchCheckOuts
-    * @brief searches checkout history to see if an item is viable for return
-    * @return true if item is currently checked out by patron
-    */
-    bool searchCheckouts(const Item* target);
+     * @brief searches checkout history to see if an item is viable for return
+     * @return true if item is currently checked out by patron
+     */
+    bool searchCheckouts(const Item *target);
 
     /** displayPatron
-    * @brief displays the patron information, ID, Last, First
-    */
+     * @brief displays the patron information, ID, Last, First
+     */
     void displayPatron();
 
-private:
-
+  private:
     // patron name
     string nameLastFirst_;
 
-    //patron unique ID
+    // patron unique ID
     int userID_;
 
     // list to store Patron item rental history
-    list<Command*> itemHistory;
+    list<Command *> itemHistory;
 };
 #endif // !PATRON_H
