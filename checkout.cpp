@@ -27,7 +27,6 @@ Checkout::Checkout() {
     item_ = nullptr;
     patron_ = nullptr;
     libraryPtr_ = nullptr;
-
 }
 
 //---------------------------------------------------------------------------
@@ -35,31 +34,30 @@ Checkout::Checkout() {
 Checkout::~Checkout() {}
 //---------------------------------------------------------------------------
 // buildCommand
-// data format: PatronID itemType itemFormat Iteminfo 
-bool Checkout::buildCommand(istream& inStream, Library*& library) {
+// data format: PatronID itemType itemFormat Iteminfo
+bool Checkout::buildCommand(istream &inStream, Library *&library) {
 
     // read patron ID
     int ID;
-    inStream.get(); //clear empty space
+    inStream.get(); // clear empty space
     inStream >> ID;
     inStream.get(); // clear empty space
 
-    // first verify the patron 
-    Patron* patron;
+    // first verify the patron
+    Patron *patron;
     if (!library->getPatron(ID, patron)) {
         cout << endl
-            << "ERROR: User ID \"" << ID
-            << "\" is an invalid patron ID" << endl;
+             << "ERROR: User ID \"" << ID << "\" is an invalid patron ID"
+             << endl;
         return false;
-    }
-    else {
+    } else {
         patron_ = patron;
     }
 
     // set data member
     patron_ = patron;
 
-    Item* target;
+    Item *target;
     ItemFactory iFactory;
     char itemType;
 
@@ -74,7 +72,7 @@ bool Checkout::buildCommand(istream& inStream, Library*& library) {
         return false;
     }
 
-    // read item format 
+    // read item format
     char format;
     inStream >> format;
     inStream.get(); // clear empty space
@@ -82,8 +80,8 @@ bool Checkout::buildCommand(istream& inStream, Library*& library) {
     // check format
     if (!target->setFormat(format)) {
         cout << endl
-            << "ERROR: Item Format: \"" << format << "\" is an invalid format"
-            << endl;
+             << "ERROR: Item Format: \"" << format << "\" is an invalid format"
+             << endl;
         delete target;
         return false;
     }
@@ -91,9 +89,9 @@ bool Checkout::buildCommand(istream& inStream, Library*& library) {
     // set item specific information
     target->fill(inStream);
 
-    //search library for the target item
-    Item* found;
-    if (library->getItem(*target, found)){
+    // search library for the target item
+    Item *found;
+    if (library->getItem(*target, found)) {
         item_ = found;
     }
 
@@ -106,10 +104,8 @@ bool Checkout::buildCommand(istream& inStream, Library*& library) {
         return false;
     }
 
-
     return true;
 }
-
 
 //---------------------------------------------------------------------------
 // display
@@ -127,20 +123,19 @@ bool Checkout::execute() {
     // decrement available copies
     if (item_->changeAvailable(-1)) {
 
-        //add this checkout to patron history
+        // add this checkout to patron history
         patron_->addToHistory(this);
         success = true;
     }
     // if false then no copies available
     else {
         cout << endl
-            << "ERROR: Patron " << patron_->getID()
-            << " checkout failed due to no copies available of";
+             << "ERROR: Patron " << patron_->getID()
+             << " checkout failed due to no copies available of";
         item_->errorDisplay();
         cout << endl;
     }
     return success;
-
 }
 
 //---------------------------------------------------------------------------

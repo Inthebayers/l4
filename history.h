@@ -45,7 +45,7 @@ class History : public Command {
      * execute is set, or error message displayed
      * @return true if succesful
      */
-    virtual bool buildCommand(istream& inFile, Library*& library);
+    virtual bool buildCommand(istream &inFile, Library *&library);
 
     /**
      * @brief Handles the execution of the history retrieval for a patron
@@ -69,7 +69,6 @@ class History : public Command {
      * @post new Checkout Command object created and returned
      */
     virtual Command *create();
-
 };
 
 #endif

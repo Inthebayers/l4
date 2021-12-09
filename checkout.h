@@ -21,9 +21,8 @@
 #define CHECKOUT_H
 
 #include "command.h"
-#include "patron.h"
 #include "itemfactory.h"
-
+#include "patron.h"
 
 class Checkout : public Command {
   public:
@@ -39,7 +38,7 @@ class Checkout : public Command {
      * @post command object created and executed, or error message displayed
      * @return true if succesful
      */
-    virtual bool buildCommand(istream& inStream, Library*& library);
+    virtual bool buildCommand(istream &inStream, Library *&library);
 
     /** display
      * @brief displays "CheckOut" to cout and calls historyDisplay on Item

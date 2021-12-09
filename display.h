@@ -29,11 +29,11 @@ class Display : public Command {
     /** buildCommand
      * @brief builds a command from data file
      * @pre correctly formatted data file
-     * @post command object data members are set, all information needed for 
+     * @post command object data members are set, all information needed for
      * execute is set, or error message displayed
      * @return true if succesful
      */
-    virtual bool buildCommand(istream& inFile, Library*& library);
+    virtual bool buildCommand(istream &inFile, Library *&library);
 
     /** execute
      * @brief calls display on the library object to display all items

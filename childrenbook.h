@@ -137,9 +137,9 @@ class ChildrenBook : public Book {
      */
     virtual bool changeAvailable(int num);
 
-//---------------------------------------------------------------------------
-// Overloaded Operators
-//---------------------------------------------------------------------------
+    //---------------------------------------------------------------------------
+    // Overloaded Operators
+    //---------------------------------------------------------------------------
 
     /** operator<
      * Less than operator. Compares LHS and RHS for lesser value.

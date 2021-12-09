@@ -15,14 +15,14 @@
 //---------------------------------------------------------------------------
 
 #include "history.h"
-#include "patroncontainer.h"
 #include "library.h"
+#include "patroncontainer.h"
 #include <iostream>
 
 //---------------------------------------------------------------------------
 // constructor
-History::History() { 
-    commType_ = 'H'; 
+History::History() {
+    commType_ = 'H';
     item_ = nullptr;
     patron_ = nullptr;
     libraryPtr_ = nullptr;
@@ -35,16 +35,16 @@ History::~History() {}
 //---------------------------------------------------------------------------
 // build Command
 // data format: PatronID
-bool History::buildCommand(istream& inStream, Library*& library) {
+bool History::buildCommand(istream &inStream, Library *&library) {
     bool success = false;
     inStream.get(); // clear space
 
     int ID;
     // read patron ID
     inStream >> ID;
-    Patron* patron;
+    Patron *patron;
 
-    //check library for patron
+    // check library for patron
     if (library->getPatron(ID, patron)) {
         patron_ = patron;
         success = true;
@@ -52,8 +52,8 @@ bool History::buildCommand(istream& inStream, Library*& library) {
 
     else {
         cout << endl
-            << "ERROR: User ID \"" << ID
-            << "\" is an invalid patron ID" << endl;
+             << "ERROR: User ID \"" << ID << "\" is an invalid patron ID"
+             << endl;
     }
 
     return success;

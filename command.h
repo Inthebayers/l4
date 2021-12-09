@@ -76,7 +76,6 @@ class Command {
     char getCommandType();
 
   protected:
-
     //// pointer to patron associated with command
     Patron *patron_;
 

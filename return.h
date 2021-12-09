@@ -46,7 +46,7 @@ class Return : public Command {
      * execute is set, or error message displayed
      * @return true if succesful
      */
-    virtual bool buildCommand(istream& inFile, Library*& library);
+    virtual bool buildCommand(istream &inFile, Library *&library);
 
     /**
      * @brief Handles the execution of the return of the given book

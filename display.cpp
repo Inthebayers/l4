@@ -22,7 +22,6 @@ Display::Display() {
     item_ = nullptr;
     patron_ = nullptr;
     libraryPtr_ = nullptr;
-
 }
 
 //---------------------------------------------------------------------------
@@ -31,7 +30,7 @@ Display::~Display() {}
 
 //---------------------------------------------------------------------------
 // buildCommand
-bool Display::buildCommand(istream& inStream, Library*& library) {
+bool Display::buildCommand(istream &inStream, Library *&library) {
     libraryPtr_ = library;
     return true;
 }

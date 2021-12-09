@@ -2,7 +2,7 @@
 // commandmanager.h
 //---------------------------------------------------------------------------
 // CommandManager handles the operations of looping through the command
-// data file. Interface between library object, command object, and data 
+// data file. Interface between library object, command object, and data
 // file.
 //
 // Assumptions:
@@ -27,7 +27,7 @@ class CommandManager {
     /**
      * runCommands()
      *
-     * @brief reads the the command type from the data file, creates a 
+     * @brief reads the the command type from the data file, creates a
      * command object and passes the istream down as a stringstream
      *
      * @param inFile incoming file stream containing commands to be executed
