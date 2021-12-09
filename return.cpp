@@ -39,7 +39,7 @@ bool Return::buildCommand(istream &inStream, Library *&library) {
     inStream.get(); // clear empty space
 
     // first verify the patron
-    Patron *patron;
+    Patron *patron = nullptr;
     if (!library->getPatron(ID, patron)) {
         cout << endl
              << "ERROR: User ID \"" << ID << "\" is an invalid patron ID"
@@ -62,7 +62,11 @@ bool Return::buildCommand(istream &inStream, Library *&library) {
     // check item type
     target = iFactory.createItem(itemType);
     if (target == nullptr) {
+        cout << endl
+             << "ERROR: Item Type \"" << itemType
+             << "\" is an invalid Item Type" << endl;
         delete target;
+        target = nullptr;
         return false;
     }
 
@@ -77,6 +81,7 @@ bool Return::buildCommand(istream &inStream, Library *&library) {
              << "ERROR: Item Format: \"" << format << "\" is an invalid format"
              << endl;
         delete target;
+        target = nullptr;
         return false;
     }
 
@@ -87,6 +92,8 @@ bool Return::buildCommand(istream &inStream, Library *&library) {
     Item *found;
     if (library->getItem(*target, found)) {
         item_ = found;
+        delete target;
+        target = nullptr;
     } else {
         // display error if item not found
         target->errorDisplay();

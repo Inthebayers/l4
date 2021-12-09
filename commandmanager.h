@@ -24,6 +24,9 @@ class Library;
 class CommandManager {
 
   public:
+    // constructor
+    CommandManager();
+
     /**
      * runCommands()
      *
@@ -34,6 +37,13 @@ class CommandManager {
      * @return bool if commands were successfully executed
      */
     bool runCommands(istream &inFile, Library *library);
+
+  private:
+    static const int COMMAND_TYPES = 26;
+
+    // a hash to track commands that are not stored in patron lists for memory
+    // deallocation
+    bool unstoredCommands[COMMAND_TYPES] = {false};
 };
 
 #endif

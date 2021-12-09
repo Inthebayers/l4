@@ -57,7 +57,7 @@ bool Checkout::buildCommand(istream &inStream, Library *&library) {
     // set data member
     patron_ = patron;
 
-    Item *target;
+    Item *target = nullptr;
     ItemFactory iFactory;
     char itemType;
 
@@ -68,6 +68,9 @@ bool Checkout::buildCommand(istream &inStream, Library *&library) {
     // check item type
     target = iFactory.createItem(itemType);
     if (target == nullptr) {
+        cout << endl
+             << "ERROR: Item Type \"" << itemType
+             << "\" is an invalid Item Type" << endl;
         delete target;
         return false;
     }
@@ -83,6 +86,7 @@ bool Checkout::buildCommand(istream &inStream, Library *&library) {
              << "ERROR: Item Format: \"" << format << "\" is an invalid format"
              << endl;
         delete target;
+        target = nullptr;
         return false;
     }
 
@@ -93,9 +97,11 @@ bool Checkout::buildCommand(istream &inStream, Library *&library) {
     Item *found;
     if (library->getItem(*target, found)) {
         item_ = found;
+        delete target;
+        target = nullptr;
     }
 
-    // display error message and deallocate memory
+    // display error message and deallocate memory if not found
     else {
         target->errorDisplay();
         cout << endl;

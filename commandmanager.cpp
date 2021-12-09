@@ -21,16 +21,19 @@
 #include <sstream>
 
 //---------------------------------------------------------------------------
+// Constructor
+CommandManager::CommandManager() {
+    unstoredCommands[3] = true;
+    unstoredCommands[7] = true;
+}
+
+//---------------------------------------------------------------------------
 // runCommands
 bool CommandManager::runCommands(istream &inFile, Library *library) {
     // instantiate bool tracker
     bool success = false;
 
     // create storage for command char
-
-    // create pointer to empty command
-    Command *newCommand;
-    int count = 0;
 
     for (;;) {
         // read the line of data and store it
@@ -42,7 +45,7 @@ bool CommandManager::runCommands(istream &inFile, Library *library) {
             success = true;
             break;
         }
-        count++;
+
         // minimize file reading errors
         stringstream commandLine(dataLine);
 
@@ -50,6 +53,9 @@ bool CommandManager::runCommands(istream &inFile, Library *library) {
         char commandType = 0;
         commandLine >> commandType;
         CommandFactory commFactory;
+
+        // create pointer to empty command
+        Command *newCommand = nullptr;
 
         // createCommand must check for type errors
         newCommand = commFactory.createCommand(commandType);
@@ -60,7 +66,6 @@ bool CommandManager::runCommands(istream &inFile, Library *library) {
             cout << endl
                  << "ERROR: Command: \"" << commandType
                  << "\" is an invalid command" << endl;
-            delete newCommand;
             continue;
         }
 
@@ -70,7 +75,25 @@ bool CommandManager::runCommands(istream &inFile, Library *library) {
 
             // if all formatting was correct, execute command.
             // execute will add to patron history if applicable
-            newCommand->execute();
+            if (newCommand->execute()) {
+
+                // delete executed commands that are not stored in patron
+                // history lists
+                if (unstoredCommands[commandType - 'A']) {
+                    delete newCommand;
+                    newCommand = nullptr;
+                }
+            }
+            // delete commands that did not execute
+            else {
+                delete newCommand;
+                newCommand = nullptr;
+            }
+        }
+        // if command could not succesfully be built, deallocate memory
+        else {
+            delete newCommand;
+            newCommand = nullptr;
         }
     }
 
