@@ -36,8 +36,8 @@ class Command {
     virtual ~Command();
 
     /** execute
-     * @brief Handles the execution of given code determined by input.
-     * @param istream for execution of command
+     * @brief Handles the execution of object type on stored data members
+     * @pre a non empty command object
      * @return true if command was sucessfully executed
      * @return false if command was not successfully executed
      */
@@ -59,14 +59,9 @@ class Command {
      * @brief builds a command from data file
      * @pre correctly formatted data file
      * @post command object created and executed, or error message displayed
-     * @param inFile data file of cmmands
-     * @param library the library to execute on
-     * @param patronID the patron connected to the command
-     * @param patronPtr pointer to patron executing command
      * @return true if succesful
      */
-    bool buildCommand(istream &inFile, Library *&library, int patronID,
-                      Patron *patronPtr);
+    virtual bool buildCommand(istream &inFile, Library *&library) = 0;
 
     /** getItem
      * @brief gets and returns the Item object associated with command
@@ -81,11 +76,9 @@ class Command {
     char getCommandType();
 
   protected:
-    // patronID # associated with command
-    int patron_;
 
-    // pointer to patron associated with command
-    Patron *patronPtr_;
+    //// pointer to patron associated with command
+    Patron *patron_;
 
     // pointer to item assocaited with command
     Item *item_;
@@ -93,7 +86,7 @@ class Command {
     // command type code
     char commType_;
 
-    // pointer to library associated with command
+    //// pointer to library associated with command
     Library *libraryPtr_;
 };
 

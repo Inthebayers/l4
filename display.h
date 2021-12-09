@@ -26,6 +26,15 @@ class Display : public Command {
     // destructor
     ~Display();
 
+    /** buildCommand
+     * @brief builds a command from data file
+     * @pre correctly formatted data file
+     * @post command object data members are set, all information needed for 
+     * execute is set, or error message displayed
+     * @return true if succesful
+     */
+    virtual bool buildCommand(istream& inFile, Library*& library);
+
     /** execute
      * @brief calls display on the library object to display all items
      * @pre a valid library object

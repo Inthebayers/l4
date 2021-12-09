@@ -21,16 +21,16 @@ int main() {
     Library lib;
     ifstream books;
     ifstream patrons;
-    patrons.open("repeatpatrons.txt");
-    lib.buildPatrons(patrons);
 
-    // ifstream books, patrons, commands;
+    patrons.open("repeatpatrons.txt");
+    lib.buildPatrons(patrons); // add patrons
+
     books.open("data4books.txt");
     lib.buildItem(books); // initialize books
 
     ifstream commands;
     commands.open("data4commands.txt");
-    lib.runCommands(commands);
+    lib.runCommands(commands); // read and execute commands
 
     return 0;
 }

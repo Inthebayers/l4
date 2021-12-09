@@ -17,6 +17,7 @@
 //---------------------------------------------------------------------------
 
 #include "checkout.h"
+#include "library.h"
 #include <iostream>
 
 //---------------------------------------------------------------------------
@@ -24,11 +25,91 @@
 Checkout::Checkout() {
     commType_ = 'C';
     item_ = nullptr;
+    patron_ = nullptr;
+    libraryPtr_ = nullptr;
+
 }
 
 //---------------------------------------------------------------------------
 // destructor
 Checkout::~Checkout() {}
+//---------------------------------------------------------------------------
+// buildCommand
+// data format: PatronID itemType itemFormat Iteminfo 
+bool Checkout::buildCommand(istream& inStream, Library*& library) {
+
+    // read patron ID
+    int ID;
+    inStream.get(); //clear empty space
+    inStream >> ID;
+    inStream.get(); // clear empty space
+
+    // first verify the patron 
+    Patron* patron;
+    if (!library->getPatron(ID, patron)) {
+        cout << endl
+            << "ERROR: User ID \"" << ID
+            << "\" is an invalid patron ID" << endl;
+        return false;
+    }
+    else {
+        patron_ = patron;
+    }
+
+    // set data member
+    patron_ = patron;
+
+    Item* target;
+    ItemFactory iFactory;
+    char itemType;
+
+    // read itemType
+    inStream >> itemType;
+    inStream.get(); // clear empty space
+
+    // check item type
+    target = iFactory.createItem(itemType);
+    if (target == nullptr) {
+        delete target;
+        return false;
+    }
+
+    // read item format 
+    char format;
+    inStream >> format;
+    inStream.get(); // clear empty space
+
+    // check format
+    if (!target->setFormat(format)) {
+        cout << endl
+            << "ERROR: Item Format: \"" << format << "\" is an invalid format"
+            << endl;
+        delete target;
+        return false;
+    }
+
+    // set item specific information
+    target->fill(inStream);
+
+    //search library for the target item
+    Item* found;
+    if (library->getItem(*target, found)){
+        item_ = found;
+    }
+
+    // display error message and deallocate memory
+    else {
+        target->errorDisplay();
+        cout << endl;
+        delete target;
+        target = nullptr;
+        return false;
+    }
+
+
+    return true;
+}
+
 
 //---------------------------------------------------------------------------
 // display
@@ -39,11 +120,27 @@ void Checkout::display() {
 
 //---------------------------------------------------------------------------
 // execute
-// item_ data fields are set by command.buildCommand
+// item_ and patron_ data fields are set by command.buildCommand
 bool Checkout::execute() {
+    bool success = false;
 
     // decrement available copies
-    return item_->changeAvailable(-1);
+    if (item_->changeAvailable(-1)) {
+
+        //add this checkout to patron history
+        patron_->addToHistory(this);
+        success = true;
+    }
+    // if false then no copies available
+    else {
+        cout << endl
+            << "ERROR: Patron " << patron_->getID()
+            << " checkout failed due to no copies available of";
+        item_->errorDisplay();
+        cout << endl;
+    }
+    return success;
+
 }
 
 //---------------------------------------------------------------------------

@@ -38,6 +38,15 @@ class History : public Command {
      */
     ~History();
 
+    /** buildCommand
+     * @brief builds a command from data file
+     * @pre correctly formatted data file
+     * @post command object data members are set, all information needed for
+     * execute is set, or error message displayed
+     * @return true if succesful
+     */
+    virtual bool buildCommand(istream& inFile, Library*& library);
+
     /**
      * @brief Handles the execution of the history retrieval for a patron
      * object. Outputs the check-out history of a given patron in a organized
@@ -61,7 +70,6 @@ class History : public Command {
      */
     virtual Command *create();
 
-  private:
 };
 
 #endif

@@ -1,12 +1,13 @@
 //---------------------------------------------------------------------------
 // commandmanager.h
 //---------------------------------------------------------------------------
-// CommandManager handles the operations of parsing command inputs from an
-// incoming source. Managaer the operations needed in order to process
-// checkouts, returns, and the retrieval of a patrons history.
+// CommandManager handles the operations of looping through the command
+// data file. Interface between library object, command object, and data 
+// file.
 //
 // Assumptions:
 //  -- data file will be correctly formatted
+//  -- data file will contain no empty lines
 //
 // Implementation:
 //  -- reaching eof character breaks the for loop
@@ -26,8 +27,8 @@ class CommandManager {
     /**
      * runCommands()
      *
-     * Runs the commands coming in from the infile, utilizing the command
-     * container to checkout, return, or retrieve a patron's history.
+     * @brief reads the the command type from the data file, creates a 
+     * command object and passes the istream down as a stringstream
      *
      * @param inFile incoming file stream containing commands to be executed
      * @return bool if commands were successfully executed

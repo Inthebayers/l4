@@ -19,7 +19,11 @@
 
 #ifndef CHECKOUT_H
 #define CHECKOUT_H
+
 #include "command.h"
+#include "patron.h"
+#include "itemfactory.h"
+
 
 class Checkout : public Command {
   public:
@@ -28,6 +32,14 @@ class Checkout : public Command {
 
     // destructor
     virtual ~Checkout();
+
+    /** buildCommand
+     * @brief builds a command from data file
+     * @pre correctly formatted data file
+     * @post command object created and executed, or error message displayed
+     * @return true if succesful
+     */
+    virtual bool buildCommand(istream& inStream, Library*& library);
 
     /** display
      * @brief displays "CheckOut" to cout and calls historyDisplay on Item

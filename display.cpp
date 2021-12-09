@@ -18,8 +18,11 @@
 //---------------------------------------------------------------------------
 // constructor
 Display::Display() {
-    libraryPtr_ = nullptr;
     commType_ = 'D';
+    item_ = nullptr;
+    patron_ = nullptr;
+    libraryPtr_ = nullptr;
+
 }
 
 //---------------------------------------------------------------------------
@@ -27,8 +30,16 @@ Display::Display() {
 Display::~Display() {}
 
 //---------------------------------------------------------------------------
+// buildCommand
+bool Display::buildCommand(istream& inStream, Library*& library) {
+    libraryPtr_ = library;
+    return true;
+}
+
+//---------------------------------------------------------------------------
 // execute
 bool Display::execute() {
+
     if (libraryPtr_ != nullptr) {
         libraryPtr_->displayItems();
         return true;

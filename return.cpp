@@ -17,6 +17,7 @@
 //---------------------------------------------------------------------------
 
 #include "return.h"
+#include "library.h"
 
 //---------------------------------------------------------------------------
 // constructor
@@ -27,8 +28,102 @@ Return::Return() { commType_ = 'R'; }
 Return::~Return() {}
 
 //---------------------------------------------------------------------------
+// buildCommand
+// data format: ID ItemType ItemFormat Item specific info
+bool Return::buildCommand(istream& inStream, Library*& library) {
+
+    // read patron ID
+    int ID;
+    inStream.get(); //clear empty space
+    inStream >> ID;
+    inStream.get(); // clear empty space
+
+    // first verify the patron 
+    Patron* patron;
+    if (!library->getPatron(ID, patron)) {
+        cout << endl
+            << "ERROR: User ID \"" << ID
+            << "\" is an invalid patron ID" << endl;
+        return false;
+    }
+    else {
+        patron_ = patron;
+    }
+    // set data member
+    patron_ = patron;
+
+    Item* target;
+    ItemFactory iFactory;
+    char itemType;
+
+    // read itemType
+    inStream >> itemType;
+    inStream.get(); // clear empty space
+
+    // check item type
+    target = iFactory.createItem(itemType);
+    if (target == nullptr) {
+        delete target;
+        return false;
+    }
+
+    // read item format 
+    char format;
+    inStream >> format;
+    inStream.get(); // clear empty space
+
+    // check format
+    if (!target->setFormat(format)) {
+        cout << endl
+            << "ERROR: Item Format: \"" << format << "\" is an invalid format"
+            << endl;
+        delete target;
+        return false;
+    }
+
+    // set item specific information
+    target->fill(inStream);
+
+    //search library for the target item
+    Item* found;
+    if (library->getItem(*target, found)) {
+        item_ = found;
+    }
+    else {
+        //display error if item not found
+        target->errorDisplay();
+        cout << endl;
+        delete target;
+        target = nullptr;
+        return false;
+    }
+
+    return true;
+}
+
+//---------------------------------------------------------------------------
 // execture
-bool Return::execute() { return item_->changeAvailable(1); }
+bool Return::execute() { 
+    bool success = false;
+
+    //search patron for previous checkout
+    if (!patron_->searchCheckouts(item_)) {
+        cout << endl
+            << "ERROR: Patron " << patron_->getID()
+            << " is attempting to return a book they do not have checked "
+            "out."
+            << endl;
+    }
+    else {
+        //increase available copies by 1
+        if (item_->changeAvailable(1)) {
+            // add to patron history
+            patron_->addToHistory(this);
+            success = true;
+        }
+    }
+    return success;
+}
 
 //---------------------------------------------------------------------------
 // display

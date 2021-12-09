@@ -1,12 +1,13 @@
 //---------------------------------------------------------------------------
 // commandmanager.h
 //---------------------------------------------------------------------------
-// CommandManager handles the operations of parsing command inputs from an
-// incoming source. Managaer the operations needed in order to process
-// checkouts, returns, and the retrieval of a patrons history.
+// CommandManager handles the operations of looping through the command
+// data file. Interface between library object, command object, and data 
+// file.
 //
 // Assumptions:
 //  -- data file will be correctly formatted
+//  -- data file will contain no empty lines
 //
 // Implementation:
 //  -- reaching eof character breaks the for loop
@@ -17,90 +18,62 @@
 #include "commandfactory.h"
 #include "library.h"
 #include "patron.h"
+#include <sstream>
 
 //---------------------------------------------------------------------------
-/**
- * runCommands()
- * Handles the parsing and execution calls for commands coming in through
- * istream.
- * @param inFile incoming file stream containing commands and run information
- */
-bool CommandManager::runCommands(istream &inFile, Library *library) {
-
+// runCommands
+bool CommandManager::runCommands(istream& inFile, Library* library) {
     // instantiate bool tracker
     bool success = false;
 
     // create storage for command char
-    char commandType;
 
     // create pointer to empty command
-    Command *newCommand;
+    Command* newCommand;
+    int count = 0;
 
     for (;;) {
-        // bring in first character in file to commandType
-        inFile >> commandType;
-
-        // if at end of incoming file, break
+        //read the line of data and store it
+        string dataLine;
+        getline(inFile, dataLine);
+        // check for eof
         if (inFile.eof()) {
+            // data file read succesfully
+            success = true;
             break;
         }
+        count++;
+        // minimize file reading errors
+        stringstream commandLine(dataLine);
 
-        inFile.get(); // for empty space
-
-        // create a new command of type
+        // read the first char of ss and create command obj
+        char commandType = 0;
+        commandLine >> commandType;
         CommandFactory commFactory;
+
+        // createCommand must check for type errors 
         newCommand = commFactory.createCommand(commandType);
 
-        // if command character was invalid
+        // if the type was invalid, delete the command object and continue loop
         if (newCommand == nullptr) {
             // output error message
             cout << endl
-                 << "ERROR: Command: \"" << commandType
-                 << "\" is an invalid command" << endl;
-            string garbage;
-            getline(inFile, garbage);
+                << "ERROR: Command: \"" << commandType
+                << "\" is an invalid command" << endl;
             delete newCommand;
-            success = false;
-        } else if (newCommand->getCommandType() == 'D') {
-            newCommand->buildCommand(inFile, library, 0, nullptr);
-            success = true;
-            delete newCommand;
-
-        } else { // command type is valid, next read patron
-            int patronID;
-            inFile >> patronID;
-            inFile.get(); // clear empty space
-
-            // search the library for existing patron
-
-            Patron *patron = nullptr;
-            if (!library->getPatron(patronID, patron)) {
-                cout << endl
-                     << "ERROR: User ID \"" << patronID
-                     << "\" is an invalid patron ID" << endl;
-                string garbage;
-                getline(inFile, garbage);
-                delete newCommand;
-            }
-            // patron should now be a pointer to the specific patorn
-
-            // if a new command object was built
-            // buildcommand will execute command on library
-            else {
-                if (newCommand->buildCommand(inFile, library, patronID,
-                                             patron)) {
-                    // store command in patron
-                    if (commandType != 'H') {
-                        patron->addToHistory(newCommand);
-                    } else {
-                        delete newCommand;
-                    }
-
-                } else {
-                    delete newCommand;
-                }
-            }
+            continue;
         }
+
+        // send the rest of the data line to the empty command object
+        // buildCommand will handle format for each sub command
+        if (newCommand->buildCommand(commandLine, library)) {
+
+            // if all formatting was correct, execute command.
+            // execute will add to patron history if applicable 
+            newCommand->execute();
+        }
+
     }
+
     return success;
 }

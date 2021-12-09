@@ -40,6 +40,10 @@ CommandFactory::~CommandFactory() {
 //---------------------------------------------------------------------------
 // createCommand()
 Command *CommandFactory::createCommand(char type) {
+    if (type < 'A' || type > 'z') {
+        return nullptr;
+    }
+
     // create new command pointer
     Command *toReturn = nullptr;
 
