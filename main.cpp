@@ -22,7 +22,7 @@ int main() {
     ifstream books;
     ifstream patrons;
 
-    patrons.open("repeatpatrons.txt");
+    patrons.open("data4patrons.txt");
     lib.buildPatrons(patrons); // add patrons
 
     books.open("data4books.txt");
